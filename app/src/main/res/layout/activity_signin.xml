@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear"
+    android:background="@drawable/background"
+    >
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+
+        >
+        <ImageView
+            android:layout_width="205dp"
+            android:layout_height="219dp"
+            android:src="@drawable/adlots_logo_white"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height= "30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="53dp"
+            android:layout_marginRight="53dp"
+            android:layout_marginTop="20dp"
+            >
+
+            <EditText
+                android:id="@+id/edt_tutorial_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:singleLine = "true"
+                android:lines = "1"
+                android:background="@drawable/register_email"
+                android:textColor="#2d2d2d"
+                android:hint=" 이메일(e-mail)"
+
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height= "30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="53dp"
+            android:layout_marginRight="53dp"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <EditText
+                android:id="@+id/edt_tutorial_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:singleLine = "true"
+                android:lines = "1"
+                android:background="@drawable/register_email"
+                android:textColor="#2d2d2d"
+                android:hint=" 비밀번호(password)"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_goto_start"
+            android:layout_width="281dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/register_login"
+            />
+        <Button
+            android:id="@+id/btn_goto_signup"
+            android:layout_width="281dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/register_sign_up" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
