@@ -25,7 +25,7 @@ public class TutorialSecondPage extends Fragment {
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstnaceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         tutorialsecondcontext = container.getContext();
 
         tutorialsecondview = (View) from(tutorialsecondcontext).inflate(

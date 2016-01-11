@@ -25,7 +25,7 @@ public class TutorialThirdPage extends Fragment {
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstnaceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         tutorialthirdcontext = container.getContext();
         tutorialthirdview = (View) from(tutorialthirdcontext).inflate(
                 R.layout.activity_tutorial_third_page, container, false);

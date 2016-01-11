@@ -25,7 +25,7 @@ public class TutorialFirstPage extends Fragment {
     public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstnaceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         tutorialfirstcontext = container.getContext();
         tutorialfirstview = (View) from(tutorialfirstcontext).inflate(
                 R.layout.activity_tutorial_first_page, container, false);

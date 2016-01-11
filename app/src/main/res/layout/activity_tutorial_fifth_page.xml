@@ -95,7 +95,7 @@
             />
 
         <Button
-            android:id="@+id/btn_adlots_start"
+            android:id="@+id/btn_goto_signin"
             android:layout_width="293dp"
             android:layout_height="47.6dp"
             android:layout_gravity="center_horizontal"
