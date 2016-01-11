@@ -22,7 +22,7 @@ public class LoadingActivity extends AppCompatActivity {
             public void handleMessage(Message msg) {
                 SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                 String isLogin = pref.getString("islogin", "");
-                String nickname = pref.getString("nickname","");
+                String email = pref.getString("email", "");
                 if(isLogin.equals("yes")) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);

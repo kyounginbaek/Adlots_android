@@ -46,7 +46,7 @@ public class SigninActivity extends AppCompatActivity {
                 String email = edt_email.getText().toString();
                 String password = edt_password.getText().toString();
                 if(!email.equals("")&&!password.equals("")) {
-                    SharedPreferences pref = SigninActivity.this.getSharedPreferences("pref", SigninActivity.this.MODE_PRIVATE);
+                    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("islogin", "yes");
                     editor.putString("email", email);
@@ -65,10 +65,10 @@ public class SigninActivity extends AppCompatActivity {
             }
         });
 
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });

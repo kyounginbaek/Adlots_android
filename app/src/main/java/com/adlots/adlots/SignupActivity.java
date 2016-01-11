@@ -7,10 +7,13 @@ public class SignupActivity extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+
 
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
