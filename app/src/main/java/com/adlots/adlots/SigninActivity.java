@@ -24,9 +24,9 @@ import java.net.URLEncoder;
 public class SigninActivity extends AppCompatActivity {
 
     Button btn_start;
-    Button btn_signup;
-    EditText edt_email;
-    EditText edt_password;
+    Button btn_goto_signup;
+    EditText edt_signin_email;
+    EditText edt_signin_password;
     private BackPressCloseHandler backPressCloseHandler;
 
     @Override
@@ -34,25 +34,26 @@ public class SigninActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        edt_email =  (EditText)findViewById(R.id.edt_signin_email);
-        edt_email.setNextFocusDownId(R.id.edt_signin_password);
-        edt_password = (EditText)findViewById(R.id.edt_signin_password);
+        edt_signin_email =  (EditText)findViewById(R.id.edt_signin_email);
+        edt_signin_email.setNextFocusDownId(R.id.edt_signin_password);
+        edt_signin_password = (EditText)findViewById(R.id.edt_signin_password);
         btn_start = (Button)findViewById(R.id.btn_start);
-        btn_signup = (Button)findViewById(R.id.btn_signup);
+        btn_goto_signup = (Button)findViewById(R.id.btn_goto_signup);
 
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edt_email.getText().toString();
-                String password = edt_password.getText().toString();
+                String email = edt_signin_email.getText().toString();
+                String password = edt_signin_password.getText().toString();
                 if(!email.equals("")&&!password.equals("")) {
-                    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                    SharedPreferences pref = getSharedPreferences("mpref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("islogin", "yes");
                     editor.putString("email", email);
                     editor.putString("password", password);
                     editor.commit();
-                    adlotsLogin(email, password);
+
+                    adlotsSignin(email, password);
 
                     Intent intent = new Intent(SigninActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -65,7 +66,7 @@ public class SigninActivity extends AppCompatActivity {
             }
         });
 
-        btn_signup.setOnClickListener(new View.OnClickListener() {
+        btn_goto_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
@@ -76,7 +77,7 @@ public class SigninActivity extends AppCompatActivity {
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
-    public void adlotsLogin(String email, String password) {
+    public void adlotsSignin(String email, String password) {
         final String send_email= email;
         final String send_password = password;
 

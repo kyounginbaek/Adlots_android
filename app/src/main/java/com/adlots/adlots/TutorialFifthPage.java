@@ -7,9 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import static android.view.LayoutInflater.from;
 
@@ -34,18 +32,10 @@ public class TutorialFifthPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         tutorialfifthcontext = container.getContext();
+
         tutorialfifthview = (View) from(tutorialfifthcontext).inflate(
                 R.layout.activity_tutorial_fifth_page, container, false);
         Util.setGlobalFont(tutorialfifthcontext, tutorialfifthview);
-
-        LinearLayout mainLayout = (LinearLayout) tutorialfifthview.findViewById(R.id.linear);
-        mainLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager imm = (InputMethodManager) tutorialfifthcontext.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(tutorialfifthview.getWindowToken(), 0);
-            }
-        });
 
         btn_goto_signin = (Button)tutorialfifthview.findViewById(R.id.btn_goto_signin);
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {

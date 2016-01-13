@@ -20,9 +20,8 @@ public class LoadingActivity extends AppCompatActivity {
         Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                SharedPreferences pref = getSharedPreferences("mpref", MODE_PRIVATE);
                 String isLogin = pref.getString("islogin", "");
-                String email = pref.getString("email", "");
                 if(isLogin.equals("yes")) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);

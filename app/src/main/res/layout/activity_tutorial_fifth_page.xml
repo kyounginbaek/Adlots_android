@@ -28,56 +28,6 @@
             android:textSize="15dp"
             android:textColor="#6e6e6e"
             />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="53dp"
-            android:layout_marginRight="53dp"
-            android:layout_marginTop="60dp"
-            >
-            <ImageView
-                android:layout_width="79.6dp"
-                android:layout_height="17.3dp"
-                android:src="@drawable/register_id"
-                android:layout_gravity="center_vertical"
-                />
-
-            <EditText
-                android:id="@+id/edt_tutorial_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="13dp"
-                android:layout_marginLeft="10dp"
-                android:singleLine = "true"
-                android:lines = "1"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="53dp"
-            android:layout_marginRight="53dp"
-            android:layout_marginTop="33dp"
-            >
-            <ImageView
-                android:layout_width="79.6dp"
-                android:layout_height="17.3dp"
-                android:src="@drawable/register_email"
-                android:layout_gravity="center_vertical"
-                />
-
-            <EditText
-                android:id="@+id/edt_tutorial_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textSize="13dp"
-                android:singleLine = "true"
-                android:lines = "1"
-                />
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
