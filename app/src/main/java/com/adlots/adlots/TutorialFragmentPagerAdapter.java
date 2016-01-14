@@ -9,9 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class TutorialFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    public TutorialFragmentPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
+    public TutorialFragmentPagerAdapter(FragmentManager fm) {super(fm);}
 
     @Override
     public Fragment getItem(int position) {

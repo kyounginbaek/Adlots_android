@@ -1,10 +1,10 @@
 package com.adlots.adlots;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +21,7 @@ import java.net.URLEncoder;
 /**
  * Created by baekkyoungin on 2016. 1. 11..
  */
-public class SigninActivity extends AppCompatActivity {
+public class SigninActivity extends Activity {
 
     Button btn_start;
     Button btn_goto_signup;

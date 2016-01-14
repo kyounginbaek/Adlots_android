@@ -17,7 +17,6 @@ import static android.view.LayoutInflater.from;
 public class TutorialFifthPage extends Fragment {
     private Context tutorialfifthcontext = null;
     private View tutorialfifthview = null;
-    private BackPressCloseHandler backPressCloseHandler;
 
     Button btn_goto_signin;
 

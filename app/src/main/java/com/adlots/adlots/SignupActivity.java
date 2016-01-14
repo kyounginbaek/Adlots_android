@@ -1,10 +1,10 @@
 package com.adlots.adlots;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.View;
@@ -19,7 +19,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends Activity {
 
     Button btn_signup_back;
     Button btn_signup;

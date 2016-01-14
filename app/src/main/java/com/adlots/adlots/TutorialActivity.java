@@ -9,6 +9,8 @@ public class TutorialActivity extends AppCompatActivity {
     ViewPager TutorialPager;
     PageIndicator mIndicator;
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +21,13 @@ public class TutorialActivity extends AppCompatActivity {
 
         mIndicator = (CirclePageIndicator)findViewById(R.id.tutorial_indicator);
         mIndicator.setViewPager(TutorialPager);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        backPressCloseHandler.onBackPressed();
     }
 }
