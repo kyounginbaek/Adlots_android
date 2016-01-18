@@ -62,7 +62,7 @@
                     android:layout_width="212dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:hint="your@email.com"
+                    android:hint="비밀번호 분실시 메일을 보내기 위함"
                     android:textColor="#666666"
                     android:textSize="12dp" />
 
@@ -95,7 +95,9 @@
                     android:layout_gravity="right"
                     android:textColor="#666666"
                     android:textSize="12dp"
-                    android:clickable="true" />
+                    android:clickable="false"
+                    android:enabled="true"
+                    android:focusable="false" />
 
             </RelativeLayout>
 
@@ -125,7 +127,8 @@
                     android:layout_gravity="right"
                     android:inputType="textPassword"
                     android:textColor="#666666"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp"
+                    android:hint="최소 4자 이상" />
 
             </RelativeLayout>
 

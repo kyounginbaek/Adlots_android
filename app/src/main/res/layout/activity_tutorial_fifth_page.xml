@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         >
-        
+
         <Button
             android:id="@+id/btn_goto_signin"
             android:layout_width="240dp"
@@ -24,7 +24,6 @@
             android:background="#ffffff"
             android:textColor="#2d2d2d"
             />
-
 
     </LinearLayout>
 

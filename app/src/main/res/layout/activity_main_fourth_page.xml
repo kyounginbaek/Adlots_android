@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_marginLeft="19dp"
+            android:src="@drawable/setting_icon"
+            android:layout_gravity="center_vertical"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            />
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="설정"
+            android:textSize="20dp"
+            android:textColor="#2d2d2d"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        >
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#1966cb"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="공지사항"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="이번주 업데이트"
+            android:textSize="14dp"
+            android:textColor="#2d2d2d"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="이번주 업데이트 사항은 없습니다."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        >
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="이용 문의"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="adlots@gmail.com"
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="지메일로 모든 이용문의를 보내주세요."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        >
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="튜토리얼"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="가이드 보기"
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="튜토리얼을 통해 애드랏츠를 알아볼수 있습니다.."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+    </LinearLayout>
 </LinearLayout>

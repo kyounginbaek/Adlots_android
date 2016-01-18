@@ -3,7 +3,6 @@ package com.adlots.adlots;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.Gravity;
@@ -12,12 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 
 public class SignupActivity extends Activity {
 
@@ -29,6 +26,9 @@ public class SignupActivity extends Activity {
     EditText edt_signup_passcheck;
     EditText edt_signup_nickname;
 
+    String email, password, passcheck, nickname;
+    String phone = getPhoneNumber();
+
     private BackPressCloseHandler backPressCloseHandler;
 
     @Override
@@ -39,6 +39,8 @@ public class SignupActivity extends Activity {
         edt_signup_email = (EditText)findViewById(R.id.edt_signup_email);
         edt_signup_email.setNextFocusDownId(R.id.edt_signup_password);
         edt_signup_phone = (EditText)findViewById(R.id.edt_signup_phone);
+        edt_signup_phone.setText(phone); // 자동으로 핸드폰번호 가져오기
+
         edt_signup_password = (EditText)findViewById(R.id.edt_signup_password);
         edt_signup_passcheck = (EditText)findViewById(R.id.edt_signup_passcheck);
         edt_signup_nickname = (EditText)findViewById(R.id.edt_signup_nickname);
@@ -48,18 +50,16 @@ public class SignupActivity extends Activity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = edt_signup_email.getText().toString();
-                String phone = getPhoneNumber();
-                edt_signup_phone.setText(phone);
-                String password = edt_signup_password.getText().toString();
-                String passcheck = edt_signup_passcheck.getText().toString();
-                String nickname = edt_signup_nickname.getText().toString();
+                email = edt_signup_email.getText().toString();
+                password = edt_signup_password.getText().toString();
+                passcheck = edt_signup_passcheck.getText().toString();
+                nickname = edt_signup_nickname.getText().toString();
 
                 if(!email.equals("")&&!password.equals("")) {
                     if(!email.equals("")&&!password.equals("")&&!passcheck.equals("")&&!nickname.equals("")){
                         if(password.equals(passcheck)) {
 
-                            adlotsSignup(email, phone, password, nickname);
+                            HttpPostData(); // POST방식 서버전송
 
                             Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
                             startActivity(intent);
@@ -98,44 +98,23 @@ public class SignupActivity extends Activity {
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
+    public void HttpPostData() {
+        try{
+            URL url = new URL("http://adlots.co.kr/adlots_signup.php");
+            HttpURLConnection http = (HttpURLConnection) url.openConnection(); // 접속
+
+
+        } catch (MalformedURLException e) {
+
+        } catch (IOException e) {
+
+        }
+    }
+
     public String getPhoneNumber()
     {
         TelephonyManager mgr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         return mgr.getLine1Number();
-    }
-
-    public void adlotsSignup(String email, String phone, String password, String nickname) {
-        final String send_email= email;
-        final String send_phone = phone;
-        final String send_password = password;
-        final String send_nickname = nickname;
-
-        AsyncTask task = new AsyncTask() {
-            @Override
-            protected Object doInBackground(Object[] params) {
-
-                try {
-                    String newemail = URLEncoder.encode(send_email, "UTF-8");
-                    String newphone = URLEncoder.encode(send_phone, "UTF-8");
-                    String newpassword = URLEncoder.encode(send_password,"UTF-8");
-                    String newnickname = URLEncoder.encode(send_nickname, "UTF-8");
-
-                    String address = "http://adlots.com/adlots_join.php?email="+newemail+"&phone="+newphone+
-                            "&password="+newpassword+"&nickname="+newnickname;
-                    URL url = new URL(address);
-                    URLConnection conn = url.openConnection();
-                    conn.connect();
-                    InputStream iStream = conn.getInputStream();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(iStream, "UTF-8"));
-                    final String data = br.readLine();
-                    br.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        };
-        task.execute();
     }
 
     @Override

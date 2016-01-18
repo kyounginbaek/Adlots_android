@@ -8,21 +8,22 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BackPressCloseHandler backPressCloseHandler;
-
     ViewPager MainPager;
     PageIndicator mIndicator;
+
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial);
+        setContentView(R.layout.activity_main);
 
-        MainPager = (ViewPager)findViewById(R.id.tutorial_pager);
+        MainPager = (ViewPager)findViewById(R.id.main_pager);
         MainPager.setAdapter(new MainFragmentPagerAdapter(getSupportFragmentManager()));
 
-        mIndicator = (CirclePageIndicator)findViewById(R.id.tutorial_indicator);
+        UnderlinePageIndicator mIndicator = (UnderlinePageIndicator)findViewById(R.id.main_indicator);
         mIndicator.setViewPager(MainPager);
+        mIndicator.setFades(false);
 
         backPressCloseHandler = new BackPressCloseHandler(this);
     }

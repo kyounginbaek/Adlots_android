@@ -6,14 +6,14 @@
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tutorial_pager">
+        android:id="@+id/main_pager">
     </android.support.v4.view.ViewPager>
 
-    <com.adlots.adlots.CirclePageIndicator
-        android:id="@+id/tutorial_indicator"
-        android:padding="10dip"
-        android:layout_height="wrap_content"
+    <com.adlots.adlots.UnderlinePageIndicator
+        android:id="@+id/main_indicator"
+        android:layout_height="5dp"
         android:layout_width="fill_parent"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>

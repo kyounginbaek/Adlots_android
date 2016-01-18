@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:src="@drawable/home_title"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_width= "fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#16a0e8"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="애드랏츠"
+            android:layout_gravity="center_horizontal"
+            android:textSize="34dp"
+            android:textColor="#2d2d2d"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="크라우딩 겸품 리워드 어플리케이션"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="15dp"
+            android:textColor="#6e6e6e"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="47.6dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_weight="2"
+            />
+
+    </LinearLayout>
 </LinearLayout>
