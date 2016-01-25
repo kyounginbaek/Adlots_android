@@ -1,10 +1,10 @@
 package com.adlots.adlots;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
-public class TutorialActivity extends AppCompatActivity {
+public class TutorialActivity extends FragmentActivity {
 
     ViewPager TutorialPager;
     PageIndicator mIndicator;

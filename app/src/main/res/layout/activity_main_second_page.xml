@@ -1,6 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+    /*포인트 스토어*/
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="146dp"
+        android:background="#16a0e8"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:background="@drawable/scissors"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="36dp"
+            android:text="포인트 스토어"
+            android:textSize="24dp"
+            android:textColor="#2d2d2d"
+            />
+    </LinearLayout>
+    /* 상품 아이콘 이미지들 */
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:gravity="center"
+        >
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/gifticon"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기프티콘"
+                android:textSize="10dp"
+                android:textColor="#2d2d2d"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/electronic"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전자기기"
+                android:textSize="10dp"
+                android:textColor="#2d2d2d"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    /*글씨 기프티콘*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="기프티콘"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+    </LinearLayout>
+    /* 상품들 */
+    1. 기프티콘 1
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/giftcard"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="문화상품권"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="500point"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    2. 커피
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/coffee_cup"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="커피 교환권"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="200point"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    3. 영화티켓
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/movie"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="영화티켓"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="600point"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    /*아이콘들 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <ImageView
+            android:src="@drawable/home"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/cart_blue"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/person"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/setting_icon"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -11,11 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 public class SignupActivity extends Activity {
 
     Button btn_signup_back;
@@ -58,9 +53,6 @@ public class SignupActivity extends Activity {
                 if(!email.equals("")&&!password.equals("")) {
                     if(!email.equals("")&&!password.equals("")&&!passcheck.equals("")&&!nickname.equals("")){
                         if(password.equals(passcheck)) {
-
-                            HttpPostData(); // POST방식 서버전송
-
                             Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
                             startActivity(intent);
                         } else {
@@ -98,21 +90,7 @@ public class SignupActivity extends Activity {
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
-    public void HttpPostData() {
-        try{
-            URL url = new URL("http://adlots.co.kr/adlots_signup.php");
-            HttpURLConnection http = (HttpURLConnection) url.openConnection(); // 접속
-
-
-        } catch (MalformedURLException e) {
-
-        } catch (IOException e) {
-
-        }
-    }
-
-    public String getPhoneNumber()
-    {
+    public String getPhoneNumber() {
         TelephonyManager mgr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         return mgr.getLine1Number();
     }

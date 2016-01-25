@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
+    /*연필이미지*/
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="56dp"
-        android:background="#C5F7D2"
-        android:layout_gravity="left"
+        android:background="#16a0e8"
+        android:gravity="right"
         >
-        <TextView
-            android:layout_gravity="left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이미지(연필),이미지(더보기)"
-            android:textSize="20dp"
-            android:textColor="#2d2d2d"
-            />
-        <Button
-            android:layout_gravity="left"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
-    </LinearLayout>
 
+    </LinearLayout>
+    /*개인페이지*/
     <LinearLayout
 
         android:layout_width="fill_parent"
         android:layout_height="90dp"
-        android:orientation="vertical"
-        android:background="#C5F7D2"
+        android:background="#16a0e8"
+        android:gravity="center_horizontal"
         >
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/profile"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="개인페이지(닉네임)"
-            android:layout_gravity="center_horizontal"
             android:textSize="24dp"
             android:textColor="#2d2d2d"
             />
@@ -42,34 +39,41 @@
 
 
     </LinearLayout>
+
+    /*핸드폰*/
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="88dp"
+        android:layout_height="75dp"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         >
+
+
         <LinearLayout
             android:layout_width="67dp"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/telephone"
+                />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
+            android:gravity="center_vertical"
             >
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:gravity="center_horizontal"
-                android:background="#6e6e6e"
-                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
                 android:layout_marginLeft="16dp"
                 android:text="핸드폰"
-                android:layout_gravity="center_vertical"
                 android:textSize="16dp"
                 android:textColor="#2d2d2d"
                 />
@@ -85,34 +89,38 @@
         </LinearLayout>
     </LinearLayout>
 
+    /*이메일*/
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="88dp"
+        android:layout_height="75dp"
         android:orientation="horizontal"
         >
         <LinearLayout
             android:layout_width="67dp"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/email"
+                />
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
+            android:gravity="center_vertical"
             >
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:gravity="center_horizontal"
-                android:background="#6e6e6e"
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
                 android:layout_marginLeft="16dp"
                 android:text="이메일(아이디)"
-                android:layout_gravity="center_vertical"
                 android:textSize="16dp"
                 android:textColor="#2d2d2d"
                 />
@@ -121,10 +129,131 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginLeft="16dp"
-                android:text="ID@example.com"
+                android:text="ID@example. com"
                 android:textSize="14dp"
                 android:textColor="#6e6e6e"
                 />
         </LinearLayout>
     </LinearLayout>
+
+    /*보유포인트*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/money"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="현재 적립금"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="125 points"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    /*비밀번호 변경*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/lock"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="비밀번호 변경"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    /*아이콘들 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <ImageView
+            android:src="@drawable/home"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/cart"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/person_blue"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/setting_icon"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>

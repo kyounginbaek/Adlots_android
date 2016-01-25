@@ -4,50 +4,244 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    /*애드랏츠*/
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="146dp"        android:background="#16a0e8"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:background="@drawable/scissors"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="36dp"
+            android:text="애드랏츠"
+            android:textSize="24dp"
+            android:textColor="#2d2d2d"
+            />
+    </LinearLayout>
+    ///
+    /*친구추천*/
     <LinearLayout
         android:background="@color/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         >
 
-        <ImageView
-            android:src="@drawable/home_title"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_width= "fill_parent"
-            android:layout_height="wrap_content"
-            android:background="#16a0e8"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="애드랏츠"
-            android:layout_gravity="center_horizontal"
-            android:textSize="34dp"
-            android:textColor="#2d2d2d"
-            android:layout_weight="1"
-            />
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="크라우딩 겸품 리워드 어플리케이션"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:textSize="15dp"
-            android:textColor="#6e6e6e"
-            android:layout_weight="1"
-            />
-
-        <Button
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="47.6dp"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="친구 추천"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="250 points"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    /*광고1*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="광고1"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="100 points"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    /*광고2*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="광고2"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="125 points"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    /*광고3*/
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:layout_width="67dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="광고3"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="16dp"
+                android:text="125 points"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    ////
+    /*아이콘들 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <ImageView
+            android:src="@drawable/home_blue"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/cart"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/person"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:src="@drawable/setting_icon"
+            android:layout_width= "40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
             />
 
     </LinearLayout>
