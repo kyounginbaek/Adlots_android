@@ -8,25 +8,26 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="146dp"
-        android:background="#16a0e8"
+        android:background="#f2e66c"
+        android:gravity="center_vertical"
         >
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="29dp"
-            android:background="@drawable/scissors"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/cart"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="36dp"
             android:text="포인트 스토어"
             android:textSize="24dp"
             android:textColor="#2d2d2d"
             />
     </LinearLayout>
+
     /* 상품 아이콘 이미지들 */
     <LinearLayout
         android:background="@color/background"
@@ -75,6 +76,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
     /*글씨 기프티콘*/
     <LinearLayout
         android:background="@color/background"
@@ -92,6 +94,7 @@
             android:textColor="#2d2d2d"
             />
     </LinearLayout>
+
     /* 상품들 */
     1. 기프티콘 1
     <LinearLayout
@@ -187,7 +190,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
     3. 영화티켓
     <LinearLayout
         android:background="@color/background"
@@ -241,6 +243,7 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:gravity="bottom"
+        android:layout_marginBottom="10dp"
         >
         <ImageView
             android:src="@drawable/home"
@@ -268,6 +271,5 @@
             />
 
     </LinearLayout>
-
 
 </LinearLayout>

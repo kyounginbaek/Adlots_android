@@ -24,7 +24,6 @@ dependencies {
     compile('org.apache.httpcomponents:httpmime:4.3.5') {
         exclude module: 'org.apache.httpcomponents:httpclient'
     }
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:support-v4:22.2.1'

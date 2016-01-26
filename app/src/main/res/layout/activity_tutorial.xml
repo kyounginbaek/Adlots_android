@@ -11,7 +11,7 @@
 
     <com.adlots.adlots.CirclePageIndicator
         android:id="@+id/tutorial_indicator"
-        android:padding="10dip"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:layout_alignParentBottom="true"
