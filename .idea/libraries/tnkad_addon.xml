@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="tnkad-addon">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/tnkad-addon.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

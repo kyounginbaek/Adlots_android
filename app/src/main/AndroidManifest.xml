@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,8 +16,10 @@
         android:theme="@style/AppTheme"
         android:largeHeap="true"
         >
+        <meta-data android:name="tnkad_app_id" android:value="your-application-id-from-tnk-site" />
+
         <activity
-            android:name=".LoadingActivity"
+            android:name=".activity.LoadingActivity"
             android:label="애드랏츠"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -24,21 +28,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".SigninActivity"
+            android:name=".activity.SigninActivity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".activity.SignupActivity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".TutorialActivity"
+            android:name=".activity.TutorialActivity"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

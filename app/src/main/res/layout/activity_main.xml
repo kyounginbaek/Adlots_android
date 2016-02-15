@@ -9,7 +9,7 @@
         android:id="@+id/main_pager">
     </android.support.v4.view.ViewPager>
 
-    <com.adlots.adlots.UnderlinePageIndicator
+    <com.adlots.adlots.helper.UnderlinePageIndicator
         android:id="@+id/main_indicator"
         android:layout_height="5dp"
         android:layout_width="fill_parent"

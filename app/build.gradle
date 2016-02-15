@@ -26,4 +26,7 @@ dependencies {
     }
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile files('libs/tnkad-sdk.jar')
+    compile files('libs/tnkad-addon.jar')
 }
