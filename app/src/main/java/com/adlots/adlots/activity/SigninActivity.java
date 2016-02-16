@@ -65,10 +65,12 @@ public class SigninActivity extends Activity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject.names().get(0).equals("success")){
-                                Toast.makeText(getApplicationContext(),"로그인 되었습니다."+jsonObject.getString("success"),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            } else if (jsonObject.names().get(0).equals("empty")){
+                                Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요." +jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

@@ -1,9 +1,9 @@
 package com.adlots.adlots.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends Activity {
 
     Button btn_signup_back;
     Button btn_signup;
@@ -35,8 +35,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText edt_signup_password;
     EditText edt_signup_passcheck;
     EditText edt_signup_nickname;
-    String email, password, passcheck, nickname;
-    String phone = getPhoneNumber();
+    String email, password, passcheck, phone, nickname;
 
     private static final String URL = "http://adlots.co.kr/android_php/signup.php";
     private RequestQueue requestQueue;
@@ -51,6 +50,7 @@ public class SignupActivity extends AppCompatActivity {
         edt_signup_email = (EditText)findViewById(R.id.edt_signup_email);
         edt_signup_email.setNextFocusDownId(R.id.edt_signup_password);
         edt_signup_phone = (EditText)findViewById(R.id.edt_signup_phone);
+        phone = getPhoneNumber();
         edt_signup_phone.setText(phone); // 자동으로 핸드폰번호 가져오기
 
         edt_signup_password = (EditText)findViewById(R.id.edt_signup_password);
@@ -74,11 +74,23 @@ public class SignupActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            if(jsonObject.names().get(0).equals("success")){
-                                Toast.makeText(getApplicationContext(),"로그인 되었습니다."+jsonObject.getString("success"),Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            if(password.equals(passcheck)) {
+                                if(jsonObject.names().get(0).equals("phone")){
+                                    Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니 adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                } else if(jsonObject.names().get(0).equals("success")){
+                                    Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), SigninActivity.class));
+                                } else if(jsonObject.names().get(0).equals("empty")){
+                                    Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                } else if(jsonObject.names().get(0).equals("email")){
+                                    Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                } else if(jsonObject.names().get(0).equals("nickname")){
+                                    Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요." +jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
@@ -96,6 +108,8 @@ public class SignupActivity extends AppCompatActivity {
                         HashMap<String,String> hashMap = new HashMap<String, String>();
                         hashMap.put("email",email);
                         hashMap.put("password",password);
+                        hashMap.put("phone",phone);
+                        hashMap.put("nickname",nickname);
 
                         return hashMap;
                     }

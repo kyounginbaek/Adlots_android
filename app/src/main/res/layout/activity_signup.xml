@@ -59,12 +59,14 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/edt_signup_email"
                     android:singleLine="true"
-                    android:layout_width="212dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:hint="비밀번호 분실시 메일을 보내기 위함"
+                    android:inputType="textEmailAddress"
+                    android:hint="로그인과 비밀번호 분실시 사용됨"
                     android:textColor="#666666"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    android:paddingStart="5dp" />
 
             </RelativeLayout>
 
@@ -87,17 +89,19 @@
 
                 <EditText
                     android:layout_marginRight="20dp"
-                    android:layout_alignParentRight="true"
                     android:id="@+id/edt_signup_phone"
                     android:singleLine="true"
-                    android:layout_width="212dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
                     android:textColor="#666666"
                     android:textSize="12dp"
                     android:clickable="false"
                     android:enabled="true"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingStart="5dp" />
 
             </RelativeLayout>
 
@@ -122,13 +126,14 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/edt_signup_password"
                     android:singleLine="true"
-                    android:layout_width="212dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
                     android:inputType="textPassword"
                     android:textColor="#666666"
                     android:textSize="12dp"
-                    android:hint="최소 4자 이상" />
+                    android:hint="최소 4자 이상"
+                    android:paddingStart="5dp" />
 
             </RelativeLayout>
 
@@ -153,13 +158,14 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/edt_signup_passcheck"
                     android:singleLine="true"
-                    android:layout_width="212dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:hint="다시 한번 입력해주세요"
                     android:layout_gravity="right"
                     android:inputType="textPassword"
                     android:textColor="#666666"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp"
+                    android:paddingStart="5dp" />
 
             </RelativeLayout>
 
@@ -184,13 +190,13 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/edt_signup_nickname"
                     android:singleLine="true"
-                    android:layout_width="212dp"
+                    android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:hint="앱 내에서 이름으로 사용됨"
-                    android:inputType="textPassword"
+                    android:hint="앱 내에서 닉네임으로 사용됨"
                     android:textColor="#666666"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp"
+                    android:paddingStart="5dp" />
 
             </RelativeLayout>
 
