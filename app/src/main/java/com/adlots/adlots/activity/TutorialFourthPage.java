@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.Util;
 
 import static android.view.LayoutInflater.from;
 
@@ -31,7 +30,6 @@ public class TutorialFourthPage extends Fragment {
 
         tutorialfourthview = (View) from(tutorialfourthcontext).inflate(
                 R.layout.activity_tutorial_fourth_page, container, false);
-        Util.setGlobalFont(tutorialfourthcontext, tutorialfourthview);
         return tutorialfourthview;
     }
 }

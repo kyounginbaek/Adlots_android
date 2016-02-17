@@ -22,7 +22,7 @@
             android:text=" 시작 하기 "
             android:textSize="14dp"
             android:background="#ffffff"
-            android:textColor="#2d2d2d"
+            android:textColor="#404040"
             />
 
     </LinearLayout>

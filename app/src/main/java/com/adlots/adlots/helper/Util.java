@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by baekkyoungin on 2015. 11. 18..
+ * Created by baekkyoungin on 2016. 2. 16..
  */
 public class Util {
+
     public static void setGlobalFont(Context context, View view) {
         if (view != null) {
             if (view instanceof ViewGroup) {

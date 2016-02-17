@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.Util;
 
 import static android.view.LayoutInflater.from;
 
@@ -34,10 +33,8 @@ public class TutorialFifthPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         tutorialfifthcontext = container.getContext();
-
         tutorialfifthview = (View) from(tutorialfifthcontext).inflate(
                 R.layout.activity_tutorial_fifth_page, container, false);
-        Util.setGlobalFont(tutorialfifthcontext, tutorialfifthview);
 
         btn_goto_signin = (Button)tutorialfifthview.findViewById(R.id.btn_goto_signin);
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +44,7 @@ public class TutorialFifthPage extends Fragment {
                 startActivity(intent);
             }
         });
+
         return tutorialfifthview;
     }
 }

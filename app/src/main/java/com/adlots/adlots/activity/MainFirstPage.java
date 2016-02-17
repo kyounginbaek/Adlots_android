@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.Util;
 
 import static android.view.LayoutInflater.from;
 
@@ -33,7 +32,6 @@ public class MainFirstPage extends Fragment {
         mainfirstcontext = container.getContext();
         mainfirstview = (View) from(mainfirstcontext).inflate(
                 R.layout.activity_main_first_page, container, false);
-        Util.setGlobalFont(mainfirstcontext, mainfirstview);
         return mainfirstview;
     }
 }
