@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.BackPressCloseHandler;
+import com.adlots.adlots.helper.DataHolder;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,10 +37,9 @@ public class SignupActivity extends Activity {
     EditText edt_signup_nickname;
     String email, password, passcheck, phone, nickname;
 
-    private static final String URL = "http://adlots.co.kr/android_php/signup.php";
+    private static final String URL = DataHolder.signupURL;
     private RequestQueue requestQueue;
     private StringRequest request;
-    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +126,6 @@ public class SignupActivity extends Activity {
             }
         });
 
-        backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
     public String getPhoneNumber() {
@@ -137,7 +135,8 @@ public class SignupActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        // TODO Auto-generated method stub
-        backPressCloseHandler.onBackPressed();
+        Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }

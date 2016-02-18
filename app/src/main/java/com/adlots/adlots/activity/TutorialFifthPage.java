@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.helper.DataHolder;
 
 import static android.view.LayoutInflater.from;
 
@@ -40,8 +41,13 @@ public class TutorialFifthPage extends Fragment {
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
-                startActivity(intent);
+                if (DataHolder.login == false){
+                    Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(tutorialfifthcontext, MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

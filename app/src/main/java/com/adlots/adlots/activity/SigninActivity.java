@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.BackPressCloseHandler;
+import com.adlots.adlots.helper.DataHolder;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -35,7 +36,7 @@ public class SigninActivity extends Activity {
     EditText edt_signin_password;
     String email,password;
 
-    private static final String URL = "http://adlots.co.kr/android_php/signin.php";
+    private static final String URL = DataHolder.signinURL;
     private RequestQueue requestQueue;
     private StringRequest request;
     private BackPressCloseHandler backPressCloseHandler;
@@ -65,8 +66,10 @@ public class SigninActivity extends Activity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject.names().get(0).equals("success")){
+                                DataHolder.isLogged = true;
+                                DataHolder.login = true;
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else if (jsonObject.names().get(0).equals("empty")){
                                 Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                             } else {
