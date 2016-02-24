@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.DataHolder;
@@ -38,7 +38,12 @@ public class MainThirdPage extends Fragment {
         mainthirdview = (View) from(mainthirdcontext).inflate(
                 R.layout.activity_main_third_page, container, false);
 
-        ViewGroup userinfochange = (LinearLayout) mainthirdview.findViewById(R.id.userinfochange);
+        TextView nickname = (TextView) mainthirdview.findViewById(R.id.nickname);
+
+        TextView email = (TextView) mainthirdview.findViewById(R.id.email);
+        email.setText(DataHolder.email);
+
+        TextView userinfochange = (TextView) mainthirdview.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +68,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
-        ViewGroup logout = (LinearLayout) mainthirdview.findViewById(R.id.logout);
+        TextView logout = (TextView) mainthirdview.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
