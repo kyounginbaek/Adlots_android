@@ -29,17 +29,17 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".activity.SigninActivity"
             android:windowSoftInputMode="stateHidden"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".activity.SignupActivity"
             android:windowSoftInputMode="stateHidden"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".activity.TutorialActivity"

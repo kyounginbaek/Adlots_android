@@ -7,56 +7,47 @@
     /*포인트 스토어*/
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="116dp"
+        android:layout_height="146dp"
         android:background="#01a1ff"
-        android:gravity="center_vertical"
         >
+        /* 보유포인트*/
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circle"
+                android:text="보유 포인트
+                            300 랏츠"
+                android:textColor="#0d2436"
+                />
+        </LinearLayout>
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="70dp"
-            android:background="@drawable/cart3"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="애드랏츠 스토어"
-            android:textSize="24dp"
-            android:textColor="#2d2d2d"
-            />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            >
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/cart3"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="애드랏츠 스토어"
+                android:textSize="24dp"
+                android:textColor="#2d2d2d"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 
-    /*보유 포인트 000 랏츠*/
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="보유 포인트 : "
-            android:textSize="15dp"
-            android:textColor="#0d2436"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="000 "
-            android:textSize="15dp"
-            android:textColor="#0d2436"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="랏츠"
-            android:textSize="15dp"
-            android:textColor="#0d2436"
-            />
-    </LinearLayout>
 
     /* 상품 아이콘 이미지들 */
     <LinearLayout
@@ -94,12 +85,12 @@
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:background="@drawable/new_item"
+                android:background="@drawable/new_item2"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신규추첨"
+                android:text="신규 추첨"
                 android:textSize="10dp"
                 android:textColor="#2d2d2d"
                 />

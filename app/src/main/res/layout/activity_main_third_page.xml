@@ -51,9 +51,9 @@
                 android:id="@+id/email" />
             비밀번호 변경
             <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    >
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                >
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
