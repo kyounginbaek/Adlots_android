@@ -41,7 +41,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="15dp"
-                android:textColor="#f9fafc"
+                android:textColor="#0d2436"
                 android:id="@+id/nickname" />
             이메일
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="15dp"
-                android:textColor="#f9fafc"
+                android:textColor="#0d2436"
                 android:id="@+id/email" />
 
             비밀번호 변경

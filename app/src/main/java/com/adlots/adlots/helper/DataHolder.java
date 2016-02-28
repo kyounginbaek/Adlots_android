@@ -12,4 +12,5 @@ public class DataHolder {
 
     public static String email = "";
     public static String nickname = "";
+
 }

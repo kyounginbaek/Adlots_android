@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="330dp"
     android:layout_height="300dp"
-    android:layout_gravity="center" >
+    android:layout_gravity="center"
+    android:id="@+id/main_third_info_popup" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -29,11 +30,11 @@
             android:layout_height="40dp"
             android:layout_gravity="right"
             android:inputType="textEmailAddress"
-            android:hint="비밀번호 분실시 사용됨"
+            android:hint="선택입력"
             android:textColor="#666666"
             android:textSize="12dp"
             android:paddingStart="5dp"
-            android:text="선택입력" />
+            />
 
     </RelativeLayout>
 
@@ -61,11 +62,11 @@
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
-            android:hint="앱 내에서 닉네임으로 사용"
+            android:hint="선택입력"
             android:textColor="#666666"
             android:textSize="12dp"
             android:paddingStart="5dp"
-            android:text="선택입력" />
+            />
 
     </RelativeLayout>
 
@@ -93,12 +94,12 @@
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
+            android:hint="선택입력"
             android:inputType="textPassword"
-            android:hint="비밀번호 분실시 사용됨"
             android:textColor="#666666"
             android:textSize="12dp"
             android:paddingStart="5dp"
-            android:text="선택입력" />
+            />
 
     </RelativeLayout>
 
@@ -126,12 +127,12 @@
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
+            android:hint="비밀번호 변경시 필수입력*"
             android:inputType="textPassword"
-            android:hint="비밀번호 분실시 사용됨"
             android:textColor="#666666"
             android:textSize="12dp"
             android:paddingStart="5dp"
-            android:text="비밀번호 변경시 필수입력" />
+            />
 
     </RelativeLayout>
 
@@ -159,12 +160,12 @@
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
+            android:hint="필수입력*"
             android:inputType="textPassword"
-            android:hint="비밀번호 분실시 사용됨"
             android:textColor="#666666"
             android:textSize="12dp"
             android:paddingStart="5dp"
-            android:text="필수입력" />
+            />
 
     </RelativeLayout>
 
@@ -172,7 +173,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_infochange"
         android:text="변경하기"
         android:background="#01a1ff"
         android:textColor="#ffffff"

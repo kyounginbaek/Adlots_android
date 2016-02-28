@@ -39,6 +39,7 @@ public class MainThirdPage extends Fragment {
 
         TextView nickname = (TextView) mainthirdview.findViewById(R.id.nickname);
         nickname.setText(DataHolder.nickname);
+
         TextView email = (TextView) mainthirdview.findViewById(R.id.email);
         email.setText(DataHolder.email);
 
@@ -46,7 +47,8 @@ public class MainThirdPage extends Fragment {
         userinfochange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).popupWindow();
+                Intent intent = new Intent(mainthirdcontext, MainThirdInfoPopup.class);
+                startActivity(intent);
             }
         });
 
@@ -62,4 +64,5 @@ public class MainThirdPage extends Fragment {
 
         return mainthirdview;
     }
+
 }

@@ -299,4 +299,80 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:id="@+id/teammerbers"
+        android:clickable="false">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="개발자 정보"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="애드랏츠 개발 팀멤버들을 소개합니다."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:id="@+id/agreement"
+        android:clickable="false">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="이용약관"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="개인정보 이용약관입니다"
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>

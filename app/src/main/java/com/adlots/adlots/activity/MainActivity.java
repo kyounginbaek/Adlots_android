@@ -4,8 +4,6 @@ package com.adlots.adlots.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.BackPressCloseHandler;
@@ -42,13 +40,4 @@ public class MainActivity extends FragmentActivity {
         backPressCloseHandler.onBackPressed();
     }
 
-    public void popupWindow() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        layoutParams.dimAmount = 0.7f;
-        getWindow().setAttributes(layoutParams);
-        setContentView(R.layout.main_third_info_popup);
-    }
 }
