@@ -68,7 +68,9 @@ public class SigninActivity extends Activity {
                             if(jsonObject.names().get(0).equals("success")){
                                 DataHolder.isLogged = true;
                                 DataHolder.login = true;
-                                DataHolder.email = email;
+
+                                DataHolder.email = jsonObject.getString("email");
+                                DataHolder.nickname = jsonObject.getString("nickname");;
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             } else if (jsonObject.names().get(0).equals("empty")){

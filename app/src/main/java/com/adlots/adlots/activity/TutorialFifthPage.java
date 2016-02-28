@@ -41,11 +41,11 @@ public class TutorialFifthPage extends Fragment {
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (DataHolder.login == false){
-                    Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
+                if (DataHolder.login){
+                    Intent intent = new Intent(tutorialfifthcontext, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(tutorialfifthcontext, MainActivity.class);
+                    Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
                     startActivity(intent);
                 }
             }

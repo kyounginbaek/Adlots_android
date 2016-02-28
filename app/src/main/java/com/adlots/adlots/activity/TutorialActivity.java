@@ -1,5 +1,6 @@
 package com.adlots.adlots.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -7,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.BackPressCloseHandler;
 import com.adlots.adlots.helper.CirclePageIndicator;
+import com.adlots.adlots.helper.DataHolder;
 import com.adlots.adlots.helper.PageIndicator;
 import com.adlots.adlots.helper.TutorialFragmentPagerAdapter;
 
@@ -33,7 +35,12 @@ public class TutorialActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        // TODO Auto-generated method stub
-        backPressCloseHandler.onBackPressed();
+        if (DataHolder.login){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        } else {
+            // TODO Auto-generated method stub
+            backPressCloseHandler.onBackPressed();
+        }
     }
 }

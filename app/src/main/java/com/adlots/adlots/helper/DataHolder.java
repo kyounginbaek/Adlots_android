@@ -11,4 +11,5 @@ public class DataHolder {
     public static final String signupURL = "http://adlots.co.kr/android_php/signup.php";
 
     public static String email = "";
+    public static String nickname = "";
 }

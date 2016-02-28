@@ -11,6 +11,7 @@
         android:background="#01a1ff"
         android:gravity="center_vertical"
         >
+
         /* 보유포인트*/
         <LinearLayout
             android:layout_width="180dp"
@@ -26,6 +27,7 @@
                 android:textColor="#0d2436"
                 />
         </LinearLayout>
+
         /* 닉네임~로그아웃 */
         <LinearLayout
             android:layout_width="fill_parent"
@@ -49,10 +51,12 @@
                 android:textSize="15dp"
                 android:textColor="#f9fafc"
                 android:id="@+id/email" />
+
             비밀번호 변경
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:id="@+id/userinfochange"
                 >
                 <TextView
                     android:layout_width="100dp"
@@ -61,7 +65,7 @@
                     android:text="비밀번호 변경"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"
-                    android:id="@+id/userinfochange" />
+                    />
                 <Button
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -75,6 +79,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:id="@+id/logout"
                 >
                 <TextView
                     android:layout_width="100dp"
@@ -83,7 +88,7 @@
                     android:text="로그아웃"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"
-                    android:id="@+id/logout" />
+                    />
                 <Button
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -91,51 +96,8 @@
                     android:background="@drawable/icon_back_pink"
                     />
             </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
-
-    /*핸드폰*/
-
-    /*이메일*/
-
-    /*보유포인트*/
-
-    /*비밀번호 변경*/
-
-    /*아이콘들 */
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:gravity="bottom"
-        android:layout_marginBottom="10dp"
-        >
-        <ImageView
-            android:src="@drawable/home"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/cart"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/person_blue"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/setting_icon"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
 
     </LinearLayout>
 

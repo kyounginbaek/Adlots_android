@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.adlots.adlots.R;
 
@@ -32,6 +33,31 @@ public class MainSecondPage extends Fragment {
         mainsecondcontext = container.getContext();
         mainsecondview = (View) from(mainsecondcontext).inflate(
                 R.layout.activity_main_second_page, container, false);
+
+        ViewGroup giftcon = (LinearLayout) mainsecondview.findViewById(R.id.giftcon);
+        giftcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ViewGroup newdelivery = (LinearLayout) mainsecondview.findViewById(R.id.newdelivery);
+        newdelivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ViewGroup closedelivery = (LinearLayout) mainsecondview.findViewById(R.id.closedelivery);
+        closedelivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return mainsecondview;
     }
 }

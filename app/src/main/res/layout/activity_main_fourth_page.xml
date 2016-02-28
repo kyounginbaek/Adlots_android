@@ -9,7 +9,9 @@
         android:layout_width="fill_parent"
         android:layout_height="56dp"
         android:orientation="horizontal"
+        android:background="#01a1ff"
         >
+
         <ImageView
             android:layout_marginLeft="19dp"
             android:src="@drawable/setting_icon"
@@ -17,6 +19,7 @@
             android:layout_width= "40dp"
             android:layout_height="40dp"
             />
+
         <TextView
             android:layout_marginLeft="15dp"
             android:layout_width="wrap_content"
@@ -24,7 +27,7 @@
             android:layout_gravity="center_vertical"
             android:text="설정"
             android:textSize="20dp"
-            android:textColor="#2d2d2d"
+            android:textColor="#ffffff"
             />
 
     </LinearLayout>
@@ -32,17 +35,133 @@
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:orientation="vertical"
-        android:id="@+id/blog"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
+        android:id="@+id/facebook"
+        android:clickable="false">
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:gravity="center_horizontal"
             android:background="#01a1ff"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="페이스북 페이지"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="&apos;좋아요&apos; 누르시고 당첨과 마감 상황을 알아보세요."
+            android:textColor="#6e6e6e"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:id="@+id/winnerlist"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="당첨자 목록보기"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="지금까지 당첨된 사람들의 목록을 확인해보세요."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:id="@+id/email"
+        android:clickable="false">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="16dp"
+            android:text="이용 문의"
+            android:layout_gravity="center_vertical"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:text="이용문의 및 바라는 기능을 보내주세요."
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:id="@+id/blog"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:gravity="center_horizontal"
+            android:background="#6e6e6e"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -65,28 +184,29 @@
             android:textColor="#6e6e6e"
             />
 
-
     </LinearLayout>
 
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:orientation="vertical"
-        android:id="@+id/email"
+        android:id="@+id/homepage"
         android:clickable="false">
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:gravity="center_horizontal"
             android:background="#6e6e6e"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_marginLeft="16dp"
-            android:text="이용 문의"
+            android:text="애드랏츠 홈페이지"
             android:layout_gravity="center_vertical"
             android:textSize="16dp"
             android:textColor="#2d2d2d"
@@ -97,18 +217,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="16dp"
-            android:text="이용문의 및 바라는 기능을 보내주세요."
+            android:text="서비스 소개 및 광고 의뢰를 받고 있습니다."
             android:textSize="14dp"
             android:textColor="#6e6e6e"
             />
     </LinearLayout>
+
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:orientation="vertical"
         android:id="@+id/tutorial"
         android:clickable="false">
+
         <Button
 
             android:layout_width="fill_parent"
@@ -138,84 +260,16 @@
             android:textColor="#6e6e6e"
             />
     </LinearLayout>
+
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical"
-        android:id="@+id/homepage"
-        android:clickable="false">
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="애드랏츠 홈페이지"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="서비스 소개 및 광고 의뢰를 받고 있습니다."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical"
-        android:id="@+id/facebook"
-        android:clickable="false">
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="페이스북 페이지"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="&apos;좋아요&apos; 누르시고 당첨과 마감 상황을 알아보세요."
-            android:textColor="#6e6e6e"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:orientation="vertical"
         android:id="@+id/pushalarm"
         android:clickable="false">
-        <Button
 
+        <Button
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:gravity="center_horizontal"
@@ -242,39 +296,7 @@
             android:textSize="14dp"
             android:textColor="#6e6e6e"
             />
-    </LinearLayout>
-
-    /*아이콘들 */
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal"
-        android:gravity="bottom"
-        >
-        <ImageView
-            android:src="@drawable/home"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/cart"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/person"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
-        <ImageView
-            android:src="@drawable/setting_blue"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            />
 
     </LinearLayout>
+
 </LinearLayout>

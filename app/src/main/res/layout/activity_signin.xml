@@ -80,7 +80,7 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:text="로그인"
-            android:background="#16a0e8"
+            android:background="#01a1ff"
             android:textColor="#ffffff"
             />
 

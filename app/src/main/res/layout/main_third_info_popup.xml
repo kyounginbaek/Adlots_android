@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="330dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="변경 이메일"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/infochange_email"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:inputType="textEmailAddress"
+            android:hint="비밀번호 분실시 사용됨"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingStart="5dp"
+            android:text="선택입력" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="변경 닉네임"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/infochange_nickname"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:hint="앱 내에서 닉네임으로 사용"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingStart="5dp"
+            android:text="선택입력" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="변경 비밀번호"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/infochange_password"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:inputType="textPassword"
+            android:hint="비밀번호 분실시 사용됨"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingStart="5dp"
+            android:text="선택입력" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="비밀번호 재입력"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/infochange_passcheck"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:inputType="textPassword"
+            android:hint="비밀번호 분실시 사용됨"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingStart="5dp"
+            android:text="비밀번호 변경시 필수입력" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="기존 비밀번호"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/original_password"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:inputType="textPassword"
+            android:hint="비밀번호 분실시 사용됨"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingStart="5dp"
+            android:text="필수입력" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_signup"
+        android:text="변경하기"
+        android:background="#01a1ff"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/scrollView"
+        android:layout_alignParentStart="true" />
+
+</LinearLayout>
