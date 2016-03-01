@@ -44,9 +44,11 @@ public class TutorialFifthPage extends Fragment {
                 if (DataHolder.login){
                     Intent intent = new Intent(tutorialfifthcontext, MainActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 } else {
                     Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
                     startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });

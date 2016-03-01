@@ -68,15 +68,24 @@ public class SigninActivity extends Activity {
                             if(jsonObject.names().get(0).equals("success")){
                                 DataHolder.isLogged = true;
                                 DataHolder.login = true;
-
                                 DataHolder.email = jsonObject.getString("email");
-                                DataHolder.nickname = jsonObject.getString("nickname");;
+                                DataHolder.nickname = jsonObject.getString("nickname");
+
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                finish();
                             } else if (jsonObject.names().get(0).equals("empty")){
                                 Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                DataHolder.isLogged = true;
+                                DataHolder.login = true;
+                                DataHolder.email = jsonObject.getString("email");
+                                DataHolder.nickname = jsonObject.getString("nickname");
+
+                                Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                finish();
+                                /* Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show(); */
                             }
 
                         } catch (JSONException e) {

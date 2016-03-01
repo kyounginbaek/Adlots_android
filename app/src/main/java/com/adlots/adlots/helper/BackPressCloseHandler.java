@@ -35,7 +35,6 @@ public class BackPressCloseHandler {
     }
 
     private void programShutdown() {
-        activity .moveTaskToBack(true);
         activity .finish();
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);

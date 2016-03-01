@@ -16,13 +16,15 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             >
-            <Button
+            <TextView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/circle"
-                android:text="보유 포인트
-                            300 랏츠"
+                android:background="@drawable/circle_point"
+                android:paddingTop="55dp"
+                android:paddingLeft="25dp"
+                android:textSize="13dp"
                 android:textColor="#0d2436"
+                android:id="@+id/main2_point"
                 />
         </LinearLayout>
 
@@ -37,7 +39,7 @@
                 android:background="@drawable/cart3"
                 />
             <TextView
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="랏츠 스토어"

@@ -2,12 +2,10 @@ package com.adlots.adlots.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -46,23 +44,6 @@ public class MainFourthPage extends Fragment {
                 startActivity(intent);
             }
         });
-        blog.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe06b6b6b, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
 
         ViewGroup email = (LinearLayout) mainfourthview.findViewById(R.id.email);
         email.setOnClickListener(new View.OnClickListener() {
@@ -76,23 +57,6 @@ public class MainFourthPage extends Fragment {
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }
         });
-        email.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe06b6b6b, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
 
         ViewGroup tutorial = (LinearLayout) mainfourthview.findViewById(R.id.tutorial);
         tutorial.setOnClickListener(new View.OnClickListener() {
@@ -100,23 +64,6 @@ public class MainFourthPage extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(mainfourthcontext, TutorialActivity.class);
                 startActivity(intent);
-            }
-        });
-        tutorial.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe06b6b6b, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
             }
         });
 
@@ -128,23 +75,6 @@ public class MainFourthPage extends Fragment {
                 startActivity(intent);
             }
         });
-        homepage.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe06b6b6b, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
 
         ViewGroup facebook = (LinearLayout) mainfourthview.findViewById(R.id.facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
@@ -154,21 +84,20 @@ public class MainFourthPage extends Fragment {
                 startActivity(intent);
             }
         });
-        facebook.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe06b6b6b, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
+
+        ViewGroup developers = (LinearLayout) mainfourthview.findViewById(R.id.developers);
+        developers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 개발자 보여주는 코드
+            }
+        });
+
+        ViewGroup agreement = (LinearLayout) mainfourthview.findViewById(R.id.agreement);
+        agreement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 개인정보이용약관 보여주는 코드
             }
         });
 

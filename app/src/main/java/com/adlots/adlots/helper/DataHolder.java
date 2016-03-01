@@ -9,6 +9,7 @@ public class DataHolder {
 
     public static final String signinURL = "http://adlots.co.kr/android_php/signin.php";
     public static final String signupURL = "http://adlots.co.kr/android_php/signup.php";
+    public static final String pointURL = "http://adlots.co.kr/android_php/point.php";
 
     public static String email = "";
     public static String nickname = "";

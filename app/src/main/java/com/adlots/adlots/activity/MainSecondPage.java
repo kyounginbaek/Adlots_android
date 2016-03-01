@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.adlots.adlots.R;
 
@@ -34,11 +35,13 @@ public class MainSecondPage extends Fragment {
         mainsecondview = (View) from(mainsecondcontext).inflate(
                 R.layout.activity_main_second_page, container, false);
 
+        TextView main2_point = (TextView) mainsecondview.findViewById(R.id.main2_point);
+
         ViewGroup giftcon = (LinearLayout) mainsecondview.findViewById(R.id.giftcon);
         giftcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // giftcon 프래그먼트 출력
             }
         });
 
@@ -46,7 +49,7 @@ public class MainSecondPage extends Fragment {
         newdelivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // newdelivery 프래그먼트 출력
             }
         });
 
@@ -54,7 +57,7 @@ public class MainSecondPage extends Fragment {
         closedelivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // closedelivery 프래그먼트 출력
             }
         });
 

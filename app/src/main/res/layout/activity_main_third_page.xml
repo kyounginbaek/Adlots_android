@@ -18,14 +18,17 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             >
-            <Button
+            <TextView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/circle"
-                android:text="보유 포인트
-                            300 랏츠"
+                android:background="@drawable/circle_point"
+                android:paddingTop="55dp"
+                android:paddingLeft="25dp"
+                android:textSize="13dp"
                 android:textColor="#0d2436"
+                android:id="@+id/main2_point"
                 />
+
         </LinearLayout>
 
         /* 닉네임~로그아웃 */
@@ -35,21 +38,34 @@
             android:orientation="vertical"
             android:gravity="center_vertical"
             >
-            닉네임
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="15dp"
-                android:textColor="#0d2436"
-                android:id="@+id/nickname" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                닉네임
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#f9fafc"
+                    android:id="@+id/nickname" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text=" 님"
+                    android:textColor="#f9fafc" />
+
+            </LinearLayout>
             이메일
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:textSize="15dp"
-                android:textColor="#0d2436"
+                android:textColor="#f9fafc"
                 android:id="@+id/email" />
 
             비밀번호 변경
@@ -61,7 +77,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:text="비밀번호 변경"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"
@@ -84,7 +100,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:text="로그아웃"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"

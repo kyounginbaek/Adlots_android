@@ -1,6 +1,5 @@
 package com.adlots.adlots.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -36,8 +35,7 @@ public class TutorialActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         if (DataHolder.login){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+            this.finish();
         } else {
             // TODO Auto-generated method stub
             backPressCloseHandler.onBackPressed();
