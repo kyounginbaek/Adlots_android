@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,7 +13,6 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.DataHolder;
 
 public class LoadingActivity extends Activity {
 
@@ -51,16 +51,20 @@ public class LoadingActivity extends Activity {
         Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                if(DataHolder.isLogged == false) {
-                    Intent intent = new Intent(getApplicationContext(), TutorialActivity.class);
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                String isLogged = pref.getString("islogged", "");
+                String login = pref.getString("login", "");
+
+                if(login.equals("yes")) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
-                } else if(DataHolder.login == false) {
+                } else if(isLogged.equals("yes")) {
                     Intent intent = new Intent(getApplicationContext(), SigninActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), TutorialActivity.class);
                     startActivity(intent);
                     finish();
                 }

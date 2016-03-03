@@ -123,6 +123,7 @@ public class SignupActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -137,6 +138,7 @@ public class SignupActivity extends Activity {
     public void onBackPressed() {
         Intent intent = new Intent(SignupActivity.this, SigninActivity.class);
         startActivity(intent);
+        finish();
         super.onBackPressed();
     }
 }

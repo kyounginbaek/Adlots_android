@@ -2,6 +2,7 @@ package com.adlots.adlots.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.DataHolder;
 
 import static android.view.LayoutInflater.from;
 
@@ -41,9 +41,15 @@ public class TutorialFifthPage extends Fragment {
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (DataHolder.login){
-                    Intent intent = new Intent(tutorialfifthcontext, MainActivity.class);
-                    startActivity(intent);
+                SharedPreferences pref = getActivity().getSharedPreferences("pref", tutorialfifthcontext.MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                String isLogged = pref.getString("islogged", "");
+                String login = pref.getString("login", "");
+
+                editor.putString("islogged", "yes");
+                editor.commit();
+
+                if (login.equals("yes")){
                     getActivity().finish();
                 } else {
                     Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);

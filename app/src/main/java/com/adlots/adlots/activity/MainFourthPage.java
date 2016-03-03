@@ -52,7 +52,7 @@ public class MainFourthPage extends Fragment {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{"adlots@naver.com"});
                 email.putExtra(Intent.EXTRA_SUBJECT, "제목을 입력해주세요.");
-                email.putExtra(Intent.EXTRA_TEXT, "어떤 문의사항이신가요? 빠른 시일내에 답변해드리겠습니다.");
+                email.putExtra(Intent.EXTRA_TEXT, "어떤 문의사항이신가요? 빠른 시일내에 답장해드리겠습니다.");
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }

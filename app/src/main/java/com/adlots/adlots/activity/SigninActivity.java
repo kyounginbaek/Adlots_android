@@ -2,6 +2,7 @@ package com.adlots.adlots.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,10 +67,12 @@ public class SigninActivity extends Activity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject.names().get(0).equals("success")){
-                                DataHolder.isLogged = true;
-                                DataHolder.login = true;
-                                DataHolder.email = jsonObject.getString("email");
-                                DataHolder.nickname = jsonObject.getString("nickname");
+                                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putString("login", "yes");
+                                editor.putString("email", jsonObject.getString("email"));
+                                editor.putString("nickname", jsonObject.getString("nickname"));
+                                editor.commit();
 
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -77,10 +80,12 @@ public class SigninActivity extends Activity {
                             } else if (jsonObject.names().get(0).equals("empty")){
                                 Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                             } else {
-                                DataHolder.isLogged = true;
-                                DataHolder.login = true;
-                                DataHolder.email = jsonObject.getString("email");
-                                DataHolder.nickname = jsonObject.getString("nickname");
+                                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putString("login", "yes");
+                                editor.putString("email", jsonObject.getString("email"));
+                                editor.putString("nickname", jsonObject.getString("nickname"));
+                                editor.commit();
 
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
