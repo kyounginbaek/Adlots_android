@@ -2,6 +2,7 @@ package com.adlots.adlots.activity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -83,15 +84,36 @@ public class MainThirdPage extends Fragment {
         logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("login", "no");
-                editor.commit();
+                LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
 
-                Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
-                startActivity(intent);
-                Toast.makeText(mainthirdcontext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
+                buider.setTitle("로그아웃 확인")
+                        .setMessage("로그아웃 하시겠습니까")
+                        .setCancelable(true)
+                        .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                            // 확인 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putString("login", "no");
+                                editor.commit();
+
+                                Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(mainthirdcontext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+                            }
+                        })
+                        .setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                            // 취소 버튼 클릭시 설정
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                dialog.show(); //Dialog 보이기
             }
         });
 

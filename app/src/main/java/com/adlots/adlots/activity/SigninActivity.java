@@ -122,6 +122,7 @@ public class SigninActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

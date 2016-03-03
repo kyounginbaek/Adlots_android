@@ -16,8 +16,6 @@ import com.adlots.adlots.helper.UnderlinePageIndicator;
 public class MainActivity extends FragmentActivity {
 
     ViewPager MainPager;
-    ViewPager BottomPager;
-
     Button btn_main1view, btn_main2view, btn_main3view, btn_main4view;
     private BackPressCloseHandler backPressCloseHandler;
 
@@ -34,10 +32,10 @@ public class MainActivity extends FragmentActivity {
         mIndicator.setViewPager(MainPager);
         mIndicator.setFades(false);
 
-        /*
-        BottomPager = (ViewPager) findViewById(R.id.main_bottom_menu_tab);
-        BottomPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-        */
+        btn_main1view = (Button)findViewById(R.id.btn_main1view);
+        btn_main2view = (Button)findViewById(R.id.btn_main2view);
+        btn_main3view = (Button)findViewById(R.id.btn_main3view);
+        btn_main4view = (Button)findViewById(R.id.btn_main4view);
 
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
@@ -50,9 +48,7 @@ public class MainActivity extends FragmentActivity {
 
     public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
 
-        public MainFragmentPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
+        public MainFragmentPagerAdapter(FragmentManager fm) {super(fm);}
 
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
