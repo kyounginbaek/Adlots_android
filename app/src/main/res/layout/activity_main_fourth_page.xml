@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     >
-
+    /* 설정*/
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="56dp"
@@ -16,8 +16,8 @@
             android:layout_marginLeft="19dp"
             android:src="@drawable/setting3"
             android:layout_gravity="center_vertical"
-            android:layout_width= "40dp"
-            android:layout_height="40dp"
+            android:layout_width= "36dp"
+            android:layout_height="36dp"
             />
 
         <TextView
@@ -32,347 +32,523 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/facebook"
-        android:clickable="false">
+    /*    스크롤 페이지   */
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent" >
 
-        <Button
+        /*설정 박스 전체*/
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#01a1ff"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="페이스북 페이지"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+            android:orientation="vertical"
+            android:paddingRight="5dp"
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="&apos;좋아요&apos; 누르시고 당첨과 마감 상황을 알아보세요."
-            android:textColor="#6e6e6e"
-            />
+            /* 페이스북 페이지  */
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:clickable="false">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/facebook"
+                    android:layout_gravity="center_vertical"
+                    >
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/winnerlist"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="페이스북 페이지"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="당첨자 목록보기"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="&apos;좋아요&apos; 누르시고 당첨과 마감 상황을 알아보세요."
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="지금까지 당첨된 사람들의 목록을 확인해보세요."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        />
+                </LinearLayout>
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/email"
-        android:clickable="false">
+            </LinearLayout>
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+            /* 당첨자 목록보기 */
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="이용 문의"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/winnerlist"
+                    android:layout_gravity="center_vertical"
+                    >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="이용문의 및 바라는 기능을 보내주세요."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="당첨자 목록보기"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
 
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="지금까지 당첨된 사람들의 목록을 확인해보세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/blog"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false">
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="블로그 소식보기"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                        />
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="이번주 업데이트와 각종 소식을 받아가세요."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/homepage"
-        android:clickable="false">
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /*이용문의*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/email"
+                android:clickable="false"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="이용 문의"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="이용문의 및 바라는 기능을 보내주세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /*블로그 소식*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/blog"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="블로그 소식보기"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="애드랏츠 홈페이지"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="이번주 업데이트와 각종 소식을 받아가세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="서비스 소개 및 광고 의뢰를 받고 있습니다."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
-    </LinearLayout>
+                        />
+                </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/tutorial"
-        android:clickable="false">
+            </LinearLayout>
 
-        <Button
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
 
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+            /*애드랏츠 홈페이지*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/homepage"
+                android:clickable="false"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="애드랏츠 홈페이지"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="서비스 소개 및 광고 의뢰를 받고 있습니다."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="튜토리얼 다시보기"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                        />
+                </LinearLayout>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="튜토리얼을 다시보고 사용방법을 익히세요."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
-    </LinearLayout>
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/pushalarm"
-        android:clickable="false">
+            /*튜토리얼 다시보기*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/tutorial"
+                android:clickable="false">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="튜토리얼 다시보기"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="튜토리얼을 다시보고 사용방법을 익히세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="푸시 알림"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                        />
+                </LinearLayout>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="푸시 알림으로 당첨과 마감 상황을 알려드립니다"
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /* 푸시알림 */
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/pushalarm"
+                android:clickable="false">
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="푸시 알림"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="푸시 알림으로 당첨과 마감 상황을 알려드립니다"
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/developers"
-        android:clickable="false">
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /*개발자 정보*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/developers"
+                android:clickable="false"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="개발자 정보"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="애드랏츠 개발 팀멤버들을 소개합니다."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="개발자 정보"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /*이용약관*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/agreement"
+                android:clickable="false"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="이용약관"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="개인정보 이용약관입니다"
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        />
+                </LinearLayout>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="애드랏츠 개발 팀멤버들을 소개합니다."
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
+        </LinearLayout>/*설정 상자들 레이아웃끝*/
 
-    </LinearLayout>
+    </ScrollView>/*스크롤 끝*/
 
-    <LinearLayout
-        android:background="@color/background"
-        android:layout_width="fill_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        android:id="@+id/agreement"
-        android:clickable="false">
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:gravity="center_horizontal"
-            android:background="#6e6e6e"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="16dp"
-            android:text="이용약관"
-            android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:text="개인정보 이용약관입니다"
-            android:textSize="14dp"
-            android:textColor="#6e6e6e"
-            />
-
-    </LinearLayout>
-
+    /*메인 네번쨰 페이지 레이아웃끝*/
 </LinearLayout>

@@ -7,43 +7,29 @@
     /*포인트 스토어*/
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="146dp"
+        android:layout_height="56dp"
         android:background="#01a1ff"
         >
-        /* 보유포인트*/
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/circle_point"
-                android:paddingTop="55dp"
-                android:paddingLeft="25dp"
-                android:textSize="13dp"
-                android:textColor="#0d2436"
-                android:id="@+id/main2_point"
-                />
-        </LinearLayout>
 
+        /* 스토어 , 그림 */
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
             >
             <Button
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/cart3"
+                android:layout_marginLeft="19dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/cart2"
                 />
             <TextView
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="랏츠 스토어"
-                android:textSize="24dp"
+                android:layout_gravity="center_vertical"
+                android:text="스토어"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 />
         </LinearLayout>
@@ -120,6 +106,86 @@
                 android:textColor="#2d2d2d"
                 />
         </LinearLayout>
+
+    </LinearLayout>
+
+    /* 최신순 */
+    <LinearLayout
+        android:background="@color/background"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="최신순"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+    </LinearLayout>
+
+    /* 상품 전체 페이지 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="500dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        >
+        /*상품 가로(행) 레이아웃
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            /*상품1*/
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:background="#eeefff"
+                >
+
+            </LinearLayout>
+            /*사이공간*/
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="fill_parent">
+            </LinearLayout>
+            /*상품2*/
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:background="#eeefff"
+                >
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            /*상품3*/
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:background="#eeefff"
+                >
+
+            </LinearLayout>
+            /*사이공간*/
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="fill_parent">
+            </LinearLayout>
+            /*상품4*/
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="200dp"
+                android:background="#eeefff"
+                >
+
+            </LinearLayout>
+        </LinearLayout>
+
 
     </LinearLayout>
 
