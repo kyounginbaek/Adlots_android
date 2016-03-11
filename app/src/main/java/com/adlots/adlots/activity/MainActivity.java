@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.Button;
 
 import com.adlots.adlots.R;
@@ -13,10 +14,10 @@ import com.adlots.adlots.helper.BackPressCloseHandler;
 import com.adlots.adlots.helper.UnderlinePageIndicator;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     ViewPager MainPager;
-    Button btn_main1view, btn_main2view, btn_main3view, btn_main4view;
+    public Button btn_mainpage1, btn_mainpage2, btn_mainpage3, btn_mainpage4;
     private BackPressCloseHandler backPressCloseHandler;
 
     @Override
@@ -32,12 +33,90 @@ public class MainActivity extends FragmentActivity {
         mIndicator.setViewPager(MainPager);
         mIndicator.setFades(false);
 
-        btn_main1view = (Button)findViewById(R.id.btn_main1view);
-        btn_main2view = (Button)findViewById(R.id.btn_main2view);
-        btn_main3view = (Button)findViewById(R.id.btn_main3view);
-        btn_main4view = (Button)findViewById(R.id.btn_main4view);
+        btn_mainpage1 = (Button)findViewById(R.id.btn_mainpage1);
+        btn_mainpage2 = (Button)findViewById(R.id.btn_mainpage2);
+        btn_mainpage3 = (Button)findViewById(R.id.btn_mainpage3);
+        btn_mainpage4 = (Button)findViewById(R.id.btn_mainpage4);
+
+        btn_mainpage1.setOnClickListener(this);
+        btn_mainpage2.setOnClickListener(this);
+        btn_mainpage3.setOnClickListener(this);
+        btn_mainpage4.setOnClickListener(this);
+
+        btn_change(0);
+        MainPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                switch(position){
+                    case 0:
+                        btn_change(0);
+                        break;
+                    case 1:
+                        btn_change(1);
+                        break;
+                    case 2:
+                        btn_change(2);
+                        break;
+                    case 3:
+                        btn_change(3);
+                        break;
+                }
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
         backPressCloseHandler = new BackPressCloseHandler(this);
+    }
+
+    @Override
+    public void onClick (View v) {
+        switch(v.getId()){
+            case R.id.btn_mainpage1:
+                MainPager.setCurrentItem(0, true);
+                break;
+            case R.id.btn_mainpage2:
+                MainPager.setCurrentItem(1, true);
+                break;
+            case R.id.btn_mainpage3:
+                MainPager.setCurrentItem(2, true);
+                break;
+            case R.id.btn_mainpage4:
+                MainPager.setCurrentItem(3, true);
+                break;
+        }
+    }
+
+    public void btn_original() {
+        btn_mainpage1.setBackgroundResource(R.drawable.home);
+        btn_mainpage2.setBackgroundResource(R.drawable.cart);
+        btn_mainpage3.setBackgroundResource(R.drawable.person);
+        btn_mainpage4.setBackgroundResource(R.drawable.setting);
+    }
+
+    public void btn_change(int mPageNumber) {
+        switch (mPageNumber) {
+            case 0:
+                btn_original();
+                btn_mainpage1.setBackgroundResource(R.drawable.home_blue);
+                break;
+            case 1:
+                btn_original();
+                btn_mainpage2.setBackgroundResource(R.drawable.cart_blue);
+                break;
+            case 2:
+                btn_original();
+                btn_mainpage3.setBackgroundResource(R.drawable.person_blue);
+                break;
+            case 3:
+                btn_original();
+                btn_mainpage4.setBackgroundResource(R.drawable.setting_blue);
+                break;
+        }
     }
 
     @Override

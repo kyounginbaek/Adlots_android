@@ -34,7 +34,9 @@ public class MainThirdPage extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -88,9 +90,9 @@ public class MainThirdPage extends Fragment {
 
                 AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setTitle("로그아웃 확인")
-                        .setMessage("로그아웃 하시겠습니까")
+                        .setMessage("로그아웃 하시겠습니까?")
                         .setCancelable(true)
-                        .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             // 확인 버튼 클릭시 설정
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
@@ -104,7 +106,7 @@ public class MainThirdPage extends Fragment {
                                 getActivity().finish();
                             }
                         })
-                        .setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                             // 취소 버튼 클릭시 설정
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dialog.cancel();

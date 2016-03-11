@@ -74,19 +74,26 @@ public class SignupActivity extends Activity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if(password.equals(passcheck)) {
-                                if(jsonObject.names().get(0).equals("phone")){
-                                    Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니 adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                } else if(jsonObject.names().get(0).equals("success")){
-                                    Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), SigninActivity.class));
-                                } else if(jsonObject.names().get(0).equals("empty")){
-                                    Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
-                                } else if(jsonObject.names().get(0).equals("email")){
-                                    Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
-                                } else if(jsonObject.names().get(0).equals("nickname")){
-                                    Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                String condition = jsonObject.names().get(0).toString();
+                                switch (condition) {
+                                    case "phone":
+                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니 adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case "success":
+                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), SigninActivity.class));
+                                        break;
+                                    case "empty":
+                                        Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case "email":
+                                        Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case "nickname":
+                                        Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    default:
+                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();

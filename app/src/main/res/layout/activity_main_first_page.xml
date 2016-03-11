@@ -7,32 +7,30 @@
     /*애드랏츠*/
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="146dp"
+        android:layout_height="56dp"
         android:background="#01a1ff"
+
         >
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
             >
             <Button
-                android:layout_width="70dp"
-                android:layout_height="140dp"
-                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="19dp"
+
                 android:background="@drawable/scissors"
              />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="left"
-                >
+
                 <TextView
+                    android:layout_marginLeft="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="애드랏츠"
-                    android:textSize="36dp"
+                    android:textSize="20dp"
                     android:textColor="#ffffff"
                     />
              </LinearLayout>
@@ -41,7 +39,7 @@
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="30dp"
+        android:layout_height="24dp"
         android:gravity="center_vertical"
         >
 
@@ -88,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="친구 추천"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textColor="#2d2d2d"
                 />
             <TextView
@@ -134,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="광고1"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textColor="#2d2d2d"
                 />
             <TextView
@@ -180,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="광고2"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textColor="#2d2d2d"
                 />
             <TextView
@@ -226,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="광고3"
-                android:textSize="16dp"
+                android:textSize="15dp"
                 android:textColor="#2d2d2d"
                 />
             <TextView

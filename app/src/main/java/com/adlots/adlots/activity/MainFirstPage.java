@@ -25,13 +25,16 @@ public class MainFirstPage extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mainfirstcontext = container.getContext();
         mainfirstview = (View) from(mainfirstcontext).inflate(
                 R.layout.activity_main_first_page, container, false);
+
         return mainfirstview;
     }
 }

@@ -27,7 +27,9 @@ public class MainSecondPage extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +46,6 @@ public class MainSecondPage extends Fragment {
                 // giftcon 프래그먼트 출력
             }
         });
-
         ViewGroup newdelivery = (LinearLayout) mainsecondview.findViewById(R.id.newdelivery);
         newdelivery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +53,6 @@ public class MainSecondPage extends Fragment {
                 // newdelivery 프래그먼트 출력
             }
         });
-
         ViewGroup closedelivery = (LinearLayout) mainsecondview.findViewById(R.id.closedelivery);
         closedelivery.setOnClickListener(new View.OnClickListener() {
             @Override
