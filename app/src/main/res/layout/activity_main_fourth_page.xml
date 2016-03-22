@@ -50,16 +50,15 @@
                 android:background="@color/background"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
-                android:clickable="false">
+                android:id="@+id/facebook"
+                >
 
                 <LinearLayout
                     android:layout_width="310dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:id="@+id/facebook"
                     android:layout_gravity="center_vertical"
                     >
-
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -109,15 +108,13 @@
                 android:background="@color/background"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
-                android:clickable="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false">
+                android:id="@+id/winnerlist"
+                >
 
                 <LinearLayout
                     android:layout_width="310dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:id="@+id/winnerlist"
                     android:layout_gravity="center_vertical"
                     >
 
@@ -152,10 +149,8 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:background="@drawable/icon_back_pink"
-
                         />
                 </LinearLayout>
-
 
             </LinearLayout>
 
@@ -172,7 +167,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:id="@+id/email"
-                android:clickable="false"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -184,7 +178,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="이용 문의"
+                        android:text="이용 및 제휴문의"
                         android:layout_gravity="center_vertical"
                         android:textSize="16dp"
                         android:textColor="#2d2d2d"
@@ -194,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginLeft="16dp"
-                        android:text="이용문의 및 바라는 기능을 보내주세요."
+                        android:text="오류, 바라는 기능 및 제휴문의를 보내주세요."
                         android:textSize="14dp"
                         android:textColor="#6e6e6e"
                         />
@@ -212,64 +206,6 @@
 
                         />
                 </LinearLayout>
-            </LinearLayout>
-            /* 바 */
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:gravity="center_horizontal"
-                android:background="#6e6e6e"
-                />
-            /*블로그 소식*/
-            <LinearLayout
-                android:background="@color/background"
-                android:layout_width="fill_parent"
-                android:layout_height="65dp"
-                android:id="@+id/blog"
-                android:clickable="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                >
-                <LinearLayout
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="블로그 소식보기"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:textColor="#2d2d2d"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="16dp"
-                        android:text="이번주 업데이트와 각종 소식을 받아가세요."
-                        android:textSize="14dp"
-                        android:textColor="#6e6e6e"
-                        />
-                </LinearLayout>
-                /*화살표*/
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:gravity="center"
-                    >
-                    <Button
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/icon_back_pink"
-
-                        />
-                </LinearLayout>
-
             </LinearLayout>
 
             /* 바 */
@@ -286,7 +222,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:id="@+id/homepage"
-                android:clickable="false"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -335,69 +270,13 @@
                 android:gravity="center_horizontal"
                 android:background="#6e6e6e"
                 />
-
-            /*튜토리얼 다시보기*/
-            <LinearLayout
-                android:background="@color/background"
-                android:layout_width="fill_parent"
-                android:layout_height="65dp"
-                android:id="@+id/tutorial"
-                android:clickable="false">
-
-                <LinearLayout
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="튜토리얼 다시보기"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:textColor="#2d2d2d"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="16dp"
-                        android:text="튜토리얼을 다시보고 사용방법을 익히세요."
-                        android:textSize="14dp"
-                        android:textColor="#6e6e6e"
-                        />
-                </LinearLayout>
-                /*화살표*/
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:gravity="center"
-                    >
-                    <Button
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/icon_back_pink"
-
-                        />
-                </LinearLayout>
-            </LinearLayout>
-
-            /* 바 */
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:gravity="center_horizontal"
-                android:background="#6e6e6e"
-                />
             /* 푸시알림 */
             <LinearLayout
                 android:background="@color/background"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:id="@+id/pushalarm"
-                android:clickable="false">
+                >
 
                 <LinearLayout
                     android:layout_width="310dp"
@@ -438,6 +317,171 @@
                         />
                 </LinearLayout>
             </LinearLayout>
+
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /* 자주묻는질문 */
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/faq"
+                >
+
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="자주 묻는 질문 FAQ"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="유저분들의 자주 묻는 질문에 대한 답변입니다."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+            /*블로그 소식*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/blog"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="블로그 소식보기"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="이번주 업데이트와 각종 소식을 받아가세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            /* 바 */
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#6e6e6e"
+                />
+
+            /*튜토리얼 다시보기*/
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="65dp"
+                android:id="@+id/tutorial"
+                >
+
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="튜토리얼 다시보기"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="튜토리얼을 다시보고 사용방법을 익히세요."
+                        android:textSize="14dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
             /* 바 */
             <Button
                 android:layout_width="fill_parent"
@@ -451,7 +495,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:id="@+id/developers"
-                android:clickable="false"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -488,7 +531,6 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:background="@drawable/icon_back_pink"
-
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -505,7 +547,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:id="@+id/agreement"
-                android:clickable="false"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -550,5 +591,5 @@
 
     </ScrollView>/*스크롤 끝*/
 
-    /*메인 네번쨰 페이지 레이아웃끝*/
+    /*메인 네번째 페이지 레이아웃끝*/
 </LinearLayout>

@@ -47,11 +47,14 @@ public class MainThirdPage extends Fragment {
         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
         String pref_email = pref.getString("email", "");
         String pref_nickname = pref.getString("nickname", "");
+        String pref_point = pref.getString("point", "");
 
-        TextView nickname = (TextView) mainthirdview.findViewById(R.id.nickname);
+        TextView nickname = (TextView) mainthirdview.findViewById(R.id.main3_nickname);
         nickname.setText(pref_nickname);
-        TextView email = (TextView) mainthirdview.findViewById(R.id.email);
+        TextView email = (TextView) mainthirdview.findViewById(R.id.main3_email);
         email.setText(pref_email);
+        TextView point = (TextView) mainthirdview.findViewById(R.id.main3_point);
+        point.setText(pref_point);
 
         final ViewGroup userinfochange = (LinearLayout) mainthirdview.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +90,6 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-
                 AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setTitle("로그아웃 확인")
                         .setMessage("로그아웃 하시겠습니까?")

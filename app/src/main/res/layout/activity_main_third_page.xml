@@ -23,10 +23,12 @@
                 android:layout_height="100dp"
                 android:background="@drawable/circle_point"
                 android:paddingTop="55dp"
-                android:paddingLeft="25dp"
-                android:textSize="13dp"
+                android:paddingBottom="20dp"
+                android:textSize="18dp"
+                android:text="0"
                 android:textColor="#0d2436"
-                android:id="@+id/main2_point"
+                android:id="@+id/main3_point"
+                android:gravity="center"
                 />
 
         </LinearLayout>
@@ -49,7 +51,7 @@
                     android:layout_marginLeft="15dp"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"
-                    android:id="@+id/nickname" />
+                    android:id="@+id/main3_nickname" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -66,7 +68,7 @@
                 android:layout_marginLeft="15dp"
                 android:textSize="15dp"
                 android:textColor="#f9fafc"
-                android:id="@+id/email" />
+                android:id="@+id/main3_email" />
 
             비밀번호 변경
             <LinearLayout
