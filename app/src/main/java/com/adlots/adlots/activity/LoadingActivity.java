@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainActivity;
+import com.adlots.adlots.activity.TutorialActivity.TutorialActivity;
 
 public class LoadingActivity extends Activity {
 

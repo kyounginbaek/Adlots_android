@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainActivity;
 import com.adlots.adlots.helper.BackPressCloseHandler;
 import com.adlots.adlots.helper.DataHolder;
 import com.android.volley.AuthFailureError;

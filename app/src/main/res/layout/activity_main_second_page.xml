@@ -10,7 +10,6 @@
         android:layout_height="56dp"
         android:background="#01a1ff"
         >
-
         /* 스토어 , 그림 */
         <LinearLayout
             android:layout_width="fill_parent"
@@ -36,7 +35,6 @@
 
     </LinearLayout>
 
-
     /* 상품 아이콘 이미지들 */
     <LinearLayout
         android:background="@color/background"
@@ -55,7 +53,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/gifticon"
-                />
+                android:onClick="editActions"
+                android:clickable="false" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +75,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/new_item2"
-                />
+                android:onClick="editActions"
+                android:clickable="false" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +97,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/lottery"
-                />
+                android:onClick="editActions"
+                android:clickable="false" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +117,6 @@
         android:layout_height="24dp"
         android:gravity="center_vertical"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,43 +127,11 @@
             />
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
     /* 상품 전체 페이지 */
-    <LinearLayout
+    /*상품이미지 상자*/
+    <FrameLayout
+        android:id="@+id/child_fragment"
         android:layout_width="fill_parent"
-        android:layout_height="500dp"
-        android:padding="10dp"
-        android:orientation="vertical"
-        >
-        /*상품 가로(행) 레이아웃
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-            /*상품1*/
-            /*사이공간*/
-
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="fill_parent">
-            </LinearLayout>
-            /*상품2*/
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-            /*상품3*/
-            /*사이공간*/
-
-            <LinearLayout
-                android:layout_width="20dp"
-                android:layout_height="fill_parent">
-            </LinearLayout>
-            /*상품4*/
-        </LinearLayout>
-
-
-    </LinearLayout>/*상품이미지 상자*/
-  </ScrollView>
+        android:layout_height="fill_parent"
+    />
 </LinearLayout>
