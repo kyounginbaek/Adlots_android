@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.activity.MainSecondFragment.MainSecondCloseitem;
-import com.adlots.adlots.activity.MainSecondFragment.MainSecondGiftcon;
-import com.adlots.adlots.activity.MainSecondFragment.MainSecondNewitem;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondCloseitem;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondGiftcon;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondNewitem;
 
 import static android.view.LayoutInflater.from;
 
@@ -51,7 +51,7 @@ public class MainSecondPage extends Fragment {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.child_fragment, fragment1).commit();
+                transaction.replace(R.id.main2_fragment, fragment1).commit();
             }
         });
 

@@ -130,7 +130,7 @@
     /* 상품 전체 페이지 */
     /*상품이미지 상자*/
     <FrameLayout
-        android:id="@+id/child_fragment"
+        android:id="@+id/main2_fragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
     />

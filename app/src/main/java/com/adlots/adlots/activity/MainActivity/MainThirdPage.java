@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainThridActivity.MainThirdUseritem;
 import com.adlots.adlots.activity.SigninActivity;
 
 import static android.view.LayoutInflater.from;
@@ -62,13 +64,13 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.main_third_info_popup, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                final View dialogView = inflater.inflate(R.layout.main_third_info_popup, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
-                AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
+                AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
                 buider.setTitle("개인정보 변경");
 
-                AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                 dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                 dialog.show(); //Dialog 보이기
 
@@ -77,10 +79,14 @@ public class MainThirdPage extends Fragment {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
-                        String login = pref.getString("login", "");
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("login", "no");
+                        editor.commit();
+
                         Toast.makeText(mainthirdcontext, "개인정보가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
                         startActivity(intent);
+                        getActivity().finish();
                     }
                 });
             }
@@ -91,7 +97,7 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
+                AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setTitle("로그아웃 확인")
                         .setMessage("로그아웃 하시겠습니까?")
                         .setCancelable(true)
@@ -103,9 +109,9 @@ public class MainThirdPage extends Fragment {
                                 editor.putString("login", "no");
                                 editor.commit();
 
+                                Toast.makeText(mainthirdcontext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
                                 startActivity(intent);
-                                Toast.makeText(mainthirdcontext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                                 getActivity().finish();
                             }
                         })
@@ -116,11 +122,16 @@ public class MainThirdPage extends Fragment {
                             }
                         });
 
-                AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                 dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                 dialog.show(); //Dialog 보이기
             }
         });
+
+
+        final Fragment userinfofragment = new MainThirdUseritem();
+        final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.child_fragment, userinfofragment).commit(); //처음 화면
 
         return mainthirdview;
     }

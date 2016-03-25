@@ -133,4 +133,11 @@
             android:textColor="#2d2d2d"
             />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main3_fragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+
 </LinearLayout>
