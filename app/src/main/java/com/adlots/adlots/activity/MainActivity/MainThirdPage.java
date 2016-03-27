@@ -131,7 +131,7 @@ public class MainThirdPage extends Fragment {
 
         final Fragment userinfofragment = new MainThirdUseritem();
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.child_fragment, userinfofragment).commit(); //처음 화면
+        transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면
 
         return mainthirdview;
     }
