@@ -44,7 +44,7 @@ public class MainSecondPage extends Fragment {
         final Fragment fragment2 = new MainSecondNewitem();
         final Fragment fragment3 = new MainSecondCloseitem();
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.child_fragment, fragment1).commit(); //처음 화면
+        transaction.add(R.id.main2_fragment, fragment1).commit(); //처음 화면
 
         ViewGroup giftcon = (LinearLayout) mainsecondview.findViewById(R.id.giftcon);
         giftcon.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class MainSecondPage extends Fragment {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.child_fragment, fragment2).commit();
+                transaction.replace(R.id.main2_fragment, fragment2).commit();
             }
         });
 
@@ -69,7 +69,7 @@ public class MainSecondPage extends Fragment {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.child_fragment, fragment3).commit();
+                transaction.replace(R.id.main2_fragment, fragment3).commit();
             }
         });
 

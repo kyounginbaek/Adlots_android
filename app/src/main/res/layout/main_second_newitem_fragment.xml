@@ -10,4 +10,13 @@
         android:text="main_second_newitem_fragment"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:id="@+id/newitem_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#f7f7f7"
+        >
+    </ListView>
+
 </LinearLayout>
