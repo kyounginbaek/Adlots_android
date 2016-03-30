@@ -93,9 +93,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     public void btn_original() {
         btn_mainpage1.setBackgroundResource(R.drawable.home);
-        btn_mainpage2.setBackgroundResource(R.drawable.cart);
-        btn_mainpage3.setBackgroundResource(R.drawable.person);
-        btn_mainpage4.setBackgroundResource(R.drawable.setting);
+        btn_mainpage2.setBackgroundResource(R.drawable.cart_gray);
+        btn_mainpage3.setBackgroundResource(R.drawable.person_gray);
+        btn_mainpage4.setBackgroundResource(R.drawable.setting_gray);
     }
 
     public void btn_change(int mPageNumber) {

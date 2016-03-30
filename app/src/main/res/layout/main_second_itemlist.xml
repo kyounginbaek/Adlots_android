@@ -5,14 +5,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"></LinearLayout>
+        android:layout_height="5dp">
+    </LinearLayout>
+
     <LinearLayout
         android:layout_marginRight="17dp"
         android:layout_marginLeft="17dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="79dp"
+        android:layout_height="100dp"
         android:background="@drawable/customborder"
         android:divider="#000"
         >
@@ -23,36 +25,8 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             >
-            <TextView
-                android:id="@+id/myssm_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" "
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="10dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/myssm_word"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="머물다"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="20dp"
-                android:layout_marginLeft="22dp"
 
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff"
-                android:typeface="serif"
-                android:textSize="10dp"
-                android:layout_marginLeft="22dp"
-                />
+
 
         </LinearLayout>
         <View
@@ -61,6 +35,41 @@
             android:layout_weight="1"
             >
         </View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/main2_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/myssm_date"
@@ -72,8 +81,11 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"></LinearLayout>
+        android:layout_height="5dp">
+
+    </LinearLayout>
 
 </LinearLayout>
