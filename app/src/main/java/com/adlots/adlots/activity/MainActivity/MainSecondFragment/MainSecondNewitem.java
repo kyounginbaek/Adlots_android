@@ -14,7 +14,7 @@ public class MainSecondNewitem extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = (View) inflater.inflate(R.layout.main_second_newitem_fragment,
+        View view = (View) inflater.inflate(R.layout.fragment_main_second_newitem,
                 container, false);
 
         return view ;

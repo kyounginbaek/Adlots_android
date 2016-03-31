@@ -99,7 +99,7 @@ public class MainFourthPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.main_fourth_agreement_popup, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                final View dialogView= inflater.inflate(R.layout.popup_main_fourth_agreement, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
                 AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
@@ -137,7 +137,7 @@ public class MainFourthPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.main_fourth_developers_popup, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                final View dialogView= inflater.inflate(R.layout.popup_main_fourth_developers, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
                 AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
@@ -155,7 +155,7 @@ public class MainFourthPage extends Fragment {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.main_fourth_agreement_popup, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                final View dialogView= inflater.inflate(R.layout.popup_main_fourth_agreement, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
                 AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/customborder"
+        android:divider="#000"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/main2_imagelink"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.40">
+
+            <TextView
+                android:id="@+id/main2_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_endpoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_nowpoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_endtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_lotspeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </LinearLayout>
+
+</LinearLayout>
