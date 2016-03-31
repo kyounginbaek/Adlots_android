@@ -3,30 +3,19 @@ package com.adlots.adlots.rest;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.adlots.adlots.rest.model.MainSecond;
 
-import java.util.List;
-import java.util.Map;
-
-import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
-import retrofit.http.Body;
-import retrofit.http.DELETE;
 import retrofit.http.GET;
-import retrofit.http.POST;
-import retrofit.http.PUT;
-import retrofit.http.Query;
 
 /**
  * Created by baekkyoungin on 16. 3. 31..
  */
 public class RestClient {
 
-    private static SsmService mService;
+    private static AdlotsService mService;
 
-    public static SsmService getService() {
+    public static AdlotsService getService() {
         if (mService != null)
             return mService;
 
@@ -36,34 +25,36 @@ public class RestClient {
                 .create();
 
         RestAdapter adapter = new RestAdapter.Builder().
-                setEndpoint("http://ezbrother.com").
+                setEndpoint("http://adlots.co.kr/android_php").
                 setConverter(new GsonConverter(gson)).
                 build();
 
-        mService = adapter.create(SsmService.class);
+        mService = adapter.create(AdlotsService.class);
         return mService;
     }
 
-    public interface SsmService {
+    public interface AdlotsService {
+
+        /*
         //업데이트 버젼 정보 가져오기
         @GET("/version.php")
         void getVersion(Callback<String> callback);
 
-        /* 현재 글감 가자오기
+        //현재 글감 가자오기
         @GET("/cards.php")
-        void getKeyword(@Query("purpose") String purpose, Callback<Card> callback); */
+        void getKeyword(@Query("purpose") String purpose, Callback<Card> callback);
 
-        /* 현재 글감 가자오기
+        //현재 글감 가자오기
         @GET("/cards.php")
-        void getMyssmword(@Query("purpose") String purpose, @Query("myssm_word") String myssm_word, Callback<Card> callback); */
+        void getMyssmword(@Query("purpose") String purpose, @Query("myssm_word") String myssm_word, Callback<Card> callback);
 
         //내가 쓴 씀만 가져오기
         @GET("/ssm.php")
         void getMySsm(@Query("purpose") String purpose, @Query("author") String author, @Query("email") String email, Callback<List<MainSecond>> callback);
 
-        /* 공개 씀 리스트 카드 정보 가져오기
+        //공개 씀 리스트 카드 정보 가져오기
         @GET("/cards.php")
-        void getOpenCard(@Query("purpose") String purpose, Callback<List<Card>> callback); */
+        void getOpenCard(@Query("purpose") String purpose, Callback<List<Card>> callback);
 
         //공개 씀 해당 글감의 씀 가져오기
         @GET("/ssm.php")
@@ -105,11 +96,13 @@ public class RestClient {
         @DELETE("")
         void deleteProfile(@Query("id") String id, Callback<JsonElement> callback);
 
-
         @POST("/cards.php")
         void postCard(@Body Map<String, String> card, Callback<JsonElement> callback);
+        */
 
-
+        //아이템 정보 가져오기
+        @GET("/getitem.php")
+        void
     }
 
 }
