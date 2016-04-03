@@ -19,7 +19,7 @@
         android:divider="#000"
         >
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/main2_imagelink"
@@ -51,6 +51,15 @@
                 />
             <TextView
                 android:id="@+id/main2_itemname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#505050"
+                android:typeface="serif"
+                android:textSize="13dp"
+                android:layout_marginLeft="22dp"
+                />
+            <TextView
+                android:id="@+id/main2_referlink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
@@ -94,7 +103,6 @@
                 android:textSize="13dp"
                 android:layout_marginLeft="22dp"
                 />
-
 
         </LinearLayout>
 

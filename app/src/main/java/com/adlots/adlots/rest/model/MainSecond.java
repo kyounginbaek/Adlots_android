@@ -8,22 +8,12 @@ import android.os.Parcelable;
  */
 public class MainSecond implements Parcelable, Adaptable {
     public String id;
-    public String word_id;
-    public String word;
-    public String ssm;
-    public String author;
-    public String email;
-    public String when;
-    public String open;
-    public String liked;
+    public String category, brand, itemname;
+    public String imagelink, referlink, endtime;
+    public String endpoint, nowpoint, lotspeople;
 
     public MainSecond(Parcel in) {
         readFromParcel(in);
-    }
-
-    public MainSecond(String author, String id) {
-        this.author = author;
-        this.id = id;
     }
 
     @Override
