@@ -42,13 +42,13 @@ public class MainSecondGiftcon extends android.support.v4.app.Fragment {
         RestClient.AdlotsService service = RestClient.getService();
         service.getItem("giftcon", new Callback<List<MainSecond>>() {
             @Override
-            public void success(List<MainSecond> adlots, Response response) {
-                giftcon.addAll(adlots);
+            public void success(List<MainSecond> giftconitem, Response response) {
+                giftcon.addAll(giftconitem);
                 adapter.notifyDataSetChanged();
             }
             @Override
             public void failure(RetrofitError error) {
-                String temp;
+
             }
         });
 

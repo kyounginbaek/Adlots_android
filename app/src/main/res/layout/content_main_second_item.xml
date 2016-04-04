@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -64,8 +64,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
-                android:layout_marginLeft="22dp"
+                android:textSize="5dp"
+                android:layout_marginLeft="5dp"
                 />
             <TextView
                 android:id="@+id/main2_endpoint"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
             <TextView
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#505050"
                 android:typeface="serif"
-                android:textSize="13dp"
+                android:textSize="5dp"
                 android:layout_marginLeft="22dp"
                 />
 
