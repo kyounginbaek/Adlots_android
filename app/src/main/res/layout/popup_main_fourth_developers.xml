@@ -121,7 +121,7 @@
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
-            android:text="리쿠르팅 중"
+            android:text="한상우"
             android:textColor="#666666"
             android:textSize="14dp"
             android:paddingStart="5dp"

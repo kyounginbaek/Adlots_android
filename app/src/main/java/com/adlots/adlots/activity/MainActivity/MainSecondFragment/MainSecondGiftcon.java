@@ -65,7 +65,7 @@ public class MainSecondGiftcon extends android.support.v4.app.Fragment {
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
-                buider.setTitle("얼마만큼의 랏츠를 사용하시겠어요?");
+                buider.setTitle("얼만큼의 랏츠를 응모하시겠습니까?");
 
                 AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                 dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정

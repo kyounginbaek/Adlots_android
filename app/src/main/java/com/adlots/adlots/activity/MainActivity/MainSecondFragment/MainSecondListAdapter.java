@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.helper.ImageLoadTask;
 import com.adlots.adlots.rest.model.MainSecond;
 
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
 
-            holder.imagelink = (TextView) v.findViewById(R.id.main2_imagelink);
+            holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
             holder.referlink = (TextView) v.findViewById(R.id.main2_referlink);
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
 
@@ -69,7 +71,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
 
-            holder.imagelink.setText(adlotsItem.imagelink);
+            new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
             holder.referlink.setText(adlotsItem.referlink);
             holder.endtime.setText(adlotsItem.endtime);
 
@@ -92,7 +94,9 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
 
     static class AdlotsListHolder {
         TextView category, brand, itemname;
-        TextView imagelink, referlink, endtime;
+        ImageView imagelink;
+        TextView referlink, endtime;
         TextView endpoint, nowpoint, lotspeople;
     }
+
 }
