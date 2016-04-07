@@ -6,13 +6,13 @@ import android.os.Parcelable;
 /**
  * Created by baekkyoungin on 16. 3. 31..
  */
-public class MainSecond implements Parcelable, Adaptable {
+public class MainSecondItem implements Parcelable, Adaptable {
     public String id;
     public String category, brand, itemname;
     public String imagelink, referlink, endtime;
     public String endpoint, nowpoint, lotspeople;
 
-    public MainSecond(Parcel in) {
+    public MainSecondItem(Parcel in) {
         readFromParcel(in);
     }
 
@@ -30,15 +30,15 @@ public class MainSecond implements Parcelable, Adaptable {
         dest.writeString(id);
     }
 
-    public static final Creator<MainSecond> CREATOR = new Creator<MainSecond>(){
+    public static final Creator<MainSecondItem> CREATOR = new Creator<MainSecondItem>(){
         @Override
-        public MainSecond createFromParcel(Parcel source) {
-            return new MainSecond(source);
+        public MainSecondItem createFromParcel(Parcel source) {
+            return new MainSecondItem(source);
         }
 
         @Override
-        public MainSecond[] newArray(int size) {
-            return new MainSecond[size];
+        public MainSecondItem[] newArray(int size) {
+            return new MainSecondItem[size];
         }
     };
 }

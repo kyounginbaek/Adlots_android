@@ -15,8 +15,8 @@ import static android.view.LayoutInflater.from;
  * Created by baekkyoungin on 2015. 11. 18..
  */
 public class TutorialFirstPage extends Fragment {
-    private Context tutorialfirstcontext = null;
-    private View tutorialfirstview = null;
+    private Context tutorialfirstContext = null;
+    private View tutorialfirstView = null;
 
     public static TutorialFirstPage newProduction (int position) {
         TutorialFirstPage mpage = new TutorialFirstPage();
@@ -28,9 +28,10 @@ public class TutorialFirstPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        tutorialfirstcontext = container.getContext();
-        tutorialfirstview = (View) from(tutorialfirstcontext).inflate(
+        tutorialfirstContext = container.getContext();
+        tutorialfirstView = (View) from(tutorialfirstContext).inflate(
                 R.layout.activity_tutorial_first_page, container, false);
-        return tutorialfirstview;
+
+        return tutorialfirstView;
     }
 }

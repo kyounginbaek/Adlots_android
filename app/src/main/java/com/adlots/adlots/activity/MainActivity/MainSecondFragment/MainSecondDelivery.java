@@ -23,28 +23,28 @@ import retrofit.client.Response;
 /**
  * Created by baekkyoungin on 16. 3. 22..
  */
-public class MainSecondGiftcon extends android.support.v4.app.Fragment {
+public class MainSecondDelivery extends android.support.v4.app.Fragment {
 
-    private Context giftconContext = null;
-    private View giftconView = null;
+    private Context deliveryContext = null;
+    private View deliveryView = null;
 
-    ListView giftconList;
-    MainSecondListAdapter giftconAdapter;
+    ListView deliveryList;
+    MainSecondListAdapter deliveryAdapter;
 
-    public ArrayList<MainSecondItem> giftconArray = new ArrayList<MainSecondItem>();
+    public ArrayList<MainSecondItem> deliveryArray = new ArrayList<MainSecondItem>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        giftconContext = container.getContext();
-        giftconView = (View) inflater.inflate(R.layout.fragment_main_second_giftcon,
+        deliveryContext = container.getContext();
+        deliveryView = (View) inflater.inflate(R.layout.fragment_main_second_delivery,
                 container, false);
 
         RestClient.AdlotsService service = RestClient.getService();
-        service.getItem("giftcon", new Callback<List<MainSecondItem>>() {
+        service.getItem("delivery", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                giftconArray.addAll(getitem);
-                giftconAdapter.notifyDataSetChanged();
+                deliveryArray.addAll(getitem);
+                deliveryAdapter.notifyDataSetChanged();
             }
             @Override
             public void failure(RetrofitError error) {
@@ -52,12 +52,12 @@ public class MainSecondGiftcon extends android.support.v4.app.Fragment {
             }
         });
 
-        giftconList = (ListView) giftconView.findViewById(R.id.giftcon_listview);
-        giftconAdapter = new MainSecondListAdapter(giftconContext, R.layout.content_main_second_item, giftconArray);
-        giftconList.setAdapter(giftconAdapter);
-        giftconAdapter.clear();
+        deliveryList = (ListView) deliveryView.findViewById(R.id.delivery_listview);
+        deliveryAdapter = new MainSecondListAdapter(deliveryContext, R.layout.content_main_second_item, deliveryArray);
+        deliveryList.setAdapter(deliveryAdapter);
+        deliveryAdapter.clear();
 
-        giftconList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        deliveryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // 클릭시 추첨 페이지 팝업되기
@@ -74,6 +74,6 @@ public class MainSecondGiftcon extends android.support.v4.app.Fragment {
             }
         });
 
-        return giftconView ;
+        return deliveryView ;
     }
 }

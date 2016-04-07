@@ -10,22 +10,22 @@ import android.widget.TextView;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.ImageLoadTask;
-import com.adlots.adlots.rest.model.MainSecond;
+import com.adlots.adlots.rest.model.MainSecondItem;
 
 import java.util.ArrayList;
 
 /**
  * Created by baekkyoungin on 16. 3. 31..
  */
-public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
+public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     private Context context;
-    private ArrayList<MainSecond> items;
+    private ArrayList<MainSecondItem> items;
     int layoutResource;
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_COUNT = 2;
 
-    public MainSecondListAdapter(Context context, int resource, ArrayList<MainSecond> items) {
+    public MainSecondListAdapter(Context context, int resource, ArrayList<MainSecondItem> items) {
         super(context, resource, items);
         this.layoutResource = resource;
         this.context = context;
@@ -42,11 +42,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
 
     private View getItemView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
-        AdlotsListHolder holder = null;
+        ListHolder holder = null;
         if(v==null){
             LayoutInflater vi =(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource,parent,false);
-            holder = new AdlotsListHolder();
+            holder = new ListHolder();
+            holder.id = (TextView) v.findViewById(R.id.main2_id);
+
             holder.category = (TextView) v.findViewById(R.id.main2_category);
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
@@ -62,11 +64,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
             v.setTag(holder);
         }
         else{
-            holder = (AdlotsListHolder)v.getTag();
+            holder = (ListHolder)v.getTag();
         }
 
-        MainSecond adlotsItem = items.get(position);
+        MainSecondItem adlotsItem = items.get(position);
         if(adlotsItem!=null){
+            holder.id.setText(adlotsItem.id);
+
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
@@ -92,11 +96,11 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecond> {
         return null;
     }
 
-    static class AdlotsListHolder {
+    static class ListHolder {
+        TextView id;
         TextView category, brand, itemname;
         ImageView imagelink;
         TextView referlink, endtime;
         TextView endpoint, nowpoint, lotspeople;
     }
-
 }

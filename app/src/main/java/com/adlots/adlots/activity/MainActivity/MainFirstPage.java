@@ -16,8 +16,8 @@ import static android.view.LayoutInflater.from;
  */
 public class MainFirstPage extends Fragment {
 
-    private Context mainfirstcontext = null;
-    private View mainfirstview = null;
+    private Context mainfirstContext = null;
+    private View mainfirstView = null;
 
     public static MainFirstPage newProduction (int position) {
         MainFirstPage mpage = new MainFirstPage();
@@ -31,10 +31,10 @@ public class MainFirstPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mainfirstcontext = container.getContext();
-        mainfirstview = (View) from(mainfirstcontext).inflate(
+        mainfirstContext = container.getContext();
+        mainfirstView = (View) from(mainfirstContext).inflate(
                 R.layout.activity_main_first_page, container, false);
 
-        return mainfirstview;
+        return mainfirstView;
     }
 }

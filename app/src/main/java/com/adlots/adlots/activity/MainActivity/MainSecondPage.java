@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondCloseitem;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondDeadline;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondDelivery;
 import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondGiftcon;
-import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondNewitem;
 
 import static android.view.LayoutInflater.from;
 
@@ -21,8 +21,8 @@ import static android.view.LayoutInflater.from;
  */
 public class MainSecondPage extends Fragment {
 
-    private Context mainsecondcontext = null;
-    private View mainsecondview = null;
+    private Context mainsecondContext = null;
+    private View mainsecondView = null;
 
     public static MainSecondPage newProduction (int position) {
         MainSecondPage mpage = new MainSecondPage();
@@ -36,17 +36,18 @@ public class MainSecondPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mainsecondcontext = container.getContext();
-        mainsecondview = (View) from(mainsecondcontext).inflate(
+        mainsecondContext = container.getContext();
+        mainsecondView = (View) from(mainsecondContext).inflate(
                 R.layout.activity_main_second_page, container, false);
 
         final Fragment fragment1 = new MainSecondGiftcon();
-        final Fragment fragment2 = new MainSecondNewitem();
-        final Fragment fragment3 = new MainSecondCloseitem();
+        final Fragment fragment2 = new MainSecondDelivery();
+        final Fragment fragment3 = new MainSecondDeadline();
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main2_fragment, fragment1).commit(); //처음 화면
 
-        ViewGroup giftcon = (LinearLayout) mainsecondview.findViewById(R.id.giftcon);
+
+        ViewGroup giftcon = (LinearLayout) mainsecondView.findViewById(R.id.giftcon);
         giftcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,8 +56,8 @@ public class MainSecondPage extends Fragment {
             }
         });
 
-        ViewGroup newitem = (LinearLayout) mainsecondview.findViewById(R.id.newitem);
-        newitem.setOnClickListener(new View.OnClickListener() {
+        ViewGroup delivery = (LinearLayout) mainsecondView.findViewById(R.id.delivery);
+        delivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -64,8 +65,8 @@ public class MainSecondPage extends Fragment {
             }
         });
 
-        ViewGroup closeitem = (LinearLayout) mainsecondview.findViewById(R.id.closeitem);
-        closeitem.setOnClickListener(new View.OnClickListener() {
+        ViewGroup deadline = (LinearLayout) mainsecondView.findViewById(R.id.deadline);
+        deadline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -73,7 +74,7 @@ public class MainSecondPage extends Fragment {
             }
         });
 
-        return mainsecondview;
+        return mainsecondView;
     }
 }
 

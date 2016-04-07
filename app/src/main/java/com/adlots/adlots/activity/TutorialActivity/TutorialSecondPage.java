@@ -15,8 +15,8 @@ import static android.view.LayoutInflater.from;
  * Created by baekkyoungin on 2015. 11. 18..
  */
 public class TutorialSecondPage extends Fragment {
-    private Context tutorialsecondcontext = null;
-    private View tutorialsecondview = null;
+    private Context tutorialsecondContext = null;
+    private View tutorialsecondView = null;
 
     public static TutorialSecondPage newProduction (int position) {
         TutorialSecondPage mpage = new TutorialSecondPage();
@@ -28,11 +28,11 @@ public class TutorialSecondPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        tutorialsecondcontext = container.getContext();
+        tutorialsecondContext = container.getContext();
 
-        tutorialsecondview = (View) from(tutorialsecondcontext).inflate(
+        tutorialsecondView = (View) from(tutorialsecondContext).inflate(
                 R.layout.activity_tutorial_second_page, container, false);
-        return tutorialsecondview;
+        return tutorialsecondView;
     }
 
 }

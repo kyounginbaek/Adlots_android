@@ -21,8 +21,8 @@ import static android.view.LayoutInflater.from;
  */
 public class MainFourthPage extends Fragment {
 
-    private Context mainfourthcontext = null;
-    private View mainfourthview = null;
+    private Context mainfourthContext = null;
+    private View mainfourthView = null;
 
     public static MainFourthPage newProduction (int position) {
         MainFourthPage mpage = new MainFourthPage();
@@ -36,12 +36,12 @@ public class MainFourthPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mainfourthcontext = container.getContext();
-        mainfourthview = (View) from(mainfourthcontext).inflate(
+        mainfourthContext = container.getContext();
+        mainfourthView = (View) from(mainfourthContext).inflate(
                 R.layout.activity_main_fourth_page, container, false);
 
         // 페이스북 페이지
-        ViewGroup facebook = (LinearLayout) mainfourthview.findViewById(R.id.facebook);
+        ViewGroup facebook = (LinearLayout) mainfourthView.findViewById(R.id.facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 당첨자 목록보기
-        ViewGroup winnerlist = (LinearLayout) mainfourthview.findViewById(R.id.winnerlist);
+        ViewGroup winnerlist = (LinearLayout) mainfourthView.findViewById(R.id.winnerlist);
         winnerlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +61,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 이용 및 제휴문의
-        ViewGroup email = (LinearLayout) mainfourthview.findViewById(R.id.email);
+        ViewGroup email = (LinearLayout) mainfourthView.findViewById(R.id.email);
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +75,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 애드랏츠 홈페이지
-        ViewGroup homepage = (LinearLayout) mainfourthview.findViewById(R.id.homepage);
+        ViewGroup homepage = (LinearLayout) mainfourthView.findViewById(R.id.homepage);
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +85,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 푸시 알람
-        ViewGroup pushalarm = (LinearLayout) mainfourthview.findViewById(R.id.pushalarm);
+        ViewGroup pushalarm = (LinearLayout) mainfourthView.findViewById(R.id.pushalarm);
         pushalarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +94,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 자주 묻는 질문 FAQ
-        ViewGroup faq = (LinearLayout) mainfourthview.findViewById(R.id.faq);
+        ViewGroup faq = (LinearLayout) mainfourthView.findViewById(R.id.faq);
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +112,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 블로그 소식보기
-        ViewGroup blog = (LinearLayout) mainfourthview.findViewById(R.id.blog);
+        ViewGroup blog = (LinearLayout) mainfourthView.findViewById(R.id.blog);
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,17 +122,17 @@ public class MainFourthPage extends Fragment {
         });
 
         // 튜토리얼 다시보기
-        ViewGroup tutorial = (LinearLayout) mainfourthview.findViewById(R.id.tutorial);
+        ViewGroup tutorial = (LinearLayout) mainfourthView.findViewById(R.id.tutorial);
         tutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainfourthcontext, TutorialActivity.class);
+                Intent intent = new Intent(mainfourthContext, TutorialActivity.class);
                 startActivity(intent);
             }
         });
 
         // 개발자 정보
-        ViewGroup developers = (LinearLayout) mainfourthview.findViewById(R.id.developers);
+        ViewGroup developers = (LinearLayout) mainfourthView.findViewById(R.id.developers);
         developers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +150,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 개인정보 이용약관
-        ViewGroup agreement = (LinearLayout) mainfourthview.findViewById(R.id.agreement);
+        ViewGroup agreement = (LinearLayout) mainfourthView.findViewById(R.id.agreement);
         agreement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,6 +167,6 @@ public class MainFourthPage extends Fragment {
             }
         });
 
-        return mainfourthview;
+        return mainfourthView;
     }
 }

@@ -69,7 +69,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/newitem"
+            android:id="@+id/delivery"
             >
             <Button
                 android:layout_width="35dp"
@@ -91,7 +91,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/closeitem"
+            android:id="@+id/deadline"
             >
             <Button
                 android:layout_width="35dp"

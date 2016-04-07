@@ -19,8 +19,8 @@ import static android.view.LayoutInflater.from;
  * Created by baekkyoungin on 2015. 11. 18..
  */
 public class TutorialFifthPage extends Fragment {
-    private Context tutorialfifthcontext = null;
-    private View tutorialfifthview = null;
+    private Context tutorialfifthContext = null;
+    private View tutorialfifthView = null;
 
     Button btn_goto_signin;
 
@@ -34,15 +34,15 @@ public class TutorialFifthPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        tutorialfifthcontext = container.getContext();
-        tutorialfifthview = (View) from(tutorialfifthcontext).inflate(
+        tutorialfifthContext = container.getContext();
+        tutorialfifthView = (View) from(tutorialfifthContext).inflate(
                 R.layout.activity_tutorial_fifth_page, container, false);
 
-        btn_goto_signin = (Button)tutorialfifthview.findViewById(R.id.btn_goto_signin);
+        btn_goto_signin = (Button)tutorialfifthView.findViewById(R.id.btn_goto_signin);
         btn_goto_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences pref = getActivity().getSharedPreferences("pref", tutorialfifthcontext.MODE_PRIVATE);
+                SharedPreferences pref = getActivity().getSharedPreferences("pref", tutorialfifthContext.MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 String isLogged = pref.getString("islogged", "");
                 String login = pref.getString("login", "");
@@ -53,13 +53,13 @@ public class TutorialFifthPage extends Fragment {
                 if (login.equals("yes")){
                     getActivity().finish();
                 } else {
-                    Intent intent = new Intent(tutorialfifthcontext, SigninActivity.class);
+                    Intent intent = new Intent(tutorialfifthContext, SigninActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                 }
             }
         });
 
-        return tutorialfifthview;
+        return tutorialfifthView;
     }
 }

@@ -28,8 +28,8 @@ import static android.view.LayoutInflater.from;
  */
 public class MainThirdPage extends Fragment {
 
-    private Context mainthirdcontext = null;
-    private View mainthirdview = null;
+    private Context mainthirdContext = null;
+    private View mainthirdView = null;
 
     public static MainThirdPage newProduction (int position) {
         MainThirdPage mpage = new MainThirdPage();
@@ -43,23 +43,23 @@ public class MainThirdPage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mainthirdcontext = container.getContext();
-        mainthirdview = (View) from(mainthirdcontext).inflate(
+        mainthirdContext = container.getContext();
+        mainthirdView = (View) from(mainthirdContext).inflate(
                 R.layout.activity_main_third_page, container, false);
 
-        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
+        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
         String pref_email = pref.getString("email", "");
         String pref_nickname = pref.getString("nickname", "");
         String pref_point = pref.getString("point", "");
 
-        TextView nickname = (TextView) mainthirdview.findViewById(R.id.main3_nickname);
+        TextView nickname = (TextView) mainthirdView.findViewById(R.id.main3_nickname);
         nickname.setText(pref_nickname);
-        TextView email = (TextView) mainthirdview.findViewById(R.id.main3_email);
+        TextView email = (TextView) mainthirdView.findViewById(R.id.main3_email);
         email.setText(pref_email);
-        TextView point = (TextView) mainthirdview.findViewById(R.id.main3_point);
+        TextView point = (TextView) mainthirdView.findViewById(R.id.main3_point);
         point.setText(pref_point);
 
-        final ViewGroup userinfochange = (LinearLayout) mainthirdview.findViewById(R.id.userinfochange);
+        final ViewGroup userinfochange = (LinearLayout) mainthirdView.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,13 +78,13 @@ public class MainThirdPage extends Fragment {
                 btn_infochange.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
+                        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putString("login", "no");
                         editor.commit();
 
-                        Toast.makeText(mainthirdcontext, "개인정보가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
+                        Toast.makeText(mainthirdContext, "개인정보가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(mainthirdContext, SigninActivity.class);
                         startActivity(intent);
                         getActivity().finish();
                     }
@@ -92,7 +92,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
-        ViewGroup logout = (LinearLayout) mainthirdview.findViewById(R.id.logout);
+        ViewGroup logout = (LinearLayout) mainthirdView.findViewById(R.id.logout);
         logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,13 +104,13 @@ public class MainThirdPage extends Fragment {
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             // 확인 버튼 클릭시 설정
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdcontext.MODE_PRIVATE);
+                                SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putString("login", "no");
                                 editor.commit();
 
-                                Toast.makeText(mainthirdcontext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(mainthirdcontext, SigninActivity.class);
+                                Toast.makeText(mainthirdContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(mainthirdContext, SigninActivity.class);
                                 startActivity(intent);
                                 getActivity().finish();
                             }
@@ -133,7 +133,7 @@ public class MainThirdPage extends Fragment {
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면
 
-        return mainthirdview;
+        return mainthirdView;
     }
 
 }

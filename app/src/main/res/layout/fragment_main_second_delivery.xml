@@ -3,16 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="main_second_closeitem_fragment"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal" />
-
     <ListView
-        android:id="@+id/closeitem_listview"
+        android:id="@+id/delivery_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#f7f7f7"
