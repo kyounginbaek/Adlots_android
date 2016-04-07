@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.ImageLoadTask;
 import com.adlots.adlots.rest.model.MainSecondItem;
 
 import java.util.ArrayList;
@@ -46,6 +45,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         if(v==null){
             LayoutInflater vi =(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource,parent,false);
+
             holder = new ListHolder();
             holder.id = (TextView) v.findViewById(R.id.main2_id);
 
@@ -75,7 +75,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
 
-            new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
+            //new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
             holder.referlink.setText(adlotsItem.referlink);
             holder.endtime.setText(adlotsItem.endtime);
 

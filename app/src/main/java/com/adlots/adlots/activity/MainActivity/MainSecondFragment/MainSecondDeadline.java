@@ -30,7 +30,6 @@ public class MainSecondDeadline extends android.support.v4.app.Fragment {
 
     ListView deadlineList;
     MainSecondListAdapter deadlineAdapter;
-
     public ArrayList<MainSecondItem> deadlineArray = new ArrayList<MainSecondItem>();
 
     @Override

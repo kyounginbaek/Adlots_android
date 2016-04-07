@@ -4,19 +4,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp">
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_marginRight="17dp"
         android:layout_marginLeft="17dp"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@drawable/customborder"
-        android:divider="#000"
         >
 
         <ImageView
@@ -114,12 +107,6 @@
                 />
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="5dp">
 
     </LinearLayout>
 

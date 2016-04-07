@@ -30,7 +30,6 @@ public class MainSecondDelivery extends android.support.v4.app.Fragment {
 
     ListView deliveryList;
     MainSecondListAdapter deliveryAdapter;
-
     public ArrayList<MainSecondItem> deliveryArray = new ArrayList<MainSecondItem>();
 
     @Override

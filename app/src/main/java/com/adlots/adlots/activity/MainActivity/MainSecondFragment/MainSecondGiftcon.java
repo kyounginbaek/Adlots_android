@@ -30,8 +30,8 @@ public class MainSecondGiftcon extends android.support.v4.app.Fragment {
 
     ListView giftconList;
     MainSecondListAdapter giftconAdapter;
-
     public ArrayList<MainSecondItem> giftconArray = new ArrayList<MainSecondItem>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
