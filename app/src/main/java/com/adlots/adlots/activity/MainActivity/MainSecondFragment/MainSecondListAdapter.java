@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.helper.ImageLoadTask;
 import com.adlots.adlots.rest.model.MainSecondItem;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
 
-            holder.imagelink = (LinearLayout) v.findViewById(R.id.main2_imagelink);
+            holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
 
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
@@ -60,7 +61,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
 
-            // new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
+            new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
             holder.endtime.setText(adlotsItem.endtime);
 
             holder.endpoint.setText(adlotsItem.endpoint);
@@ -73,7 +74,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
     static class ListHolder {
         TextView category, brand, itemname;
-        LinearLayout imagelink;
+        ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
     }
