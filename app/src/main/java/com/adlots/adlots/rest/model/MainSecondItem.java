@@ -7,9 +7,9 @@ import android.os.Parcelable;
  * Created by baekkyoungin on 16. 3. 31..
  */
 public class MainSecondItem implements Parcelable, Adaptable {
-    public String id;
+    public String id, type;
     public String category, brand, itemname;
-    public String imagelink, referlink, endtime;
+    public String imagelink, referlink, endtime, startime;
     public String endpoint, nowpoint, lotspeople;
 
     public MainSecondItem(Parcel in) {

@@ -46,7 +46,7 @@ public class RestClient {
 
         //아이템 정보 가져오기
         @GET("/getitem.php")
-        void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
+        void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> response);
 
         //유저아이템 정보 가져오기
 

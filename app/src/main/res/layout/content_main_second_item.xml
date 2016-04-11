@@ -3,109 +3,226 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    /*상품 진열*/
+    /*첫번쨰 상품*/
     <LinearLayout
-        android:layout_marginRight="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:background="#ffffff"
         >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/main2_imagelink"
-            android:layout_weight="0.5" />
-
+        첫번째 상품 그림
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="0.40">
-
-            <TextView
-                android:id="@+id/main2_id"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/main2_imagelink"
+            android:background="@drawable/item"
+            >
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/main2_category"
+                android:layout_gravity="right"
+                android:gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="마감 날짜 : "
+                    android:textSize="9dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:id="@+id/main2_endtime"
+                    android:text="6/28"
+                    android:textSize="9dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        상품 설명
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp"
+            >
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
+                android:gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main2_category"
+                    android:text="피규어"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / "
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main2_brand"
+                    android:text="원피스"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
             <TextView
-                android:id="@+id/main2_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
                 android:id="@+id/main2_itemname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/main2_referlink"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="5dp"
-                />
-            <TextView
-                android:id="@+id/main2_endpoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/main2_nowpoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/main2_endtime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
-                />
-            <TextView
-                android:id="@+id/main2_lotspeople"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#505050"
-                android:typeface="serif"
-                android:textSize="5dp"
-                android:layout_marginLeft="22dp"
+                android:text="조로 피규어"
+                android:textSize="15dp"
+                android:textColor="#2d2d2d"
                 />
 
+            응모자수 : (n)명
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="응모자 수"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/main2_lotspeople"
+                    android:text="n"
+                    android:layout_gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="#16a0e8"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 명"
+                    android:layout_gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="#16a0e8"
+                    />
+            </LinearLayout>
+            현재랏츠 : 00랏츠
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="현재 랏츠"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/main2_nowpoint"
+                    android:text="n"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#16a0e8"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 랏츠"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#16a0e8"
+                    />
+            </LinearLayout>
+            목표 랏츠 : 00랏츠
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="목표 랏츠"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/main2_endpoint"
+                    android:text="42000"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 랏츠"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        응모/바로구매
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:id="@+id/main2_textbtn_lots"
+                android:text="응모 하기"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#ffffff"
+                android:background="#16a0e8"
+                />
+            <TextView
+                android:layout_marginTop="12dp"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:id="@+id/main2_textbtn_buy"
+                android:text="바로 구매"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#ffffff"
+                android:background="#c65822"
+                />
         </LinearLayout>
 
     </LinearLayout>
