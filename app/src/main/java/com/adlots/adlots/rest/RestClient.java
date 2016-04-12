@@ -1,6 +1,7 @@
 package com.adlots.adlots.rest;
 
 import com.adlots.adlots.rest.model.MainSecondItem;
+import com.adlots.adlots.rest.model.MainThirdItem;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +50,8 @@ public class RestClient {
         void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> response);
 
         //유저아이템 정보 가져오기
-
+        @GET("/getuseritem.php")
+        void getuserItem(@Query("purpose") String purpose, Callback<List<MainThirdItem>> response);
 
         //아이템 추첨시 정보 입력
 
