@@ -8,8 +8,9 @@
     <LinearLayout
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:layout_width="330dp"
-        android:layout_height="90dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:padding="3dp"
         android:background="#ffffff"
         >
@@ -21,18 +22,20 @@
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
+                android:id="@+id/main3_imagelink"
                 android:orientation="vertical"
                 android:layout_gravity="center_vertical"
                 />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="right"
                 android:gravity="bottom"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:text="마감 날짜 : "
                     android:textSize="9dp"
                     android:textColor="#2d2d2d"
@@ -40,6 +43,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:id="@+id/main3_endtime"
                     android:text="6/28"
                     android:textSize="9dp"
                     android:textColor="#2d2d2d"
@@ -47,7 +52,6 @@
             </LinearLayout>
 
         </FrameLayout>
-
 
         상품 설명
         <LinearLayout
@@ -64,6 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/main3_category"
                     android:text="피규어"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
@@ -78,6 +83,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/main3_brand"
                     android:text="원피스"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
@@ -86,6 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/main3_itemname"
                 android:text="조로 피규어"
                 android:textSize="12dp"
                 android:textColor="#2d2d2d"
@@ -110,8 +117,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="n"
                     android:layout_gravity="center"
+                    android:id="@+id/main3_lotspeople"
+                    android:text="n"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
                     />
@@ -124,6 +132,7 @@
                     android:textColor="#2d2d2d"
                     />
             </LinearLayout>
+
             현재랏츠 : 00랏츠
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -143,8 +152,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="n"
                     android:layout_gravity="center_vertical"
+                    android:id="@+id/main3_nowpoint"
+                    android:text="n"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
                     />
@@ -157,6 +167,7 @@
                     android:textColor="#2d2d2d"
                     />
             </LinearLayout>
+
             목표 랏츠 : 00랏츠
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -176,8 +187,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="42000"
                     android:layout_gravity="center_vertical"
+                    android:id="@+id/main3_endpoint"
+                    android:text="n"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
                     />
@@ -200,7 +212,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="투자 랏츠"
+                    android:text="나의 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="10dp"
                     android:textColor="#e73236"
@@ -209,8 +221,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="200"
                     android:layout_gravity="center_vertical"
+                    android:id="@+id/main3_mypoint"
+                    android:text="n"
                     android:textSize="10dp"
                     android:textColor="#e73236"
                     />
@@ -234,8 +247,9 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:text="진행중"
                 android:gravity="center"
+                android:id="@+id/main3_status"
+                android:text="진행중 / 마감 / 환불"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#1966cb"
@@ -244,8 +258,9 @@
                 android:layout_marginTop="12dp"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:text="당첨 완료 or환불"
                 android:gravity="center"
+                android:id="@+id/main3_winorlose"
+                android:text="당첨 / 다음기회에"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#e73236"

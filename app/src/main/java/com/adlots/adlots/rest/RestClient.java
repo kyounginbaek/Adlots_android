@@ -15,6 +15,7 @@ import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.PUT;
 import retrofit.http.Query;
 
@@ -45,20 +46,28 @@ public class RestClient {
 
     public interface AdlotsService {
 
+        //회원가입 화면
+        @POST("/signup.php")
+        void signup(@Body Map<String, String> signup, Callback<JsonElement> callback);
+
+        //로그인 화면
+        @POST("/signup.php")
+        void signin(@Body Map<String, String> signin, Callback<JsonElement> callback);
+
         //아이템 정보 가져오기
         @GET("/getitem.php")
-        void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> response);
+        void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
 
         //유저아이템 정보 가져오기
         @GET("/getuseritem.php")
-        void getuserItem(@Query("purpose") String purpose, Callback<List<MainThirdItem>> response);
+        void getuserItem(@Query("purpose") String purpose, Callback<List<MainThirdItem>> callback);
 
         //아이템 추첨시 정보 입력
 
 
         //유저 개인정보 변경
         @PUT("/userinfochange.php")
-        void userInfochange(@Body Map<String, String> adlots, @Query("email") String email, @Query("password") String password, Callback<JsonElement> callback);
+        void userInfochange(@Body Map<String, String> useinfochange, @Query("email") String email, @Query("password") String password, Callback<JsonElement> callback);
     }
 
 }

@@ -16,7 +16,7 @@
         >
         첫번째 상품 그림
         <FrameLayout
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="match_parent">
 
             <ImageView

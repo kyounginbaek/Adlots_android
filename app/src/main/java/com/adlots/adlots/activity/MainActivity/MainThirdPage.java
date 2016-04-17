@@ -50,21 +50,20 @@ public class MainThirdPage extends Fragment {
         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
         String pref_email = pref.getString("email", "");
         String pref_nickname = pref.getString("nickname", "");
-        String pref_point = pref.getString("point", "");
 
         TextView nickname = (TextView) mainthirdView.findViewById(R.id.main3_nickname);
         nickname.setText(pref_nickname);
         TextView email = (TextView) mainthirdView.findViewById(R.id.main3_email);
         email.setText(pref_email);
         TextView point = (TextView) mainthirdView.findViewById(R.id.main3_point);
-        point.setText(pref_point);
+        // point.setText(pref_point);
 
         final ViewGroup userinfochange = (LinearLayout) mainthirdView.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView = inflater.inflate(R.layout.popup_main_third_info, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                final View dialogView = inflater.inflate(R.layout.popup_main_third_infochange, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
@@ -96,7 +95,6 @@ public class MainThirdPage extends Fragment {
         logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
                 AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setTitle("로그아웃 확인")
                         .setMessage("로그아웃 하시겠습니까?")
@@ -127,7 +125,6 @@ public class MainThirdPage extends Fragment {
                 dialog.show(); //Dialog 보이기
             }
         });
-
 
         final Fragment userinfofragment = new MainThirdUseritem();
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();

@@ -73,7 +73,6 @@ public class SigninActivity extends Activity {
                                 editor.putString("login", "yes");
                                 editor.putString("email", jsonObject.getString("email"));
                                 editor.putString("nickname", jsonObject.getString("nickname"));
-                                editor.putString("point", jsonObject.getString("point"));
                                 editor.commit();
 
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
@@ -87,7 +86,6 @@ public class SigninActivity extends Activity {
                                 editor.putString("login", "yes");
                                 editor.putString("email", jsonObject.getString("email"));
                                 editor.putString("nickname", jsonObject.getString("nickname"));
-                                editor.putString("point", jsonObject.getString("point"));
                                 editor.commit();
 
                                 Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();

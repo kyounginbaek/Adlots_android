@@ -11,20 +11,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.helper.DataHolder;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.adlots.adlots.rest.RestClient;
+import com.google.gson.JsonElement;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class SignupActivity extends Activity {
 
@@ -36,10 +32,6 @@ public class SignupActivity extends Activity {
     EditText edt_signup_passcheck;
     EditText edt_signup_nickname;
     String email, password, passcheck, phone, nickname;
-
-    private static final String URL = DataHolder.signupURL;
-    private RequestQueue requestQueue;
-    private StringRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +50,6 @@ public class SignupActivity extends Activity {
         btn_signup = (Button)findViewById(R.id.btn_signup);
         btn_signup_back = (Button)findViewById(R.id.btn_signup_back);
 
-        requestQueue = Volley.newRequestQueue(this);
-
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,23 +58,28 @@ public class SignupActivity extends Activity {
                 passcheck = edt_signup_passcheck.getText().toString();
                 nickname = edt_signup_nickname.getText().toString();
 
-                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if(password.equals(passcheck)) {
-                                String condition = jsonObject.names().get(0).toString();
+                long time = System.currentTimeMillis();
+                SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                String date = dayTime.format(new Date(time));
+
+                HashMap<String, String> data = new HashMap<>();
+                data.put("email", email);
+                data.put("phone", phone);
+                data.put("password", password);
+                data.put("nickname", nickname);
+                data.put("date", date);
+
+                // (1)빈칸 체크, (2)비밀번호 확인 체크, (3)서버 통신 - 폰, 이메일 닉네임 체크
+                if(!email.equals("")&&!password.equals("")&&!passcheck.equals("")&&!nickname.equals("")){
+                    if(password.equals(passcheck)){
+                        RestClient.AdlotsService service = RestClient.getService();
+                        service.signup(data, new Callback<JsonElement>() {
+                            @Override
+                            public void success(JsonElement jsonElement, Response response) {
+                                String condition = jsonElement.getAsJsonObject().get("response").getAsString();
                                 switch (condition) {
                                     case "phone":
-                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니 adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case "success":
-                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), SigninActivity.class));
-                                        break;
-                                    case "empty":
-                                        Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다.\n포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "email":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
@@ -92,36 +87,25 @@ public class SignupActivity extends Activity {
                                     case "nickname":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
+                                    case "success":
+                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), SigninActivity.class));
+                                        break;
                                     default:
-                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"어떻게 해야하는거냐", Toast.LENGTH_SHORT).show();
                                 }
-                            } else {
-                                Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                     }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }){
-                    @Override
-                    protected Map<String,String> getParams() throws AuthFailureError {
-                        HashMap<String,String> hashMap = new HashMap<String, String>();
-                        hashMap.put("email",email);
-                        hashMap.put("password",password);
-                        hashMap.put("phone",phone);
-                        hashMap.put("nickname",nickname);
-
-                        return hashMap;
-                    }
-                };
-
-                requestQueue.add(request);
+                } else {
+                    Toast.makeText(getApplicationContext(), "정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

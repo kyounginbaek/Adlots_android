@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +25,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     private Context context;
     private ArrayList<MainSecondItem> items;
     int layoutResource;
-    TextView textbtn_lots, textbtn_buy;
 
     public MainSecondListAdapter(Context context, int resource, ArrayList<MainSecondItem> items) {
         super(context, resource, items);
@@ -47,15 +47,16 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
 
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
+
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
 
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
 
-            textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
-            textbtn_lots.setTag(position);
-            textbtn_lots.setOnClickListener(new View.OnClickListener() {
+            holder.textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
+            holder.textbtn_lots.setTag(position);
+            holder.textbtn_lots.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // 클릭시 추첨 페이지 팝업되기
@@ -72,15 +73,14 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                 }
             });
 
-            textbtn_buy = (TextView) v.findViewById(R.id.main2_textbtn_buy);
-            textbtn_buy.setOnClickListener(new View.OnClickListener() {
+            holder.textbtn_buy = (TextView) v.findViewById(R.id.main2_textbtn_buy);
+            holder.textbtn_buy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
                     buider.setTitle("바로구입 확인")
-                            .setMessage("바로구입 하시겠습니까? " +
-                                    "구입하신 포인트만큼 포인트가 차감됩니다.")
+                            .setMessage("바로구입 하시겠습니까?" + "\n" +
+                                    "구입하신 포인트만큼 랏츠가 차감됩니다.")
                             .setCancelable(true)
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 // 확인 버튼 클릭시 설정
@@ -108,13 +108,34 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder = (ListHolder)v.getTag();
         }
 
-        MainSecondItem adlotsItem = items.get(position);
+        // 리스트에 아이템 값 넣기
+        final MainSecondItem adlotsItem = items.get(position);
         if(adlotsItem!=null){
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
 
             new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
+            holder.imagelink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // 이미지 클릭 시 참고링크 인터넷 화면 표시
+                    WebView webview = new WebView(context);
+                    webview.getSettings().setLoadWithOverviewMode(true);
+                    webview.getSettings().setUseWideViewPort(true);
+                    webview.getSettings().setBuiltInZoomControls(true);
+                    webview.loadUrl(adlotsItem.referlink);
+
+                    AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
+                    buider.setView(webview); //위에서 inflater가 만든 dialogView 객체 세팅
+                    buider.setTitle("아이템 자세한 정보");
+
+                    AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                    dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                    dialog.show(); //Dialog 보이기
+                }
+            });
+
             holder.endtime.setText(adlotsItem.endtime);
 
             holder.endpoint.setText(adlotsItem.endpoint);
@@ -130,5 +151,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
+        TextView textbtn_lots, textbtn_buy;
     }
 }
