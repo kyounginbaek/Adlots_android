@@ -51,7 +51,7 @@ public class RestClient {
         void signup(@Body Map<String, String> signup, Callback<JsonElement> callback);
 
         //로그인 화면
-        @POST("/signup.php")
+        @POST("/signin.php")
         void signin(@Body Map<String, String> signin, Callback<JsonElement> callback);
 
         //아이템 정보 가져오기

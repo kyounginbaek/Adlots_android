@@ -31,7 +31,7 @@ public class SignupActivity extends Activity {
     EditText edt_signup_password;
     EditText edt_signup_passcheck;
     EditText edt_signup_nickname;
-    String email, password, passcheck, phone, nickname;
+    String email, password, passcheck, phone, nickname, date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +60,14 @@ public class SignupActivity extends Activity {
 
                 long time = System.currentTimeMillis();
                 SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                String date = dayTime.format(new Date(time));
+                date = dayTime.format(new Date(time));
 
                 HashMap<String, String> data = new HashMap<>();
                 data.put("email", email);
                 data.put("phone", phone);
                 data.put("password", password);
                 data.put("nickname", nickname);
-                data.put("date", date);
+                data.put("when", date);
 
                 // (1)빈칸 체크, (2)비밀번호 확인 체크, (3)서버 통신 - 폰, 이메일 닉네임 체크
                 if(!email.equals("")&&!password.equals("")&&!passcheck.equals("")&&!nickname.equals("")){
@@ -79,7 +79,7 @@ public class SignupActivity extends Activity {
                                 String condition = jsonElement.getAsJsonObject().get("response").getAsString();
                                 switch (condition) {
                                     case "phone":
-                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다.\n포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "email":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
@@ -88,23 +88,23 @@ public class SignupActivity extends Activity {
                                         Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "success":
-                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다.",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다. 로그인 해주세요.",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(), SigninActivity.class));
                                         break;
                                     default:
-                                        Toast.makeText(getApplicationContext(),"어떻게 해야하는거냐", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             @Override
                             public void failure(RetrofitError error) {
-                                Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
                         Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -117,7 +117,6 @@ public class SignupActivity extends Activity {
                 finish();
             }
         });
-
     }
 
     public String getPhoneNumber() {

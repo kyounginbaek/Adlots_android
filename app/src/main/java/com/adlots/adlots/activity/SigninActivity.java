@@ -12,20 +12,14 @@ import android.widget.Toast;
 import com.adlots.adlots.R;
 import com.adlots.adlots.activity.MainActivity.MainActivity;
 import com.adlots.adlots.helper.BackPressCloseHandler;
-import com.adlots.adlots.helper.DataHolder;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.adlots.adlots.rest.RestClient;
+import com.google.gson.JsonElement;
 
 import java.util.HashMap;
-import java.util.Map;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by baekkyoungin on 2016. 1. 11..
@@ -38,9 +32,6 @@ public class SigninActivity extends Activity {
     EditText edt_signin_password;
     String email,password;
 
-    private static final String URL = DataHolder.signinURL;
-    private RequestQueue requestQueue;
-    private StringRequest request;
     private BackPressCloseHandler backPressCloseHandler;
 
     @Override
@@ -54,67 +45,52 @@ public class SigninActivity extends Activity {
         btn_start = (Button)findViewById(R.id.btn_start);
         btn_goto_signup = (Button)findViewById(R.id.btn_goto_signup);
 
-        requestQueue = Volley.newRequestQueue(this);
-
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 email = edt_signin_email.getText().toString();
                 password = edt_signin_password.getText().toString();
 
-                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if(jsonObject.names().get(0).equals("success")){
-                                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("login", "yes");
-                                editor.putString("email", jsonObject.getString("email"));
-                                editor.putString("nickname", jsonObject.getString("nickname"));
-                                editor.commit();
+                HashMap<String, String> data = new HashMap<>();
+                data.put("email", email);
+                data.put("password", password);
 
-                                Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                finish();
-                            } else if (jsonObject.names().get(0).equals("empty")){
-                                Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
-                            } else { // 수정 필요
-                                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("login", "yes");
-                                editor.putString("email", jsonObject.getString("email"));
-                                editor.putString("nickname", jsonObject.getString("nickname"));
-                                editor.commit();
+                // (1)빈칸 체크, (2)등록 여부
+                if(!email.equals("")&&!password.equals("")){
+                    RestClient.AdlotsService service = RestClient.getService();
+                    service.signin(data, new Callback<JsonElement>() {
+                        @Override
+                        public void success(JsonElement jsonElement, Response response) {
+                            String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                            switch (condition) {
+                                case "wrong":
+                                    Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case "success":
+                                    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = pref.edit();
+                                    editor.putString("login", "yes");
+                                    editor.putString("email", jsonElement.getAsJsonObject().get("email").getAsString());
+                                    editor.putString("nickname", jsonElement.getAsJsonObject().get("nickname").getAsString());
+                                    editor.commit();
 
-                                Toast.makeText(getApplicationContext(),"로그인 되었습니다.",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                finish();
-                                /* Toast.makeText(getApplicationContext(),"아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show(); */
+                                    Toast.makeText(getApplicationContext(), "로그인 되었습니다. 환영합니다.", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    finish();
+                                    break;
+                                default:
+                                    Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
 
-                    }
-                }){
-                    @Override
-                    protected Map<String,String> getParams() throws AuthFailureError {
-                        HashMap<String,String> hashMap = new HashMap<String, String>();
-                        hashMap.put("email",email);
-                        hashMap.put("password",password);
-
-                        return hashMap;
-                    }
-                };
-
-                requestQueue.add(request);
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
