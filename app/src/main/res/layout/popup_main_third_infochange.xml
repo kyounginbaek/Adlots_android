@@ -11,11 +11,6 @@
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBox" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,38 +31,6 @@
             android:layout_height="40dp"
             android:layout_gravity="right"
             android:inputType="textEmailAddress"
-            android:hint="선택입력"
-            android:textColor="#666666"
-            android:textSize="12dp"
-            android:paddingStart="5dp"
-            />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:textColor="#2b2b2b"
-            android:text="변경 닉네임"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="5dp"
-            android:layout_alignParentLeft="true" />
-
-
-        <EditText
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
-            android:id="@+id/infochange_nickname"
-            android:singleLine="true"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
             android:hint="선택입력"
             android:textColor="#666666"
             android:textSize="12dp"
@@ -161,7 +124,7 @@
         <EditText
             android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
-            android:id="@+id/original_password"
+            android:id="@+id/infochange_originalpass"
             android:singleLine="true"
             android:layout_width="180dp"
             android:layout_height="40dp"

@@ -25,7 +25,6 @@
                 android:paddingTop="55dp"
                 android:paddingBottom="20dp"
                 android:textSize="18dp"
-                android:text="0"
                 android:textColor="#0d2436"
                 android:id="@+id/main3_point"
                 android:gravity="center"
@@ -128,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:text="나의 응모 목록"
+            android:text="나의 응모 / 구입 목록"
             android:textSize="16dp"
             android:textColor="#2d2d2d"
             />

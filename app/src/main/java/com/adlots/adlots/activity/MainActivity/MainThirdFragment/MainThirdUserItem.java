@@ -1,6 +1,7 @@
 package com.adlots.adlots.activity.MainActivity.MainThirdFragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainThirdItem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit.Callback;
@@ -30,15 +32,22 @@ public class MainThirdUserItem extends android.support.v4.app.Fragment {
     MainThirdListAdapter useritemAdapter;
     public ArrayList<MainThirdItem> useritemArray = new ArrayList<MainThirdItem>();
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         useritemContext = container.getContext();
         useritemView = (View) inflater.inflate(R.layout.fragment_main_third_user_item,
                 container, false);
 
+        SharedPreferences pref = getActivity().getSharedPreferences("pref", useritemContext.MODE_PRIVATE);
+        String pref_email = pref.getString("email", "");
+        String pref_password = pref.getString("password", "");
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        data.put("password", pref_password);
+
         RestClient.AdlotsService service = RestClient.getService();
-        service.getuserItem("giftcon", new Callback<List<MainThirdItem>>() {
+        service.getuserItem(data, new Callback<List<MainThirdItem>>() {
             @Override
             public void success(List<MainThirdItem> getitem, Response response) {
                 useritemArray.addAll(getitem);
@@ -47,7 +56,6 @@ public class MainThirdUserItem extends android.support.v4.app.Fragment {
 
             @Override
             public void failure(RetrofitError error) {
-
             }
         });
 

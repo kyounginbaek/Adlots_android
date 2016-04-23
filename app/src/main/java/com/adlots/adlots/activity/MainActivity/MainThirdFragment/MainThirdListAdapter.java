@@ -24,7 +24,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
     private Context context;
     private ArrayList<MainThirdItem> items;
     int layoutResource;
-    TextView textbtn_lots, textbtn_buy;
+    TextView textbtn_lots, textbtn_purchase;
 
     public MainThirdListAdapter(Context context, int resource, ArrayList<MainThirdItem> items) {
         super(context, resource, items);
@@ -45,10 +45,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.category = (TextView) v.findViewById(R.id.main2_category);
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
-
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
-
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
@@ -72,8 +70,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 }
             });
 
-            textbtn_buy = (TextView) v.findViewById(R.id.main2_textbtn_buy);
-            textbtn_buy.setOnClickListener(new View.OnClickListener() {
+            textbtn_purchase = (TextView) v.findViewById(R.id.main2_textbtn_purchase);
+            textbtn_purchase.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업

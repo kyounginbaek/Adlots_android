@@ -90,6 +90,7 @@ public class SignupActivity extends Activity {
                                     case "success":
                                         Toast.makeText(getApplicationContext(),"회원가입 되었습니다. 로그인 해주세요.",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(), SigninActivity.class));
+                                        finish();
                                         break;
                                     default:
                                         Toast.makeText(getApplicationContext(),"오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();

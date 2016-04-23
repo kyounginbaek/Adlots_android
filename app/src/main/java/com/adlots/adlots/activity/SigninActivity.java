@@ -71,6 +71,7 @@ public class SigninActivity extends Activity {
                                     SharedPreferences.Editor editor = pref.edit();
                                     editor.putString("login", "yes");
                                     editor.putString("email", jsonElement.getAsJsonObject().get("email").getAsString());
+                                    editor.putString("password", jsonElement.getAsJsonObject().get("password").getAsString());
                                     editor.putString("nickname", jsonElement.getAsJsonObject().get("nickname").getAsString());
                                     editor.commit();
 
@@ -84,7 +85,7 @@ public class SigninActivity extends Activity {
                         }
 
                         @Override
-                        public void failure(RetrofitError error) {
+                         public void failure(RetrofitError error) {
                             Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                         }
                     });

@@ -3,20 +3,31 @@ package com.adlots.adlots.activity.MainActivity.MainSecondFragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.helper.ImageLoadTask;
+import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainSecondItem;
+import com.google.gson.JsonElement;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by baekkyoungin on 16. 3. 31..
@@ -36,6 +47,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     @Override
     public View getView(int position, final View convertView, ViewGroup parent) {
         View v = convertView;
+        final MainSecondItem adlotsItem = items.get(position);
+
+        SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
+        final String pref_nickname = pref.getString("nickname", "");
+        final String pref_email = pref.getString("email", "");
+        final String pref_password = pref.getString("password", "");
+
         ListHolder holder = null;
         if(v==null){
             LayoutInflater vi =(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -45,11 +63,8 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.category = (TextView) v.findViewById(R.id.main2_category);
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
-
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
-
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
-
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
@@ -67,26 +82,119 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
                     buider.setTitle("몇 랏츠를 응모하시겠습니까?");
 
-                    AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                    final TextView howmuchlots = (TextView) dialogView.findViewById(R.id.main2_popup_howmuchlots);
+                    final TextView mypoint = (TextView) dialogView.findViewById(R.id.main2_popup_mypoint);
+                    TextView nowpoint = (TextView) dialogView.findViewById(R.id.main2_popup_nowpoint);
+                    TextView endpoint = (TextView) dialogView.findViewById(R.id.main2_popup_endpoint);
+                    TextView lotspeople = (TextView) dialogView.findViewById(R.id.main2_popup_lotspeople);
+
+                    // 나의 포인트 가져오기
+                    HashMap<String, String> data = new HashMap<>();
+                    data.put("email", pref_email);
+                    data.put("password", pref_password);
+
+                    RestClient.AdlotsService service = RestClient.getService();
+                    service.getuserPoint(data, new Callback<JsonElement>() {
+                        @Override
+                        public void success(JsonElement jsonElement, Response response) {
+                            String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                            mypoint.setText(userpoint);
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                        }
+                    });
+
+                    nowpoint.setText(adlotsItem.nowpoint);
+                    endpoint.setText(adlotsItem.endpoint);
+                    lotspeople.setText(adlotsItem.lotspeople);
+
+                    final AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                     dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                     dialog.show(); //Dialog 보이기
+
+                    // 응모하기 버튼 클릭 이벤트
+                    Button btn_lots = (Button) dialogView.findViewById(R.id.main2_popup_btn_lots);
+                    btn_lots.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            long time = System.currentTimeMillis();
+                            SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                            String date = dayTime.format(new Date(time));
+                            String lotspoint = howmuchlots.getText().toString();
+
+                            // 총 8개의 데이터 전송
+                            HashMap<String, String> data = new HashMap<>();
+                            data.put("nickname", pref_nickname);
+                            data.put("type", adlotsItem.type);
+                            data.put("category", adlotsItem.category);
+                            data.put("brand", adlotsItem.brand);
+                            data.put("itemname", adlotsItem.itemname);
+                            data.put("howtobuy", "lots");
+                            data.put("point", lotspoint); // 유저가 입력한 응모 포인트
+                            data.put("when", date);
+
+                            RestClient.AdlotsService service = RestClient.getService();
+                            service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
+                                @Override
+                                public void success(JsonElement jsonElement, Response response) {
+                                    Toast.makeText(context, "응모가 완료되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                }
+
+                                @Override
+                                public void failure(RetrofitError error) {
+                                    Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    });
                 }
             });
 
-            holder.textbtn_buy = (TextView) v.findViewById(R.id.main2_textbtn_buy);
-            holder.textbtn_buy.setOnClickListener(new View.OnClickListener() {
+            // 바로구입 버튼 클릭 이벤트
+            holder.textbtn_purchase = (TextView) v.findViewById(R.id.main2_textbtn_purchase);
+            holder.textbtn_purchase.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
                     buider.setTitle("바로구입 확인")
-                            .setMessage("바로구입 하시겠습니까?" + "\n" +
+                            .setMessage("바로구입 하시겠습니까?" + "\n" + "\n" +
                                     "구입하신 포인트만큼 랏츠가 차감됩니다.")
                             .setCancelable(true)
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 // 확인 버튼 클릭시 설정
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    dialog.cancel();
-                                    Toast.makeText(context, "바로구입 되었습니다.", Toast.LENGTH_SHORT).show();
+                                    SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
+                                    String pref_nickname = pref.getString("nickname", "");
+
+                                    long time = System.currentTimeMillis();
+                                    SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                                    String date = dayTime.format(new Date(time));
+
+                                    // 총 8개의 데이터 전송
+                                    HashMap<String, String> data = new HashMap<>();
+                                    data.put("nickname", pref_nickname);
+                                    data.put("type", adlotsItem.type);
+                                    data.put("category", adlotsItem.category);
+                                    data.put("brand", adlotsItem.brand);
+                                    data.put("itemname", adlotsItem.itemname);
+                                    data.put("howtobuy", "purchase");
+                                    data.put("point", adlotsItem.endpoint); //바로 구입 가격
+                                    data.put("when", date);
+
+                                    RestClient.AdlotsService service = RestClient.getService();
+                                    service.itemhowtoBuy("purchase", data, new Callback<JsonElement>() {
+                                        @Override
+                                        public void success(JsonElement jsonElement, Response response) {
+                                            Toast.makeText(context, "바로구입 되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                        }
+                                        @Override
+                                        public void failure(RetrofitError error) {
+                                            Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             })
                             .setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -95,7 +203,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     dialog.cancel();
                                 }
                             });
-
                     AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                     dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                     dialog.show(); //Dialog 보이기
@@ -109,7 +216,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         }
 
         // 리스트에 아이템 값 넣기
-        final MainSecondItem adlotsItem = items.get(position);
         if(adlotsItem!=null){
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
@@ -137,7 +243,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             });
 
             holder.endtime.setText(adlotsItem.endtime);
-
             holder.endpoint.setText(adlotsItem.endpoint);
             holder.nowpoint.setText(adlotsItem.nowpoint);
             holder.lotspeople.setText(adlotsItem.lotspeople);
@@ -151,6 +256,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
-        TextView textbtn_lots, textbtn_buy;
+        TextView textbtn_lots, textbtn_purchase;
     }
 }

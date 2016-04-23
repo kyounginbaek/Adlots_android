@@ -14,12 +14,24 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondListAdapter;
 import com.adlots.adlots.activity.MainActivity.MainThridActivity.MainThirdUseritem;
 import com.adlots.adlots.activity.SigninActivity;
+import com.adlots.adlots.rest.RestClient;
+import com.adlots.adlots.rest.model.MainThirdItem;
+import com.google.gson.JsonElement;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import static android.view.LayoutInflater.from;
 
@@ -30,6 +42,10 @@ public class MainThirdPage extends Fragment {
 
     private Context mainthirdContext = null;
     private View mainthirdView = null;
+
+    ListView useritemList;
+    MainSecondListAdapter useritemAdapter;
+    public ArrayList<MainThirdItem> useritemArray = new ArrayList<MainThirdItem>();
 
     public static MainThirdPage newProduction (int position) {
         MainThirdPage mpage = new MainThirdPage();
@@ -49,14 +65,32 @@ public class MainThirdPage extends Fragment {
 
         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
         String pref_email = pref.getString("email", "");
+        String pref_password = pref.getString("password", "");
         String pref_nickname = pref.getString("nickname", "");
 
-        TextView nickname = (TextView) mainthirdView.findViewById(R.id.main3_nickname);
-        nickname.setText(pref_nickname);
-        TextView email = (TextView) mainthirdView.findViewById(R.id.main3_email);
-        email.setText(pref_email);
-        TextView point = (TextView) mainthirdView.findViewById(R.id.main3_point);
-        // point.setText(pref_point);
+        TextView txt_nickname = (TextView) mainthirdView.findViewById(R.id.main3_nickname);
+        txt_nickname.setText(pref_nickname);
+        TextView txt_email = (TextView) mainthirdView.findViewById(R.id.main3_email);
+        txt_email.setText(pref_email);
+        final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_point);
+
+        // 나의 포인트 가져오기
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        data.put("password", pref_password);
+
+        RestClient.AdlotsService service = RestClient.getService();
+        service.getuserPoint(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                txt_point.setText(userpoint);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+            }
+        });
 
         final ViewGroup userinfochange = (LinearLayout) mainthirdView.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +98,8 @@ public class MainThirdPage extends Fragment {
             public void onClick(View v) {
                 LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
                 final View dialogView = inflater.inflate(R.layout.popup_main_third_infochange, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+
+                // 기존 비밀번호 확인, 어떤 정보를 변경하려고 하는가, 비밀번호 변경 시에는 비밀번호 확인 필수
 
                 AlertDialog.Builder buider = new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
@@ -107,7 +143,7 @@ public class MainThirdPage extends Fragment {
                                 editor.putString("login", "no");
                                 editor.commit();
 
-                                Toast.makeText(mainthirdContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainthirdContext, "로그아웃 되었습니다. 다시 와주실꺼죠?", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(mainthirdContext, SigninActivity.class);
                                 startActivity(intent);
                                 getActivity().finish();

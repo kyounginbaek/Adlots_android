@@ -16,7 +16,6 @@ import retrofit.converter.GsonConverter;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
-import retrofit.http.PUT;
 import retrofit.http.Query;
 
 /**
@@ -55,19 +54,24 @@ public class RestClient {
         void signin(@Body Map<String, String> signin, Callback<JsonElement> callback);
 
         //아이템 정보 가져오기
-        @GET("/getitem.php")
+        @GET("/getitemList.php")
         void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
 
         //유저아이템 정보 가져오기
-        @GET("/getuseritem.php")
-        void getuserItem(@Query("purpose") String purpose, Callback<List<MainThirdItem>> callback);
+        @GET("/getuserItem.php")
+        void getuserItem(@Body Map<String, String> getuserItem, Callback<List<MainThirdItem>> callback);
 
-        //아이템 추첨시 정보 입력
+        //유저포인트 정보 가져오기
+        @POST("/getuserPoint.php")
+        void getuserPoint(@Body Map<String, String> getuserPoint, Callback<JsonElement> callback);
 
+        //아이템 응모하기(방법1.응모-lots, 방법2.바로구입-buy)
+        @POST("/itemhowtoBuy.php")
+        void itemhowtoBuy(@Query("purpose") String purpose, @Body Map<String, String> itemhowtoBuy, Callback<JsonElement> callback);
 
         //유저 개인정보 변경
-        @PUT("/userinfochange.php")
-        void userInfochange(@Body Map<String, String> useinfochange, @Query("email") String email, @Query("password") String password, Callback<JsonElement> callback);
+        @POST("/userinfoChange.php")
+        void userinfoChange(@Body Map<String, String> useinfoChange, Callback<JsonElement> callback);
     }
 
 }
