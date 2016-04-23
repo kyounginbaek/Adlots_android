@@ -2,6 +2,7 @@ package com.adlots.adlots.activity.MainActivity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.adlots.adlots.R;
@@ -45,8 +48,37 @@ public class MainFourthPage extends Fragment {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://facebook.com/adlots"));
-                startActivity(intent);
+                WebView webview = new WebView(mainfourthContext);
+                webview.getSettings().setLoadWithOverviewMode(true);
+                webview.getSettings().setBuiltInZoomControls(true);
+                webview.loadUrl("http://m.facebook.com/adlots");
+                webview.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+
+                AlertDialog.Builder buider = new AlertDialog.Builder(mainfourthContext); //AlertDialog.Builder 객체 생성
+                buider.setView(webview);
+                buider.setTitle("애드랏츠 페이스북")
+                        .setPositiveButton("다른 브라우저에서 보기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.facebook.com/adlots"));
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                dialog.show(); //Dialog 보이기
             }
         });
 
@@ -79,8 +111,36 @@ public class MainFourthPage extends Fragment {
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://adlots.co.kr"));
-                startActivity(intent);
+                WebView webview = new WebView(mainfourthContext);
+                webview.getSettings().setUseWideViewPort(true);
+                webview.loadUrl("http://adlots.co.kr");
+                webview.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return true;
+                    }
+                });
+
+                AlertDialog.Builder buider = new AlertDialog.Builder(mainfourthContext); //AlertDialog.Builder 객체 생성
+                buider.setView(webview);
+                buider.setTitle("애드랏츠 홈페이지")
+                        .setPositiveButton("다른 브라우저에서 보기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://adlots.co.kr"));
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                dialog.show(); //Dialog 보이기
             }
         });
 
@@ -116,8 +176,29 @@ public class MainFourthPage extends Fragment {
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://blog.naver.com/adlots"));
-                startActivity(intent);
+                WebView webview = new WebView(mainfourthContext);
+                webview.getSettings().setUseWideViewPort(true);
+                webview.loadUrl("http://m.blog.naver.com/adlots");
+
+                AlertDialog.Builder buider = new AlertDialog.Builder(mainfourthContext); //AlertDialog.Builder 객체 생성
+                buider.setView(webview);
+                buider.setTitle("애드랏츠 블로그")
+                        .setPositiveButton("다른 브라우저에서 보기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.blog.naver.com/adlots"));
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                dialog.show(); //Dialog 보이기
             }
         });
 

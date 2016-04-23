@@ -36,6 +36,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     private Context context;
     private ArrayList<MainSecondItem> items;
     int layoutResource;
+    String userpoint;
 
     public MainSecondListAdapter(Context context, int resource, ArrayList<MainSecondItem> items) {
         super(context, resource, items);
@@ -79,7 +80,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     final View dialogView = inflater.inflate(R.layout.popup_main_second_itemlots, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
-                    buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
+                    buider.setView(dialogView);
                     buider.setTitle("몇 랏츠를 응모하시겠습니까?");
 
                     final TextView howmuchlots = (TextView) dialogView.findViewById(R.id.main2_popup_howmuchlots);
@@ -97,7 +98,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     service.getuserPoint(data, new Callback<JsonElement>() {
                         @Override
                         public void success(JsonElement jsonElement, Response response) {
-                            String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                            userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
                             mypoint.setText(userpoint);
                         }
 
@@ -135,19 +136,29 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             data.put("point", lotspoint); // 유저가 입력한 응모 포인트
                             data.put("when", date);
 
-                            RestClient.AdlotsService service = RestClient.getService();
-                            service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
-                                @Override
-                                public void success(JsonElement jsonElement, Response response) {
-                                    Toast.makeText(context, "응모가 완료되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                }
-
-                                @Override
-                                public void failure(RetrofitError error) {
-                                    Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            // 유저가 입력한 응모 포인트 if문
+                            int int_lotspoint = Integer.parseInt(lotspoint);
+                            int int_userpoint = Integer.parseInt(userpoint);
+                            if((int_lotspoint <= 0) && (int_lotspoint/10 != 0)) {
+                                // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
+                                Toast.makeText(context, "10 랏츠 단위로 응모해주세요.\n(예: 10,100,1000)", Toast.LENGTH_SHORT).show();
+                            } else if(int_lotspoint > int_userpoint) {
+                                // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
+                                Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                RestClient.AdlotsService service = RestClient.getService();
+                                service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
+                                    @Override
+                                    public void success(JsonElement jsonElement, Response response) {
+                                        Toast.makeText(context, "응모가 완료되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                        dialog.dismiss();
+                                    }
+                                    @Override
+                                    public void failure(RetrofitError error) {
+                                        Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
                         }
                     });
                 }
@@ -160,8 +171,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                 public void onClick(View v) {
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
                     buider.setTitle("바로구입 확인")
-                            .setMessage("바로구입 하시겠습니까?" + "\n" + "\n" +
-                                    "구입하신 포인트만큼 랏츠가 차감됩니다.")
+                            .setMessage("바로구입 하시겠습니까?\n\n구입하신 포인트만큼 랏츠가 차감됩니다.")
                             .setCancelable(true)
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 // 확인 버튼 클릭시 설정
@@ -184,23 +194,30 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     data.put("point", adlotsItem.endpoint); //바로 구입 가격
                                     data.put("when", date);
 
-                                    RestClient.AdlotsService service = RestClient.getService();
-                                    service.itemhowtoBuy("purchase", data, new Callback<JsonElement>() {
-                                        @Override
-                                        public void success(JsonElement jsonElement, Response response) {
-                                            Toast.makeText(context, "바로구입 되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                                        }
-                                        @Override
-                                        public void failure(RetrofitError error) {
-                                            Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                    int int_endpoint = Integer.parseInt(adlotsItem.endpoint);
+                                    int int_userpoint = Integer.parseInt(userpoint);
+                                    if(int_endpoint > int_userpoint) {
+                                        // 유저가 바로 구입할 물품 포인트 & 유저가 보유한 포인트 비교
+                                        Toast.makeText(context, "구입하시고자 하는 물품 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        RestClient.AdlotsService service = RestClient.getService();
+                                        service.itemhowtoBuy("purchase", data, new Callback<JsonElement>() {
+                                            @Override
+                                            public void success(JsonElement jsonElement, Response response) {
+                                                Toast.makeText(context, "바로구입 되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                            @Override
+                                            public void failure(RetrofitError error) {
+                                                Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
                                 }
                             })
                             .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                                 // 취소 버튼 클릭시 설정
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    dialog.cancel();
+                                    dialog.dismiss();
                                 }
                             });
                     AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
@@ -233,8 +250,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     webview.loadUrl(adlotsItem.referlink);
 
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
-                    buider.setView(webview); //위에서 inflater가 만든 dialogView 객체 세팅
-                    buider.setTitle("아이템 자세한 정보");
+                    buider.setView(webview) //위에서 inflater가 만든 dialogView 객체 세팅
+                            .setTitle("아이템 자세한 정보")
+                            .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    dialog.dismiss();
+                                }
+                            });
 
                     AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                     dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정

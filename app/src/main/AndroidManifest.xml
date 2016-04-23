@@ -35,7 +35,7 @@
         <activity
             android:name=".activity.SigninActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".activity.SignupActivity"

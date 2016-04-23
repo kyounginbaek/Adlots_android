@@ -77,8 +77,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
                     AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
                     buider.setTitle("바로구입 확인")
-                            .setMessage("바로구입 하시겠습니까? " +
-                                    "구입하신 포인트만큼 포인트가 차감됩니다.")
+                            .setMessage("바로구입 하시겠습니까?\n\n구입하신 포인트만큼 포인트가 차감됩니다.")
                             .setCancelable(true)
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 // 확인 버튼 클릭시 설정
