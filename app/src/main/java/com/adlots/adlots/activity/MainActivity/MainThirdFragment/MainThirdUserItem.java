@@ -53,7 +53,6 @@ public class MainThirdUserItem extends android.support.v4.app.Fragment {
                 useritemArray.addAll(getitem);
                 useritemAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void failure(RetrofitError error) {
             }

@@ -68,6 +68,21 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/main3_type"
+                    android:text="기프티콘"
+                    android:textSize="10dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / "
+                    android:textSize="10dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/main3_category"
                     android:text="피규어"
                     android:textSize="10dp"
@@ -212,7 +227,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="나의 랏츠"
+                    android:text="나의 응모"
                     android:layout_gravity="center_vertical"
                     android:textSize="10dp"
                     android:textColor="#e73236"
@@ -248,8 +263,8 @@
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:id="@+id/main3_status"
-                android:text="진행중 / 마감 / 환불"
+                android:id="@+id/main3_howtobuy"
+                android:text="응모 / 바로구입"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#1966cb"
@@ -259,8 +274,8 @@
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:id="@+id/main3_winorlose"
-                android:text="당첨 / 다음기회에"
+                android:id="@+id/main3_status"
+                android:text="진행중 / 마감 / 환불"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#e73236"

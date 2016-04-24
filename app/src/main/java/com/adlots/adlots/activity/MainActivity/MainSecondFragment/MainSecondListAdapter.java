@@ -56,9 +56,9 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         final String pref_password = pref.getString("password", "");
 
         ListHolder holder = null;
-        if(v==null){
-            LayoutInflater vi =(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(layoutResource,parent,false);
+        if (v == null) {
+            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(layoutResource, parent, false);
 
             holder = new ListHolder();
             holder.category = (TextView) v.findViewById(R.id.main2_category);
@@ -136,28 +136,33 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             data.put("point", lotspoint); // 유저가 입력한 응모 포인트
                             data.put("when", date);
 
-                            // 유저가 입력한 응모 포인트 if문
-                            int int_lotspoint = Integer.parseInt(lotspoint);
-                            int int_userpoint = Integer.parseInt(userpoint);
-                            if((int_lotspoint <= 0) && (int_lotspoint/10 != 0)) {
-                                // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
-                                Toast.makeText(context, "10 랏츠 단위로 응모해주세요.\n(예: 10,100,1000)", Toast.LENGTH_SHORT).show();
-                            } else if(int_lotspoint > int_userpoint) {
-                                // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
-                                Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                            // 유저가 입력한 응모 포인트 blank, number 체크
+                            if(CheckNumber(lotspoint)){
+                                double double_lotspoint = Double.parseDouble(lotspoint);
+                                int int_userpoint = Integer.parseInt(userpoint);
+
+                                if ((double_lotspoint <= 0) || (double_lotspoint % 10 != 0)) {
+                                    // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
+                                    Toast.makeText(context, "10 랏츠 단위로 응모해주세요.\n(예: 10,100,1000,10000)", Toast.LENGTH_SHORT).show();
+                                } else if (double_lotspoint > int_userpoint) {
+                                    // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
+                                    Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    RestClient.AdlotsService service = RestClient.getService();
+                                    service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
+                                        @Override
+                                        public void success(JsonElement jsonElement, Response response) {
+                                            Toast.makeText(context, "응모가 완료되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        }
+                                        @Override
+                                        public void failure(RetrofitError error) {
+                                            Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
                             } else {
-                                RestClient.AdlotsService service = RestClient.getService();
-                                service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
-                                    @Override
-                                    public void success(JsonElement jsonElement, Response response) {
-                                        Toast.makeText(context, "응모가 완료되었습니다.\n나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                                        dialog.dismiss();
-                                    }
-                                    @Override
-                                    public void failure(RetrofitError error) {
-                                        Toast.makeText(context, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                                Toast.makeText(context, "입력 값을 확인해주세요.\n10랏츠 단위 숫자를 입력해주셔야 합니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -196,7 +201,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
                                     int int_endpoint = Integer.parseInt(adlotsItem.endpoint);
                                     int int_userpoint = Integer.parseInt(userpoint);
-                                    if(int_endpoint > int_userpoint) {
+                                    if (int_endpoint > int_userpoint) {
                                         // 유저가 바로 구입할 물품 포인트 & 유저가 보유한 포인트 비교
                                         Toast.makeText(context, "구입하시고자 하는 물품 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 확인해주세요.", Toast.LENGTH_SHORT).show();
                                     } else {
@@ -225,15 +230,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     dialog.show(); //Dialog 보이기
                 }
             });
-
             v.setTag(holder);
-        }
-        else{
-            holder = (ListHolder)v.getTag();
+        } else {
+            holder = (ListHolder) v.getTag();
         }
 
         // 리스트에 아이템 값 넣기
-        if(adlotsItem!=null){
+        if (adlotsItem != null) {
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
@@ -279,5 +282,21 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
         TextView textbtn_lots, textbtn_purchase;
+    }
+
+    public boolean CheckNumber(String str) {
+        char check;
+        if (str.equals("")) {
+            //문자열이 공백인지 확인
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            check = str.charAt(i);
+            if (check < 48 || check > 58) {
+                //해당 char값이 숫자가 아닐 경우
+                return false;
+            }
+        }
+        return true;
     }
 }

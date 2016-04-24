@@ -79,7 +79,7 @@
                     android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
-                    android:text="비밀번호 변경"
+                    android:text="개인정보 변경"
                     android:textSize="15dp"
                     android:textColor="#f9fafc"
                     />

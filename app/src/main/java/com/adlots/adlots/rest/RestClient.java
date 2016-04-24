@@ -71,7 +71,7 @@ public class RestClient {
 
         //유저 개인정보 변경
         @POST("/userinfoChange.php")
-        void userinfoChange(@Body Map<String, String> useinfoChange, Callback<JsonElement> callback);
+        void userinfoChange(@Query("purpose") String purpose, @Body Map<String, String> useinfoChange, Callback<JsonElement> callback);
     }
 
 }
