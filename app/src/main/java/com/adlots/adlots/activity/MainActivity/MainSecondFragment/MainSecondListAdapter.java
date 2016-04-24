@@ -61,11 +61,11 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             v = vi.inflate(layoutResource, parent, false);
 
             holder = new ListHolder();
+            holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
+            holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
             holder.category = (TextView) v.findViewById(R.id.main2_category);
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
-            holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
-            holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
@@ -237,10 +237,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
         // 리스트에 아이템 값 넣기
         if (adlotsItem != null) {
-            holder.category.setText(adlotsItem.category);
-            holder.brand.setText(adlotsItem.brand);
-            holder.itemname.setText(adlotsItem.itemname);
-
             new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
             holder.imagelink.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -268,6 +264,9 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             });
 
             holder.endtime.setText(adlotsItem.endtime);
+            holder.category.setText(adlotsItem.category);
+            holder.brand.setText(adlotsItem.brand);
+            holder.itemname.setText(adlotsItem.itemname);
             holder.endpoint.setText(adlotsItem.endpoint);
             holder.nowpoint.setText(adlotsItem.nowpoint);
             holder.lotspeople.setText(adlotsItem.lotspeople);

@@ -58,7 +58,7 @@ public class RestClient {
         void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
 
         //유저아이템 정보 가져오기
-        @GET("/getuserItem.php")
+        @POST("/getuserItem.php")
         void getuserItem(@Body Map<String, String> getuserItem, Callback<List<MainThirdItem>> callback);
 
         //유저포인트 정보 가져오기

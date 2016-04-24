@@ -217,6 +217,7 @@
                     android:textColor="#2d2d2d"
                     />
             </LinearLayout>
+
             투자 랏츠
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -237,7 +238,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
-                    android:id="@+id/main3_mypoint"
+                    android:id="@+id/main3_point"
                     android:text="n"
                     android:textSize="10dp"
                     android:textColor="#e73236"
@@ -251,7 +252,36 @@
                     android:textColor="#e73236"
                     />
             </LinearLayout>
+
+            응모/구입 날짜
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="bottom"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="응모/구입 일시"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="10dp"
+                    android:textColor="#2d2d2d"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/main3_when"
+                    android:text="n"
+                    android:textSize="10dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
+
         응모/바로구매
         <LinearLayout
             android:layout_width="70dp"

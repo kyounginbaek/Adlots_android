@@ -3,7 +3,6 @@ package com.adlots.adlots.activity.MainActivity.MainThirdFragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,26 +37,25 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         View v = convertView;
         final MainThirdItem adlotsItem = items.get(position);
 
-        SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
-        final String pref_nickname = pref.getString("nickname", "");
-        final String pref_email = pref.getString("email", "");
-        final String pref_password = pref.getString("password", "");
-
         ListHolder holder = null;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource, parent, false);
 
             holder = new ListHolder();
+            holder.imagelink = (ImageView) v.findViewById(R.id.main3_imagelink);
+            holder.endtime = (TextView) v.findViewById(R.id.main3_endtime);
             holder.type = (TextView) v.findViewById(R.id.main3_type);
-            holder.category = (TextView) v.findViewById(R.id.main2_category);
-            holder.brand = (TextView) v.findViewById(R.id.main2_brand);
-            holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
-            holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
-            holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
-            holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
-            holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
-            holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
+            holder.category = (TextView) v.findViewById(R.id.main3_category);
+            holder.brand = (TextView) v.findViewById(R.id.main3_brand);
+            holder.itemname = (TextView) v.findViewById(R.id.main3_itemname);
+            holder.endpoint = (TextView) v.findViewById(R.id.main3_endpoint);
+            holder.nowpoint = (TextView) v.findViewById(R.id.main3_nowpoint);
+            holder.lotspeople = (TextView) v.findViewById(R.id.main3_lotspeople);
+            holder.point = (TextView) v.findViewById(R.id.main3_point);
+            holder.when = (TextView) v.findViewById(R.id.main3_when);
+            holder.howtobuy = (TextView) v.findViewById(R.id.main3_howtobuy);
+            holder.status = (TextView) v.findViewById(R.id.main3_status);
 
             v.setTag(holder);
         } else {
@@ -66,10 +64,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
         // 리스트에 아이템 값 넣기
         if (adlotsItem != null) {
-            holder.category.setText(adlotsItem.category);
-            holder.brand.setText(adlotsItem.brand);
-            holder.itemname.setText(adlotsItem.itemname);
-
             new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
             holder.imagelink.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,9 +91,17 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             });
 
             holder.endtime.setText(adlotsItem.endtime);
+            holder.type.setText(adlotsItem.type);
+            holder.category.setText(adlotsItem.category);
+            holder.brand.setText(adlotsItem.brand);
+            holder.itemname.setText(adlotsItem.itemname);
             holder.endpoint.setText(adlotsItem.endpoint);
             holder.nowpoint.setText(adlotsItem.nowpoint);
             holder.lotspeople.setText(adlotsItem.lotspeople);
+            holder.point.setText(adlotsItem.point);
+            holder.when.setText(adlotsItem.when);
+            holder.howtobuy.setText(adlotsItem.howtobuy);
+            holder.status.setText(adlotsItem.status);
         }
 
         return v;
@@ -110,6 +112,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
-        TextView type, howtobuy, point, when, winorlose, finish;
+        TextView type, point, when, howtobuy, status;
     }
 }

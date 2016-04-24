@@ -39,12 +39,10 @@ public class MainThirdUserItem extends android.support.v4.app.Fragment {
                 container, false);
 
         SharedPreferences pref = getActivity().getSharedPreferences("pref", useritemContext.MODE_PRIVATE);
-        String pref_email = pref.getString("email", "");
-        String pref_password = pref.getString("password", "");
+        String pref_nickname = pref.getString("nickname", "");
 
         HashMap<String, String> data = new HashMap<>();
-        data.put("email", pref_email);
-        data.put("password", pref_password);
+        data.put("nickname", pref_nickname);
 
         RestClient.AdlotsService service = RestClient.getService();
         service.getuserItem(data, new Callback<List<MainThirdItem>>() {
@@ -58,7 +56,7 @@ public class MainThirdUserItem extends android.support.v4.app.Fragment {
             }
         });
 
-        useritemList = (ListView) useritemView.findViewById(R.id.giftcon_listview);
+        useritemList = (ListView) useritemView.findViewById(R.id.useritem_listview);
         useritemAdapter = new MainThirdListAdapter(useritemContext, R.layout.content_main_third_item, useritemArray);
         useritemList.setAdapter(useritemAdapter);
         useritemAdapter.clear();

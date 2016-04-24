@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondListAdapter;
-import com.adlots.adlots.activity.MainActivity.MainThridActivity.MainThirdUseritem;
+import com.adlots.adlots.activity.MainActivity.MainThirdFragment.MainThirdUserItem;
 import com.adlots.adlots.activity.SigninActivity;
 import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainThirdItem;
@@ -72,7 +72,7 @@ public class MainThirdPage extends Fragment {
         txt_nickname.setText(pref_nickname);
         TextView txt_email = (TextView) mainthirdView.findViewById(R.id.main3_email);
         txt_email.setText(pref_email);
-        final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_point);
+        final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_mypoint);
 
         // 나의 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
@@ -86,6 +86,7 @@ public class MainThirdPage extends Fragment {
                 String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
                 txt_point.setText(userpoint);
             }
+
             @Override
             public void failure(RetrofitError error) {
             }
@@ -121,14 +122,14 @@ public class MainThirdPage extends Fragment {
                         String info_passcheck = infochange_passcheck.getText().toString();
                         String info_originalpass = infochange_originalpass.getText().toString();
 
-                        if(info_email.equals("") && info_password.equals("")) {
+                        if (info_email.equals("") && info_password.equals("")) {
                             Toast.makeText(mainthirdContext, "변경하실 이메일 혹은 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                         } else {
-                            if(info_originalpass.equals("")){
+                            if (info_originalpass.equals("")) {
                                 Toast.makeText(mainthirdContext, "개인정보 변경을 위해 기존 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                             } else {
-                                if(info_originalpass.equals(pref_password)){
-                                    if(info_password.equals("")){
+                                if (info_originalpass.equals(pref_password)) {
+                                    if (info_password.equals("")) {
                                         HashMap<String, String> data = new HashMap<>();
                                         data.put("newemail", info_email);
                                         data.put("originalemail", pref_email);
@@ -147,13 +148,14 @@ public class MainThirdPage extends Fragment {
                                                 startActivity(intent);
                                                 getActivity().finish();
                                             }
+
                                             @Override
                                             public void failure(RetrofitError error) {
                                                 Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                             }
                                         });
-                                    } else if(info_email.equals("")) {
-                                        if(info_password.equals(info_passcheck)) {
+                                    } else if (info_email.equals("")) {
+                                        if (info_password.equals(info_passcheck)) {
                                             HashMap<String, String> data = new HashMap<>();
                                             data.put("newpassword", info_password);
                                             data.put("originalemail", pref_email);
@@ -172,6 +174,7 @@ public class MainThirdPage extends Fragment {
                                                     startActivity(intent);
                                                     getActivity().finish();
                                                 }
+
                                                 @Override
                                                 public void failure(RetrofitError error) {
                                                     Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
@@ -181,7 +184,7 @@ public class MainThirdPage extends Fragment {
                                             Toast.makeText(mainthirdContext, "변경 비밀번호와 재입력 비밀번호가 일치하지 않습니다.\n다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
-                                        if(info_password.equals(info_passcheck)) {
+                                        if (info_password.equals(info_passcheck)) {
                                             HashMap<String, String> data = new HashMap<>();
                                             data.put("newemail", info_email);
                                             data.put("newpassword", info_password);
@@ -201,6 +204,7 @@ public class MainThirdPage extends Fragment {
                                                     startActivity(intent);
                                                     getActivity().finish();
                                                 }
+
                                                 @Override
                                                 public void failure(RetrofitError error) {
                                                     Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
@@ -255,7 +259,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
-        final Fragment userinfofragment = new MainThirdUseritem();
+        final Fragment userinfofragment = new MainThirdUserItem();
         final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면
 
