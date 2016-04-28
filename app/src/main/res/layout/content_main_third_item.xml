@@ -238,7 +238,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_vertical"
-                    android:id="@+id/main3_point"
+                    android:id="@+id/main3_userlotspoint"
                     android:text="n"
                     android:textSize="10dp"
                     android:textColor="#e73236"

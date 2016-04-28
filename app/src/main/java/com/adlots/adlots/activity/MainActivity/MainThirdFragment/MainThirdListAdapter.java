@@ -52,7 +52,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.endpoint = (TextView) v.findViewById(R.id.main3_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main3_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main3_lotspeople);
-            holder.point = (TextView) v.findViewById(R.id.main3_point);
+            holder.userlotspoint = (TextView) v.findViewById(R.id.main3_userlotspoint);
             holder.when = (TextView) v.findViewById(R.id.main3_when);
             holder.howtobuy = (TextView) v.findViewById(R.id.main3_howtobuy);
             holder.status = (TextView) v.findViewById(R.id.main3_status);
@@ -98,10 +98,23 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.endpoint.setText(adlotsItem.endpoint);
             holder.nowpoint.setText(adlotsItem.nowpoint);
             holder.lotspeople.setText(adlotsItem.lotspeople);
-            holder.point.setText(adlotsItem.point);
+
+            if(adlotsItem.howtobuy.equals("lots")) {
+                holder.userlotspoint.setText(adlotsItem.userlotspoint);
+                holder.howtobuy.setText("응모 신청");
+                holder.status.setText("현재 진행중");
+                // 당첨 여부 알려줄 예정
+                // 만약 기간이 되어도 마감이 안될 경우 환불
+                // 만약 배송 상품일 경우 버튼으로 배송 주소 받기
+            } else {
+                holder.userlotspoint.setText(adlotsItem.endpoint);
+                holder.howtobuy.setText("바로 구입");
+                holder.status.setText("2일 내로 지급 예정");
+                // 지급이 완료되면 지급 완료로 표시
+                // 만약 배송 상품일 경우 버튼으로 배송 주소 받기
+            }
+
             holder.when.setText(adlotsItem.when);
-            holder.howtobuy.setText(adlotsItem.howtobuy);
-            holder.status.setText(adlotsItem.status);
         }
 
         return v;
@@ -112,6 +125,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
-        TextView type, point, when, howtobuy, status;
+        TextView type, userlotspoint, when, howtobuy, status;
     }
 }

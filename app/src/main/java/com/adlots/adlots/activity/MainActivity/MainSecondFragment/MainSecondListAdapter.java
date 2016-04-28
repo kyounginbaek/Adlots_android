@@ -60,6 +60,22 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource, parent, false);
 
+            // 나의 포인트 가져오기
+            HashMap<String, String> data = new HashMap<>();
+            data.put("email", pref_email);
+            data.put("password", pref_password);
+
+            RestClient.AdlotsService service = RestClient.getService();
+            service.getuserPoint(data, new Callback<JsonElement>() {
+                @Override
+                public void success(JsonElement jsonElement, Response response) {
+                    userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                }
+                @Override
+                public void failure(RetrofitError error) {
+                }
+            });
+
             holder = new ListHolder();
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
@@ -86,27 +102,10 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     final TextView howmuchlots = (TextView) dialogView.findViewById(R.id.main2_popup_howmuchlots);
                     final TextView mypoint = (TextView) dialogView.findViewById(R.id.main2_popup_mypoint);
                     TextView nowpoint = (TextView) dialogView.findViewById(R.id.main2_popup_nowpoint);
-                    TextView endpoint = (TextView) dialogView.findViewById(R.id.main2_popup_endpoint);
+                    final TextView endpoint = (TextView) dialogView.findViewById(R.id.main2_popup_endpoint);
                     TextView lotspeople = (TextView) dialogView.findViewById(R.id.main2_popup_lotspeople);
 
-                    // 나의 포인트 가져오기
-                    HashMap<String, String> data = new HashMap<>();
-                    data.put("email", pref_email);
-                    data.put("password", pref_password);
-
-                    RestClient.AdlotsService service = RestClient.getService();
-                    service.getuserPoint(data, new Callback<JsonElement>() {
-                        @Override
-                        public void success(JsonElement jsonElement, Response response) {
-                            userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
-                            mypoint.setText(userpoint);
-                        }
-
-                        @Override
-                        public void failure(RetrofitError error) {
-                        }
-                    });
-
+                    mypoint.setText(userpoint);
                     nowpoint.setText(adlotsItem.nowpoint);
                     endpoint.setText(adlotsItem.endpoint);
                     lotspeople.setText(adlotsItem.lotspeople);
@@ -123,28 +122,34 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             long time = System.currentTimeMillis();
                             SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                             String date = dayTime.format(new Date(time));
-                            String lotspoint = howmuchlots.getText().toString();
+                            String userlotspoint = howmuchlots.getText().toString();
 
-                            // 총 8개의 데이터 전송
+                            // 총 14개 데이터 전송
                             HashMap<String, String> data = new HashMap<>();
                             data.put("nickname", pref_nickname);
+                            data.put("howtobuy", "lots");
+                            data.put("itemid", adlotsItem.id);
                             data.put("type", adlotsItem.type);
                             data.put("category", adlotsItem.category);
                             data.put("brand", adlotsItem.brand);
                             data.put("itemname", adlotsItem.itemname);
-                            data.put("howtobuy", "lots");
-                            data.put("point", lotspoint); // 유저가 입력한 응모 포인트
+                            data.put("imagelink", adlotsItem.imagelink);
+                            data.put("referlink", adlotsItem.referlink);
+                            data.put("endpoint", adlotsItem.endpoint);
+                            data.put("starttime", adlotsItem.startime);
+                            data.put("endtime", adlotsItem.endtime);
+                            data.put("userlotspoint", userlotspoint); // 유저가 입력한 응모 포인트
                             data.put("when", date);
 
                             // 유저가 입력한 응모 포인트 blank, number 체크
-                            if(CheckNumber(lotspoint)){
-                                double double_lotspoint = Double.parseDouble(lotspoint);
+                            if(CheckNumber(userlotspoint)){
+                                double double_userlotspoint = Double.parseDouble(userlotspoint);
                                 int int_userpoint = Integer.parseInt(userpoint);
 
-                                if ((double_lotspoint <= 0) || (double_lotspoint % 10 != 0)) {
+                                if ((double_userlotspoint <= 0) || (double_userlotspoint % 10 != 0)) {
                                     // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
                                     Toast.makeText(context, "10 랏츠 단위로 응모해주세요.\n(예: 10,100,1000,10000)", Toast.LENGTH_SHORT).show();
-                                } else if (double_lotspoint > int_userpoint) {
+                                } else if (double_userlotspoint > int_userpoint) {
                                     // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
                                     Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                                 } else {
@@ -188,15 +193,18 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                                     String date = dayTime.format(new Date(time));
 
-                                    // 총 8개의 데이터 전송
+                                    // 총 11개 데이터 전송 (nowpoint, startime, point 제외)
                                     HashMap<String, String> data = new HashMap<>();
                                     data.put("nickname", pref_nickname);
+                                    data.put("howtobuy", "purchase");
+                                    data.put("itemid", adlotsItem.id);
                                     data.put("type", adlotsItem.type);
                                     data.put("category", adlotsItem.category);
                                     data.put("brand", adlotsItem.brand);
                                     data.put("itemname", adlotsItem.itemname);
-                                    data.put("howtobuy", "purchase");
-                                    data.put("point", adlotsItem.endpoint); //바로 구입 가격
+                                    data.put("imagelink", adlotsItem.imagelink);
+                                    data.put("referlink", adlotsItem.referlink);
+                                    data.put("endpoint", adlotsItem.endpoint);
                                     data.put("when", date);
 
                                     int int_endpoint = Integer.parseInt(adlotsItem.endpoint);
