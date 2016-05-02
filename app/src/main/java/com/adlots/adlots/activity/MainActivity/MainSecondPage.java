@@ -44,15 +44,15 @@ public class MainSecondPage extends Fragment {
         final Fragment fragment1 = new MainSecondGiftcon();
         final Fragment fragment2 = new MainSecondDelivery();
         final Fragment fragment3 = new MainSecondDeadline();
-        final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.main2_fragment, fragment1, "FRAGMENT1").commit(); //처음 화면
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.main2_fragment, fragment1).commit(); //처음 화면
 
         ViewGroup giftcon = (LinearLayout) mainsecondView.findViewById(R.id.main2_giftcon);
         giftcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.main2_fragment, fragment1, "FRAGMENT1").commit();
+                transaction.replace(R.id.main2_fragment, fragment1).commit();
             }
         });
 
@@ -61,7 +61,7 @@ public class MainSecondPage extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.main2_fragment, fragment2, "FRAGMENT2").commit();
+                transaction.replace(R.id.main2_fragment, fragment2).commit();
             }
         });
 
@@ -70,30 +70,20 @@ public class MainSecondPage extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.main2_fragment, fragment3, "FRAGMENT3").commit();
+                transaction.replace(R.id.main2_fragment, fragment3).commit();
             }
         });
 
-        // 새로고침 버튼 클릭 시 화면 새로고침 (MainSecondListAdapter 새로고침)
+        // 새로고침 버튼 클릭 시 listview 화면 새로고침
         TextView refresh = (TextView) mainsecondView.findViewById(R.id.main2_txtbtn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main2_fragment);
-                if(currentFragment.getTag().equals("FRAGMENT1")){
-                    transaction.detach(currentFragment);
-                    transaction.attach(currentFragment);
-                    transaction.commit();
-                } else if(currentFragment.getTag().equals("FRAGMENT2")){
-                    transaction.detach(currentFragment);
-                    transaction.attach(currentFragment);
-                    transaction.commit();
-                } else if(currentFragment.getTag().equals("FRAGMENT3")){
-                    transaction.detach(currentFragment);
-                    transaction.attach(currentFragment);
-                    transaction.commit();
-                }
+                transaction.detach(currentFragment);
+                transaction.attach(currentFragment);
+                transaction.commit();
             }
         });
 

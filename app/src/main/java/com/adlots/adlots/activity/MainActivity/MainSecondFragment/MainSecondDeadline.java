@@ -21,7 +21,7 @@ import retrofit.client.Response;
 /**
  * Created by baekkyoungin on 16. 3. 22..
  */
-public class MainSecondDeadline extends android.support.v4.app.Fragment {
+public class MainSecondDeadline extends android.app.Fragment {
 
     private Context deadlineContext = null;
     private View deadlineView = null;

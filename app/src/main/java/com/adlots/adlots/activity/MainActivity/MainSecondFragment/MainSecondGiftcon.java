@@ -21,7 +21,7 @@ import retrofit.client.Response;
 /**
  * Created by baekkyoungin on 16. 3. 22..
  */
-public class MainSecondGiftcon extends android.support.v4.app.Fragment {
+public class MainSecondGiftcon extends android.app.Fragment {
 
     private Context giftconContext = null;
     private View giftconView = null;

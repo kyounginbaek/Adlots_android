@@ -21,7 +21,7 @@ import retrofit.client.Response;
 /**
  * Created by baekkyoungin on 16. 3. 22..
  */
-public class MainSecondDelivery extends android.support.v4.app.Fragment {
+public class MainSecondDelivery extends android.app.Fragment {
 
     private Context deliveryContext = null;
     private View deliveryView = null;
