@@ -2,6 +2,7 @@ package com.adlots.adlots.activity.MainActivity.MainSecondFragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import retrofit.client.Response;
 /**
  * Created by baekkyoungin on 16. 3. 22..
  */
-public class MainSecondDeadline extends android.app.Fragment {
+public class MainSecondDeadline extends Fragment {
 
     private Context deadlineContext = null;
     private View deadlineView = null;

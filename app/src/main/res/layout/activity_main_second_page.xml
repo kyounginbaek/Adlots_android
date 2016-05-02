@@ -37,7 +37,7 @@
 
     /* 상품 아이콘 이미지들 */
     <LinearLayout
-        android:background="@color/background"
+
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:gravity="center"
@@ -52,7 +52,7 @@
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:background="@drawable/gifticon"
+                android:background="@drawable/gift"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="기프티콘"
                 android:textSize="10dp"
-                android:textColor="#2d2d2d"
+                android:textColor="#4d4d4d"
                 />
         </LinearLayout>
 
@@ -74,15 +74,15 @@
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:background="@drawable/new_item2"
+                android:background="@drawable/shipping"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신규 추첨"
+                android:text="배송 물품"
                 android:textSize="10dp"
-                android:textColor="#2d2d2d"
+                android:textColor="#4d4d4d"
                 />
         </LinearLayout>
 
@@ -96,7 +96,7 @@
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:background="@drawable/lottery"
+                android:background="@drawable/time"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="임박 추첨"
                 android:textSize="10dp"
-                android:textColor="#2d2d2d"
+                android:textColor="#4d4d4d"
                 />
         </LinearLayout>
 
@@ -114,27 +114,37 @@
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="24dp"
+        android:layout_height="28dp"
         android:gravity="center_vertical"
         >
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="아이템 목록"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="아이템 목록"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
-            android:id="@+id/main2_txtbtn_refresh"
-            android:text="새로고침"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+            android:gravity="right"
+            android:layout_marginRight="16dp"
+            >
+            <Button
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:id="@+id/main2_txtbtn_refresh"
+                android:background="@drawable/refresh"
+                android:textSize="16dp"
+                android:textColor="#2d2d2d"
+                />
+        </LinearLayout>
     </LinearLayout>
 
     /* 상품 전체 페이지 */
@@ -143,5 +153,5 @@
         android:id="@+id/main2_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    />
+        />
 </LinearLayout>

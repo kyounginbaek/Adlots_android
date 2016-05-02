@@ -14,19 +14,15 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.activity.MainActivity.MainSecondFragment.MainSecondListAdapter;
 import com.adlots.adlots.activity.MainActivity.MainThirdFragment.MainThirdUserItem;
 import com.adlots.adlots.activity.SigninActivity;
 import com.adlots.adlots.rest.RestClient;
-import com.adlots.adlots.rest.model.MainThirdItem;
 import com.google.gson.JsonElement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import retrofit.Callback;
@@ -42,10 +38,6 @@ public class MainThirdPage extends Fragment {
 
     private Context mainthirdContext = null;
     private View mainthirdView = null;
-
-    ListView useritemList;
-    MainSecondListAdapter useritemAdapter;
-    public ArrayList<MainThirdItem> useritemArray = new ArrayList<MainThirdItem>();
 
     public static MainThirdPage newProduction (int position) {
         MainThirdPage mpage = new MainThirdPage();
@@ -281,7 +273,7 @@ public class MainThirdPage extends Fragment {
         });
 
         final Fragment userinfofragment = new MainThirdUserItem();
-        final FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면
 
         return mainthirdView;
