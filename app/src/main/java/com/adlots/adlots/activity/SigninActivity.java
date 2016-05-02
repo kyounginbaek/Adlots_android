@@ -80,13 +80,13 @@ public class SigninActivity extends Activity {
                                     finish();
                                     break;
                                 default:
-                                    Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                          public void failure(RetrofitError error) {
-                            Toast.makeText(getApplicationContext(), "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {

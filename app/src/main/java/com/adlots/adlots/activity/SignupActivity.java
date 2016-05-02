@@ -78,13 +78,13 @@ public class SignupActivity extends Activity {
                             public void success(JsonElement jsonElement, Response response) {
                                 String condition = jsonElement.getAsJsonObject().get("response").getAsString();
                                 switch (condition) {
-                                    case "phone":
+                                    case "phone_exists":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
-                                    case "email":
+                                    case "email_exists":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
-                                    case "nickname":
+                                    case "nickname_exists":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "success":
@@ -93,16 +93,16 @@ public class SignupActivity extends Activity {
                                         finish();
                                         break;
                                     default:
-                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             @Override
                             public void failure(RetrofitError error) {
-                                Toast.makeText(getApplicationContext(),"오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
-                        Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다.\n다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();

@@ -130,92 +130,114 @@ public class MainThirdPage extends Fragment {
                             } else {
                                 if (info_originalpass.equals(pref_password)) {
                                     if (info_password.equals("")) {
-                                        HashMap<String, String> data = new HashMap<>();
-                                        data.put("newemail", info_email);
-                                        data.put("originalemail", pref_email);
-                                        data.put("originalpass", pref_password);
-                                        RestClient.AdlotsService service = RestClient.getService();
-                                        service.userinfoChange("newemail", data, new Callback<JsonElement>() {
-                                            @Override
-                                            public void success(JsonElement jsonElement, Response response) {
-                                                SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
-                                                SharedPreferences.Editor editor = pref.edit();
-                                                editor.putString("login", "no");
-                                                editor.commit();
-
-                                                Toast.makeText(mainthirdContext, "이메일이 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(mainthirdContext, SigninActivity.class);
-                                                startActivity(intent);
-                                                getActivity().finish();
-                                            }
-
-                                            @Override
-                                            public void failure(RetrofitError error) {
-                                                Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                                    } else if (info_email.equals("")) {
-                                        if (info_password.equals(info_passcheck)) {
+                                        if(info_email.equals(pref_email)){
+                                            Toast.makeText(mainthirdContext, "기존 이메일과 동일합니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                        } else {
                                             HashMap<String, String> data = new HashMap<>();
-                                            data.put("newpassword", info_password);
+                                            data.put("newemail", info_email);
                                             data.put("originalemail", pref_email);
                                             data.put("originalpass", pref_password);
                                             RestClient.AdlotsService service = RestClient.getService();
-                                            service.userinfoChange("newpassword", data, new Callback<JsonElement>() {
+                                            service.userinfoChange("newemail", data, new Callback<JsonElement>() {
                                                 @Override
                                                 public void success(JsonElement jsonElement, Response response) {
-                                                    SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
-                                                    SharedPreferences.Editor editor = pref.edit();
-                                                    editor.putString("login", "no");
-                                                    editor.commit();
+                                                    String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                                                    if(condition.equals("email_exists")){
+                                                        Toast.makeText(mainthirdContext, "다른 유저가 사용하는 이메일입니다. 다른 이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
+                                                        SharedPreferences.Editor editor = pref.edit();
+                                                        editor.putString("login", "no");
+                                                        editor.commit();
 
-                                                    Toast.makeText(mainthirdContext, "비밀번호가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(mainthirdContext, SigninActivity.class);
-                                                    startActivity(intent);
-                                                    getActivity().finish();
+                                                        Toast.makeText(mainthirdContext, "이메일이 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(mainthirdContext, SigninActivity.class);
+                                                        startActivity(intent);
+                                                        getActivity().finish();
+                                                    }
                                                 }
-
                                                 @Override
                                                 public void failure(RetrofitError error) {
-                                                    Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
+                                        }
+                                    } else if (info_email.equals("")) {
+                                        if (info_password.equals(info_passcheck)) {
+                                            if(info_password.equals(pref_password)){
+                                                Toast.makeText(mainthirdContext, "기존 비밀번호와 동일합니다. 다른 비밀번호를 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                HashMap<String, String> data = new HashMap<>();
+                                                data.put("newpassword", info_password);
+                                                data.put("originalemail", pref_email);
+                                                data.put("originalpass", pref_password);
+                                                RestClient.AdlotsService service = RestClient.getService();
+                                                service.userinfoChange("newpassword", data, new Callback<JsonElement>() {
+                                                    @Override
+                                                    public void success(JsonElement jsonElement, Response response) {
+                                                        // 기존 이메일 중복 여부 체크 불필요
+                                                        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
+                                                        SharedPreferences.Editor editor = pref.edit();
+                                                        editor.putString("login", "no");
+                                                        editor.commit();
+
+                                                        Toast.makeText(mainthirdContext, "비밀번호가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(mainthirdContext, SigninActivity.class);
+                                                        startActivity(intent);
+                                                        getActivity().finish();
+                                                    }
+                                                    @Override
+                                                    public void failure(RetrofitError error) {
+                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                            }
                                         } else {
-                                            Toast.makeText(mainthirdContext, "변경 비밀번호와 재입력 비밀번호가 일치하지 않습니다.\n다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(mainthirdContext, "변경 비밀번호와 재입력 비밀번호가 일치하지 않습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
                                         if (info_password.equals(info_passcheck)) {
-                                            HashMap<String, String> data = new HashMap<>();
-                                            data.put("newemail", info_email);
-                                            data.put("newpassword", info_password);
-                                            data.put("originalemail", pref_email);
-                                            data.put("originalpass", pref_password);
-                                            RestClient.AdlotsService service = RestClient.getService();
-                                            service.userinfoChange("newboth", data, new Callback<JsonElement>() {
-                                                @Override
-                                                public void success(JsonElement jsonElement, Response response) {
-                                                    SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
-                                                    SharedPreferences.Editor editor = pref.edit();
-                                                    editor.putString("login", "no");
-                                                    editor.commit();
+                                            if(info_email.equals(pref_email)){
+                                                Toast.makeText(mainthirdContext, "기존 이메일과 동일합니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                            } else if(info_password.equals(pref_password)){
+                                                Toast.makeText(mainthirdContext, "기존 비밀번호와 동일합니다. 다른 비밀번호를 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                HashMap<String, String> data = new HashMap<>();
+                                                data.put("newemail", info_email);
+                                                data.put("newpassword", info_password);
+                                                data.put("originalemail", pref_email);
+                                                data.put("originalpass", pref_password);
+                                                RestClient.AdlotsService service = RestClient.getService();
+                                                service.userinfoChange("newboth", data, new Callback<JsonElement>() {
+                                                    @Override
+                                                    public void success(JsonElement jsonElement, Response response) {
+                                                        String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                                                        if (condition.equals("email_exists")) {
+                                                            Toast.makeText(mainthirdContext, "다른 유저가 사용하는 이메일입니다. 다른 이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                                        } else {
+                                                            SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
+                                                            SharedPreferences.Editor editor = pref.edit();
+                                                            editor.putString("login", "no");
+                                                            editor.commit();
 
-                                                    Toast.makeText(mainthirdContext, "비밀번호가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
-                                                    Intent intent = new Intent(mainthirdContext, SigninActivity.class);
-                                                    startActivity(intent);
-                                                    getActivity().finish();
-                                                }
-
-                                                @Override
-                                                public void failure(RetrofitError error) {
-                                                    Toast.makeText(mainthirdContext, "오류가 발생했습니다.\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
+                                                            Toast.makeText(mainthirdContext, "비밀번호가 변경되었습니다. 다시 로그인해 주세요.", Toast.LENGTH_SHORT).show();
+                                                            Intent intent = new Intent(mainthirdContext, SigninActivity.class);
+                                                            startActivity(intent);
+                                                            getActivity().finish();
+                                                        }
+                                                    }
+                                                    @Override
+                                                    public void failure(RetrofitError error) {
+                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                            }
                                         } else {
                                             Toast.makeText(mainthirdContext, "변경 비밀번호와 비밀번호 재입력이 일치하지 않습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 } else {
-                                    Toast.makeText(mainthirdContext, "기존 비밀번호가 일치하지 않습니다.\n다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mainthirdContext, "기존 비밀번호가 일치하지 않습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -252,7 +274,6 @@ public class MainThirdPage extends Fragment {
                                 dialog.cancel();
                             }
                         });
-
                 AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
                 dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                 dialog.show(); //Dialog 보이기
