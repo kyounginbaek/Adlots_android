@@ -24,7 +24,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -38,7 +37,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     private ArrayList<MainSecondItem> items;
     int layoutResource;
     String userpoint;
-    public ArrayList<MainSecondItem> oneitemArray = new ArrayList<MainSecondItem>();
 
     public MainSecondListAdapter(Context context, int resource, ArrayList<MainSecondItem> items) {
         super(context, resource, items);
@@ -66,7 +64,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             HashMap<String, String> data = new HashMap<>();
             data.put("email", pref_email);
             data.put("password", pref_password);
-
             RestClient.AdlotsService service = RestClient.getService();
             service.getuserPoint(data, new Callback<JsonElement>() {
                 @Override
@@ -110,16 +107,14 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     // 실시간으로 아이템 데이터 가져오기
                     HashMap<String, String> data = new HashMap<>();
                     data.put("id", adlotsItem.id);
-
                     RestClient.AdlotsService service = RestClient.getService();
-                    service.getoneItem(data, new Callback<List<MainSecondItem>>() {
+                    service.getoneItem(data, new Callback<JsonElement>() {
                         @Override
-                        public void success(List<MainSecondItem> getitem, Response response) {
-                            oneitemArray.addAll(getitem);
+                        public void success(JsonElement jsonElement, Response response) {
                             mypoint.setText(userpoint);
-                            //nowpoint.setText(oneitemArray.indexOf("nowpoint"));
-                            //endpoint.setText(oneitemArray.indexOf("endpoint"));
-                            //lotspeople.setText(oneitemArray.indexOf("lotspeople"));
+                            nowpoint.setText(jsonElement.getAsJsonObject().get("nowpoint").getAsString());
+                            endpoint.setText(jsonElement.getAsJsonObject().get("endpoint").getAsString());
+                            lotspeople.setText(jsonElement.getAsJsonObject().get("lotspeople").getAsString());
                         }
                         @Override
                         public void failure(RetrofitError error) {

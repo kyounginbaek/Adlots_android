@@ -47,7 +47,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/giftcon"
+            android:id="@+id/main2_giftcon"
             >
             <Button
                 android:layout_width="35dp"
@@ -69,7 +69,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/delivery"
+            android:id="@+id/main2_delivery"
             >
             <Button
                 android:layout_width="35dp"
@@ -91,7 +91,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/deadline"
+            android:id="@+id/main2_deadline"
             >
             <Button
                 android:layout_width="35dp"
@@ -122,6 +122,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="아이템 목록"
+            android:textSize="16dp"
+            android:textColor="#2d2d2d"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:id="@+id/main2_txtbtn_refresh"
+            android:text="새로고침"
             android:textSize="16dp"
             android:textColor="#2d2d2d"
             />

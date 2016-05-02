@@ -59,7 +59,7 @@ public class RestClient {
 
         //특정 아이템 1개 정보만 가져오기
         @POST("/getoneItem.php")
-        void getoneItem(@Body Map<String, String> getoneItem, Callback<List<MainSecondItem>> callback); //MainSecondItem 공유
+        void getoneItem(@Body Map<String, String> getoneItem, Callback<JsonElement> callback); //MainSecondItem 공유
 
         //유저아이템 정보 가져오기
         @POST("/getuserItem.php")
