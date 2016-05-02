@@ -157,7 +157,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             if(CheckNumber(userlotspoint)){
                                 double double_userlotspoint = Double.parseDouble(userlotspoint);
                                 int int_userpoint = Integer.parseInt(userpoint);
-
                                 if ((double_userlotspoint <= 0) || (double_userlotspoint % 10 != 0)) {
                                     // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
                                     Toast.makeText(context, "10 랏츠 단위로 응모해주세요. (예: 10,100,1000,10000)", Toast.LENGTH_SHORT).show();
@@ -169,8 +168,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
                                         @Override
                                         public void success(JsonElement jsonElement, Response response) {
-                                            Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                                            dialog.dismiss();
+                                            String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                                            if(condition.equals("overpoint")) {
+                                                Toast.makeText(context, "남은 응모 랏츠보다 더 많은 포인트를 응모해주셨습니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                            } else if(condition.equals("success")) {
+                                                Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                dialog.dismiss();
+                                            }
                                         }
                                         @Override
                                         public void failure(RetrofitError error) {
