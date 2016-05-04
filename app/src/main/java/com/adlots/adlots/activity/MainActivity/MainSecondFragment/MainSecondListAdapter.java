@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainSecondPage;
 import com.adlots.adlots.helper.ImageLoadTask;
 import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainSecondItem;
@@ -176,7 +179,12 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                                 case "success":
                                                     Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
-
+                                                    //
+                                                    FragmentTransaction transaction = MainSecondPage.staticvar.getChildFragmentManager().beginTransaction();
+                                                    Fragment currentFragment = MainSecondPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main2_fragment);
+                                                    transaction.detach(currentFragment);
+                                                    transaction.attach(currentFragment);
+                                                    transaction.commit();
                                                     break;
                                                 case "pointdone":
                                                     Toast.makeText(context, "응모가 마무리되었습니다. 나의 당첨 유무를 확인해주세요.", Toast.LENGTH_SHORT).show();
@@ -294,7 +302,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     dialog.show(); //Dialog 보이기
                 }
             });
-
             holder.endtime.setText(adlotsItem.endtime);
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
@@ -303,7 +310,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.nowpoint.setText(adlotsItem.nowpoint);
             holder.lotspeople.setText(adlotsItem.lotspeople);
         }
-
         return v;
     }
 
@@ -329,5 +335,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             }
         }
         return true;
+    }
+
+    public void main2_refresh() {
+
+    }
+
+    public void main3_refresh() {
+
     }
 }

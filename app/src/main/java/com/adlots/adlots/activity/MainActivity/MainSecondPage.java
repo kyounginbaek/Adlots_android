@@ -25,6 +25,7 @@ public class MainSecondPage extends Fragment {
 
     private Context mainsecondContext = null;
     private View mainsecondView = null;
+    public static MainSecondPage staticvar;
 
     public static MainSecondPage newProduction (int position) {
         MainSecondPage mpage = new MainSecondPage();
@@ -34,6 +35,7 @@ public class MainSecondPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        staticvar = this;
     }
 
     @Override
@@ -105,13 +107,5 @@ public class MainSecondPage extends Fragment {
 
         return mainsecondView;
     }
-
-    /*public static void main_refresh() {
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main2_fragment);
-        transaction.detach(currentFragment);
-        transaction.attach(currentFragment);
-        transaction.commit();
-    }*/
 }
 

@@ -38,6 +38,7 @@ public class MainThirdPage extends Fragment {
 
     private Context mainthirdContext = null;
     private View mainthirdView = null;
+    public static MainThirdPage staticvar;
 
     public static MainThirdPage newProduction (int position) {
         MainThirdPage mpage = new MainThirdPage();
@@ -47,6 +48,7 @@ public class MainThirdPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        staticvar = this;
     }
 
     @Override
@@ -78,7 +80,6 @@ public class MainThirdPage extends Fragment {
                 String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
                 txt_point.setText(userpoint);
             }
-
             @Override
             public void failure(RetrofitError error) {
             }
