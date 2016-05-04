@@ -169,11 +169,19 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                         @Override
                                         public void success(JsonElement jsonElement, Response response) {
                                             String condition = jsonElement.getAsJsonObject().get("response").getAsString();
-                                            if(condition.equals("overpoint")) {
-                                                Toast.makeText(context, "남은 응모 랏츠보다 더 많은 포인트를 응모해주셨습니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
-                                            } else if(condition.equals("success")) {
-                                                Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
-                                                dialog.dismiss();
+                                            switch(condition){
+                                                case "overpoint":
+                                                    Toast.makeText(context, "남은 응모 랏츠를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                    break;
+                                                case "success":
+                                                    Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                    dialog.dismiss();
+
+                                                    break;
+                                                case "pointdone":
+                                                    Toast.makeText(context, "응모가 마무리되었습니다. 나의 당첨 유무를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                    dialog.dismiss();
+                                                    break;
                                             }
                                         }
                                         @Override

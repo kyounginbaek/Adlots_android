@@ -77,7 +77,7 @@ public class SignupActivity extends Activity {
                             @Override
                             public void success(JsonElement jsonElement, Response response) {
                                 String condition = jsonElement.getAsJsonObject().get("response").getAsString();
-                                switch (condition) {
+                                switch(condition) {
                                     case "phone_exists":
                                         Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                         break;

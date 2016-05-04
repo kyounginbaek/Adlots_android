@@ -53,6 +53,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/gift"
+                android:id="@+id/main2_btn_giftcon"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
@@ -75,6 +76,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/shipping"
+                android:id="@+id/main2_btn_delivery"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
@@ -97,6 +99,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/time"
+                android:id="@+id/main2_btn_deadline"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView

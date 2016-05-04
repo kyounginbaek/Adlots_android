@@ -91,7 +91,11 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             });
 
             holder.endtime.setText(adlotsItem.endtime);
-            holder.type.setText(adlotsItem.type);
+            if(adlotsItem.type.equals("giftcon")){
+                holder.type.setText("기프트콘");
+            } else if(adlotsItem.type.equals("purchase")){
+                holder.type.setText("바로구입");
+            }
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
@@ -113,7 +117,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 // 지급이 완료되면 지급 완료로 표시
                 // 만약 배송 상품일 경우 버튼으로 배송 주소 받기
             }
-
             holder.when.setText(adlotsItem.when);
         }
 
