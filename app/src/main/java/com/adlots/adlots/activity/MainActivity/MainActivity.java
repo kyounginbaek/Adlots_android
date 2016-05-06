@@ -70,6 +70,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             }
         });
 
+        // 시작하자마자 포인트 정보 가져오기
+
+
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
 

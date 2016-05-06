@@ -26,6 +26,7 @@ public class MainSecondPage extends Fragment {
     private Context mainsecondContext = null;
     private View mainsecondView = null;
     public static MainSecondPage staticvar;
+    public Button btn_giftcon, btn_delivery, btn_deadline;
 
     public static MainSecondPage newProduction (int position) {
         MainSecondPage mpage = new MainSecondPage();
@@ -48,15 +49,16 @@ public class MainSecondPage extends Fragment {
         ViewGroup delivery = (LinearLayout) mainsecondView.findViewById(R.id.main2_delivery);
         ViewGroup deadline = (LinearLayout) mainsecondView.findViewById(R.id.main2_deadline);
 
-        final Button btn_giftcon = (Button) mainsecondView.findViewById(R.id.main2_btn_giftcon);
-        final Button btn_delivery = (Button) mainsecondView.findViewById(R.id.main2_btn_delivery);
-        final Button btn_deadline = (Button) mainsecondView.findViewById(R.id.main2_btn_deadline);
+        btn_giftcon = (Button) mainsecondView.findViewById(R.id.main2_btn_giftcon);
+        btn_delivery = (Button) mainsecondView.findViewById(R.id.main2_btn_delivery);
+        btn_deadline = (Button) mainsecondView.findViewById(R.id.main2_btn_deadline);
 
         final Fragment fragment1 = new MainSecondGiftcon();
         final Fragment fragment2 = new MainSecondDelivery();
         final Fragment fragment3 = new MainSecondDeadline();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main2_fragment, fragment1).commit(); //처음 화면
+        btn_original();
         btn_giftcon.setBackgroundResource(R.drawable.gift_click);
 
         giftcon.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +66,7 @@ public class MainSecondPage extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment1).commit();
-                btn_delivery.setBackgroundResource(R.drawable.shipping);
-                btn_deadline.setBackgroundResource(R.drawable.time);
+                btn_original();
                 btn_giftcon.setBackgroundResource(R.drawable.gift_click);
             }
         });
@@ -75,8 +76,7 @@ public class MainSecondPage extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment2).commit();
-                btn_giftcon.setBackgroundResource(R.drawable.gift);
-                btn_deadline.setBackgroundResource(R.drawable.time);
+                btn_original();
                 btn_delivery.setBackgroundResource(R.drawable.shipping_click);
             }
         });
@@ -86,8 +86,7 @@ public class MainSecondPage extends Fragment {
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment3).commit();
-                btn_giftcon.setBackgroundResource(R.drawable.gift);
-                btn_delivery.setBackgroundResource(R.drawable.shipping);
+                btn_original();
                 btn_deadline.setBackgroundResource(R.drawable.time_click);
             }
         });
@@ -106,6 +105,12 @@ public class MainSecondPage extends Fragment {
         });
 
         return mainsecondView;
+    }
+
+    public void btn_original() {
+        btn_giftcon.setBackgroundResource(R.drawable.gift);
+        btn_deadline.setBackgroundResource(R.drawable.time);
+        btn_delivery.setBackgroundResource(R.drawable.shipping);
     }
 }
 

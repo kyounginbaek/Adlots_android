@@ -26,7 +26,7 @@
                 android:paddingBottom="20dp"
                 android:textSize="18dp"
                 android:textColor="#0d2436"
-                android:id="@+id/main3_mypoint"
+                android:id="@+id/main3_userpoint"
                 android:gravity="center"
                 />
 

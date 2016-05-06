@@ -66,13 +66,12 @@ public class MainThirdPage extends Fragment {
         txt_nickname.setText(pref_nickname);
         TextView txt_email = (TextView) mainthirdView.findViewById(R.id.main3_email);
         txt_email.setText(pref_email);
-        final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_mypoint);
+        final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_userpoint);
 
         // 나의 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
         data.put("email", pref_email);
         data.put("password", pref_password);
-
         RestClient.AdlotsService service = RestClient.getService();
         service.getuserPoint(data, new Callback<JsonElement>() {
             @Override
@@ -85,6 +84,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
+        // 개인정보 변경 클릭 이벤트
         final ViewGroup userinfochange = (LinearLayout) mainthirdView.findViewById(R.id.userinfochange);
         userinfochange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,6 +239,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
+        // 로그아웃 클릭 이벤트
         ViewGroup logout = (LinearLayout) mainthirdView.findViewById(R.id.logout);
         logout.setOnClickListener(new OnClickListener() {
             @Override
@@ -273,6 +274,7 @@ public class MainThirdPage extends Fragment {
             }
         });
 
+        // 나의 응목 & 구입 목록 가져오기
         final Fragment userinfofragment = new MainThirdUserItem();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면

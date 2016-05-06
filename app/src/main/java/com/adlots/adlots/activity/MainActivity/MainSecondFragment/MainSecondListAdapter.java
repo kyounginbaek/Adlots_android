@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.adlots.adlots.R;
 import com.adlots.adlots.activity.MainActivity.MainSecondPage;
+import com.adlots.adlots.activity.MainActivity.MainThirdPage;
 import com.adlots.adlots.helper.ImageLoadTask;
 import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainSecondItem;
@@ -58,25 +59,25 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         final String pref_email = pref.getString("email", "");
         final String pref_password = pref.getString("password", "");
 
+        // 유저 포인트 가져오기
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        data.put("password", pref_password);
+        RestClient.AdlotsService service = RestClient.getService();
+        service.getuserPoint(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+            }
+            @Override
+            public void failure(RetrofitError error) {
+            }
+        });
+
         ListHolder holder = null;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource, parent, false);
-
-            // 유저 포인트 가져오기
-            HashMap<String, String> data = new HashMap<>();
-            data.put("email", pref_email);
-            data.put("password", pref_password);
-            RestClient.AdlotsService service = RestClient.getService();
-            service.getuserPoint(data, new Callback<JsonElement>() {
-                @Override
-                public void success(JsonElement jsonElement, Response response) {
-                    userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
-                }
-                @Override
-                public void failure(RetrofitError error) {
-                }
-            });
 
             holder = new ListHolder();
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
@@ -88,12 +89,12 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
 
+            // 응모하기 버튼 클릭 이벤트
             holder.textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
             holder.textbtn_lots.setTag(position);
             holder.textbtn_lots.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // 클릭시 추첨 페이지 팝업되기
                     LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
                     final View dialogView = inflater.inflate(R.layout.popup_main_second_itemlots, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
@@ -107,7 +108,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     final TextView endpoint = (TextView) dialogView.findViewById(R.id.main2_popup_endpoint);
                     final TextView lotspeople = (TextView) dialogView.findViewById(R.id.main2_popup_lotspeople);
 
-                    // 실시간으로 아이템 데이터 가져오기
+                    // 한개 아이템 정보 가져오기
                     HashMap<String, String> data = new HashMap<>();
                     data.put("id", adlotsItem.id);
                     RestClient.AdlotsService service = RestClient.getService();
@@ -129,7 +130,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                     dialog.show(); //Dialog 보이기
 
-                    // 응모하기 버튼 클릭 이벤트
+                    // 응모하기 완료 버튼 클릭 이벤트
                     Button btn_lots = (Button) dialogView.findViewById(R.id.main2_popup_btn_lots);
                     btn_lots.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -177,16 +178,14 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                                     Toast.makeText(context, "남은 응모 랏츠를 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     break;
                                                 case "success":
+                                                    main2_refresh();
+                                                    main3_refresh(pref_email, pref_password);
                                                     Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
-                                                    //
-                                                    FragmentTransaction transaction = MainSecondPage.staticvar.getChildFragmentManager().beginTransaction();
-                                                    Fragment currentFragment = MainSecondPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main2_fragment);
-                                                    transaction.detach(currentFragment);
-                                                    transaction.attach(currentFragment);
-                                                    transaction.commit();
                                                     break;
                                                 case "pointdone":
+                                                    main2_refresh();
+                                                    main3_refresh(pref_email, pref_password);
                                                     Toast.makeText(context, "응모가 마무리되었습니다. 나의 당첨 유무를 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
                                                     break;
@@ -218,9 +217,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 // 확인 버튼 클릭시 설정
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
-                                    String pref_nickname = pref.getString("nickname", "");
-
                                     long time = System.currentTimeMillis();
                                     SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                                     String date = dayTime.format(new Date(time));
@@ -250,6 +246,8 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                             @Override
                                             public void success(JsonElement jsonElement, Response response) {
                                                 Toast.makeText(context, "바로구입 되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                main2_refresh();
+                                                main3_refresh(pref_email, pref_password);
                                             }
                                             @Override
                                             public void failure(RetrofitError error) {
@@ -337,11 +335,41 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         return true;
     }
 
-    public void main2_refresh() {
+    public void getuserpoint(String pref_email, String pref_password) {
 
     }
 
-    public void main3_refresh() {
+    public void main2_refresh() {
+        FragmentTransaction transaction = MainSecondPage.staticvar.getChildFragmentManager().beginTransaction();
+        Fragment currentFragment = MainSecondPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main2_fragment);
+        transaction.detach(currentFragment);
+        transaction.attach(currentFragment);
+        transaction.commit();
+    }
 
+    public void main3_refresh(String pref_email, String pref_password) {
+        final TextView txt_point = (TextView) MainThirdPage.staticvar.getActivity().findViewById(R.id.main3_userpoint);
+
+        // 유저 포인트 가져오기
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        data.put("password", pref_password);
+        RestClient.AdlotsService service = RestClient.getService();
+        service.getuserPoint(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                txt_point.setText(userpoint);
+            }
+            @Override
+            public void failure(RetrofitError error) {
+            }
+        });
+
+        FragmentTransaction transaction = MainThirdPage.staticvar.getChildFragmentManager().beginTransaction();
+        Fragment currentFragment = MainThirdPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+        transaction.detach(currentFragment);
+        transaction.attach(currentFragment);
+        transaction.commit();
     }
 }
