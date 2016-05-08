@@ -17,7 +17,8 @@
         첫번째 상품 그림
         <FrameLayout
             android:layout_width="90dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/layoutnull1">
 
             <ImageView
                 android:layout_width="90dp"
@@ -36,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="마감 날짜 : "
+                    android:text="마감 : "
                     android:textSize="9dp"
                     android:textColor="#2d2d2d"
                     />
@@ -64,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
+                android:id="@+id/layoutnull2"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -119,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_gravity="bottom"
+                android:id="@+id/layoutnull3"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -154,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
+                android:id="@+id/layoutnull4"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
+                android:id="@+id/layoutnull5"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,6 +229,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
+                android:id="@+id/layoutnull6"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -259,6 +265,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
+                android:id="@+id/layoutnull7"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -288,27 +295,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:id="@+id/layoutnull8"
             >
-            <TextView
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:id="@+id/main3_howtobuy"
-                android:text="응모 / 바로구입"
-                android:textSize="12dp"
-                android:textColor="#ffffff"
-                android:background="#1966cb"
-                />
             <TextView
                 android:layout_marginTop="12dp"
                 android:layout_width="60dp"
-                android:layout_height="30dp"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:id="@+id/main3_status"
                 android:text="진행중 / 마감 / 환불"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
-                android:background="#e73236"
+                android:background="#1966cb"
                 />
         </LinearLayout>
 

@@ -15,7 +15,7 @@ public class MainThirdUseritem extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = (View) inflater.inflate(R.layout.fragment_main_third_user_item,
+        View view = (View) inflater.inflate(R.layout.fragment_main_third_user_lots,
                 container, false);
 
         return view ;

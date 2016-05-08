@@ -17,6 +17,11 @@ public class MainThirdItem implements Parcelable, Adaptable {
         readFromParcel(in);
     }
 
+    public MainThirdItem(String isnull, String howtobuy) {
+        this.id = isnull;
+        this.howtobuy = howtobuy;
+    }
+
     @Override
     public int describeContents() {
         return 0;

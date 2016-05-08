@@ -63,7 +63,7 @@ public class RestClient {
 
         //유저아이템 정보 가져오기
         @POST("/getuserItem.php")
-        void getuserItem(@Body Map<String, String> getuserItem, Callback<List<MainThirdItem>> callback);
+        void getuserItem(@Query("purpose") String purpose, @Body Map<String, String> getuserItem, Callback<List<MainThirdItem>> callback);
 
         //유저포인트 정보 가져오기
         @POST("/getuserPoint.php")

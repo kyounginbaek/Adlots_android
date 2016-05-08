@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -18,7 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.activity.MainActivity.MainThirdFragment.MainThirdUserItem;
+import com.adlots.adlots.activity.MainActivity.MainThirdFragment.MainThirdUserLots;
+import com.adlots.adlots.activity.MainActivity.MainThirdFragment.MainThirdUserPurchase;
 import com.adlots.adlots.activity.SigninActivity;
 import com.adlots.adlots.rest.RestClient;
 import com.google.gson.JsonElement;
@@ -39,6 +41,7 @@ public class MainThirdPage extends Fragment {
     private Context mainthirdContext = null;
     private View mainthirdView = null;
     public static MainThirdPage staticvar;
+    TextView txtbtn_lots, txtbtn_purchase;
 
     public static MainThirdPage newProduction (int position) {
         MainThirdPage mpage = new MainThirdPage();
@@ -63,10 +66,11 @@ public class MainThirdPage extends Fragment {
         String pref_nickname = pref.getString("nickname", "");
 
         TextView txt_nickname = (TextView) mainthirdView.findViewById(R.id.main3_nickname);
-        txt_nickname.setText(pref_nickname);
         TextView txt_email = (TextView) mainthirdView.findViewById(R.id.main3_email);
-        txt_email.setText(pref_email);
         final TextView txt_point = (TextView) mainthirdView.findViewById(R.id.main3_userpoint);
+
+        txt_nickname.setText(pref_nickname);
+        txt_email.setText(pref_email);
 
         // 나의 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
@@ -123,7 +127,7 @@ public class MainThirdPage extends Fragment {
                             } else {
                                 if (info_originalpass.equals(pref_password)) {
                                     if (info_password.equals("")) {
-                                        if(info_email.equals(pref_email)){
+                                        if (info_email.equals(pref_email)) {
                                             Toast.makeText(mainthirdContext, "기존 이메일과 동일합니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         } else {
                                             HashMap<String, String> data = new HashMap<>();
@@ -135,7 +139,7 @@ public class MainThirdPage extends Fragment {
                                                 @Override
                                                 public void success(JsonElement jsonElement, Response response) {
                                                     String condition = jsonElement.getAsJsonObject().get("response").getAsString();
-                                                    if(condition.equals("email_exists")){
+                                                    if (condition.equals("email_exists")) {
                                                         Toast.makeText(mainthirdContext, "다른 유저가 사용하는 이메일입니다. 다른 이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
                                                     } else {
                                                         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainthirdContext.MODE_PRIVATE);
@@ -157,7 +161,7 @@ public class MainThirdPage extends Fragment {
                                         }
                                     } else if (info_email.equals("")) {
                                         if (info_password.equals(info_passcheck)) {
-                                            if(info_password.equals(pref_password)){
+                                            if (info_password.equals(pref_password)) {
                                                 Toast.makeText(mainthirdContext, "기존 비밀번호와 동일합니다. 다른 비밀번호를 사용해주세요.", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 HashMap<String, String> data = new HashMap<>();
@@ -190,9 +194,9 @@ public class MainThirdPage extends Fragment {
                                         }
                                     } else {
                                         if (info_password.equals(info_passcheck)) {
-                                            if(info_email.equals(pref_email)){
+                                            if (info_email.equals(pref_email)) {
                                                 Toast.makeText(mainthirdContext, "기존 이메일과 동일합니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
-                                            } else if(info_password.equals(pref_password)){
+                                            } else if (info_password.equals(pref_password)) {
                                                 Toast.makeText(mainthirdContext, "기존 비밀번호와 동일합니다. 다른 비밀번호를 사용해주세요.", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 HashMap<String, String> data = new HashMap<>();
@@ -275,10 +279,44 @@ public class MainThirdPage extends Fragment {
         });
 
         // 나의 응목 & 구입 목록 가져오기
-        final Fragment userinfofragment = new MainThirdUserItem();
+        final Fragment userlotsfragment = new MainThirdUserLots();
+        final Fragment userpurchasefragment = new MainThirdUserPurchase();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.main3_fragment, userinfofragment).commit(); //처음 화면
+        transaction.add(R.id.main3_fragment, userlotsfragment).commit(); //처음 화면
+
+        txtbtn_lots = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_lots);
+        txtbtn_purchase = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_purchase);
+        final String strColor = "#16a0e8";
+        txtbtn_lots.setTextColor(Color.parseColor(strColor));
+
+        // 응모하기 텍스트버튼 이벤트
+        txtbtn_lots.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.main3_fragment, userlotsfragment).commit();
+                txtbtn_original();
+                txtbtn_lots.setTextColor(Color.parseColor(strColor));
+            }
+        });
+
+        // 바로구입 텍스트버튼 이벤트
+        txtbtn_purchase.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.main3_fragment, userpurchasefragment).commit();
+                txtbtn_original();
+                txtbtn_purchase.setTextColor(Color.parseColor(strColor));
+            }
+        });
 
         return mainthirdView;
+    }
+
+    public void txtbtn_original() {
+        String strColor = "#2d2d2d";
+        txtbtn_lots.setTextColor(Color.parseColor(strColor));
+        txtbtn_purchase.setTextColor(Color.parseColor(strColor));
     }
 }

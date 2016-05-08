@@ -1,6 +1,7 @@
 package com.adlots.adlots.activity.MainActivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -27,6 +28,8 @@ public class MainSecondPage extends Fragment {
     private View mainsecondView = null;
     public static MainSecondPage staticvar;
     public Button btn_giftcon, btn_delivery, btn_deadline;
+    public TextView txt_giftcon, txt_delivery, txt_deadline;
+    public String strColor;
 
     public static MainSecondPage newProduction (int position) {
         MainSecondPage mpage = new MainSecondPage();
@@ -53,13 +56,19 @@ public class MainSecondPage extends Fragment {
         btn_delivery = (Button) mainsecondView.findViewById(R.id.main2_btn_delivery);
         btn_deadline = (Button) mainsecondView.findViewById(R.id.main2_btn_deadline);
 
+        txt_giftcon = (TextView) mainsecondView.findViewById(R.id.main2_txt_giftcon);
+        txt_delivery = (TextView) mainsecondView.findViewById(R.id.main2_txt_delivery);
+        txt_deadline = (TextView) mainsecondView.findViewById(R.id.main2_txt_deadline);
+
+        strColor = "#fc6e51";
+
         final Fragment fragment1 = new MainSecondGiftcon();
         final Fragment fragment2 = new MainSecondDelivery();
         final Fragment fragment3 = new MainSecondDeadline();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.main2_fragment, fragment1).commit(); //처음 화면
-        btn_original();
         btn_giftcon.setBackgroundResource(R.drawable.gift_click);
+        txt_giftcon.setTextColor(Color.parseColor(strColor));
 
         giftcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +76,9 @@ public class MainSecondPage extends Fragment {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment1).commit();
                 btn_original();
+                txt_original();
                 btn_giftcon.setBackgroundResource(R.drawable.gift_click);
+                txt_giftcon.setTextColor(Color.parseColor(strColor));
             }
         });
 
@@ -77,7 +88,9 @@ public class MainSecondPage extends Fragment {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment2).commit();
                 btn_original();
+                txt_original();
                 btn_delivery.setBackgroundResource(R.drawable.shipping_click);
+                txt_delivery.setTextColor(Color.parseColor(strColor));
             }
         });
 
@@ -87,7 +100,9 @@ public class MainSecondPage extends Fragment {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.main2_fragment, fragment3).commit();
                 btn_original();
+                txt_original();
                 btn_deadline.setBackgroundResource(R.drawable.time_click);
+                txt_deadline.setTextColor(Color.parseColor(strColor));
             }
         });
 
@@ -111,6 +126,13 @@ public class MainSecondPage extends Fragment {
         btn_giftcon.setBackgroundResource(R.drawable.gift);
         btn_deadline.setBackgroundResource(R.drawable.time);
         btn_delivery.setBackgroundResource(R.drawable.shipping);
+    }
+
+    public void txt_original() {
+        String strColor = "#4d4d4d";
+        txt_giftcon.setTextColor(Color.parseColor(strColor));
+        txt_delivery.setTextColor(Color.parseColor(strColor));
+        txt_deadline.setTextColor(Color.parseColor(strColor));
     }
 }
 
