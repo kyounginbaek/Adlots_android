@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -91,7 +92,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
             // 응모하기 버튼 클릭 이벤트
             holder.textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
-            holder.textbtn_lots.setTag(position);
             holder.textbtn_lots.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -140,6 +140,11 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             String date = dayTime.format(new Date(time));
                             String userlotspoint = howmuchlots.getText().toString();
 
+                            // 당첨자 추첨을 위한 랜덤 함수
+                            Random rand = new Random();
+                            int random = rand.nextInt(Integer.parseInt(adlotsItem.endpoint))+1; // 1에서 endpoint까지
+                            String winorlose = String.valueOf(random);
+
                             // 총 14개 데이터 전송
                             HashMap<String, String> data = new HashMap<>();
                             data.put("nickname", pref_nickname);
@@ -156,6 +161,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             data.put("endtime", adlotsItem.endtime);
                             data.put("userlotspoint", userlotspoint); // 유저가 입력한 응모 포인트
                             data.put("when", date);
+                            data.put("winorlose", winorlose);
 
                             // 유저가 입력한 응모 포인트 blank, number 체크
                             if(CheckNumber(userlotspoint)){
@@ -300,7 +306,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     dialog.show(); //Dialog 보이기
                 }
             });
-            holder.endtime.setText(adlotsItem.endtime);
+            holder.endtime.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
             holder.category.setText(adlotsItem.category);
             holder.brand.setText(adlotsItem.brand);
             holder.itemname.setText(adlotsItem.itemname);
@@ -333,10 +339,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             }
         }
         return true;
-    }
-
-    public void getuserpoint(String pref_email, String pref_password) {
-
     }
 
     public void main2_refresh() {

@@ -3,21 +3,34 @@ package com.adlots.adlots.activity.MainActivity.MainThirdFragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adlots.adlots.R;
+import com.adlots.adlots.activity.MainActivity.MainThirdPage;
 import com.adlots.adlots.helper.ImageLoadTask;
+import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainThirdItem;
+import com.google.gson.JsonElement;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by baekkyoungin on 16. 3. 31..
@@ -26,6 +39,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
     private Context context;
     private ArrayList<MainThirdItem> items;
     int layoutResource;
+    ListHolder holder;
 
     public MainThirdListAdapter(Context context, int resource, ArrayList<MainThirdItem> items) {
         super(context, resource, items);
@@ -39,7 +53,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         View v = convertView;
         final MainThirdItem adlotsItem = items.get(position);
 
-        ListHolder holder = null;
+        SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
+        final String pref_nickname = pref.getString("nickname", "");
+
+        holder = null;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource, parent, false);
@@ -55,9 +72,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.nowpoint = (TextView) v.findViewById(R.id.main3_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main3_lotspeople);
             holder.userlotspoint = (TextView) v.findViewById(R.id.main3_userlotspoint);
+            holder.whentype = (TextView) v.findViewById(R.id.main3_whentype);
             holder.when = (TextView) v.findViewById(R.id.main3_when);
-            holder.howtobuy = (TextView) v.findViewById(R.id.main3_howtobuy);
             holder.status = (TextView) v.findViewById(R.id.main3_status);
+            holder.finish = (TextView) v.findViewById(R.id.main3_finish);
 
             holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.layoutnull1);
             holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.layoutnull2);
@@ -117,11 +135,11 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     }
                 });
 
-                holder.endtime.setText(adlotsItem.endtime);
+                holder.endtime.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
                 if(adlotsItem.type.equals("giftcon")){
                     holder.type.setText("기프트콘");
-                } else if(adlotsItem.type.equals("purchase")){
-                    holder.type.setText("바로구입");
+                } else if(adlotsItem.type.equals("delivery")){
+                    holder.type.setText("배송물품");
                 }
                 holder.category.setText(adlotsItem.category);
                 holder.brand.setText(adlotsItem.brand);
@@ -132,19 +150,65 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                 if(adlotsItem.howtobuy.equals("lots")) {
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
-                    holder.howtobuy.setText("응모 신청");
-                    holder.status.setText("현재 진행중");
-                    // 당첨 여부 알려줄 예정
-                    // 만약 기간이 되어도 마감이 안될 경우 환불
-                    // 만약 배송 상품일 경우 버튼으로 배송 주소 받기
-                } else {
+                    holder.whentype.setText("응모 일시");
+                    if(adlotsItem.winorlose.equals("win")){
+                        holder.status.setText("마감\n<당첨>");
+
+                        if(adlotsItem.type.equals("giftcon")){
+                            holder.finish.setText("2일 이내 지급 예정");
+
+                        } else if(adlotsItem.type.equals("delivery")){
+                            if(adlotsItem.address.equals("")){
+                                holder.finish.setText("배송 받을 주소 입력");
+                                holder.finish.setOnClickListener(new View.OnClickListener(){
+                                    @Override
+                                    public void onClick(View v) {
+                                        getaddress(adlotsItem.itemid, pref_nickname, adlotsItem.itemname);
+                                    }
+                                });
+                            } else {
+                                if(adlotsItem.finish.equals("")){
+                                    holder.finish.setText("2일 이내 지급 예정");
+                                } else {
+                                    holder.finish.setText("지급 완료");
+                                }
+                            }
+                        }
+                    } else if(adlotsItem.winorlose.equals("lose")){
+                        holder.status.setText("마감\n<미당첨>");
+                        holder.finish.setVisibility(View.GONE);
+
+                    } else {
+                        holder.status.setText("현재 응모 진행중");
+                        holder.finish.setVisibility(View.GONE);
+                    }
+                } else if(adlotsItem.howtobuy.equals("purchase")){
                     holder.userlotspoint.setText(adlotsItem.endpoint);
-                    holder.howtobuy.setText("바로 구입");
-                    holder.status.setText("2일 내로 지급 예정");
-                    // 지급이 완료되면 지급 완료로 표시
-                    // 만약 배송 상품일 경우 버튼으로 배송 주소 받기
+                    holder.whentype.setText("구입 일시");
+                    holder.status.setText("구입 완료");
+
+                    if(adlotsItem.type.equals("giftcon")){
+                        holder.finish.setText("2일 이내 지급 예정");
+
+                    } else if(adlotsItem.type.equals("delivery")){
+                        if(adlotsItem.address.equals("")){
+                            holder.finish.setText("배송 받을 주소 입력");
+                            holder.finish.setOnClickListener(new View.OnClickListener(){
+                                @Override
+                                public void onClick(View v) {
+                                    getaddress(adlotsItem.itemid, pref_nickname, adlotsItem.itemname);
+                                }
+                            });
+                        } else {
+                            if(adlotsItem.finish.equals("")){
+                                holder.finish.setText("2일 이내 지급 예정");
+                            } else {
+                                holder.finish.setText("지급 완료");
+                            }
+                        }
+                    }
                 }
-                holder.when.setText(adlotsItem.when);
+                holder.when.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
             }
         }
         return v;
@@ -155,9 +219,64 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         ImageView imagelink;
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
-        TextView type, userlotspoint, when, howtobuy, status;
+        TextView type, userlotspoint, whentype, when, status, finish;
 
         FrameLayout layoutnull1;
         LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6, layoutnull7, layoutnull8;
+    }
+
+    public void getaddress(final String itemid, final String nickname, String itemname) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
+        final View dialogView = inflater.inflate(R.layout.popup_main_third_address, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+
+        AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
+        buider.setView(dialogView);
+        buider.setTitle("배송받을 주소 입력");
+
+        final TextView txt_address = (TextView) dialogView.findViewById(R.id.main3_popup_address);
+        TextView txt_itemname = (TextView) dialogView.findViewById(R.id.main3_popup_itemname);
+        txt_itemname.setText(itemname);
+        Button btn_address = (Button) dialogView.findViewById(R.id.main3_popup_btn_address);
+
+        final AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+        dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+
+        btn_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String address = txt_address.getText().toString();
+
+                HashMap<String, String> data = new HashMap<>();
+                data.put("itemid", itemid);
+                data.put("nickname", nickname);
+                data.put("address", address);
+
+                RestClient.AdlotsService service = RestClient.getService();
+                service.getuserAddress(data, new Callback<JsonElement>() {
+                    @Override
+                    public void success(JsonElement jsonElement, Response response) {
+                        Toast.makeText(context, "입력하신 주소로 2일 내에 배송해드리겠습니다.", Toast.LENGTH_SHORT).show();
+                        main3_refresh();
+                        holder.finish.setText("2일 이내 지급 예정");
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        dialog.show(); //Dialog 보이기
+    }
+
+    public void main3_refresh() {
+        FragmentTransaction transaction = MainThirdPage.staticvar.getChildFragmentManager().beginTransaction();
+        Fragment currentFragment = MainThirdPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+        transaction.detach(currentFragment);
+        transaction.attach(currentFragment);
+        transaction.commit();
     }
 }

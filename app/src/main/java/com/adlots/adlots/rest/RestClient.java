@@ -1,5 +1,6 @@
 package com.adlots.adlots.rest;
 
+import com.adlots.adlots.rest.model.MainFourthWinner;
 import com.adlots.adlots.rest.model.MainSecondItem;
 import com.adlots.adlots.rest.model.MainThirdItem;
 import com.google.gson.FieldNamingPolicy;
@@ -69,6 +70,10 @@ public class RestClient {
         @POST("/getuserPoint.php")
         void getuserPoint(@Body Map<String, String> getuserPoint, Callback<JsonElement> callback);
 
+        //유저주소 정보 가져오기
+        @POST("/getuserAddress.php")
+        void getuserAddress(@Body Map<String, String> getuserAddress, Callback<JsonElement> callback);
+
         //아이템 응모하기(방법1.응모-lots, 방법2.바로구입-buy)
         @POST("/itemhowtoBuy.php")
         void itemhowtoBuy(@Query("purpose") String purpose, @Body Map<String, String> itemhowtoBuy, Callback<JsonElement> callback);
@@ -76,6 +81,10 @@ public class RestClient {
         //유저 개인정보 변경
         @POST("/userinfoChange.php")
         void userinfoChange(@Query("purpose") String purpose, @Body Map<String, String> useinfoChange, Callback<JsonElement> callback);
+
+        //당첨자 리스트 가져오기
+        @GET("/getwinnerList.php")
+        void getwinnerList(Callback<List<MainFourthWinner>> callback);
     }
 
 }

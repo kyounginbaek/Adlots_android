@@ -73,12 +73,11 @@
                     android:id="@+id/main3_type"
                     android:text="기프티콘"
                     android:textSize="10dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#16a0e8"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" / "
+                    android:text="  "
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
                     />
@@ -237,7 +236,7 @@
                     android:text="나의 응모"
                     android:layout_gravity="center_vertical"
                     android:textSize="10dp"
-                    android:textColor="#e73236"
+                    android:textColor="#fc6e51"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -247,7 +246,7 @@
                     android:id="@+id/main3_userlotspoint"
                     android:text="n"
                     android:textSize="10dp"
-                    android:textColor="#e73236"
+                    android:textColor="#fc6e51"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -255,7 +254,7 @@
                     android:text=" 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="10dp"
-                    android:textColor="#e73236"
+                    android:textColor="#fc6e51"
                     />
             </LinearLayout>
 
@@ -270,8 +269,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="응모/구입 일시"
                     android:layout_gravity="center_vertical"
+                    android:id="@+id/main3_whentype"
+                    android:text="응모/구입 일시"
                     android:textSize="10dp"
                     android:textColor="#2d2d2d"
                     />
@@ -300,13 +300,24 @@
             <TextView
                 android:layout_marginTop="12dp"
                 android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:id="@+id/main3_status"
                 android:text="진행중 / 마감 / 환불"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#1966cb"
+                />
+            <TextView
+                android:layout_marginTop="12dp"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:id="@+id/main3_finish"
+                android:text="2일 후에 지급 예정"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="#ffffff"
+                android:background="#fc6e51"
                 />
         </LinearLayout>
 

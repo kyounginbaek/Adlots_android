@@ -311,6 +311,19 @@ public class MainThirdPage extends Fragment {
             }
         });
 
+        // 새로고침 버튼 클릭 시 listview 화면 새로고침
+        TextView refresh = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_refresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+                transaction.detach(currentFragment);
+                transaction.attach(currentFragment);
+                transaction.commit();
+            }
+        });
+
         return mainthirdView;
     }
 

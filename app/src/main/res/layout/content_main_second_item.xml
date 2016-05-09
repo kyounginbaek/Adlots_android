@@ -20,8 +20,8 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:orientation="vertical"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/main2_imagelink"
@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="마감 날짜 : "
+                    android:text="마감 : "
                     android:textSize="9dp"
                     android:textColor="#2d2d2d"
                     />
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:id="@+id/main2_endpoint"
-                    android:text="42000"
+                    android:text="n"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
                     android:textColor="#2d2d2d"
@@ -228,7 +228,7 @@
                 android:gravity="center"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
-                android:background="#c65822"
+                android:background="#fc6e51"
                 />
         </LinearLayout>
 
