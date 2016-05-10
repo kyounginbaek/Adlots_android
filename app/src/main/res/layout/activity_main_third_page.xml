@@ -122,6 +122,7 @@
         android:layout_width="fill_parent"
         android:layout_height="28dp"
         android:gravity="center_vertical"
+        android:background="#ffffff"
         >
         <TextView
             android:layout_width="wrap_content"
