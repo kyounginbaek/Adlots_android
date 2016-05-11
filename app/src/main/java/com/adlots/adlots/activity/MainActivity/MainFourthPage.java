@@ -144,15 +144,6 @@ public class MainFourthPage extends Fragment {
             }
         });
 
-        // 푸시 알람
-        ViewGroup pushalarm = (LinearLayout) mainfourthView.findViewById(R.id.pushalarm);
-        pushalarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         // 자주 묻는 질문 FAQ
         ViewGroup faq = (LinearLayout) mainfourthView.findViewById(R.id.faq);
         faq.setOnClickListener(new View.OnClickListener() {

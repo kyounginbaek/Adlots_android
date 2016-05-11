@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import com.google.gson.JsonElement;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
@@ -60,6 +63,10 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         final String pref_email = pref.getString("email", "");
         final String pref_password = pref.getString("password", "");
 
+        long time = System.currentTimeMillis();
+        SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String date = dayTime.format(new Date(time));
+
         // 유저 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
         data.put("email", pref_email);
@@ -89,6 +96,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.endpoint = (TextView) v.findViewById(R.id.main2_endpoint);
             holder.nowpoint = (TextView) v.findViewById(R.id.main2_nowpoint);
             holder.lotspeople = (TextView) v.findViewById(R.id.main2_lotspeople);
+
+            holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.main2_layoutnull1);
+            holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.main2_layoutnull2);
+            holder.layoutnull3 = (LinearLayout) v.findViewById(R.id.main2_layoutnull3);
+            holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.main2_layoutnull4);
+            holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main2_layoutnull5);
+            holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main2_layoutnull6);
 
             // 응모하기 버튼 클릭 이벤트
             holder.textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
@@ -281,38 +295,57 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
         // 리스트에 아이템 값 넣기
         if (adlotsItem != null) {
-            new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
-            holder.imagelink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // 이미지 클릭 시 참고링크 인터넷 화면 표시
-                    WebView webview = new WebView(context);
-                    webview.getSettings().setLoadWithOverviewMode(true);
-                    webview.getSettings().setUseWideViewPort(true);
-                    webview.getSettings().setBuiltInZoomControls(true);
-                    webview.loadUrl(adlotsItem.referlink);
-
-                    AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
-                    buider.setView(webview) //위에서 inflater가 만든 dialogView 객체 세팅
-                            .setTitle("아이템 자세한 정보")
-                            .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                    AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
-                    dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
-                    dialog.show(); //Dialog 보이기
+            // 만약 응모 & 구입 사실이 없을 경우
+            if(items.get(0).id.equals("null")) {
+                if(items.get(0).type.equals("giftcon")){
+                    holder.itemname.setText("\n응모할 아이템이 없습니다.\n\n곧 새아이템이 올라올 예정입니다!\n");
+                } else if(items.get(0).type.equals("delivery")) {
+                    holder.itemname.setText("\n구입할 아이템이 없습니다.\n\n곧 새아이템이 올라올 예정입니다!\n");
+                } else {
+                    holder.itemname.setText("\n마감 임박한 아이템이 없습니다.\n\n마감 10일 전부터 표시됩니다!\n");
                 }
-            });
-            holder.endtime.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
-            holder.category.setText(adlotsItem.category);
-            holder.brand.setText(adlotsItem.brand);
-            holder.itemname.setText(adlotsItem.itemname);
-            holder.endpoint.setText(adlotsItem.endpoint);
-            holder.nowpoint.setText(adlotsItem.nowpoint);
-            holder.lotspeople.setText(adlotsItem.lotspeople);
+                holder.layoutnull1.setVisibility(View.GONE);
+                holder.layoutnull2.setVisibility(View.GONE);
+                holder.layoutnull3.setVisibility(View.GONE);
+                holder.layoutnull4.setVisibility(View.GONE);
+                holder.layoutnull5.setVisibility(View.GONE);
+                holder.layoutnull6.setVisibility(View.GONE);
+
+            } else {
+                new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
+                holder.imagelink.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // 이미지 클릭 시 참고링크 인터넷 화면 표시
+                        WebView webview = new WebView(context);
+                        webview.getSettings().setLoadWithOverviewMode(true);
+                        webview.getSettings().setUseWideViewPort(true);
+                        webview.getSettings().setBuiltInZoomControls(true);
+                        webview.loadUrl(adlotsItem.referlink);
+
+                        AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
+                        buider.setView(webview) //위에서 inflater가 만든 dialogView 객체 세팅
+                                .setTitle("아이템 자세한 정보")
+                                .setNegativeButton("창 닫기", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                        AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                        dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                        dialog.show(); //Dialog 보이기
+                    }
+                });
+
+                holder.endtime.setText(String.valueOf(diffOfDate(date,adlotsItem.endtime))+"일");
+                holder.category.setText(adlotsItem.category);
+                holder.brand.setText(adlotsItem.brand);
+                holder.itemname.setText(adlotsItem.itemname);
+                holder.endpoint.setText(adlotsItem.endpoint);
+                holder.nowpoint.setText(adlotsItem.nowpoint);
+                holder.lotspeople.setText(adlotsItem.lotspeople);
+            }
         }
         return v;
     }
@@ -323,6 +356,9 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         TextView endtime;
         TextView endpoint, nowpoint, lotspeople;
         TextView textbtn_lots, textbtn_purchase;
+
+        FrameLayout layoutnull1;
+        LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6;
     }
 
     public boolean CheckNumber(String str) {
@@ -373,5 +409,18 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         transaction.detach(currentFragment);
         transaction.attach(currentFragment);
         transaction.commit();
+    }
+
+    public int diffOfDate(String start, String end) {
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+
+        startDate.set(Integer.parseInt(start.substring(0,4)), Integer.parseInt(start.substring(5,7))-1, Integer.parseInt(start.substring(8,10)));
+        endDate.set(Integer.parseInt(end.substring(0,4)), Integer.parseInt(end.substring(5,7))-1, Integer.parseInt(end.substring(8,10)));
+
+        long diffMillis = endDate.getTimeInMillis() - startDate.getTimeInMillis();
+        int diffDays = (int)(diffMillis / (24 * 60 * 60 * 1000));
+
+        return diffDays;
     }
 }

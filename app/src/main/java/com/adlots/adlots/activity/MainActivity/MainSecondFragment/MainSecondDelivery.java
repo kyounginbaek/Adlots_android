@@ -41,8 +41,14 @@ public class MainSecondDelivery extends Fragment {
         service.getItem("delivery", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                deliveryArray.addAll(getitem);
-                deliveryAdapter.notifyDataSetChanged();
+                if(getitem!=null) {
+                    deliveryArray.addAll(getitem);
+                    deliveryAdapter.notifyDataSetChanged();
+                } else {
+                    MainSecondItem temp = new MainSecondItem("null", "delivery"); // id에 null 입력
+                    deliveryArray.add(0, temp);
+                    deliveryAdapter.notifyDataSetChanged();
+                }
             }
             @Override
             public void failure(RetrofitError error) {

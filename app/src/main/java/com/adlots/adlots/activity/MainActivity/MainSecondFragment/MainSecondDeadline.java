@@ -41,8 +41,14 @@ public class MainSecondDeadline extends Fragment {
         service.getItem("deadline", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                deadlineArray.addAll(getitem);
-                deadlineAdapter.notifyDataSetChanged();
+                if(getitem!=null) {
+                    deadlineArray.addAll(getitem);
+                    deadlineAdapter.notifyDataSetChanged();
+                } else {
+                    MainSecondItem temp = new MainSecondItem("null", "delivery"); // id에 null 입력
+                    deadlineArray.add(0, temp);
+                    deadlineAdapter.notifyDataSetChanged();
+                }
             }
             @Override
             public void failure(RetrofitError error) {

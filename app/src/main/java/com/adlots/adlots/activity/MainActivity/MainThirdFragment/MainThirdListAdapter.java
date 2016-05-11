@@ -26,6 +26,7 @@ import com.adlots.adlots.rest.model.MainThirdItem;
 import com.google.gson.JsonElement;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import retrofit.Callback;
@@ -77,14 +78,14 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.status = (TextView) v.findViewById(R.id.main3_status);
             holder.finish = (TextView) v.findViewById(R.id.main3_finish);
 
-            holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.layoutnull1);
-            holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.layoutnull2);
-            holder.layoutnull3 = (LinearLayout) v.findViewById(R.id.layoutnull3);
-            holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.layoutnull4);
-            holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.layoutnull5);
-            holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.layoutnull6);
-            holder.layoutnull7 = (LinearLayout) v.findViewById(R.id.layoutnull7);
-            holder.layoutnull8 = (LinearLayout) v.findViewById(R.id.layoutnull8);
+            holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.main3_layoutnull1);
+            holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.main3_layoutnull2);
+            holder.layoutnull3 = (LinearLayout) v.findViewById(R.id.main3_layoutnull3);
+            holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.main3_layoutnull4);
+            holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main3_layoutnull5);
+            holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main3_layoutnull6);
+            holder.layoutnull7 = (LinearLayout) v.findViewById(R.id.main3_layoutnull7);
+            holder.layoutnull8 = (LinearLayout) v.findViewById(R.id.main3_layoutnull8);
 
             v.setTag(holder);
         } else {
@@ -245,27 +246,30 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             @Override
             public void onClick(View v) {
                 String address = txt_address.getText().toString();
+                if(address.equals("")){
+                    Toast.makeText(context, "배송 받을 주소를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    HashMap<String, String> data = new HashMap<>();
+                    data.put("itemid", itemid);
+                    data.put("nickname", nickname);
+                    data.put("address", address);
 
-                HashMap<String, String> data = new HashMap<>();
-                data.put("itemid", itemid);
-                data.put("nickname", nickname);
-                data.put("address", address);
+                    RestClient.AdlotsService service = RestClient.getService();
+                    service.getuserAddress(data, new Callback<JsonElement>() {
+                        @Override
+                        public void success(JsonElement jsonElement, Response response) {
+                            Toast.makeText(context, "입력하신 주소로 2일 내에 배송해드리겠습니다.", Toast.LENGTH_SHORT).show();
+                            main3_refresh();
+                            holder.finish.setText("2일 이내 지급 예정");
+                            dialog.dismiss();
+                        }
 
-                RestClient.AdlotsService service = RestClient.getService();
-                service.getuserAddress(data, new Callback<JsonElement>() {
-                    @Override
-                    public void success(JsonElement jsonElement, Response response) {
-                        Toast.makeText(context, "입력하신 주소로 2일 내에 배송해드리겠습니다.", Toast.LENGTH_SHORT).show();
-                        main3_refresh();
-                        holder.finish.setText("2일 이내 지급 예정");
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-                        Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
 
@@ -278,5 +282,18 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         transaction.detach(currentFragment);
         transaction.attach(currentFragment);
         transaction.commit();
+    }
+
+    public int diffOfDate(String start, String end) {
+        Calendar startDate = Calendar.getInstance();
+        Calendar endDate = Calendar.getInstance();
+
+        startDate.set(Integer.parseInt(start.substring(0, 4)), Integer.parseInt(start.substring(5, 7)) - 1, Integer.parseInt(start.substring(8, 10)));
+        endDate.set(Integer.parseInt(end.substring(0, 4)), Integer.parseInt(end.substring(5, 7)) - 1, Integer.parseInt(end.substring(8, 10)));
+
+        long diffMillis = endDate.getTimeInMillis() - startDate.getTimeInMillis();
+        int diffDays = (int)(diffMillis / (24 * 60 * 60 * 1000));
+
+        return diffDays;
     }
 }

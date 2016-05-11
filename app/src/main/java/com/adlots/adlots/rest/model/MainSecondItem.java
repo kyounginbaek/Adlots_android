@@ -16,6 +16,11 @@ public class MainSecondItem implements Parcelable, Adaptable {
         readFromParcel(in);
     }
 
+    public MainSecondItem(String isnull, String type) {
+        this.id = isnull;
+        this.type = type;
+    }
+
     @Override
     public int describeContents() {
         return 0;

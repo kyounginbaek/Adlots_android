@@ -41,8 +41,14 @@ public class MainSecondGiftcon extends Fragment {
         service.getItem("giftcon", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                giftconArray.addAll(getitem);
-                giftconAdapter.notifyDataSetChanged();
+                if(getitem!=null) {
+                    giftconArray.addAll(getitem);
+                    giftconAdapter.notifyDataSetChanged();
+                } else {
+                    MainSecondItem temp = new MainSecondItem("null", "giftcon"); // id에 null 입력
+                    giftconArray.add(0, temp);
+                    giftconAdapter.notifyDataSetChanged();
+                }
             }
             @Override
             public void failure(RetrofitError error) {
