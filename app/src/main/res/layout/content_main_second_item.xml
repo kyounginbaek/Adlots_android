@@ -52,9 +52,15 @@
                     android:textColor="#2d2d2d"
                     />
             </LinearLayout>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:background="@drawable/glass"
+                />
 
         </FrameLayout>
-
 
         상품 설명
         <LinearLayout
@@ -240,5 +246,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="9dp"
+        android:gravity="center_horizontal"
+        android:background="#f7f7f7"
+        />
 
 </LinearLayout>

@@ -153,7 +153,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
                     holder.whentype.setText("응모 일시");
                     if(adlotsItem.winorlose.equals("win")){
-                        holder.status.setText("마감\n<당첨>");
+                        holder.status.setBackgroundResource(R.drawable.happy); // 여기!
+                        holder.status.setText("");
 
                         if(adlotsItem.type.equals("giftcon")){
                             holder.finish.setText("2일 이내 지급 예정");
@@ -176,7 +177,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                             }
                         }
                     } else if(adlotsItem.winorlose.equals("lose")){
-                        holder.status.setText("마감\n<미당첨>");
+                        holder.status.setBackgroundResource(R.drawable.sad);
                         holder.finish.setVisibility(View.GONE);
 
                     } else {

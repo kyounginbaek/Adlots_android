@@ -38,7 +38,7 @@
     <LinearLayout
         android:background="@color/background"
         android:layout_width="fill_parent"
-        android:layout_height="28dp"
+        android:layout_height="30dp"
         android:gravity="center_vertical"
         >
 
