@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -299,10 +300,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             if(items.get(0).id.equals("null")) {
                 if(items.get(0).type.equals("giftcon")){
                     holder.itemname.setText("\n응모할 아이템이 없습니다.\n\n곧 새아이템이 올라올 예정입니다!\n");
+                    holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                 } else if(items.get(0).type.equals("delivery")) {
                     holder.itemname.setText("\n구입할 아이템이 없습니다.\n\n곧 새아이템이 올라올 예정입니다!\n");
+                    holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                 } else {
                     holder.itemname.setText("\n마감 임박한 아이템이 없습니다.\n\n마감 10일 전부터 표시됩니다!\n");
+                    holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                 }
                 holder.layoutnull1.setVisibility(View.GONE);
                 holder.layoutnull2.setVisibility(View.GONE);

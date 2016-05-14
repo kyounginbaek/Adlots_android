@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,10 @@ import com.adlots.adlots.rest.RestClient;
 import com.adlots.adlots.rest.model.MainThirdItem;
 import com.google.gson.JsonElement;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import retrofit.Callback;
@@ -57,6 +60,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
         final String pref_nickname = pref.getString("nickname", "");
 
+        long time = System.currentTimeMillis();
+        SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String date = dayTime.format(new Date(time));
+
         holder = null;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -69,11 +76,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.category = (TextView) v.findViewById(R.id.main3_category);
             holder.brand = (TextView) v.findViewById(R.id.main3_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main3_itemname);
-            holder.endpoint = (TextView) v.findViewById(R.id.main3_endpoint);
-            holder.nowpoint = (TextView) v.findViewById(R.id.main3_nowpoint);
-            holder.lotspeople = (TextView) v.findViewById(R.id.main3_lotspeople);
             holder.userlotspoint = (TextView) v.findViewById(R.id.main3_userlotspoint);
-            holder.whentype = (TextView) v.findViewById(R.id.main3_whentype);
+            holder.whentxt = (TextView) v.findViewById(R.id.main3_whentxt);
             holder.when = (TextView) v.findViewById(R.id.main3_when);
             holder.status = (TextView) v.findViewById(R.id.main3_status);
             holder.finish = (TextView) v.findViewById(R.id.main3_finish);
@@ -84,8 +88,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.main3_layoutnull4);
             holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main3_layoutnull5);
             holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main3_layoutnull6);
-            holder.layoutnull7 = (LinearLayout) v.findViewById(R.id.main3_layoutnull7);
-            holder.layoutnull8 = (LinearLayout) v.findViewById(R.id.main3_layoutnull8);
 
             v.setTag(holder);
         } else {
@@ -98,8 +100,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             if(items.get(0).id.equals("null")) {
                 if(items.get(0).howtobuy.equals("lots")){
                     holder.itemname.setText("\n응모하신 내역이 없습니다.\n\n포인트를 경품에 응모해보세요!\n");
+                    holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                 } else {
                     holder.itemname.setText("\n바로구입하신 내역이 없습니다.\n\n포인트로 상품을 구입해보세요!\n");
+                    holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
                 }
                 holder.layoutnull1.setVisibility(View.GONE);
                 holder.layoutnull2.setVisibility(View.GONE);
@@ -107,8 +111,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 holder.layoutnull4.setVisibility(View.GONE);
                 holder.layoutnull5.setVisibility(View.GONE);
                 holder.layoutnull6.setVisibility(View.GONE);
-                holder.layoutnull7.setVisibility(View.GONE);
-                holder.layoutnull8.setVisibility(View.GONE);
+
             } else {
                 new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
                 holder.imagelink.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +139,6 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     }
                 });
 
-                holder.endtime.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
                 if(adlotsItem.type.equals("giftcon")){
                     holder.type.setText("기프트콘");
                 } else if(adlotsItem.type.equals("delivery")){
@@ -145,13 +147,11 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 holder.category.setText(adlotsItem.category);
                 holder.brand.setText(adlotsItem.brand);
                 holder.itemname.setText(adlotsItem.itemname);
-                holder.endpoint.setText(adlotsItem.endpoint);
-                holder.nowpoint.setText(adlotsItem.nowpoint);
-                holder.lotspeople.setText(adlotsItem.lotspeople);
+                holder.endtime.setText(String.valueOf(diffOfDate(date,adlotsItem.endtime))+"일");
 
                 if(adlotsItem.howtobuy.equals("lots")) {
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
-                    holder.whentype.setText("응모 일시");
+                    holder.whentxt.setText("응모 일시");
                     if(adlotsItem.winorlose.equals("win")){
                         holder.status.setBackgroundResource(R.drawable.happy); // 여기!
                         holder.status.setText("");
@@ -186,7 +186,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     }
                 } else if(adlotsItem.howtobuy.equals("purchase")){
                     holder.userlotspoint.setText(adlotsItem.endpoint);
-                    holder.whentype.setText("구입 일시");
+                    holder.whentxt.setText("구입 일시");
                     holder.status.setText("구입 완료");
 
                     if(adlotsItem.type.equals("giftcon")){
@@ -210,7 +210,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                         }
                     }
                 }
-                holder.when.setText(adlotsItem.endtime.substring(5,7)+"월 "+adlotsItem.endtime.substring(8,10)+"일 "+adlotsItem.endtime.substring(11,13)+"시");
+                holder.when.setText(adlotsItem.when.substring(5,7)+"월 "+adlotsItem.when.substring(8,10)+"일 "+adlotsItem.when.substring(11,13)+"시");
             }
         }
         return v;
@@ -220,11 +220,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         TextView category, brand, itemname;
         ImageView imagelink;
         TextView endtime;
-        TextView endpoint, nowpoint, lotspeople;
-        TextView type, userlotspoint, whentype, when, status, finish;
+        TextView type, userlotspoint, whentxt, when, status, finish;
 
         FrameLayout layoutnull1;
-        LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6, layoutnull7, layoutnull8;
+        LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6;
     }
 
     public void getaddress(final String itemid, final String nickname, String itemname) {

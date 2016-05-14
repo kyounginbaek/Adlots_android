@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:text="나의 목록 :"
-            android:textSize="16dp"
+            android:textSize="14dp"
             android:textColor="#2d2d2d"
             />
         <TextView
@@ -138,26 +138,23 @@
             android:layout_marginLeft="10dp"
             android:id="@+id/main3_txtbtn_lots"
             android:text="응모하기"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="/"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:id="@+id/main3_txtbtn_purchase"
             android:text="바로구입"
-            android:textSize="16dp"
-            android:textColor="#2d2d2d"
-            />
+            android:textSize="14dp"
+            android:textColor="#6e6e6e"            />
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

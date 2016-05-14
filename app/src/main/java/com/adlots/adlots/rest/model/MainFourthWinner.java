@@ -7,14 +7,18 @@ import android.os.Parcelable;
  * Created by baekkyoungin on 16. 3. 31..
  */
 public class MainFourthWinner implements Parcelable, Adaptable {
-    public String id, itemid, type;
+    public String id, itemid, type, nickname;
     public String category, brand, itemname;
     public String imagelink, referlink, endtime, startime;
     public String endpoint, nowpoint, lotspeople;
-    public String howtobuy, userlotspoint, when, pointdone, winorlose, address, finish;
+    public String howtobuy, userlotspoint, when, pointdone, whendone, winorlose, address, finish;
 
     public MainFourthWinner(Parcel in) {
         readFromParcel(in);
+    }
+
+    public MainFourthWinner(String isnull) {
+        this.id = isnull;
     }
 
     @Override

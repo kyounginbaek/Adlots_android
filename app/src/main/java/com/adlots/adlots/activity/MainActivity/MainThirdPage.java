@@ -328,7 +328,7 @@ public class MainThirdPage extends Fragment {
     }
 
     public void txtbtn_original() {
-        String strColor = "#2d2d2d";
+        String strColor = "#6e6e6e";
         txtbtn_lots.setTextColor(Color.parseColor(strColor));
         txtbtn_purchase.setTextColor(Color.parseColor(strColor));
     }

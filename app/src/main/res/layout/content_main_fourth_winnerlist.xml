@@ -18,7 +18,7 @@
         <FrameLayout
             android:layout_width="90dp"
             android:layout_height="match_parent"
-            android:id="@+id/main2_layoutnull1"
+            android:id="@+id/main4_layoutnull1"
             >
 
             <ImageView
@@ -26,7 +26,7 @@
                 android:layout_height="90dp"
                 android:orientation="vertical"
                 android:layout_gravity="center_vertical"
-                android:id="@+id/main2_imagelink"
+                android:id="@+id/main4_imagelink"
                 />
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -38,20 +38,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:text="D-day : "
-                    android:textSize="9dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:text="마감일 : "
+                    android:textSize="10dp"
+                    android:textColor="#6e6e6e"
+                />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:id="@+id/main2_endtime"
+                    android:id="@+id/main4_whendone"
                     android:text="5"
-                    android:textSize="9dp"
-                    android:textColor="#2d2d2d"
+                    android:textSize="10dp"
+                    android:textColor="#6e6e6e"
                     />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/main4_type"
+                android:layout_gravity="bottom"
+                android:text="기프티콘"
+                android:textSize="10dp"
+                android:textColor="#6e6e6e"
+                />
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:orientation="vertical"
+                android:layout_gravity="bottom|right"
+                android:background="@drawable/glass"
+                />
 
         </FrameLayout>
 
@@ -67,36 +85,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
-                android:id="@+id/main2_layoutnull2"
+                android:id="@+id/main4_layoutnull2"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/main2_category"
+                    android:id="@+id/main4_category"
                     android:text="피규어"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" / "
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/main2_brand"
+                    android:id="@+id/main4_brand"
                     android:text="원피스"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/main2_itemname"
+                android:id="@+id/main4_itemname"
                 android:text="조로 피규어"
                 android:textSize="15dp"
                 android:textColor="#2d2d2d"
@@ -108,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:layout_gravity="bottom"
-                android:id="@+id/main2_layoutnull3"
+                android:id="@+id/main4_layoutnull3"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,13 +131,12 @@
                     android:text="응모자 수"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/main2_lotspeople"
+                    android:id="@+id/main4_lotspeople"
                     android:text="n"
                     android:layout_gravity="center"
                     android:textSize="12dp"
@@ -143,25 +157,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
-                android:id="@+id/main2_layoutnull4"
+                android:id="@+id/main4_layoutnull4"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="현재 랏츠"
+                    android:text="응모 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/main2_nowpoint"
+                    android:id="@+id/main4_userlotspoint"
                     android:text="n"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#16a0e8"
+                    android:textColor="#fc6e51"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -169,7 +182,7 @@
                     android:text=" 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#16a0e8"
+                    android:textColor="#fc6e51"
                     />
             </LinearLayout>
             목표 랏츠 : 00랏츠
@@ -178,34 +191,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
-                android:id="@+id/main2_layoutnull5"
+                android:id="@+id/main4_layoutnull5"
                 >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="목표 랏츠"
+                    android:text="마감 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/main2_endpoint"
+                    android:id="@+id/main4_endpoint"
                     android:text="n"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" 랏츠"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
-                    android:textColor="#2d2d2d"
-                    />
+                    android:textColor="#6e6e6e"                    />
             </LinearLayout>
         </LinearLayout>
         응모/바로구매
@@ -214,31 +224,52 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:id="@+id/main2_layoutnull6"
+            android:id="@+id/main4_layoutnull6"
             >
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:id="@+id/main2_textbtn_lots"
-                android:text="응모 하기"
+                android:id="@+id/main4_status"
+                android:text="당첨"
                 android:gravity="center"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
                 android:background="#16a0e8"
                 />
-            <TextView
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:id="@+id/main2_textbtn_purchase"
-                android:text="바로 구매"
-                android:gravity="center"
-                android:textSize="12dp"
-                android:textColor="#ffffff"
-                android:background="#fc6e51"
-                />
+                android:layout_gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="당첨자 : "
+                    android:gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="#6e6e6e"                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:id="@+id/main4_nickname"
+                    android:text="경인"
+                    android:gravity="center"
+                    android:textSize="12dp"
+                    android:textColor="#16a0e8"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="6dp"
+        android:gravity="center_horizontal"
+        android:background="#f7f7f7"
+        />
 
 </LinearLayout>

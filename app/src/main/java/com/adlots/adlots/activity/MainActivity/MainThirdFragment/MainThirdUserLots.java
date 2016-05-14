@@ -40,7 +40,6 @@ public class MainThirdUserLots extends android.support.v4.app.Fragment {
 
         SharedPreferences pref = getActivity().getSharedPreferences("pref", userlotsContext.MODE_PRIVATE);
         String pref_nickname = pref.getString("nickname", "");
-        String pref_islots = pref.getString("islots", "");
 
         HashMap<String, String> data = new HashMap<>();
         data.put("nickname", pref_nickname);

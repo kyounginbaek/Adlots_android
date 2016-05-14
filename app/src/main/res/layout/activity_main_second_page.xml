@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="아이템 목록"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 android:textColor="#2d2d2d"
                 />
         </LinearLayout>
