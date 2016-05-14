@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.TypedValue;
@@ -88,6 +89,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.main3_layoutnull4);
             holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main3_layoutnull5);
             holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main3_layoutnull6);
+            holder.layoutnull7 = (LinearLayout) v.findViewById(R.id.main3_layoutnull7);
 
             v.setTag(holder);
         } else {
@@ -140,7 +142,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 });
 
                 if(adlotsItem.type.equals("giftcon")){
-                    holder.type.setText("기프트콘");
+                    holder.type.setText("기프티콘");
                 } else if(adlotsItem.type.equals("delivery")){
                     holder.type.setText("배송물품");
                 }
@@ -153,8 +155,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
                     holder.whentxt.setText("응모 일시");
                     if(adlotsItem.winorlose.equals("win")){
-                        holder.status.setBackgroundResource(R.drawable.happy); // 여기!
-                        holder.status.setText("");
+                        holder.status.setBackgroundResource(R.drawable.win);
+                        holder.status.setText("당첨");
+                        String win = "#01a1ff";
+                        holder.status.setTextColor(Color.parseColor(win));
 
                         if(adlotsItem.type.equals("giftcon")){
                             holder.finish.setText("2일 이내 지급 예정");
@@ -177,7 +181,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                             }
                         }
                     } else if(adlotsItem.winorlose.equals("lose")){
-                        holder.status.setBackgroundResource(R.drawable.sad);
+                        holder.status.setBackgroundResource(R.drawable.lose);
+                        holder.status.setText("다음 기회에");
+                        String lose = "#fc6e51";
+                        holder.status.setTextColor(Color.parseColor(lose));
                         holder.finish.setVisibility(View.GONE);
 
                     } else {
@@ -185,6 +192,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                         holder.finish.setVisibility(View.GONE);
                     }
                 } else if(adlotsItem.howtobuy.equals("purchase")){
+                    holder.layoutnull7.setVisibility(View.GONE);
                     holder.userlotspoint.setText(adlotsItem.endpoint);
                     holder.whentxt.setText("구입 일시");
                     holder.status.setText("구입 완료");
@@ -223,7 +231,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         TextView type, userlotspoint, whentxt, when, status, finish;
 
         FrameLayout layoutnull1;
-        LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6;
+        LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6, layoutnull7;
     }
 
     public void getaddress(final String itemid, final String nickname, String itemname) {

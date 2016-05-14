@@ -38,7 +38,7 @@
             android:singleLine = "true"
             android:lines = "1"
             android:background="@drawable/register_email"
-            android:textColor="#808080"
+            android:textColor="#6e6e6e"
             android:hint="이메일(e-mail)"
             android:paddingStart="10dp" />
     </LinearLayout>
@@ -61,7 +61,7 @@
             android:lines = "1"
             android:inputType="textPassword"
             android:background="@drawable/register_email"
-            android:textColor="#808080"
+            android:textColor="#6e6e6e"
             android:hint="비밀번호(password)"
             android:paddingStart="10dp" />
     </LinearLayout>

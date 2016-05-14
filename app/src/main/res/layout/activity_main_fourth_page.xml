@@ -96,7 +96,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /* 당첨자 목록보기 */
@@ -154,7 +154,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*이용문의*/
@@ -208,12 +208,11 @@
 
             </LinearLayout>
 
-            /* 바 */
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*애드랏츠 홈페이지*/
@@ -271,7 +270,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /* 자주묻는질문 */
@@ -329,7 +328,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*블로그 소식*/
@@ -387,7 +386,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*튜토리얼 다시보기*/
@@ -445,7 +444,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*개발자 정보*/
@@ -502,7 +501,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#6e6e6e"
+                android:background="#f7f7f7"
                 />
 
             /*이용약관*/

@@ -13,19 +13,8 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.adlots.adlots.R;
-import com.adlots.adlots.activity.TutorialActivity.TutorialActivity;
-import com.adlots.adlots.rest.RestClient;
-import com.adlots.adlots.rest.model.MainFourthWinner;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import static android.view.LayoutInflater.from;
 
@@ -36,10 +25,6 @@ public class MainFourthPage extends Fragment {
 
     private Context mainfourthContext = null;
     private View mainfourthView = null;
-
-    ListView winnerList;
-    MainFourthWinnerAdapter winnerAdapter;
-    public ArrayList<MainFourthWinner> winnerArray = new ArrayList<MainFourthWinner>();
 
     public static MainFourthPage newProduction (int position) {
         MainFourthPage mpage = new MainFourthPage();
@@ -101,40 +86,8 @@ public class MainFourthPage extends Fragment {
         winnerlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.popup_main_fourth_winnerlist, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
-
-                AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
-                buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
-                buider.setTitle("당첨자 리스트");
-
-                RestClient.AdlotsService service = RestClient.getService();
-                service.getwinnerList(new Callback<List<MainFourthWinner>>() {
-                    @Override
-                    public void success(List<MainFourthWinner> getitem, Response response) {
-                        if (getitem != null) {
-                            winnerArray.addAll(getitem);
-                            winnerAdapter.notifyDataSetChanged();
-                        } else {
-                            MainFourthWinner temp = new MainFourthWinner("null"); // id에 null 입력
-                            winnerArray.add(0, temp);
-                            winnerAdapter.notifyDataSetChanged();
-                        }
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-                    }
-                });
-
-                winnerList = (ListView) dialogView.findViewById(R.id.winnerlist_listview);
-                winnerAdapter = new MainFourthWinnerAdapter(dialogView.getContext(), R.layout.content_main_fourth_winnerlist, winnerArray);
-                winnerList.setAdapter(winnerAdapter);
-                winnerAdapter.clear();
-
-                AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
-                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
-                dialog.show(); //Dialog 보이기
+                Intent intent = new Intent(mainfourthContext, MainFourthWinnerActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -244,8 +197,7 @@ public class MainFourthPage extends Fragment {
         tutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainfourthContext, TutorialActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(mainfourthContext, MainFourthWinnerActivity.class));
             }
         });
 

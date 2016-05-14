@@ -1,13 +1,10 @@
 package com.adlots.adlots.activity.MainActivity;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -87,7 +84,7 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
 
             } else {
                 new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
-                holder.imagelink.setOnClickListener(new View.OnClickListener() {
+                /*holder.imagelink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // 이미지 클릭 시 참고링크 인터넷 화면 표시
@@ -110,9 +107,9 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
                         dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                         dialog.show(); //Dialog 보이기
                     }
-                });
+                });*/
 
-                holder.whendone.setText(adlotsItem.whendone.substring(5, 7) + "월 " + adlotsItem.whendone.substring(8, 10) + "일 " + adlotsItem.whendone.substring(11, 13) + "시");
+                holder.whendone.setText(adlotsItem.whendone.substring(5,7) + "월 " + adlotsItem.whendone.substring(8,10) + "일");
 
                 if(adlotsItem.type.equals("giftcon")){
                     holder.type.setText("기프트콘");

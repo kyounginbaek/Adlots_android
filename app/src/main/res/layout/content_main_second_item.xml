@@ -227,7 +227,7 @@
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:id="@+id/main2_textbtn_purchase"
-                android:text="바로 구매"
+                android:text="바로 구입"
                 android:gravity="center"
                 android:textSize="12dp"
                 android:textColor="#ffffff"
@@ -239,7 +239,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="6dp"
+        android:layout_height="9dp"
         android:gravity="center_horizontal"
         android:background="#f7f7f7"
         />

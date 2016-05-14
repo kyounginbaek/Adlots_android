@@ -119,9 +119,8 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
 
                     final TextView howmuchlots = (TextView) dialogView.findViewById(R.id.main2_popup_howmuchlots);
                     final TextView mypoint = (TextView) dialogView.findViewById(R.id.main2_popup_mypoint);
-                    final TextView nowpoint = (TextView) dialogView.findViewById(R.id.main2_popup_nowpoint);
-                    final TextView endpoint = (TextView) dialogView.findViewById(R.id.main2_popup_endpoint);
                     final TextView lotspeople = (TextView) dialogView.findViewById(R.id.main2_popup_lotspeople);
+                    final TextView remainpoint = (TextView) dialogView.findViewById(R.id.main2_popup_remainpoint);
 
                     // 한개 아이템 정보 가져오기
                     HashMap<String, String> data = new HashMap<>();
@@ -131,9 +130,11 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                         @Override
                         public void success(JsonElement jsonElement, Response response) {
                             mypoint.setText(userpoint);
-                            nowpoint.setText(jsonElement.getAsJsonObject().get("nowpoint").getAsString());
-                            endpoint.setText(jsonElement.getAsJsonObject().get("endpoint").getAsString());
                             lotspeople.setText(jsonElement.getAsJsonObject().get("lotspeople").getAsString());
+                            int endpoint = Integer.parseInt(jsonElement.getAsJsonObject().get("endpoint").getAsString());
+                            int nowpoint = Integer.parseInt(jsonElement.getAsJsonObject().get("nowpoint").getAsString());
+                            int remain = endpoint-nowpoint;
+                            remainpoint.setText(String.valueOf(remain));
                         }
                         @Override
                         public void failure(RetrofitError error) {

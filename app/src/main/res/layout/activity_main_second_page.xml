@@ -37,7 +37,6 @@
 
     /* 상품 아이콘 이미지들 */
     <LinearLayout
-
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:gravity="center"
@@ -119,7 +118,7 @@
 
     /* 최신순 */
     <LinearLayout
-        android:background="@color/background"
+        android:background="#ffffff"
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:gravity="center_vertical"
@@ -155,11 +154,21 @@
         </LinearLayout>
     </LinearLayout>
 
+    /* 바 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="9dp"
+        android:gravity="center_horizontal"
+        android:background="#f7f7f7"
+        >
+    </LinearLayout>
+
     /* 상품 전체 페이지 */
     /*상품이미지 상자*/
     <FrameLayout
         android:id="@+id/main2_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         />
 </LinearLayout>
