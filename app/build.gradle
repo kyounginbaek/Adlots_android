@@ -5,7 +5,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId "com.adlots.adlots"
+        applicationId "com.adlots.android"
         minSdkVersion 17
         targetSdkVersion 22
         versionCode 2

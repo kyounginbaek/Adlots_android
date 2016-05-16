@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adlots.adlots" >
+    package="com.adlots.android" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,7 +18,7 @@
         <meta-data android:name="tnkad_app_id" android:value="your-application-id-from-tnk-site" />
 
         <activity
-            android:name=".activity.LoadingActivity"
+            android:name="com.adlots.android.activity.LoadingActivity"
             android:label="애드랏츠"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
@@ -28,28 +28,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainActivity"
+            android:name="com.adlots.android.activity.MainActivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".activity.SigninActivity"
+            android:name="com.adlots.android.activity.SigninActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".activity.SignupActivity"
+            android:name="com.adlots.android.activity.SignupActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".activity.TutorialActivity.TutorialActivity"
+            android:name="com.adlots.android.activity.TutorialActivity.TutorialActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainFourthWinnerActivity"
+            android:name="com.adlots.android.activity.MainActivity.MainFourthWinnerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>

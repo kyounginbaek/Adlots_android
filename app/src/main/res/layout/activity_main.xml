@@ -78,7 +78,7 @@
 
     </LinearLayout>
 
-    <com.adlots.adlots.helper.UnderlinePageIndicator
+    <com.adlots.android.helper.UnderlinePageIndicator
         android:id="@+id/main_indicator"
         android:layout_height="3dp"
         android:layout_marginRight="3dp"
