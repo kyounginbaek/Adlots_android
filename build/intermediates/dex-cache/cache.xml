@@ -2,81 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\adlots_new\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\classes-2677c39c511c885e0e009cffcfee8298f3e051d3.jar" />
-    </item>
-    <item
-        jar="C:\adlots_new\app\libs\tnkad-addon.jar"
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-addon.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4acd7e032ea7f55e2799a71ffdfc7a6fda21fdf3">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\tnkad-addon-c1aef4d799f6465ee604d4e9095f7d603be9ea8c.jar" />
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/tnkad-addon-3d2a383958797957ead80f58b4e55fec912aba81.jar" />
     </item>
     <item
-        jar="C:\adlots_new\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\classes-8b0e48c311c63dcebbf50a4afafec8add1aa82b6.jar" />
-    </item>
-    <item
-        jar="C:\adlots_new\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\classes-ff1d4e5acacdb39aa52346ea3ab1f28985e1edf5.jar" />
-    </item>
-    <item
-        jar="C:\Users\안희철\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\gson-2.3.1-c80595cfbc7ac7fdb80892ab079136b6bba420ff.jar" />
-    </item>
-    <item
-        jar="C:\Users\안희철\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\library-1.0.19-20cc42c62ae22307e53f6bbdd035eb9bd4faf39d.jar" />
-    </item>
-    <item
-        jar="C:\adlots_new\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-5e59d25ea0493a99e098e0d241f048eec45dcfda.jar" />
-    </item>
-    <item
-        jar="E:\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-abdea0359f0e05be7d478ed15f4e04968fbe785d.jar" />
-    </item>
-    <item
-        jar="C:\Users\안희철\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpmime\4.3.5\1dd0d38df9c6d21e893f2e52403f1cd99e91cd81\httpmime-4.3.5.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1dd0d38df9c6d21e893f2e52403f1cd99e91cd81">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\httpmime-4.3.5-a8d322670d792704a7687895fd94e2dca04a96e1.jar" />
-    </item>
-    <item
-        jar="C:\adlots_new\app\libs\tnkad-sdk.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="749c9974f0a9bbecf3d1d4868be8caaa2867ebe6">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\tnkad-sdk-201d5ba3c867482ebc35993e8c1c7965292d87da.jar" />
-    </item>
-    <item
-        jar="C:\Users\안희철\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a681c044244d9fc375198588297a39ba78028423">
-        <dex dex="C:\adlots_new\app\build\intermediates\pre-dexed\debug\retrofit-1.9.0-e2ebde73026a75011dbc38983b7f8072fde0253c.jar" />
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/retrofit-1.9.0-5c366ae23cf2e5acd813bf92d8429ecc9eb66594.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/gson-2.3.1-e8c5e7176dcbbfc805c8905f44ef0e4fed541d4e.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-sdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="749c9974f0a9bbecf3d1d4868be8caaa2867ebe6">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/tnkad-sdk-4ea82eb23219f6128af743f96d96d5426affe269.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/library-1.0.19-6790581218bae34215205c3944d3d4ea8245fd64.jar" />
     </item>
 
 </items>

@@ -73,7 +73,6 @@
 
         </FrameLayout>
 
-
         상품 설명
         <LinearLayout
             android:layout_width="160dp"
@@ -86,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
                 android:id="@+id/main4_layoutnull2"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -112,6 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main4_itemname"
+                android:paddingLeft="6dp"
                 android:text="조로 피규어"
                 android:textSize="15dp"
                 android:textColor="#2d2d2d"
@@ -124,6 +125,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main4_layoutnull3"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -158,6 +160,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main4_layoutnull4"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,6 +195,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main4_layoutnull5"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -233,8 +237,8 @@
                 android:text="당첨"
                 android:gravity="center"
                 android:textSize="12dp"
-                android:textColor="#ffffff"
-                android:background="#16a0e8"
+                android:textColor="#01a1ff"
+                android:background="@drawable/win"
                 />
 
             <LinearLayout
@@ -249,7 +253,7 @@
                     android:text="당첨자 : "
                     android:gravity="center"
                     android:textSize="12dp"
-                    android:textColor="#6e6e6e"                    />
+                    android:textColor="#2d2d2d"                   />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
@@ -267,7 +271,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="6dp"
+        android:layout_height="9dp"
         android:gravity="center_horizontal"
         android:background="#f7f7f7"
         />

@@ -80,6 +80,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.userlotspoint = (TextView) v.findViewById(R.id.main3_userlotspoint);
             holder.whentxt = (TextView) v.findViewById(R.id.main3_whentxt);
             holder.when = (TextView) v.findViewById(R.id.main3_when);
+            holder.iteminfo = (TextView) v.findViewById(R.id.main3_iteminfo);
             holder.status = (TextView) v.findViewById(R.id.main3_status);
             holder.finish = (TextView) v.findViewById(R.id.main3_finish);
 
@@ -151,6 +152,13 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 holder.itemname.setText(adlotsItem.itemname);
                 holder.endtime.setText(String.valueOf(diffOfDate(date,adlotsItem.endtime))+"일");
 
+                holder.iteminfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
                 if(adlotsItem.howtobuy.equals("lots")) {
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
                     holder.whentxt.setText("응모 일시");
@@ -165,7 +173,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                         } else if(adlotsItem.type.equals("delivery")){
                             if(adlotsItem.address.equals("")){
-                                holder.finish.setText("배송 받을 주소 입력");
+                                holder.finish.setText("배송 받을 주소 입력 >");
                                 holder.finish.setOnClickListener(new View.OnClickListener(){
                                     @Override
                                     public void onClick(View v) {
@@ -202,7 +210,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                     } else if(adlotsItem.type.equals("delivery")){
                         if(adlotsItem.address.equals("")){
-                            holder.finish.setText("배송 받을 주소 입력");
+                            holder.finish.setText("배송 받을 주소 입력 >");
                             holder.finish.setOnClickListener(new View.OnClickListener(){
                                 @Override
                                 public void onClick(View v) {
@@ -228,7 +236,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         TextView category, brand, itemname;
         ImageView imagelink;
         TextView endtime;
-        TextView type, userlotspoint, whentxt, when, status, finish;
+        TextView type, userlotspoint, whentxt, when, iteminfo, status, finish;
 
         FrameLayout layoutnull1;
         LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6, layoutnull7;

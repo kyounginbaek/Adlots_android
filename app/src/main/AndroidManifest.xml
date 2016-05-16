@@ -51,7 +51,7 @@
         <activity
             android:name=".activity.MainActivity.MainFourthWinnerActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            android:theme="@style/AppTheme" >
         </activity>
     </application>
 

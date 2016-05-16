@@ -72,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
                 android:id="@+id/main2_layoutnull2"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main2_itemname"
+                android:paddingLeft="6dp"
                 android:text="조로 피규어"
                 android:textSize="14dp"
                 android:textColor="#2d2d2d"
@@ -110,6 +112,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main2_layoutnull3"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,6 +147,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main2_layoutnull4"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -178,6 +182,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main2_layoutnull5"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"

@@ -81,6 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
+                android:paddingLeft="6dp"
                 android:id="@+id/main3_layoutnull2"
                 >
 
@@ -110,6 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main3_itemname"
+                android:paddingLeft="6dp"
                 android:text="조로 피규어"
                 android:textSize="14dp"
                 android:textColor="#2d2d2d"
@@ -121,6 +123,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main3_layoutnull3"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -156,6 +159,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main3_layoutnull4"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -182,6 +186,7 @@
                 android:layout_marginTop="1dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/main3_layoutnull5"
+                android:paddingLeft="6dp"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -190,7 +195,7 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
                     android:textColor="#16a0e8"
-                    android:id="@+id/main3_itemdetail"
+                    android:id="@+id/main3_iteminfo"
                     />
             </LinearLayout>
 
@@ -209,10 +214,10 @@
                 android:layout_height="35dp"
                 android:gravity="center"
                 android:id="@+id/main3_status"
-                android:text="진행중 / 마감 / 환불"
+                android:text="진행중"
                 android:textSize="12dp"
-                android:textColor="#ffffff"
-                android:background="#16a0e8"                />
+                android:textColor="#01a1ff"
+                android:background="@drawable/win"                />
             <TextView
                 android:layout_marginTop="12dp"
                 android:layout_width="65dp"
