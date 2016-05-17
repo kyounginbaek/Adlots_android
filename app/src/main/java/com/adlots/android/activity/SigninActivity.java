@@ -63,15 +63,18 @@ public class SigninActivity extends Activity {
                         public void success(JsonElement jsonElement, Response response) {
                             String condition = jsonElement.getAsJsonObject().get("response").getAsString();
                             switch (condition) {
-                                case "wrong":
-                                    Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                case "no_email":
+                                    Toast.makeText(getApplicationContext(), "가입된 아이디가 없습니다. 회원가입 해주세요.", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case "wrong_password":
+                                    Toast.makeText(getApplicationContext(), "비밀번호가 틀렸습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                                     break;
                                 case "success":
                                     SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = pref.edit();
                                     editor.putString("login", "yes");
-                                    editor.putString("email", jsonElement.getAsJsonObject().get("email").getAsString());
-                                    editor.putString("password", jsonElement.getAsJsonObject().get("password").getAsString());
+                                    editor.putString("email", email);
+                                    editor.putString("password", password);
                                     editor.putString("nickname", jsonElement.getAsJsonObject().get("nickname").getAsString());
                                     editor.commit();
 

@@ -208,7 +208,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_signup"
-        android:text="가입하기"
+        android:text="가입 후 바로 로그인"
         android:background="#01a1ff"
         android:textColor="#ffffff"
         android:layout_below="@+id/scrollView"

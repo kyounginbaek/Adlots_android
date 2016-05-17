@@ -44,7 +44,7 @@
 
             /* 페이스북 페이지  */
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/facebook"
@@ -101,7 +101,7 @@
 
             /* 당첨자 목록보기 */
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/winnerlist"
@@ -159,7 +159,7 @@
 
             /*이용문의*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/email"
@@ -217,7 +217,7 @@
 
             /*애드랏츠 홈페이지*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/homepage"
@@ -275,7 +275,7 @@
 
             /* 자주묻는질문 */
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/faq"
@@ -333,7 +333,7 @@
 
             /*블로그 소식*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/blog"
@@ -391,7 +391,7 @@
 
             /*튜토리얼 다시보기*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/tutorial"
@@ -449,7 +449,7 @@
 
             /*개발자 정보*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/developers"
@@ -506,7 +506,7 @@
 
             /*이용약관*/
             <LinearLayout
-                android:background="@color/background"
+                android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:id="@+id/agreement"

@@ -71,7 +71,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         // 유저 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
         data.put("email", pref_email);
-        data.put("password", pref_password);
         RestClient.AdlotsService service = RestClient.getService();
         service.getuserPoint(data, new Callback<JsonElement>() {
             @Override
@@ -105,7 +104,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main2_layoutnull5);
             holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main2_layoutnull6);
 
-            // 응모하기 버튼 클릭 이벤트
             holder.textbtn_lots = (TextView) v.findViewById(R.id.main2_textbtn_lots);
             holder.textbtn_lots.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -161,24 +159,6 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                             int random = rand.nextInt(Integer.parseInt(adlotsItem.endpoint))+1; // 1에서 endpoint까지
                             String winorlose = String.valueOf(random);
 
-                            // 총 14개 데이터 전송
-                            HashMap<String, String> data = new HashMap<>();
-                            data.put("nickname", pref_nickname);
-                            data.put("howtobuy", "lots");
-                            data.put("itemid", adlotsItem.id);
-                            data.put("type", adlotsItem.type);
-                            data.put("category", adlotsItem.category);
-                            data.put("brand", adlotsItem.brand);
-                            data.put("itemname", adlotsItem.itemname);
-                            data.put("imagelink", adlotsItem.imagelink);
-                            data.put("referlink", adlotsItem.referlink);
-                            data.put("endpoint", adlotsItem.endpoint);
-                            data.put("starttime", adlotsItem.startime);
-                            data.put("endtime", adlotsItem.endtime);
-                            data.put("userlotspoint", userlotspoint); // 유저가 입력한 응모 포인트
-                            data.put("when", date);
-                            data.put("winorlose", winorlose);
-
                             // 유저가 입력한 응모 포인트 blank, number 체크
                             if(CheckNumber(userlotspoint)){
                                 double double_userlotspoint = Double.parseDouble(userlotspoint);
@@ -190,6 +170,23 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
                                     Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
                                 } else {
+                                    // 총 14개 데이터 전송
+                                    HashMap<String, String> data = new HashMap<>();
+                                    data.put("nickname", pref_nickname);
+                                    data.put("howtobuy", "lots");
+                                    data.put("itemid", adlotsItem.id);
+                                    data.put("type", adlotsItem.type);
+                                    data.put("category", adlotsItem.category);
+                                    data.put("brand", adlotsItem.brand);
+                                    data.put("itemname", adlotsItem.itemname);
+                                    data.put("imagelink", adlotsItem.imagelink);
+                                    data.put("referlink", adlotsItem.referlink);
+                                    data.put("endpoint", adlotsItem.endpoint);
+                                    data.put("endtime", adlotsItem.endtime);
+                                    data.put("userlotspoint", userlotspoint); // 유저가 입력한 응모 포인트
+                                    data.put("when", date);
+                                    data.put("winorlose", winorlose);
+
                                     RestClient.AdlotsService service = RestClient.getService();
                                     service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
                                         @Override
@@ -343,6 +340,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     }
                 });
 
+                // 기간이 만료되었다면 마감으로 표시
                 holder.endtime.setText(String.valueOf(diffOfDate(date,adlotsItem.endtime))+"일");
                 holder.category.setText(adlotsItem.category);
                 holder.brand.setText(adlotsItem.brand);

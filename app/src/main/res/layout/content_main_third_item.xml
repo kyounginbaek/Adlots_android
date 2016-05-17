@@ -191,7 +191,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이템 정보 자세히 보기 >"
+                    android:text="아이템 정보 및 추가응모 >"
                     android:layout_gravity="center_vertical"
                     android:textSize="12dp"
                     android:textColor="#16a0e8"

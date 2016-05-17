@@ -3,6 +3,7 @@ package com.adlots.android.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.adlots.android.R;
+import com.adlots.android.activity.MainActivity.MainActivity;
 import com.adlots.android.rest.RestClient;
 import com.google.gson.JsonElement;
 
@@ -88,8 +90,16 @@ public class SignupActivity extends Activity {
                                         Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
                                         break;
                                     case "success":
-                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다. 로그인 해주세요.",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), SigninActivity.class));
+                                        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = pref.edit();
+                                        editor.putString("login", "yes");
+                                        editor.putString("email", email);
+                                        editor.putString("password", password);
+                                        editor.putString("nickname", nickname);
+                                        editor.commit();
+
+                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다. 즐거운 시간되세요!",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         finish();
                                         break;
                                     default:

@@ -15,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.adlots.android.R;
+import com.adlots.android.activity.TutorialActivity.TutorialActivity;
 
 import static android.view.LayoutInflater.from;
 
@@ -175,7 +176,7 @@ public class MainFourthPage extends Fragment {
                 buider.setTitle("애드랏츠 블로그")
                         .setPositiveButton("다른 브라우저에서 보기", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.blog.naver.com/adlots"));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://blog.naver.com/adlots"));
                                 startActivity(intent);
                                 dialog.dismiss();
                             }
@@ -197,7 +198,7 @@ public class MainFourthPage extends Fragment {
         tutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mainfourthContext, MainFourthWinnerActivity.class));
+                startActivity(new Intent(mainfourthContext, TutorialActivity.class));
             }
         });
 

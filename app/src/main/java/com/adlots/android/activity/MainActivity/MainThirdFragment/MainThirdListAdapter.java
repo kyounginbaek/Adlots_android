@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adlots.android.R;
+import com.adlots.android.activity.MainActivity.MainSecondPage;
 import com.adlots.android.activity.MainActivity.MainThirdPage;
 import com.adlots.android.helper.ImageLoadTask;
 import com.adlots.android.rest.RestClient;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -45,6 +47,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
     private ArrayList<MainThirdItem> items;
     int layoutResource;
     ListHolder holder;
+    String userpoint;
 
     public MainThirdListAdapter(Context context, int resource, ArrayList<MainThirdItem> items) {
         super(context, resource, items);
@@ -60,10 +63,26 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
         SharedPreferences pref = context.getSharedPreferences("pref", context.MODE_PRIVATE);
         final String pref_nickname = pref.getString("nickname", "");
+        final String pref_email = pref.getString("email", "");
+        final String pref_password = pref.getString("password", "");
 
         long time = System.currentTimeMillis();
         SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String date = dayTime.format(new Date(time));
+
+        // 유저 포인트 가져오기
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        RestClient.AdlotsService service = RestClient.getService();
+        service.getuserPoint(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+            }
+            @Override
+            public void failure(RetrofitError error) {
+            }
+        });
 
         holder = null;
         if (v == null) {
@@ -155,7 +174,119 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 holder.iteminfo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
+                        final View dialogView = inflater.inflate(R.layout.popup_main_third_iteminfo, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
 
+                        AlertDialog.Builder buider = new AlertDialog.Builder(context); //AlertDialog.Builder 객체 생성
+                        buider.setView(dialogView);
+                        buider.setTitle("아이템 정보 및 추가응모");
+
+                        final TextView howmuchlots = (TextView) dialogView.findViewById(R.id.main3_popup_howmuchlots);
+                        final TextView mypoint = (TextView) dialogView.findViewById(R.id.main3_popup_mypoint);
+                        final TextView lotspeople = (TextView) dialogView.findViewById(R.id.main3_popup_lotspeople);
+                        final TextView remainpoint = (TextView) dialogView.findViewById(R.id.main3_popup_remainpoint);
+
+                        // 한개 아이템 정보 가져오기
+                        HashMap<String, String> data = new HashMap<>();
+                        data.put("id", adlotsItem.itemid); // 조심하기
+                        RestClient.AdlotsService service = RestClient.getService();
+                        service.getoneItem(data, new Callback<JsonElement>() {
+                            @Override
+                            public void success(JsonElement jsonElement, Response response) {
+                                mypoint.setText(userpoint);
+                                lotspeople.setText(jsonElement.getAsJsonObject().get("lotspeople").getAsString());
+                                int endpoint = Integer.parseInt(jsonElement.getAsJsonObject().get("endpoint").getAsString());
+                                int nowpoint = Integer.parseInt(jsonElement.getAsJsonObject().get("nowpoint").getAsString());
+                                int remain = endpoint-nowpoint;
+                                remainpoint.setText(String.valueOf(remain));
+                            }
+                            @Override
+                            public void failure(RetrofitError error) {
+
+                            }
+                        });
+
+                        final AlertDialog dialog = buider.create(); //설정한 값으로 AlertDialog 객체 생성
+                        dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
+                        dialog.show(); //Dialog 보이기
+
+                        // 응모하기 완료 버튼 클릭 이벤트
+                        Button btn_lots = (Button) dialogView.findViewById(R.id.main3_popup_btn_lots);
+                        btn_lots.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                long time = System.currentTimeMillis();
+                                SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                                String date = dayTime.format(new Date(time));
+                                String userlotspoint = howmuchlots.getText().toString();
+
+                                // 당첨자 추첨을 위한 랜덤 함수
+                                Random rand = new Random();
+                                int random = rand.nextInt(Integer.parseInt(adlotsItem.endpoint))+1; // 1에서 endpoint까지
+                                String winorlose = String.valueOf(random);
+
+                                // 총 14개 데이터 전송
+                                HashMap<String, String> data = new HashMap<>();
+                                data.put("nickname", pref_nickname);
+                                data.put("howtobuy", "lots");
+                                data.put("itemid", adlotsItem.itemid); // 조심하기
+                                data.put("type", adlotsItem.type);
+                                data.put("category", adlotsItem.category);
+                                data.put("brand", adlotsItem.brand);
+                                data.put("itemname", adlotsItem.itemname);
+                                data.put("imagelink", adlotsItem.imagelink);
+                                data.put("referlink", adlotsItem.referlink);
+                                data.put("endpoint", adlotsItem.endpoint);
+                                data.put("endtime", adlotsItem.endtime);
+                                data.put("userlotspoint", userlotspoint); // 유저가 입력한 응모 포인트
+                                data.put("when", date);
+                                data.put("winorlose", winorlose);
+
+                                // 유저가 입력한 응모 포인트 blank, number 체크
+                                if(CheckNumber(userlotspoint)){
+                                    double double_userlotspoint = Double.parseDouble(userlotspoint);
+                                    int int_userpoint = Integer.parseInt(userpoint);
+                                    if ((double_userlotspoint <= 0) || (double_userlotspoint % 10 != 0)) {
+                                        // 유저가 입력한 포인트가 0 혹은 음수이거나, 10 단위가 아닌 경우
+                                        Toast.makeText(context, "10 랏츠 단위로 응모해주세요. (예: 10,100,1000,10000)", Toast.LENGTH_SHORT).show();
+                                    } else if (double_userlotspoint > int_userpoint) {
+                                        // 유저가 입력한 응모 포인트 & 유저가 보유한 포인트 비교
+                                        Toast.makeText(context, "입력하신 응모 랏츠가 회원님의 보유 랏츠보다 많습니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        RestClient.AdlotsService service = RestClient.getService();
+                                        service.itemhowtoBuy("lots", data, new Callback<JsonElement>() {
+                                            @Override
+                                            public void success(JsonElement jsonElement, Response response) {
+                                                String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                                                switch(condition){
+                                                    case "overpoint":
+                                                        Toast.makeText(context, "남은 응모 랏츠를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                        break;
+                                                    case "success":
+                                                        main2_refresh();
+                                                        main3_refresh(pref_email, pref_password);
+                                                        Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                        dialog.dismiss();
+                                                        break;
+                                                    case "pointdone":
+                                                        main2_refresh();
+                                                        main3_refresh(pref_email, pref_password);
+                                                        Toast.makeText(context, "응모가 마무리되었습니다. 나의 당첨 유무를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                        dialog.dismiss();
+                                                        break;
+                                                }
+                                            }
+                                            @Override
+                                            public void failure(RetrofitError error) {
+                                                Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Toast.makeText(context, "입력 값을 확인해주세요. 10랏츠 단위 숫자를 입력해주셔야 합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }
                 });
 
@@ -290,6 +421,56 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         });
 
         dialog.show(); //Dialog 보이기
+    }
+
+    public boolean CheckNumber(String str) {
+        char check;
+        if (str.equals("")) {
+            //문자열이 공백인지 확인
+            return false;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            check = str.charAt(i);
+            if (check < 48 || check > 58) {
+                //해당 char값이 숫자가 아닐 경우
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void main2_refresh() {
+        FragmentTransaction transaction = MainSecondPage.staticvar.getChildFragmentManager().beginTransaction();
+        Fragment currentFragment = MainSecondPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main2_fragment);
+        transaction.detach(currentFragment);
+        transaction.attach(currentFragment);
+        transaction.commit();
+    }
+
+    public void main3_refresh(String pref_email, String pref_password) {
+        final TextView txt_point = (TextView) MainThirdPage.staticvar.getActivity().findViewById(R.id.main3_userpoint);
+
+        // 유저 포인트 가져오기
+        HashMap<String, String> data = new HashMap<>();
+        data.put("email", pref_email);
+        data.put("password", pref_password);
+        RestClient.AdlotsService service = RestClient.getService();
+        service.getuserPoint(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                txt_point.setText(userpoint);
+            }
+            @Override
+            public void failure(RetrofitError error) {
+            }
+        });
+
+        FragmentTransaction transaction = MainThirdPage.staticvar.getChildFragmentManager().beginTransaction();
+        Fragment currentFragment = MainThirdPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+        transaction.detach(currentFragment);
+        transaction.attach(currentFragment);
+        transaction.commit();
     }
 
     public void main3_refresh() {

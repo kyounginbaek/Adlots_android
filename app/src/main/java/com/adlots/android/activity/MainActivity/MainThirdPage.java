@@ -75,7 +75,6 @@ public class MainThirdPage extends Fragment {
         // 나의 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
         data.put("email", pref_email);
-        data.put("password", pref_password);
         RestClient.AdlotsService service = RestClient.getService();
         service.getuserPoint(data, new Callback<JsonElement>() {
             @Override
@@ -133,7 +132,6 @@ public class MainThirdPage extends Fragment {
                                             HashMap<String, String> data = new HashMap<>();
                                             data.put("newemail", info_email);
                                             data.put("originalemail", pref_email);
-                                            data.put("originalpass", pref_password);
                                             RestClient.AdlotsService service = RestClient.getService();
                                             service.userinfoChange("newemail", data, new Callback<JsonElement>() {
                                                 @Override
@@ -167,7 +165,6 @@ public class MainThirdPage extends Fragment {
                                                 HashMap<String, String> data = new HashMap<>();
                                                 data.put("newpassword", info_password);
                                                 data.put("originalemail", pref_email);
-                                                data.put("originalpass", pref_password);
                                                 RestClient.AdlotsService service = RestClient.getService();
                                                 service.userinfoChange("newpassword", data, new Callback<JsonElement>() {
                                                     @Override
@@ -203,7 +200,6 @@ public class MainThirdPage extends Fragment {
                                                 data.put("newemail", info_email);
                                                 data.put("newpassword", info_password);
                                                 data.put("originalemail", pref_email);
-                                                data.put("originalpass", pref_password);
                                                 RestClient.AdlotsService service = RestClient.getService();
                                                 service.userinfoChange("newboth", data, new Callback<JsonElement>() {
                                                     @Override
