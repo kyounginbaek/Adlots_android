@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="350dp"
-    android:layout_height="320dp"
+    android:layout_height="300dp"
     android:layout_gravity="center"
     android:id="@+id/main_third_info_popup" >
 
@@ -42,7 +42,8 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +76,8 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"  >
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,6 +99,7 @@
             android:layout_height="40dp"
             android:layout_gravity="right"
             android:hint="비밀번호 변경시 필수입력*"
+            android:textColorHint="#16a0e8"
             android:inputType="textPassword"
             android:textColor="#16a0e8"
             android:textSize="12dp"
@@ -108,7 +111,8 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"  >
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,6 +134,7 @@
             android:layout_height="40dp"
             android:layout_gravity="right"
             android:hint="필수입력*"
+            android:textColorHint="#fc6e51"
             android:inputType="textPassword"
             android:textColor="#fc6e51"
             android:textSize="12dp"

@@ -92,12 +92,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /* 당첨자 목록보기 */
             <LinearLayout
@@ -150,12 +150,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*이용문의*/
             <LinearLayout
@@ -208,12 +208,13 @@
 
             </LinearLayout>
 
-            <Button
+            /* 바 */
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*애드랏츠 홈페이지*/
             <LinearLayout
@@ -266,12 +267,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /* 자주묻는질문 */
             <LinearLayout
@@ -324,12 +325,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*블로그 소식*/
             <LinearLayout
@@ -382,12 +383,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*튜토리얼 다시보기*/
             <LinearLayout
@@ -440,12 +441,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*개발자 정보*/
             <LinearLayout
@@ -497,12 +498,12 @@
             </LinearLayout>
 
             /* 바 */
-            <Button
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:gravity="center_horizontal"
-                android:background="#f7f7f7"
-                />
+                android:background="#dcdcdc" >
+            </LinearLayout>
 
             /*이용약관*/
             <LinearLayout

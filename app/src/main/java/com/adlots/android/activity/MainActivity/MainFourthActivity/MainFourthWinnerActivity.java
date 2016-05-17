@@ -1,7 +1,9 @@
-package com.adlots.android.activity.MainActivity;
+package com.adlots.android.activity.MainActivity.MainFourthActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.adlots.android.R;
@@ -28,6 +30,14 @@ public class MainFourthWinnerActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_main_fourth_winnerlist);
+
+        ImageView btn_x = (ImageView) findViewById(R.id.main4_winnerlist_btn_x);
+        btn_x.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         RestClient.AdlotsService service = RestClient.getService();
         service.getwinnerList(new Callback<List<MainFourthWinner>>() {

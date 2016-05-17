@@ -277,7 +277,7 @@
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="9dp"
         android:gravity="center_horizontal"

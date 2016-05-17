@@ -216,8 +216,8 @@
                 android:id="@+id/main3_status"
                 android:text="진행중"
                 android:textSize="12dp"
-                android:textColor="#01a1ff"
-                android:background="@drawable/win"                />
+                android:textColor="#2d2d2d"
+                android:background="@drawable/gray_box"                />
             <TextView
                 android:layout_marginTop="12dp"
                 android:layout_width="65dp"
@@ -233,7 +233,7 @@
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="9dp"
         android:gravity="center_horizontal"

@@ -49,7 +49,12 @@
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.adlots.android.activity.MainActivity.MainFourthWinnerActivity"
+            android:name=".activity.MainActivity.MainFourthActivity.MainFourthWinnerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".activity.MainActivity.MainFourthActivity.MainFourthFaqActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>

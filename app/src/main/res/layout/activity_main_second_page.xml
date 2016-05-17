@@ -116,6 +116,14 @@
 
     </LinearLayout>
 
+    /* 바 */
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:gravity="center_horizontal"
+        >
+    </LinearLayout>
+
     /* 최신순 */
     <LinearLayout
         android:background="#ffffff"
@@ -149,21 +157,19 @@
                 android:id="@+id/main2_txtbtn_refresh"
                 android:background="@drawable/refresh"
                 android:textSize="16dp"
-                android:textColor="#2d2d2d"
                 />
         </LinearLayout>
+
     </LinearLayout>
 
     /* 바 */
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="9dp"
+        android:layout_height="1dp"
         android:gravity="center_horizontal"
-        android:background="#f7f7f7"
         >
     </LinearLayout>
 
-    /* 상품 전체 페이지 */
     /*상품이미지 상자*/
     <FrameLayout
         android:id="@+id/main2_fragment"
