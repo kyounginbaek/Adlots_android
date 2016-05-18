@@ -58,6 +58,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name=".activity.MainActivity.MainFourthActivity.MainFourthServicePolicyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".activity.MainActivity.MainFourthActivity.MainFourthUserPolicyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

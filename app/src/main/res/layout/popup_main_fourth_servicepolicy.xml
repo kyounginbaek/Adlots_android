@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/main_fourth_winnerlist_popup" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="#01a1ff"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="9"
+            >
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="서비스 이용약관"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center|left"
+            >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:orientation="vertical"
+                android:background="@drawable/x"
+                android:id="@+id/main4_servicepolicy_btn_x"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    /*    스크롤 페이지   */
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="5dp"
+            >
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 1조 (목적)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="이 약관은 애드랏츠 서비스 (이하 “서비스”)에 가입한 회원이 ㈜애드랏츠 (이하 “회사”)가 제공하는 서비스를 이용함에 있어 회원 및 회사 간의 권리의무 및 책임사항을 규정함을 목적으로 합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 2조 (정의)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. “서비스”라 함은 광고주가 회사에 게재 요청한 광고를 회사는 회원이 이용하는 단말기(스마트폰, 태블릿 PC 등의 장치 포함)에 제공하고, 이를 시청한 회원이 회사가 제공하는 절차를 이행하면 그에 대한 포인트를 지급하며, 이를 경품 추첨이나 제휴 컨텐츠를 이용할 수 있는 모바일 광고 서비스를 의미합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. “회원”이라 함은 서비스를 이용하기 위해 이 약관에 따라 회사와 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 고객을 의미합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="3. “광고주”라 함은 회사가 제공하는 광고 신청 절차에 따라 회사가 제공하는 서비스에 광고 게재를 신청한 자를 의미합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="4. 포인트(혹은 적립금)라 함은 본 약관 제 10조의 기존에 부합하여 회원이 회사가 정한 규정에 따라 경품 추첨 및 제휴 컨텐츠 구입에 이용이 가능한 포인트를 말하며 경품 추첨 및 제휴 컨텐츠 구입에 사용되며 재화로서의 가치는 없습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="5. “계정”이라 함은 회원의 식별과 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 이메일 주소를 의미합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="6. “제휴 컨텐츠”라 함은 회사가 제휴를 통하여 회원이 포인트를 지급하고 사용할 수 있는 다양한 서비스를 의미합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:background="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            >
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="제 3조 (약관의 명시, 효력 및 개정)"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+
+            /*화살표*/
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/icon_down_pink"
+                    android:onClick="editActions"
+                    android:clickable="false"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. 회사는 서비스 화면 및 서비스의 웹 페이지 (http://www.adlots.com) 이하 “웹 페이지”에 게시하여, 회원에게 공지함으로써 효력이 발생합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. 회사는 “약관의 규제에 관한 법률”, “정보통신망 이용촉진 및 정보보호 등에 관한 법률” 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="3. 회사가 약관을 개정할 경우에는 기존 약관과 개정약관 및 개정약관의 적용 일자와 개정사유를 명시하여 현행 약관과 함께 그 적용일자 14일 전부터 적용일자까지 공지합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="4. 회사는 개정 약관의 공지를 규정된 방법 중 1가지 이상의 방법으로 회원에게 명확하게 공지하도록 합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="A. 웹페이지 내 개시"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="B. E-mail 통보"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="C. SMS 통보"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="D. 회사가 정한 기타 공지 방법 등웹"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="5. 본 약관의 개정과 관련하여 이의가 있는 회원은 회원탈퇴를 할 수 있습니다. 단, 이의가 있음에도 불구하고 본 조 제 1항 및 제 2항에 따른 회사의 공지가 있은 후 14일 이내에 회원탈퇴 및 거부의사를 표명하지 않은 회원은 개정 약관에 동의한 것으로 봅니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="6. 본 조의 규정에 의하여 개정 약관은 원칙적으로 그 효력 발생일로부터 장래를 향하여 유효합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 4조 (서비스 이용신청 및 이용계약 성립)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. 서비스 이용계약은 회원이 본 약관 및 개인정보취급방침 등 에 대하여 동의하고 회사가 제공하는 가입 양식을 작성하여 서비스 이용을 신청한 경우 회사가 이를 승낙함으로써 이용계약이 체결됩니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. 회원은 제 1항의 이용 신청 시 반드시 실제 정보(본인 명의의 휴대전화번호, 본인이 사용 중인 유효한 이메일 등)를 기재하여야 하며, 허위정보를 기재한 회원의 경우 서비스 이용이 제한되거나 제 5조에 의거 회원과의 서비스 이용 계약을 해지할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="3. 만 14세 미만의 이용 고객이 서비스를 이용하기 위해서는 회사가 요구하는 소정의 법정대리인의 동의 절차를 거쳐야 합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="4. 타인의 명의를 도용하는 등의 부정한 목적과 방법으로 이용 신청한 회원의 ID는 사전 통지 없이 삭제될 수 있으며, 당해 회원은 서비스 이용 금지 및 법적 제재를 받을 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="5. 제 1항에 따른 신청에 있어 회사는 회원의 본인인증을 요청 할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="6. 회사는 회원들에게 원활한 서비스 제공을 위해 회원에게 이메일 및 SMS 등을 통한 광고 및 서비스 관련 각종 정보를 제공할 수 있습니다. 회원이 원치 않는 경우 언제든지 무선서비스를 통해서 수신 거부를 할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="7. 회사는 법률에서 정한 특별한 규정이 없는 경우를 제외하고 기본적으로 회원의 별도 동의 없이 회원정보를 제 3자에게 제공하지 않습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="8. 회사는 서비스 운영 중 회사 정책에 따라 광고주가 광고 송출을 원하는 회원의 범주를 제한 할 시 회원은 서비스 이용에 제한이 따를 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="9. 회원은 서비스를 이용 중 신청 양식에 기재한 회원 정보가 변경되었을 경우 즉각 회원정보를 수정하여야 합니다. 회원정보 미 수정에 따라 발생하는 모든 책임은 회원에게 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 5조 (회원 정보의 변경)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. 회원은 서비스 내 프로필 변경 화면을 통하여 본인의 개인정보를 열람하고 수정할 수 있습니다. 단, 단말기 식별번호, 닉네임, 성별, ID 등은 수정이 불가능합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. 회원은 거주 지역, 관심사, 차량 유무를 제외하고 본인의 개인정보를 허위로 설정하여 부당한 방법으로 이익을 취할 경우, 당사자의 포인트는 소멸되며 서비스 이용이 제한될 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 6조 (이용계약의 해지, 자격 상실 및 정지)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. 회원은 본인 희망 시 계약을 해지하거나 서비스의 이용 중지를 요청할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. 회원이 서비스 이용 중지를 요청할 경우, 이메일 통보 등 회사가 지정한 절차를 거쳐 신청해야 합니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="3. 회사는 다음 각 호에 해당하는 회원이 확인될 경우, 당해 회원에 대한 사전 통보 없이 회원자격 유보/중지/해지 등의 조치를 취할 수 있으며, 이 경우 회원은 서비스 와 관련된 모든 권리를 주장할 수 없고, 이후 회원 재가입이 금지됩니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="A. 회원 가입 신청 시에 허위의 내용을 등록한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="B. 포인트 부정 적립 및 부정 사용 등 서비스를 부정한 방법 또는 목적으로 이용한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginRight="20dp"
+                                android:text="i. 서면 통보"
+                                android:layout_gravity="center_vertical"
+                                android:textSize="12dp"
+                                android:textColor="#2d2d2d"
+                                android:lineSpacingExtra="5dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginRight="20dp"
+                                android:text="ii. 부정 적립이란 회원이 실제로 광고를 시청하지 않았음에도 불구하고 회원에게 지급된 경우 또는 시청한 광고 이상으로 포인트가 지급된 경우, 또는 부정한 방법으로 추천인을 모집하여 포인트가 지급된 경우를 말합니다. 회원은 포인트를 지급받기 위해 정상적인 방법으로 광고를 시청하여야 하며 회사가 제공하는 절차를 이행해야 합니다. 그 이외의 경우에는 부정적립으로 간주합니다."
+                                android:layout_gravity="center_vertical"
+                                android:textSize="12dp"
+                                android:textColor="#2d2d2d"
+                                android:lineSpacingExtra="5dp"
+                                />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="C. 회사가 서비스 내 공지사항을 통하여 공시하는 저작권 규정을 위반하는 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="D. 회원이 사망한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="E. 다른 회원의 서비스 홈페이지 이용을 방해하거나 그 정보를 도용하는 등 전자 거래 질서를 위협하는 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="F. 서비스 내 다른 회원 및 회사의 임직원에 대한 위협/희롱/지속적인고통 및 불편을 끼치는 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="G. 서비스 내에서 회사의 운영자/임직원 또는 회사를 사칭한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="H. 회원 가입 신청 시 제 3자의 개인 정보를 이용 및 불법으로 도용한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="I. 서비스 이용 중 법률 위반행위 및 사회의 안녕/질서/미풍양속을 해치는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="J. 제 3자의 특허권, 상표권, 저작권, 영업비밀 등 지적재산권을 포함한 기타 권리를 침해하는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="K. 회사로부터 특별한 권한을 부여 받지 않고 회사의 홈페이지 나 클라이언트 프로그램을 변경 또는 회사의 서버를 해킹하는 등의 시스템을 위협하는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="L. 회사의 사전승인 및 다른 회원에 대한 사전 동의 없이 Active X, 스파이웨어, 애드웨어의 프로그램을 강제로 설치하게 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="M. 서비스 방문자나 타 회원의 의사와 무관하게 특정 사이트로 방문을 유도한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="N. 서비스 이용 중 불법 복제 소프트웨어, 제 3자의 저작물을 밀매하는 등의 관련 법률에 저촉되는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="O. 인종/성/광신/이적 등 반 사회적/도덕적 편견에 기반한 단체를 결성하는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="P. 다른 회원의 ID/이메일 계정 등의 개인정보를 수집하는 행위"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="Q. 범죄와의 결부, 관련 법령 위반 활동으로 판단되는 행위를 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="R. 다른 회원을 하여금 상기 F항 내지 Q항의 금지 행위를 하도록 유발 및 조장하는 활동을 한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text="S. 본 약관에 규정된 회원의 의무를 위반한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:text="T. 기타 공지 된 서비스 운영정책을 위반한 경우"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 7조 (회원 탈퇴와 포인트 처리)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="1. 본 약관 제 6조 2항에 정해진 방법으로 탈퇴를 하고자 하는 회원은 회원 탈퇴 요청 후 회사가 제공하는 절차를 이행하면 탈퇴를 하게 됩니다. 이때 잔여 포인트는 자동으로 소멸되고 회원 가입 시 작성한 기본 정보는 영구 소멸되며, 향후 7일간 재가입이 금지됩니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="2. 본 조 제 2항의 규정에도 불구하고 본 약관 제 6조 제 3항 B호에 해당하여 회사로부터 자격상실 통보를 받은 회원의 포인트 중 부정 적립된 포인트는 자격상실 통보와 동시에 소멸하고, 이에 대하여 회원은 어떠한 권리도 주장할 수 없습니다. 또한, 해당 회원은 이후재가입이 금지됩니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 8조 (애드랏츠 서비스)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 1. 적립 서비스 : 회원은 본 약관에 정해진 바에 따라 모바일을 통해 광고를 시청하고 제공되는 절차를 이행할 경우 포인트를 적립 받을 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 2. 경품 추첨 서비스 : 회원은 본 약관에 정해진 바에 따라 기 적립된 포인트를 제휴 컨텐츠에 대한 경품 추첨에 사용할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 3. 이벤트 서비스 : 회원은 본 약관에 정해진 바에 따라 각종 이벤트에 참여할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 4. 기타 : 회사는 상기 각 호의 서비스 이외에도 추가적인 서비스를 개발하여 회원에게 제공할 수 있습니다. 회사는 서비스의 원활한 제공을 위하여 서비스 웹 페이지를 운영하고 있으며, 서비스에서 지원되지 못하는 보다 상세한 내용을 확인 및 문의할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="제 9조 (서비스의 변경 및 중단)"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_down_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 1. 회사는 서비스의 내용, 품질, 또는 기술적 사양 등에 대해 회사의 합리적 판단에 따라 변경할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 2. 회사는 아래 각 호에 해당하는 사유가 발생한 경우에는 본 서비스의 전부 또는 일부를 제한하거나 중단할 수 있습니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text=" 3. 이벤트 서비스 : 회원은 본 약관에 정해진 바에 따라 각종 이벤트에 참여할 수 있습니다."
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="20dp"
+                            android:text=" 3. 이벤트 서비스 : 회원은 본 약관에 정해진 바에 따라 각종 이벤트에 참여할 수 있습니다."
+                            android:layout_gravity="center_vertical"
+                            android:textSize="12dp"
+                            android:textColor="#2d2d2d"
+                            android:lineSpacingExtra="5dp"
+                            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text=" 3. 회사는 제 1항 및 2항의 각 호 규정에 의하여 광고 서비스를 변경하거나 서비스 이용을 제한 및 중지 할 때에는 그 사유 및 제한기간 등을 회원에게 SMS로 발송하거나 서비스 내 공지사항 및 웹 페이지에 게시하는 방법으로 알립니다."
+                        android:layout_gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#2d2d2d"
+                        android:lineSpacingExtra="5dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

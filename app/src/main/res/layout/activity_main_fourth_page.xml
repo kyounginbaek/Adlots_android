@@ -47,7 +47,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/facebook"
+                android:id="@+id/main4_facebook"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -104,7 +104,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/winnerlist"
+                android:id="@+id/main4_winnerlist"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -162,7 +162,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/email"
+                android:id="@+id/main4_email"
                 >
 
                 <LinearLayout
@@ -221,7 +221,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/homepage"
+                android:id="@+id/main4_homepage"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -279,7 +279,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/faq"
+                android:id="@+id/main4_faq"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -337,7 +337,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/blog"
+                android:id="@+id/main4_blog"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -395,7 +395,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/tutorial"
+                android:id="@+id/main4_tutorial"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -453,7 +453,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/developers"
+                android:id="@+id/main4_developers"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -510,7 +510,7 @@
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="60dp"
-                android:id="@+id/agreement"
+                android:id="@+id/main4_servicepolicy"
                 >
                 <LinearLayout
                     android:layout_width="310dp"
@@ -522,7 +522,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="개인정보 이용약관"
+                        android:text="서비스 이용약관"
                         android:layout_gravity="center_vertical"
                         android:textSize="14dp"
                         android:textColor="#2d2d2d"
@@ -532,7 +532,65 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginLeft="16dp"
-                        android:text="개인정보 이용약관입니다."
+                        android:text="애드랏츠 서비스 이용약관입니다."
+                        android:textSize="12dp"
+                        android:textColor="#6e6e6e"
+                        />
+                </LinearLayout>
+
+                /*화살표*/
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icon_back_pink"
+                        android:onClick="editActions"
+                        android:clickable="false"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            /* 바 */
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                android:background="#dcdcdc" >
+            </LinearLayout>
+
+            /*이용약관*/
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:id="@+id/main4_userpolicy"
+                >
+                <LinearLayout
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="개인정보 취급방침"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="#2d2d2d"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="애드랏츠 개인정보 취급방침입니다."
                         android:textSize="12dp"
                         android:textColor="#6e6e6e"
                         />

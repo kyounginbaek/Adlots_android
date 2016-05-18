@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 
 import com.adlots.android.R;
 import com.adlots.android.activity.MainActivity.MainFourthActivity.MainFourthFaqActivity;
+import com.adlots.android.activity.MainActivity.MainFourthActivity.MainFourthServicePolicyActivity;
+import com.adlots.android.activity.MainActivity.MainFourthActivity.MainFourthUserPolicyActivity;
 import com.adlots.android.activity.MainActivity.MainFourthActivity.MainFourthWinnerActivity;
 import com.adlots.android.activity.TutorialActivity.TutorialActivity;
 
@@ -43,7 +45,7 @@ public class MainFourthPage extends Fragment {
                 R.layout.activity_main_fourth_page, container, false);
 
         // 페이스북 페이지
-        ViewGroup facebook = (LinearLayout) mainfourthView.findViewById(R.id.facebook);
+        ViewGroup facebook = (LinearLayout) mainfourthView.findViewById(R.id.main4_facebook);
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +57,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 당첨자 목록보기
-        ViewGroup winnerlist = (LinearLayout) mainfourthView.findViewById(R.id.winnerlist);
+        ViewGroup winnerlist = (LinearLayout) mainfourthView.findViewById(R.id.main4_winnerlist);
         winnerlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +66,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 이용 및 제휴문의
-        ViewGroup email = (LinearLayout) mainfourthView.findViewById(R.id.email);
+        ViewGroup email = (LinearLayout) mainfourthView.findViewById(R.id.main4_email);
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +80,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 애드랏츠 홈페이지
-        ViewGroup homepage = (LinearLayout) mainfourthView.findViewById(R.id.homepage);
+        ViewGroup homepage = (LinearLayout) mainfourthView.findViewById(R.id.main4_homepage);
         homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +92,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 자주 묻는 질문 FAQ
-        ViewGroup faq = (LinearLayout) mainfourthView.findViewById(R.id.faq);
+        ViewGroup faq = (LinearLayout) mainfourthView.findViewById(R.id.main4_faq);
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +101,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 블로그 소식보기
-        ViewGroup blog = (LinearLayout) mainfourthView.findViewById(R.id.blog);
+        ViewGroup blog = (LinearLayout) mainfourthView.findViewById(R.id.main4_blog);
         blog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +113,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 튜토리얼 다시보기
-        ViewGroup tutorial = (LinearLayout) mainfourthView.findViewById(R.id.tutorial);
+        ViewGroup tutorial = (LinearLayout) mainfourthView.findViewById(R.id.main4_tutorial);
         tutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +122,7 @@ public class MainFourthPage extends Fragment {
         });
 
         // 개발자 정보
-        ViewGroup developers = (LinearLayout) mainfourthView.findViewById(R.id.developers);
+        ViewGroup developers = (LinearLayout) mainfourthView.findViewById(R.id.main4_developers);
         developers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,21 +139,21 @@ public class MainFourthPage extends Fragment {
             }
         });
 
-        // 개인정보 이용약관
-        ViewGroup agreement = (LinearLayout) mainfourthView.findViewById(R.id.agreement);
-        agreement.setOnClickListener(new View.OnClickListener() {
+        // 서비스 이용약관
+        ViewGroup servicepolicy = (LinearLayout) mainfourthView.findViewById(R.id.main4_servicepolicy);
+        servicepolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LayoutInflater inflater = getActivity().getLayoutInflater(); //Dialog에서 보여줄 입력화면 View 객체 생성 작업
-                final View dialogView= inflater.inflate(R.layout.popup_main_fourth_agreement, null); //Dialog의 listener에서 사용하기 위해 final로 참조변수 선언
+                startActivity(new Intent(mainfourthContext, MainFourthServicePolicyActivity.class));
+            }
+        });
 
-                AlertDialog.Builder buider= new AlertDialog.Builder(getActivity()); //AlertDialog.Builder 객체 생성
-                buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
-                buider.setTitle("개인정보 이용약관");
-
-                AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
-                dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
-                dialog.show(); //Dialog 보이기
+        // 개인정보 취급방침
+        ViewGroup userpolicy = (LinearLayout) mainfourthView.findViewById(R.id.main4_userpolicy);
+        userpolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mainfourthContext, MainFourthUserPolicyActivity.class));
             }
         });
 

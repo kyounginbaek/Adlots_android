@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/main_fourth_winnerlist_popup" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="#01a1ff"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="9"
+            >
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="개인정보 취급방침"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center|left"
+            >
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:orientation="vertical"
+                android:background="@drawable/x"
+                android:id="@+id/main4_userpolicy_btn_x"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="5dp"
+        >
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            >
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="1) 애드랏츠는 어떤 서비스인가요?"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/background"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text=" 애드랏츠는 회원님께서 광고를 통해 얻은 포인트를 힘들게 모으지 않아도 바로바로 쓸 수 있도록 크라우드 펀딩 방식을 통해 경품을 지급해드리는 신개념 리워드 어플리케이션 입니다."
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    android:lineSpacingExtra="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            >
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="1) 애드랏츠는 어떤 서비스인가요?"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="14dp"
+                    android:textColor="#2d2d2d"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/background"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text=" 애드랏츠는 회원님께서 광고를 통해 얻은 포인트를 힘들게 모으지 않아도 바로바로 쓸 수 있도록 크라우드 펀딩 방식을 통해 경품을 지급해드리는 신개념 리워드 어플리케이션 입니다."
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:textColor="#2d2d2d"
+                    android:lineSpacingExtra="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
