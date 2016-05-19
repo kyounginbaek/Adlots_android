@@ -56,6 +56,7 @@
             android:paddingRight="5dp"
             >
 
+            /* FAQ1 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -79,7 +80,7 @@
                         />
                 </LinearLayout>
 
-                /*화살표*/
+                /* 화살표 */
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -93,6 +94,14 @@
                         android:clickable="false"/>
                 </LinearLayout>
 
+            </LinearLayout>
+
+            /* 바 */
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:gravity="center_horizontal"
+                >
             </LinearLayout>
 
             <LinearLayout
@@ -121,14 +130,7 @@
 
             </LinearLayout>
 
-            /* 바 */
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:gravity="center_horizontal"
-                >
-            </LinearLayout>
-
+            /* FAQ2 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -203,6 +205,7 @@
 
             </LinearLayout>
 
+            /* FAQ3 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -278,6 +281,7 @@
 
             </LinearLayout>
 
+            /* FAQ4 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -352,6 +356,7 @@
 
             </LinearLayout>
 
+            /* FAQ5 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -400,6 +405,7 @@
                 >
             </LinearLayout>
 
+            /* FAQ5 */
             <LinearLayout
                 android:background="@color/background"
                 android:layout_width="fill_parent"
@@ -426,6 +432,7 @@
 
             </LinearLayout>
 
+            /* FAQ6 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -500,6 +507,7 @@
 
             </LinearLayout>
 
+            /* FAQ7 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -574,6 +582,7 @@
 
             </LinearLayout>
 
+            /* FAQ8 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -647,6 +656,7 @@
 
             </LinearLayout>
 
+            /* FAQ9 */
             <LinearLayout
                 android:background="#ffffff"
                 android:layout_width="fill_parent"
@@ -670,6 +680,7 @@
                         />
                 </LinearLayout>
 
+                /* 화살표 */
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
