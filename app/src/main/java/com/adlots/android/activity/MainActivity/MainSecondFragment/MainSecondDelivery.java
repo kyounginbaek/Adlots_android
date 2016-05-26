@@ -38,10 +38,10 @@ public class MainSecondDelivery extends Fragment {
                 container, false);
 
         RestClient.AdlotsService service = RestClient.getService();
-        service.getItem("delivery", new Callback<List<MainSecondItem>>() {
+        service.getitemList("delivery", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                if(getitem!=null) {
+                if (getitem != null) {
                     deliveryArray.addAll(getitem);
                     deliveryAdapter.notifyDataSetChanged();
                 } else {
@@ -50,6 +50,7 @@ public class MainSecondDelivery extends Fragment {
                     deliveryAdapter.notifyDataSetChanged();
                 }
             }
+
             @Override
             public void failure(RetrofitError error) {
 

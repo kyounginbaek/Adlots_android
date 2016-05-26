@@ -38,10 +38,10 @@ public class MainSecondDeadline extends Fragment {
                 container, false);
 
         RestClient.AdlotsService service = RestClient.getService();
-        service.getItem("deadline", new Callback<List<MainSecondItem>>() {
+        service.getitemList("deadline", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                if(getitem!=null) {
+                if (getitem != null) {
                     deadlineArray.addAll(getitem);
                     deadlineAdapter.notifyDataSetChanged();
                 } else {
@@ -50,6 +50,7 @@ public class MainSecondDeadline extends Fragment {
                     deadlineAdapter.notifyDataSetChanged();
                 }
             }
+
             @Override
             public void failure(RetrofitError error) {
 

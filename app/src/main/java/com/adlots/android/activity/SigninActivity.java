@@ -75,6 +75,7 @@ public class SigninActivity extends Activity {
                                     editor.putString("login", "yes");
                                     editor.putString("email", email);
                                     editor.putString("password", password);
+                                    editor.putString("phone", jsonElement.getAsJsonObject().get("phone").getAsString());
                                     editor.putString("nickname", jsonElement.getAsJsonObject().get("nickname").getAsString());
                                     editor.commit();
 

@@ -63,6 +63,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         final String pref_nickname = pref.getString("nickname", "");
         final String pref_email = pref.getString("email", "");
         final String pref_password = pref.getString("password", "");
+        final String pref_phone = pref.getString("phone", "");
 
         long time = System.currentTimeMillis();
         SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -90,6 +91,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
             holder = new ListHolder();
             holder.imagelink = (ImageView) v.findViewById(R.id.main2_imagelink);
             holder.endtime = (TextView) v.findViewById(R.id.main2_endtime);
+            holder.progress = (TextView) v.findViewById(R.id.main2_progress);
             holder.category = (TextView) v.findViewById(R.id.main2_category);
             holder.brand = (TextView) v.findViewById(R.id.main2_brand);
             holder.itemname = (TextView) v.findViewById(R.id.main2_itemname);
@@ -198,13 +200,13 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                                     break;
                                                 case "success":
                                                     main2_refresh();
-                                                    main3_refresh(pref_email, pref_password);
+                                                    main3_refresh(pref_email);
                                                     Toast.makeText(context, "응모가 완료되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
                                                     break;
                                                 case "pointdone":
                                                     main2_refresh();
-                                                    main3_refresh(pref_email, pref_password);
+                                                    main3_refresh(pref_email);
                                                     Toast.makeText(context, "응모가 마무리되었습니다. 나의 당첨 유무를 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                     dialog.dismiss();
                                                     break;
@@ -243,6 +245,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                     // 총 11개 데이터 전송 (nowpoint, startime, point 제외)
                                     HashMap<String, String> data = new HashMap<>();
                                     data.put("nickname", pref_nickname);
+                                    data.put("phone", pref_phone);
                                     data.put("howtobuy", "purchase");
                                     data.put("itemid", adlotsItem.id);
                                     data.put("type", adlotsItem.type);
@@ -266,7 +269,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                                             public void success(JsonElement jsonElement, Response response) {
                                                 Toast.makeText(context, "바로구입 되었습니다. 나의 응모/구입 목록을 확인해주세요.", Toast.LENGTH_SHORT).show();
                                                 main2_refresh();
-                                                main3_refresh(pref_email, pref_password);
+                                                main3_refresh(pref_email);
                                             }
                                             @Override
                                             public void failure(RetrofitError error) {
@@ -340,8 +343,10 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                     }
                 });
 
-                // 기간이 만료되었다면 마감으로 표시
                 holder.endtime.setText(String.valueOf(diffOfDate(date,adlotsItem.endtime))+"일");
+                int num_progress = (int) (Double.parseDouble(adlotsItem.nowpoint) / Double.parseDouble(adlotsItem.endpoint) * 100) ;
+                holder.progress.setText(String.valueOf(num_progress));
+
                 holder.category.setText(adlotsItem.category);
                 holder.brand.setText(adlotsItem.brand);
                 holder.itemname.setText(adlotsItem.itemname);
@@ -356,7 +361,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
     static class ListHolder {
         TextView category, brand, itemname;
         ImageView imagelink;
-        TextView endtime;
+        TextView endtime, progress;
         TextView endpoint, nowpoint, lotspeople;
         TextView textbtn_lots, textbtn_purchase;
 
@@ -388,13 +393,12 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         transaction.commit();
     }
 
-    public void main3_refresh(String pref_email, String pref_password) {
+    public void main3_refresh(String pref_email) {
         final TextView txt_point = (TextView) MainThirdPage.staticvar.getActivity().findViewById(R.id.main3_userpoint);
 
         // 유저 포인트 가져오기
         HashMap<String, String> data = new HashMap<>();
         data.put("email", pref_email);
-        data.put("password", pref_password);
         RestClient.AdlotsService service = RestClient.getService();
         service.getuserPoint(data, new Callback<JsonElement>() {
             @Override
@@ -408,7 +412,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
         });
 
         FragmentTransaction transaction = MainThirdPage.staticvar.getChildFragmentManager().beginTransaction();
-        Fragment currentFragment = MainThirdPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+        Fragment currentFragment = MainThirdPage.staticvar.getChildFragmentManager().findFragmentById(R.id.main3_useritemfragment);
         transaction.detach(currentFragment);
         transaction.attach(currentFragment);
         transaction.commit();

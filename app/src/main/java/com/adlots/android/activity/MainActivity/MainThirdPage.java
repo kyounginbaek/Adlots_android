@@ -82,6 +82,7 @@ public class MainThirdPage extends Fragment {
                 String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
                 txt_point.setText(userpoint);
             }
+
             @Override
             public void failure(RetrofitError error) {
             }
@@ -151,6 +152,7 @@ public class MainThirdPage extends Fragment {
                                                         getActivity().finish();
                                                     }
                                                 }
+
                                                 @Override
                                                 public void failure(RetrofitError error) {
                                                     Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
@@ -180,6 +182,7 @@ public class MainThirdPage extends Fragment {
                                                         startActivity(intent);
                                                         getActivity().finish();
                                                     }
+
                                                     @Override
                                                     public void failure(RetrofitError error) {
                                                         Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
@@ -219,6 +222,7 @@ public class MainThirdPage extends Fragment {
                                                             getActivity().finish();
                                                         }
                                                     }
+
                                                     @Override
                                                     public void failure(RetrofitError error) {
                                                         Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
@@ -278,7 +282,7 @@ public class MainThirdPage extends Fragment {
         final Fragment userlotsfragment = new MainThirdUserLots();
         final Fragment userpurchasefragment = new MainThirdUserPurchase();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.main3_fragment, userlotsfragment).commit(); //처음 화면
+        transaction.add(R.id.main3_useritemfragment, userlotsfragment).commit(); //처음 화면
 
         txtbtn_lots = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_lots);
         txtbtn_purchase = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_purchase);
@@ -290,7 +294,7 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.main3_fragment, userlotsfragment).commit();
+                transaction.replace(R.id.main3_useritemfragment, userlotsfragment).commit();
                 txtbtn_original();
                 txtbtn_lots.setTextColor(Color.parseColor(strColor));
             }
@@ -301,7 +305,7 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.main3_fragment, userpurchasefragment).commit();
+                transaction.replace(R.id.main3_useritemfragment, userpurchasefragment).commit();
                 txtbtn_original();
                 txtbtn_purchase.setTextColor(Color.parseColor(strColor));
             }
@@ -313,7 +317,7 @@ public class MainThirdPage extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main3_fragment);
+                Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main3_useritemfragment);
                 transaction.detach(currentFragment);
                 transaction.attach(currentFragment);
                 transaction.commit();

@@ -12,6 +12,7 @@ public class MainThirdItem implements Parcelable, Adaptable {
     public String imagelink, referlink, endtime, startime;
     public String endpoint, nowpoint, lotspeople;
     public String howtobuy, userlotspoint, when, pointdone, winorlose, address, finish;
+    public String timedone, refund;
 
     public MainThirdItem(Parcel in) {
         readFromParcel(in);

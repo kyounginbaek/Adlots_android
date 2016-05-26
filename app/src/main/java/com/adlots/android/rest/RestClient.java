@@ -56,7 +56,7 @@ public class RestClient {
 
         //아이템 정보 가져오기
         @GET("/getitemList.php")
-        void getItem(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
+        void getitemList(@Query("purpose") String purpose, Callback<List<MainSecondItem>> callback);
 
         //특정 아이템 1개 정보만 가져오기
         @POST("/getoneItem.php")
@@ -73,6 +73,10 @@ public class RestClient {
         //유저주소 정보 가져오기
         @POST("/getuserAddress.php")
         void getuserAddress(@Body Map<String, String> getuserAddress, Callback<JsonElement> callback);
+
+        //환불 금액 받기
+        @POST("/getuserRefund.php")
+        void getuserRefund(@Query("purpose") String purpose, @Body Map<String, String> getuserRefund, Callback<JsonElement> callback);
 
         //아이템 응모하기(방법1.응모-lots, 방법2.바로구입-buy)
         @POST("/itemhowtoBuy.php")

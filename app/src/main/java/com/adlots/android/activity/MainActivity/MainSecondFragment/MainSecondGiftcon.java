@@ -38,10 +38,10 @@ public class MainSecondGiftcon extends Fragment {
                 container, false);
 
         RestClient.AdlotsService service = RestClient.getService();
-        service.getItem("giftcon", new Callback<List<MainSecondItem>>() {
+        service.getitemList("giftcon", new Callback<List<MainSecondItem>>() {
             @Override
             public void success(List<MainSecondItem> getitem, Response response) {
-                if(getitem!=null) {
+                if (getitem != null) {
                     giftconArray.addAll(getitem);
                     giftconAdapter.notifyDataSetChanged();
                 } else {
@@ -50,6 +50,7 @@ public class MainSecondGiftcon extends Fragment {
                     giftconAdapter.notifyDataSetChanged();
                 }
             }
+
             @Override
             public void failure(RetrofitError error) {
 

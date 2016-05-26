@@ -95,6 +95,7 @@ public class SignupActivity extends Activity {
                                         editor.putString("login", "yes");
                                         editor.putString("email", email);
                                         editor.putString("password", password);
+                                        editor.putString("phone", phone);
                                         editor.putString("nickname", nickname);
                                         editor.commit();
 

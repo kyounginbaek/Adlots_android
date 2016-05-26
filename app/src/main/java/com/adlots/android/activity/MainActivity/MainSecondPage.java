@@ -51,6 +51,7 @@ public class MainSecondPage extends Fragment {
         ViewGroup giftcon = (LinearLayout) mainsecondView.findViewById(R.id.main2_giftcon);
         ViewGroup delivery = (LinearLayout) mainsecondView.findViewById(R.id.main2_delivery);
         ViewGroup deadline = (LinearLayout) mainsecondView.findViewById(R.id.main2_deadline);
+        final TextView itemfilter = (TextView) mainsecondView.findViewById(R.id.main2_itemfilter);
 
         btn_giftcon = (Button) mainsecondView.findViewById(R.id.main2_btn_giftcon);
         btn_delivery = (Button) mainsecondView.findViewById(R.id.main2_btn_delivery);
@@ -70,6 +71,8 @@ public class MainSecondPage extends Fragment {
         btn_giftcon.setBackgroundResource(R.drawable.gift_click);
         txt_giftcon.setTextColor(Color.parseColor(strColor));
 
+        itemfilter.setVisibility(View.GONE);
+
         giftcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +82,8 @@ public class MainSecondPage extends Fragment {
                 txt_original();
                 btn_giftcon.setBackgroundResource(R.drawable.gift_click);
                 txt_giftcon.setTextColor(Color.parseColor(strColor));
+
+                itemfilter.setVisibility(View.GONE);
             }
         });
 
@@ -91,6 +96,8 @@ public class MainSecondPage extends Fragment {
                 txt_original();
                 btn_delivery.setBackgroundResource(R.drawable.shipping_click);
                 txt_delivery.setTextColor(Color.parseColor(strColor));
+
+                itemfilter.setVisibility(View.GONE);
             }
         });
 
@@ -103,6 +110,9 @@ public class MainSecondPage extends Fragment {
                 txt_original();
                 btn_deadline.setBackgroundResource(R.drawable.time_click);
                 txt_deadline.setTextColor(Color.parseColor(strColor));
+
+                itemfilter.setVisibility(View.VISIBLE);
+                itemfilter.setText("(마감 5일 이내)");
             }
         });
 

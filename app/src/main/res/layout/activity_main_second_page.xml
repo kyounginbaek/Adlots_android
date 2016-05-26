@@ -143,6 +143,15 @@
                 android:textSize="14dp"
                 android:textColor="#2d2d2d"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/main2_itemfilter"
+                android:text="아이템 필터"
+                android:textSize="14dp"
+                android:textColor="#6e6e6e"
+                />
         </LinearLayout>
 
         <LinearLayout
