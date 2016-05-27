@@ -46,6 +46,10 @@ public class RestClient {
 
     public interface AdlotsService {
 
+        //현재 버전과 마켓 버전 비교
+        @GET("/getVersion.php")
+        void getVersion(Callback<JsonElement> callback);
+
         //회원가입 화면
         @POST("/signup.php")
         void signup(@Body Map<String, String> signup, Callback<JsonElement> callback);

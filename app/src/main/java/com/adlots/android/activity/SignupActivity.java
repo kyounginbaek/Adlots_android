@@ -41,85 +41,96 @@ public class SignupActivity extends Activity {
         setContentView(R.layout.activity_signup);
 
         edt_signup_email = (EditText)findViewById(R.id.edt_signup_email);
-        edt_signup_email.setNextFocusDownId(R.id.edt_signup_password);
         edt_signup_phone = (EditText)findViewById(R.id.edt_signup_phone);
-        phone = getPhoneNumber();
-        edt_signup_phone.setText(phone); // 자동으로 핸드폰번호 가져오기
-
         edt_signup_password = (EditText)findViewById(R.id.edt_signup_password);
         edt_signup_passcheck = (EditText)findViewById(R.id.edt_signup_passcheck);
         edt_signup_nickname = (EditText)findViewById(R.id.edt_signup_nickname);
         btn_signup = (Button)findViewById(R.id.btn_signup);
         btn_signup_back = (Button)findViewById(R.id.btn_signup_back);
 
-        btn_signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email = edt_signup_email.getText().toString();
-                password = edt_signup_password.getText().toString();
-                passcheck = edt_signup_passcheck.getText().toString();
-                nickname = edt_signup_nickname.getText().toString();
-
-                long time = System.currentTimeMillis();
-                SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                date = dayTime.format(new Date(time));
-
-                HashMap<String, String> data = new HashMap<>();
-                data.put("email", email);
-                data.put("phone", phone);
-                data.put("password", password);
-                data.put("nickname", nickname);
-                data.put("when", date);
-
-                // (1)빈칸 체크, (2)비밀번호 확인 체크, (3)서버 통신 - 폰, 이메일 닉네임 체크
-                if(!email.equals("")&&!password.equals("")&&!passcheck.equals("")&&!nickname.equals("")){
-                    if(password.equals(passcheck)){
-                        RestClient.AdlotsService service = RestClient.getService();
-                        service.signup(data, new Callback<JsonElement>() {
-                            @Override
-                            public void success(JsonElement jsonElement, Response response) {
-                                String condition = jsonElement.getAsJsonObject().get("response").getAsString();
-                                switch(condition) {
-                                    case "phone_exists":
-                                        Toast.makeText(getApplicationContext(),"이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니\nadlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case "email_exists":
-                                        Toast.makeText(getApplicationContext(),"이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case "nickname_exists":
-                                        Toast.makeText(getApplicationContext(),"이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case "success":
-                                        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = pref.edit();
-                                        editor.putString("login", "yes");
-                                        editor.putString("email", email);
-                                        editor.putString("password", password);
-                                        editor.putString("phone", phone);
-                                        editor.putString("nickname", nickname);
-                                        editor.commit();
-
-                                        Toast.makeText(getApplicationContext(),"회원가입 되었습니다. 즐거운 시간되세요!",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                        finish();
-                                        break;
-                                    default:
-                                        Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                            @Override
-                            public void failure(RetrofitError error) {
-                                Toast.makeText(getApplicationContext(),"오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    } else {
-                        Toast.makeText(getApplicationContext(),"비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(),"정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+        edt_signup_email.setNextFocusDownId(R.id.edt_signup_password);
+        phone = getPhoneNumber();
+        if(phone.equals("")){
+            edt_signup_phone.setText("번호가 없습니다.");
+            btn_signup.setText("회원가입 불가능");
+            btn_signup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v){
+                    Toast.makeText(getApplicationContext(), "핸드폰 번호가 없어 가입이 불가능합니다.", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
+            });
+        } else {
+            edt_signup_phone.setText(phone); // 자동으로 핸드폰번호 가져오기
+            btn_signup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    email = edt_signup_email.getText().toString();
+                    password = edt_signup_password.getText().toString();
+                    passcheck = edt_signup_passcheck.getText().toString();
+                    nickname = edt_signup_nickname.getText().toString();
+
+                    long time = System.currentTimeMillis();
+                    SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                    date = dayTime.format(new Date(time));
+
+                    HashMap<String, String> data = new HashMap<>();
+                    data.put("email", email);
+                    data.put("phone", phone);
+                    data.put("password", password);
+                    data.put("nickname", nickname);
+                    data.put("when", date);
+
+                    // (1)빈칸 체크, (2)비밀번호 확인 체크, (3)서버 통신 - 폰, 이메일 닉네임 체크
+                    if (!email.equals("") && !password.equals("") && !passcheck.equals("") && !nickname.equals("")) {
+                        if (password.equals(passcheck)) {
+                            RestClient.AdlotsService service = RestClient.getService();
+                            service.signup(data, new Callback<JsonElement>() {
+                                @Override
+                                public void success(JsonElement jsonElement, Response response) {
+                                    String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                                    switch (condition) {
+                                        case "phone_exists":
+                                            Toast.makeText(getApplicationContext(), "이미 등록된 핸드폰 번호입니다. 포인트 중복혜택을 방지하기 위함이니 adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                            break;
+                                        case "email_exists":
+                                            Toast.makeText(getApplicationContext(), "이미 등록된 이메일입니다. 다른 이메일을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                            break;
+                                        case "nickname_exists":
+                                            Toast.makeText(getApplicationContext(), "이미 등록된 닉네임입니다. 다른 닉네임을 사용해주세요.", Toast.LENGTH_SHORT).show();
+                                            break;
+                                        case "success":
+                                            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = pref.edit();
+                                            editor.putString("login", "yes");
+                                            editor.putString("email", email);
+                                            editor.putString("password", password);
+                                            editor.putString("phone", phone);
+                                            editor.putString("nickname", nickname);
+                                            editor.commit();
+
+                                            Toast.makeText(getApplicationContext(), "회원가입 되었습니다. 즐거운 시간되세요!", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                            finish();
+                                            break;
+                                        default:
+                                            Toast.makeText(getApplicationContext(), "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void failure(RetrofitError error) {
+                                    Toast.makeText(getApplicationContext(), "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            Toast.makeText(getApplicationContext(), "비밀번호와 비밀번호확인이 불일치합니다. 다시 한번 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "정보를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
 
         btn_signup_back.setOnClickListener(new View.OnClickListener() {
             @Override
