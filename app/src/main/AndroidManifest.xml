@@ -3,9 +3,13 @@
     package="com.adlots.android" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +19,8 @@
         android:theme="@style/AppTheme"
         android:largeHeap="true"
         >
-        <meta-data android:name="tnkad_app_id" android:value="your-application-id-from-tnk-site" />
-
         <activity
             android:name="com.adlots.android.activity.LoadingActivity"
-            android:label="애드랏츠"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -68,6 +69,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
+
+        <meta-data android:name="tnkad_app_id" android:value="20f0e000-8051-25f4-4f52-15070d0d090d" />
+        <activity android:name="com.tnkfactory.ad.AdWallActivity" />
+        <activity android:name="com.tnkfactory.ad.AdMediaActivity" android:screenOrientation="portrait"/>
+
     </application>
+
+    <uses-sdk android:minSdkVersion="9" />
 
 </manifest>

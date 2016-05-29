@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.adlots.android.R;
+import com.tnkfactory.ad.TnkSession;
 
 import static android.view.LayoutInflater.from;
 
@@ -34,6 +36,35 @@ public class MainFirstPage extends Fragment {
         mainfirstContext = container.getContext();
         mainfirstView = (View) from(mainfirstContext).inflate(
                 R.layout.activity_main_first_page, container, false);
+
+        ViewGroup tnk = (LinearLayout) mainfirstView.findViewById(R.id.main1_tnk);
+        ViewGroup adpopcorn = (LinearLayout) mainfirstView.findViewById(R.id.main1_adpopcorn);
+        ViewGroup nas = (LinearLayout) mainfirstView.findViewById(R.id.main1_nas);
+        ViewGroup adsync = (LinearLayout) mainfirstView.findViewById(R.id.main1_adsync);
+
+        /*
+        AdListView adlistView = TnkSession.createAdListView(mainfirstContext, true);
+        adlistView.setTitle("랏츠 포인트 충천소");
+
+        ViewGroup viewGroup = (ViewGroup) mainfirstView.findViewById(R.id.main1_fragment);
+        viewGroup.addView(adlistView);
+
+        adlistView.loadAdList();
+        */
+
+        tnk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TnkSession.showAdList(mainfirstContext, "랏츠 포인트 충전소1");
+            }
+        });
+
+        adpopcorn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TnkSession.showAdList(mainfirstContext, "Your title here");
+            }
+        });
 
         return mainfirstView;
     }

@@ -18,4 +18,4 @@
 
 -keep class com.igaworks.** { *; }
 -dontwarn com.igaworks.**
--keep class com.tnkfactory.** { *;}
+-keep class com.tnkfactory.**
