@@ -1,6 +1,7 @@
 package com.adlots.android.activity.MainActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -52,6 +53,9 @@ public class MainFirstPage extends Fragment {
         adlistView.loadAdList();
         */
 
+        SharedPreferences pref = getActivity().getSharedPreferences("pref", mainfirstContext.MODE_PRIVATE);
+        String pref_nickname = pref.getString("nickname", "");
+        TnkSession.setUserName(mainfirstContext, pref_nickname);
         tnk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

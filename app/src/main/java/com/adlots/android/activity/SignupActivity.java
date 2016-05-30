@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.adlots.android.R;
@@ -26,7 +27,6 @@ import retrofit.client.Response;
 
 public class SignupActivity extends Activity {
 
-    Button btn_signup_back;
     Button btn_signup;
     EditText edt_signup_email;
     EditText edt_signup_phone;
@@ -46,7 +46,7 @@ public class SignupActivity extends Activity {
         edt_signup_passcheck = (EditText)findViewById(R.id.edt_signup_passcheck);
         edt_signup_nickname = (EditText)findViewById(R.id.edt_signup_nickname);
         btn_signup = (Button)findViewById(R.id.btn_signup);
-        btn_signup_back = (Button)findViewById(R.id.btn_signup_back);
+        ImageView btn_signup_back = (ImageView)findViewById(R.id.signup_btn_x);
 
         edt_signup_email.setNextFocusDownId(R.id.edt_signup_password);
         phone = getPhoneNumber();
