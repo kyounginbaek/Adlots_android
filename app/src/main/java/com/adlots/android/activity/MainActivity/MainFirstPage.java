@@ -40,8 +40,8 @@ public class MainFirstPage extends Fragment {
 
         ViewGroup tnk = (LinearLayout) mainfirstView.findViewById(R.id.main1_tnk);
         ViewGroup adpopcorn = (LinearLayout) mainfirstView.findViewById(R.id.main1_adpopcorn);
-        ViewGroup nas = (LinearLayout) mainfirstView.findViewById(R.id.main1_nas);
-        ViewGroup adsync = (LinearLayout) mainfirstView.findViewById(R.id.main1_adsync);
+        //ViewGroup nas = (LinearLayout) mainfirstView.findViewById(R.id.main1_nas);
+        //ViewGroup adsync = (LinearLayout) mainfirstView.findViewById(R.id.main1_adsync);
 
         /*
         AdListView adlistView = TnkSession.createAdListView(mainfirstContext, true);

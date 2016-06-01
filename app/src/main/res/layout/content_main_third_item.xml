@@ -223,6 +223,50 @@
                 android:textColor="#2d2d2d"
                 android:background="@drawable/gray_box"
                 />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/main3_txt_lotsquota"
+                android:text="할당 번호"
+                android:textSize="12dp"
+                android:textColor="#6e6e6e"
+                />
+
+            <LinearLayout
+                android:id="@+id/main3_layout_lotsquota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/main3_lotsquota1"
+                    android:text="1000"
+                    android:textSize="12dp"
+                    android:textColor="#6e6e6e"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=" - "
+                    android:textSize="12dp"
+                    android:textColor="#6e6e6e"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/main3_lotsquota2"
+                    android:text="2000"
+                    android:textSize="12dp"
+                    android:textColor="#6e6e6e"
+                    />
+            </LinearLayout>
+
         </LinearLayout>
 
 

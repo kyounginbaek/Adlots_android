@@ -10,7 +10,7 @@ public class MainThirdItem implements Parcelable, Adaptable {
     public String id, itemid, type;
     public String category, brand, itemname;
     public String imagelink, referlink, endtime, startime;
-    public String endpoint, nowpoint, lotspeople;
+    public String endpoint, nowpoint, lotspeople, lotsquota1, lotsquota2;
     public String howtobuy, userlotspoint, when, pointdone, winorlose, address, finish;
     public String timedone, refund;
 

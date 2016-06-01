@@ -104,6 +104,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
             holder.when = (TextView) v.findViewById(R.id.main3_when);
             holder.info = (TextView) v.findViewById(R.id.main3_info);
             holder.status = (TextView) v.findViewById(R.id.main3_status);
+            holder.lotsquota1 = (TextView) v.findViewById(R.id.main3_lotsquota1);
+            holder.lotsquota2 = (TextView) v.findViewById(R.id.main3_lotsquota2);
+            holder.txt_lotsquota = (TextView) v.findViewById(R.id.main3_txt_lotsquota);
+            holder.layout_lotsquota = (LinearLayout) v.findViewById(R.id.main3_layout_lotsquota);
 
             holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.main3_layoutnull1);
             holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.main3_layoutnull2);
@@ -135,6 +139,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 holder.layoutnull4.setVisibility(View.GONE);
                 holder.layoutnull5.setVisibility(View.GONE);
                 holder.layoutnull6.setVisibility(View.GONE);
+                holder.txt_lotsquota.setVisibility(View.GONE);
+                holder.layout_lotsquota.setVisibility(View.GONE);
 
             } else {
                 new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
@@ -176,6 +182,10 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 if(adlotsItem.howtobuy.equals("lots")) { // 응모하기 탭
                     holder.userlotspoint.setText(adlotsItem.userlotspoint);
                     holder.txt_when.setText("응모 일시");
+
+                    holder.lotsquota1.setText(adlotsItem.lotsquota1);
+                    holder.lotsquota2.setText(adlotsItem.lotsquota2);
+
                     if(adlotsItem.winorlose.equals("win")){
                         holder.txt_endtime.setText("[응모 마감]"); // 마감 표시
                         holder.endtime.setVisibility(View.GONE);
@@ -184,6 +194,9 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                         holder.status.setText("당첨");
                         String win = "#01a1ff";
                         holder.status.setTextColor(Color.parseColor(win));
+
+                        holder.txt_lotsquota.setVisibility(View.GONE);
+                        holder.layout_lotsquota.setVisibility(View.GONE);
 
                         if(adlotsItem.type.equals("giftcon")){
                             if(adlotsItem.finish.equals("")){
@@ -219,9 +232,15 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                         holder.status.setTextColor(Color.parseColor(lose));
                         holder.info.setText("다음 기회를 기대해주세요.");
 
+                        holder.txt_lotsquota.setVisibility(View.GONE);
+                        holder.layout_lotsquota.setVisibility(View.GONE);
+
                     } else if(adlotsItem.timedone.equals("yes")) {
                         holder.txt_endtime.setText("[시간 마감]"); // 마감 표시
                         holder.endtime.setVisibility(View.GONE);
+
+                        holder.txt_lotsquota.setVisibility(View.GONE);
+                        holder.layout_lotsquota.setVisibility(View.GONE);
 
                         if(adlotsItem.refund.equals("yes")){
                             holder.status.setBackgroundResource(R.drawable.win);
@@ -445,6 +464,9 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                     String win = "#01a1ff";
                     holder.status.setTextColor(Color.parseColor(win));
 
+                    holder.txt_lotsquota.setVisibility(View.GONE);
+                    holder.layout_lotsquota.setVisibility(View.GONE);
+
                     if(adlotsItem.type.equals("giftcon")){
                         if(adlotsItem.finish.equals("")){
                             holder.info.setText("2일 이내 지급 예정입니다.");
@@ -480,7 +502,8 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
         TextView category, brand, itemname;
         ImageView imagelink;
         TextView endtime, txt_userlotspoint, txt_endtime;
-        TextView type, userlotspoint, txt_when, when, info, status;
+        TextView type, userlotspoint, txt_when, when, info, status, txt_lotsquota, lotsquota1, lotsquota2;
+        LinearLayout layout_lotsquota;
 
         FrameLayout layoutnull1;
         LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6, layoutnull7;
