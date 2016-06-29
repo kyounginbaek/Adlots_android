@@ -35,6 +35,7 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!--
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="70dp"
@@ -46,20 +47,20 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:id="@+id/main1_tnk"
+            android:id="@+id/main1_tnkad"
             >
             <Button
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/gift"
-                android:id="@+id/main1_btn_tnk"
+                android:id="@+id/main1_btn_tnkad"
                 android:onClick="editActions"
                 android:clickable="false" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/main1_txt_tnk"
-                android:text="충전소1"
+                android:id="@+id/main1_txt_tnkad"
+                android:text="메인 충전소"
                 android:textSize="10dp"
                 android:textColor="#4d4d4d"
                 />
@@ -83,13 +84,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main1_txt_adpopcorn"
-                android:text="충전소2"
+                android:text="추가 충전소"
                 android:textSize="10dp"
                 android:textColor="#4d4d4d"
                 />
         </LinearLayout>
 
     </LinearLayout>
+
+    -->
 
     /* 바 */
     <LinearLayout
@@ -98,6 +101,14 @@
         android:gravity="center_horizontal"
         >
     </LinearLayout>
+
+    /*상품이미지 상자*/
+    <FrameLayout
+        android:id="@+id/main1_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        />
 
 
 </LinearLayout>

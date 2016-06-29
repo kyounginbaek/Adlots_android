@@ -8,8 +8,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
     <application
         android:allowBackup="true"
@@ -20,7 +23,7 @@
         android:largeHeap="true"
         >
         <activity
-            android:name="com.adlots.android.activity.LoadingActivity"
+            android:name="com.adlots.androidapp.activity.LoadingActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -29,43 +32,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.adlots.android.activity.MainActivity.MainActivity"
+            android:name="com.adlots.androidapp.activity.MainActivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="com.adlots.android.activity.SigninActivity"
+            android:name="com.adlots.androidapp.activity.SigninActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.adlots.android.activity.SignupActivity"
+            android:name="com.adlots.androidapp.activity.SignupActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name="com.adlots.android.activity.TutorialActivity.TutorialActivity"
+            android:name="com.adlots.androidapp.activity.TutorialActivity.TutorialActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainFourthActivity.MainFourthWinnerActivity"
+            android:name="com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourthWinnerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainFourthActivity.MainFourthFaqActivity"
+            android:name="com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourthFaqActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainFourthActivity.MainFourthServicePolicyActivity"
+            android:name="com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourthServicePolicyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".activity.MainActivity.MainFourthActivity.MainFourthUserPolicyActivity"
+            android:name="com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourthUserPolicyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
         </activity>
@@ -73,6 +76,22 @@
         <meta-data android:name="tnkad_app_id" android:value="20f0e000-8051-25f4-4f52-15070d0d090d" />
         <activity android:name="com.tnkfactory.ad.AdWallActivity" />
         <activity android:name="com.tnkfactory.ad.AdMediaActivity" android:screenOrientation="portrait"/>
+
+        <meta-data android:name="igaworks_app_key" android:value="560172766" />
+        <meta-data android:name="igaworks_hash_key" android:value="7e952ae2cc824789" />
+        <meta-data android:name="igaworks_reward_server_type" android:value="server"/>
+        <receiver android:name="com.igaworks.IgawReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApOfferWallActivity_NT"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApCSActivity_NT"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:name="com.igaworks.adpopcorn.activity.ApVideoAdActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="landscape"/>
 
     </application>
 

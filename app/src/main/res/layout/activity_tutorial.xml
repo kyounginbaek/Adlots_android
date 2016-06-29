@@ -9,7 +9,7 @@
         android:id="@+id/tutorial_pager">
     </android.support.v4.view.ViewPager>
 
-    <com.adlots.android.helper.CirclePageIndicator
+    <com.adlots.androidapp.helper.CirclePageIndicator
         android:id="@+id/tutorial_indicator"
         android:padding="10dp"
         android:layout_height="wrap_content"

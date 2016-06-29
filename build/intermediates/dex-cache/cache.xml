@@ -2,18 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/gson-2.3.1-e8c5e7176dcbbfc805c8905f44ef0e4fed541d4e.jar" />
-    </item>
-    <item
         jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a681c044244d9fc375198588297a39ba78028423">
         <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/retrofit-1.9.0-5c366ae23cf2e5acd813bf92d8429ecc9eb66594.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/IgawAdpopcorn_v4.0.7a.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="99df1b14b57d79612c83e2a62b8c0d27836811b0">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/debug/IgawAdpopcorn_v4.0.7a-ab2bc4d1711c391e4314ba1b016fce0c6fb129a2.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/IgawCommon_v4.2.5a.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cbac8dab052025cbffa35dea101605cc06eff615">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/debug/IgawCommon_v4.2.5a-b463e34fb66da3fc6a0ff8c82baa2e9d20884450.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/gson-2.3.1-e8c5e7176dcbbfc805c8905f44ef0e4fed541d4e.jar" />
     </item>
     <item
         jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-addon.jar"
@@ -23,18 +37,18 @@
         <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/tnkad-addon-3d2a383958797957ead80f58b4e55fec912aba81.jar" />
     </item>
     <item
-        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-sdk.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="138454bf3849387e08c9c38a9bd5fd7cc8fe0cdf">
-        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/debug/tnkad-sdk-4ea82eb23219f6128af743f96d96d5426affe269.jar" />
-    </item>
-    <item
         jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.19/a8f23f65fc1e522ee4a1a697ee569901a46741fa/library-1.0.19.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
         <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/library-1.0.19-6790581218bae34215205c3944d3d4ea8245fd64.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-sdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="138454bf3849387e08c9c38a9bd5fd7cc8fe0cdf">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/debug/tnkad-sdk-4ea82eb23219f6128af743f96d96d5426affe269.jar" />
     </item>
 
 </items>
