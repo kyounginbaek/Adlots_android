@@ -25,7 +25,8 @@ public class MainFirstPage extends Fragment {
 
     Button btn_tnkad, btn_adpopcorn;
     TextView txt_tnkad, txt_adpopcorn;
-    public String strColor;
+    String strColor;
+    String tnkpoint;
 
     private Context mainfirstContext = null;
     private View mainfirstView = null;
@@ -48,17 +49,18 @@ public class MainFirstPage extends Fragment {
                 R.layout.activity_main_first_page, container, false);
 
         final ViewGroup main1_fragment = (ViewGroup) mainfirstView.findViewById(R.id.main1_fragment);
-        //ViewGroup tnkad = (LinearLayout) mainfirstView.findViewById(R.id.main1_tnkad);
-        //ViewGroup adpopcorn = (LinearLayout) mainfirstView.findViewById(R.id.main1_adpopcorn);
-        //ViewGroup nas = (LinearLayout) mainfirstView.findViewById(R.id.main1_nas);
-        //ViewGroup adsync = (LinearLayout) mainfirstView.findViewById(R.id.main1_adsync);
-
-        //btn_tnkad = (Button) mainfirstView.findViewById(R.id.main1_btn_tnkad);
-        //btn_adpopcorn = (Button) mainfirstView.findViewById(R.id.main1_btn_adpopcorn);
-        //txt_tnkad = (TextView) mainfirstView.findViewById(R.id.main1_txt_tnkad);
-        //txt_adpopcorn = (TextView) mainfirstView.findViewById(R.id.main1_txt_adpopcorn);
-
         /*
+        ViewGroup tnkad = (LinearLayout) mainfirstView.findViewById(R.id.main1_tnkad);
+        ViewGroup adpopcorn = (LinearLayout) mainfirstView.findViewById(R.id.main1_adpopcorn);
+        ViewGroup nas = (LinearLayout) mainfirstView.findViewById(R.id.main1_nas);
+        ViewGroup adsync = (LinearLayout) mainfirstView.findViewById(R.id.main1_adsync);
+
+        btn_tnkad = (Button) mainfirstView.findViewById(R.id.main1_btn_tnkad);
+        btn_adpopcorn = (Button) mainfirstView.findViewById(R.id.main1_btn_adpopcorn);
+        txt_tnkad = (TextView) mainfirstView.findViewById(R.id.main1_txt_tnkad);
+        txt_adpopcorn = (TextView) mainfirstView.findViewById(R.id.main1_txt_adpopcorn);
+
+
         strColor = "#fc6e51";
         btn_tnkad.setBackgroundResource(R.drawable.gift_click);
         txt_tnkad.setTextColor(Color.parseColor(strColor));
@@ -67,10 +69,10 @@ public class MainFirstPage extends Fragment {
         // tnk 포인트 충전소
         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainfirstContext.MODE_PRIVATE);
         String pref_userid = pref.getString("userid", "");
-        TnkSession.setUserName(mainfirstContext, pref_userid);
+        TnkSession.setUserName(mainfirstContext, pref_userid); //userid를 tnk유저 식별자로 사용
         TnkStyle.AdWall.Header.height = 0;
 
-        // 처음 화면 tnk 설정
+        // fragment 첫화면을 tnk로 설정
         AdListView adlistView = TnkSession.createAdListView(mainfirstContext, false);
         main1_fragment.addView(adlistView);
         adlistView.loadAdList();

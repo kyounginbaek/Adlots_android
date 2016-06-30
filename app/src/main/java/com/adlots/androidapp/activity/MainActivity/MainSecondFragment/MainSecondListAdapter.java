@@ -22,10 +22,10 @@ import android.widget.Toast;
 import com.adlots.android.R;
 import com.adlots.androidapp.activity.MainActivity.MainSecondPage;
 import com.adlots.androidapp.activity.MainActivity.MainThirdPage;
-import com.adlots.androidapp.helper.ImageLoadTask;
 import com.adlots.androidapp.rest.RestClient;
 import com.adlots.androidapp.rest.model.MainSecondItem;
 import com.google.gson.JsonElement;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -190,7 +190,7 @@ public class MainSecondListAdapter extends ArrayAdapter<MainSecondItem> {
                 layoutnull6.setVisibility(View.GONE);
 
             } else {
-                new ImageLoadTask(adlotsItem.imagelink, imagelink).execute();
+                Picasso.with(context).load(adlotsItem.imagelink).into(imagelink);
                 imagelink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

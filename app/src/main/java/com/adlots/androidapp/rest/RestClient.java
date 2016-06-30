@@ -45,7 +45,6 @@ public class RestClient {
     }
 
     public interface AdlotsService {
-
         //현재 버전과 마켓 버전 비교
         @GET("/getVersion.php")
         void getVersion(Callback<JsonElement> callback);
@@ -93,6 +92,10 @@ public class RestClient {
         //당첨자 리스트 가져오기
         @GET("/getwinnerList.php")
         void getwinnerList(Callback<List<MainFourthWinner>> callback);
+
+        //Tnk 포인트 정보 CRUD
+        @POST("/tnkad.php")
+        void tnkad(@Body Map<String, String> tnkad, Callback<JsonElement> callback);
     }
 
 }

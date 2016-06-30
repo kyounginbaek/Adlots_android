@@ -23,12 +23,10 @@ import android.widget.Toast;
 import com.adlots.android.R;
 import com.adlots.androidapp.activity.MainActivity.MainSecondPage;
 import com.adlots.androidapp.activity.MainActivity.MainThirdPage;
-import com.adlots.androidapp.helper.ImageLoadTask;
 import com.adlots.androidapp.rest.RestClient;
 import com.adlots.androidapp.rest.model.MainThirdItem;
 import com.google.gson.JsonElement;
-
-import org.w3c.dom.Text;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -210,7 +208,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 layout_lotsquota.setVisibility(View.GONE);
 
             } else {
-                new ImageLoadTask(adlotsItem.imagelink, imagelink).execute();
+                Picasso.with(context).load(adlotsItem.imagelink).into(imagelink);
                 imagelink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -661,6 +659,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                 String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
                 txt_point.setText(userpoint);
             }
+
             @Override
             public void failure(RetrofitError error) {
             }

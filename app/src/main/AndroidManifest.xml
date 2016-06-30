@@ -73,7 +73,7 @@
             android:theme="@style/AppTheme" >
         </activity>
 
-        <meta-data android:name="tnkad_app_id" android:value="20f0e000-8051-25f4-4f52-15070d0d090d" />
+        <meta-data android:name="tnkad_app_id" android:value="e0e0e080-30a1-f595-595f-1a03050b0e03" />
         <activity android:name="com.tnkfactory.ad.AdWallActivity" />
         <activity android:name="com.tnkfactory.ad.AdMediaActivity" android:screenOrientation="portrait"/>
 

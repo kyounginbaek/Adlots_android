@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.adlots.android.R;
-import com.adlots.androidapp.helper.ImageLoadTask;
 import com.adlots.androidapp.rest.model.MainFourthWinner;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -134,7 +134,7 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
                 layoutnull6.setVisibility(View.GONE);
 
             } else {
-                new ImageLoadTask(adlotsItem.imagelink, imagelink).execute();
+                Picasso.with(context).load(adlotsItem.imagelink).into(imagelink);
                 /*holder.imagelink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

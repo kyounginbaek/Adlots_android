@@ -311,11 +311,28 @@ public class MainThirdPage extends Fragment {
             }
         });
 
-        // 새로고침 버튼 클릭 시 listview 화면 새로고침
+        // 새로고침 버튼 클릭 시 유저포인트 & listview 화면 새로고침
         TextView refresh = (TextView) mainthirdView.findViewById(R.id.main3_txtbtn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 나의 포인트 가져오기
+                HashMap<String, String> data = new HashMap<>();
+                data.put("email", pref_email);
+                RestClient.AdlotsService service = RestClient.getService();
+                service.getuserPoint(data, new Callback<JsonElement>() {
+                    @Override
+                    public void success(JsonElement jsonElement, Response response) {
+                        String userpoint = jsonElement.getAsJsonObject().get("response").getAsString();
+                        txt_point.setText(userpoint);
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                    }
+                });
+
+                // Listview 화면 새로고침
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 Fragment currentFragment = getChildFragmentManager().findFragmentById(R.id.main3_useritemfragment);
                 transaction.detach(currentFragment);
