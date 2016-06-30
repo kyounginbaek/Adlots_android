@@ -250,7 +250,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:id="@+id/main2_textbtn_lots"
+                android:id="@+id/main2_txtbtn_lots"
                 android:text="응모 하기"
                 android:gravity="center"
                 android:textSize="12dp"
@@ -261,7 +261,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:id="@+id/main2_textbtn_purchase"
+                android:id="@+id/main2_txtbtn_purchase"
                 android:text="바로 구입"
                 android:gravity="center"
                 android:textSize="12dp"

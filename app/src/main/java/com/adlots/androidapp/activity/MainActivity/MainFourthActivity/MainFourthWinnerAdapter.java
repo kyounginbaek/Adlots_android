@@ -24,7 +24,6 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
     private Context context;
     private ArrayList<MainFourthWinner> items;
     int layoutResource;
-    ListHolder holder;
 
     public MainFourthWinnerAdapter(Context context, int resource, ArrayList<MainFourthWinner> items) {
         super(context, resource, items);
@@ -34,56 +33,108 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
     }
 
     @Override
+    public int getCount() {
+        return items.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public View getView(int position, final View convertView, ViewGroup parent) {
         View v = convertView;
         final MainFourthWinner adlotsItem = items.get(position);
 
-        holder = null;
+        // null 설정
+        ImageView imagelink = null;
+        TextView whendone = null, type = null, category = null, brand = null, itemname = null;
+        TextView lotspeople = null, userlotspoint = null, endpoint = null, status = null, nickname = null;
+        FrameLayout layoutnull1 = null;
+        LinearLayout layoutnull2 = null, layoutnull3 = null, layoutnull4 = null, layoutnull5 = null, layoutnull6 = null;
+        ListHolder holder = null;
+
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(layoutResource, parent, false);
 
+            imagelink = (ImageView) v.findViewById(R.id.main4_imagelink);
+            whendone = (TextView) v.findViewById(R.id.main4_whendone);
+            type = (TextView) v.findViewById(R.id.main4_type);
+            category = (TextView) v.findViewById(R.id.main4_category);
+            brand = (TextView) v.findViewById(R.id.main4_brand);
+            itemname = (TextView) v.findViewById(R.id.main4_itemname);
+            lotspeople = (TextView) v.findViewById(R.id.main4_lotspeople);
+            userlotspoint = (TextView) v.findViewById(R.id.main4_userlotspoint);
+            endpoint = (TextView) v.findViewById(R.id.main4_endpoint);
+            status = (TextView) v.findViewById(R.id.main4_status);
+            nickname = (TextView) v.findViewById(R.id.main4_nickname);
+            layoutnull1 = (FrameLayout) v.findViewById(R.id.main4_layoutnull1);
+            layoutnull2 = (LinearLayout) v.findViewById(R.id.main4_layoutnull2);
+            layoutnull3 = (LinearLayout) v.findViewById(R.id.main4_layoutnull3);
+            layoutnull4 = (LinearLayout) v.findViewById(R.id.main4_layoutnull4);
+            layoutnull5 = (LinearLayout) v.findViewById(R.id.main4_layoutnull5);
+            layoutnull6 = (LinearLayout) v.findViewById(R.id.main4_layoutnull6);
+
+            // holder 생성 및 Tag로 등록
             holder = new ListHolder();
-            holder.imagelink = (ImageView) v.findViewById(R.id.main4_imagelink);
-            holder.whendone = (TextView) v.findViewById(R.id.main4_whendone);
-            holder.type = (TextView) v.findViewById(R.id.main4_type);
-            holder.category = (TextView) v.findViewById(R.id.main4_category);
-            holder.brand = (TextView) v.findViewById(R.id.main4_brand);
-            holder.itemname = (TextView) v.findViewById(R.id.main4_itemname);
-            holder.lotspeople = (TextView) v.findViewById(R.id.main4_lotspeople);
-            holder.userlotspoint = (TextView) v.findViewById(R.id.main4_userlotspoint);
-            holder.endpoint = (TextView) v.findViewById(R.id.main4_endpoint);
-            holder.status = (TextView) v.findViewById(R.id.main4_status);
-            holder.nickname = (TextView) v.findViewById(R.id.main4_nickname);
-
-            holder.layoutnull1 = (FrameLayout) v.findViewById(R.id.main4_layoutnull1);
-            holder.layoutnull2 = (LinearLayout) v.findViewById(R.id.main4_layoutnull2);
-            holder.layoutnull3 = (LinearLayout) v.findViewById(R.id.main4_layoutnull3);
-            holder.layoutnull4 = (LinearLayout) v.findViewById(R.id.main4_layoutnull4);
-            holder.layoutnull5 = (LinearLayout) v.findViewById(R.id.main4_layoutnull5);
-            holder.layoutnull6 = (LinearLayout) v.findViewById(R.id.main4_layoutnull6);
-
+            holder.imagelink = imagelink;
+            holder.whendone = whendone;
+            holder.type = type;
+            holder.category = category;
+            holder.brand = brand;
+            holder.itemname = itemname;
+            holder.lotspeople = lotspeople;
+            holder.userlotspoint = userlotspoint;
+            holder.endpoint = endpoint;
+            holder.status = status;
+            holder.nickname = nickname;
+            holder.layoutnull1 = layoutnull1;
+            holder.layoutnull2 = layoutnull2;
+            holder.layoutnull3 = layoutnull3;
+            holder.layoutnull4 = layoutnull4;
+            holder.layoutnull5 = layoutnull5;
+            holder.layoutnull6 = layoutnull6;
             v.setTag(holder);
+
         } else {
             holder = (ListHolder) v.getTag();
+            imagelink = holder.imagelink;
+            whendone = holder.whendone;
+            type = holder.type;
+            category = holder.category;
+            brand = holder.brand;
+            itemname = holder.itemname;
+            lotspeople = holder.lotspeople;
+            userlotspoint = holder.userlotspoint;
+            endpoint = holder.endpoint;
+            status = holder.status;
+            nickname = holder.nickname;
+            layoutnull1 = holder.layoutnull1;
+            layoutnull2 = holder.layoutnull2;
+            layoutnull3 = holder.layoutnull3;
+            layoutnull4 = holder.layoutnull4;
+            layoutnull5 = holder.layoutnull5;
+            layoutnull6 = holder.layoutnull6;
         }
 
         // 리스트에 아이템 값 넣기
         if (adlotsItem != null) {
             // 만약 응모 & 구입 사실이 없을 경우
             if(items.get(0).id.equals("null")) {
-                holder.itemname.setText("\n당첨자가 아직 없습니다.\n\n상품을 응모해 당첨자가 되어보세요!\n");
-                holder.itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+                itemname.setText("\n당첨자가 아직 없습니다.\n\n상품을 응모해 당첨자가 되어보세요!\n");
+                itemname.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
 
-                holder.layoutnull1.setVisibility(View.GONE);
-                holder.layoutnull2.setVisibility(View.GONE);
-                holder.layoutnull3.setVisibility(View.GONE);
-                holder.layoutnull4.setVisibility(View.GONE);
-                holder.layoutnull5.setVisibility(View.GONE);
-                holder.layoutnull6.setVisibility(View.GONE);
+                layoutnull1.setVisibility(View.GONE);
+                layoutnull2.setVisibility(View.GONE);
+                layoutnull3.setVisibility(View.GONE);
+                layoutnull4.setVisibility(View.GONE);
+                layoutnull5.setVisibility(View.GONE);
+                layoutnull6.setVisibility(View.GONE);
 
             } else {
-                new ImageLoadTask(adlotsItem.imagelink, holder.imagelink).execute();
+                new ImageLoadTask(adlotsItem.imagelink, imagelink).execute();
                 /*holder.imagelink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -109,31 +160,29 @@ public class MainFourthWinnerAdapter extends ArrayAdapter<MainFourthWinner> {
                     }
                 });*/
 
-                holder.whendone.setText(adlotsItem.whendone.substring(5,7) + "월 " + adlotsItem.whendone.substring(8,10) + "일");
+                whendone.setText(adlotsItem.whendone.substring(5,7) + "월 " + adlotsItem.whendone.substring(8,10) + "일");
 
                 if(adlotsItem.type.equals("giftcon")){
-                    holder.type.setText("기프트콘");
+                    type.setText("기프트콘");
                 } else if(adlotsItem.type.equals("delivery")){
-                    holder.type.setText("배송물품");
+                    type.setText("배송물품");
                 }
-                holder.category.setText(adlotsItem.category);
-                holder.brand.setText(adlotsItem.brand);
-                holder.itemname.setText(adlotsItem.itemname);
-                holder.lotspeople.setText(adlotsItem.lotspeople);
-                holder.userlotspoint.setText(adlotsItem.userlotspoint);
-                holder.endpoint.setText(adlotsItem.endpoint);
-                holder.nickname.setText(adlotsItem.nickname);
+                category.setText(adlotsItem.category);
+                brand.setText(adlotsItem.brand);
+                itemname.setText(adlotsItem.itemname);
+                lotspeople.setText(adlotsItem.lotspeople);
+                userlotspoint.setText(adlotsItem.userlotspoint);
+                endpoint.setText(adlotsItem.endpoint);
+                nickname.setText(adlotsItem.nickname);
             }
         }
         return v;
     }
 
     static class ListHolder {
-        TextView category, brand, itemname;
         ImageView imagelink;
-        TextView whendone, lotspeople, endpoint;
-        TextView type, userlotspoint, status, nickname;
-
+        TextView whendone, type, category, brand, itemname;
+        TextView lotspeople, userlotspoint, endpoint, status, nickname;
         FrameLayout layoutnull1;
         LinearLayout layoutnull2, layoutnull3, layoutnull4, layoutnull5, layoutnull6;
     }
