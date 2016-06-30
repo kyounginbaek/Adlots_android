@@ -2,11 +2,32 @@
 <items version="2" >
 
     <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/IgawAdpopcorn_v4.0.7a.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="99df1b14b57d79612c83e2a62b8c0d27836811b0">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/IgawAdpopcorn_v4.0.7a-ab2bc4d1711c391e4314ba1b016fce0c6fb129a2.jar" />
+    </item>
+    <item
         jar="/Users/baekkyoungin/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-19f3c7508cff875ebe9041922003393a54335e36.jar" />
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/picasso-2.5.2-19f3c7508cff875ebe9041922003393a54335e36.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/IgawCommon_v4.2.5a.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cbac8dab052025cbffa35dea101605cc06eff615">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/IgawCommon_v4.2.5a-b463e34fb66da3fc6a0ff8c82baa2e9d20884450.jar" />
+    </item>
+    <item
+        jar="/Users/baekkyoungin/Desktop/Adlots_android/app/libs/tnkad-sdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="138454bf3849387e08c9c38a9bd5fd7cc8fe0cdf">
+        <dex dex="/Users/baekkyoungin/Desktop/Adlots_android/app/build/intermediates/pre-dexed/release/tnkad-sdk-4ea82eb23219f6128af743f96d96d5426affe269.jar" />
     </item>
 
 </items>
