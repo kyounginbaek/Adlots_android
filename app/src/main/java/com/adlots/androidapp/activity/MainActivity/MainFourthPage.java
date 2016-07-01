@@ -3,6 +3,8 @@ package com.adlots.androidapp.activity.MainActivity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.adlots.android.R;
 import com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourthFaqActivity;
@@ -133,6 +136,9 @@ public class MainFourthPage extends Fragment {
                 buider.setView(dialogView); //위에서 inflater가 만든 dialogView 객체 세팅
                 buider.setTitle("개발자 정보");
 
+                TextView version = (TextView) dialogView.findViewById(R.id.main4_devinfo_version);
+                version.setText(getVersionName(mainfourthContext));
+
                 AlertDialog dialog=buider.create(); //설정한 값으로 AlertDialog 객체 생성
                 dialog.setCanceledOnTouchOutside(true); //Dialog의 바깥쪽을 터치했을 때 Dialog를 없앨지 설정
                 dialog.show(); //Dialog 보이기
@@ -158,5 +164,14 @@ public class MainFourthPage extends Fragment {
         });
 
         return mainfourthView;
+    }
+
+    public String getVersionName(Context context) {
+        try {
+            PackageInfo pi= context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return pi.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
     }
 }
