@@ -135,7 +135,7 @@ public class LoadingActivity extends Activity {
 
     private void force_Dialog_alert() {
         final CharSequence[] items = {
-                "업데이트 하러 가기", "취소[종료]"
+                "업데이트 하러 가기", "취소 [종료]"
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(LoadingActivity.this);
         builder.setTitle("'애드랏츠' 필수 업데이트가 있습니다. 업데이트 부탁드립니다. :)");

@@ -363,10 +363,12 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                                     dialog.show(); //Dialog 보이기
 
                                     // 환불받기 버튼 클릭 이벤트
-                                    Button btn_refund = (Button) dialogView.findViewById(R.id.main3_popup_btn_refund);
+                                    final Button btn_refund = (Button) dialogView.findViewById(R.id.main3_popup_btn_refund);
                                     btn_refund.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
+                                            btn_refund.setClickable(false); // 버튼이 2번 눌리는 것을 방지
+
                                             // 총 14개 데이터 전송
                                             HashMap<String, String> data = new HashMap<>();
                                             data.put("nickname", pref_nickname);
@@ -436,10 +438,12 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                                 dialog.show(); //Dialog 보이기
 
                                 // 추가 응모하기 버튼 클릭 이벤트
-                                Button btn_lots = (Button) dialogView.findViewById(R.id.main3_popup_btn_lots);
+                                final Button btn_lots = (Button) dialogView.findViewById(R.id.main3_popup_btn_lots);
                                 btn_lots.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+                                        btn_lots.setClickable(false); // 버튼이 2번 눌리는 것을 방지
+
                                         long time = System.currentTimeMillis();
                                         SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                                         String date = dayTime.format(new Date(time));
@@ -487,6 +491,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                                                         switch(condition){
                                                             case "overpoint":
                                                                 Toast.makeText(context, "남은 응모 랏츠를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                                                                btn_lots.setClickable(true); // 버튼이 다시 눌리도록 설정
                                                                 break;
                                                             case "success":
                                                                 main2_refresh();
