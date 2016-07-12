@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="350dp"
+    android:layout_height="280dp"
+    android:layout_gravity="center"
+    android:id="@+id/main_fourth_recommend_popup" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#16a0e8"
+            android:text="추천인 닉네임"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+
+        <EditText
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/main4_popup_recommend"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:hint="추천을 하시면 50랏츠를 드립니다."
+            android:textColorHint="#16a0e8"
+            android:textSize="12dp"
+            android:textColor="#16a0e8"
+            android:paddingLeft="5dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="추천 받은 횟수"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/main4_popup_recommend_number"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#2b2b2b"
+            android:text="추천 지급 랏츠"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/main4_popup_recommend_point"
+            android:singleLine="true"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사람들에게 애드랏츠를 홍보하고 "
+            android:textColor="#666666"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:textColor="#fc6e51"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="을 추천받으세요."
+            android:textColor="#666666"
+            android:textSize="12dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="3dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추천을 받으실 때마다 "
+            android:textColor="#666666"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50랏츠"
+            android:textColor="#16a0e8"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="를 지급해드립니다."
+            android:textColor="#666666"
+            android:textSize="12dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main4_popup_btn_recommend"
+        android:text="추천인 등록하기"
+        android:background="#01a1ff"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/scrollView"
+        android:layout_alignParentLeft="true" />
+
+</LinearLayout>

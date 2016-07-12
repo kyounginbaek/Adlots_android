@@ -96,6 +96,10 @@ public class RestClient {
         //Tnk 포인트 정보 CRUD
         @POST("/tnkad.php")
         void tnkad(@Body Map<String, String> tnkad, Callback<JsonElement> callback);
+
+        //추천인 정보 가져오기
+        @POST("/recommend.php")
+        void recommend(@Query("purpose") String purpose, @Body Map<String, String> recommend, Callback<JsonElement> callback);
     }
 
 }

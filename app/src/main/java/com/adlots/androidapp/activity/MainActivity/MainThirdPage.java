@@ -155,7 +155,7 @@ public class MainThirdPage extends Fragment {
 
                                                 @Override
                                                 public void failure(RetrofitError error) {
-                                                    Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(mainthirdContext, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -185,7 +185,7 @@ public class MainThirdPage extends Fragment {
 
                                                     @Override
                                                     public void failure(RetrofitError error) {
-                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                     }
                                                 });
                                             }
@@ -225,7 +225,7 @@ public class MainThirdPage extends Fragment {
 
                                                     @Override
                                                     public void failure(RetrofitError error) {
-                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(mainthirdContext, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                     }
                                                 });
                                             }

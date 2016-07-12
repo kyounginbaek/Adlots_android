@@ -354,7 +354,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                                         @Override
                                         public void failure(RetrofitError error) {
-                                            Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(context, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
@@ -387,7 +387,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                                                 @Override
                                                 public void failure(RetrofitError error) {
-                                                    Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(context, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -429,7 +429,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                                     }
                                     @Override
                                     public void failure(RetrofitError error) {
-                                        Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
@@ -509,7 +509,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
                                                     }
                                                     @Override
                                                     public void failure(RetrofitError error) {
-                                                        Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(context, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                                                     }
                                                 });
                                             }
@@ -617,7 +617,7 @@ public class MainThirdListAdapter extends ArrayAdapter<MainThirdItem> {
 
                         @Override
                         public void failure(RetrofitError error) {
-                            Toast.makeText(context, "오류가 발생했습니다. adlots@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

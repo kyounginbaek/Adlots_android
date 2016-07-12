@@ -34,7 +34,7 @@
             android:hint="선택입력"
             android:textColor="#666666"
             android:textSize="12dp"
-            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
             />
 
     </RelativeLayout>
@@ -68,7 +68,7 @@
             android:inputType="textPassword"
             android:textColor="#666666"
             android:textSize="12dp"
-            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
             />
 
     </RelativeLayout>
@@ -103,7 +103,7 @@
             android:inputType="textPassword"
             android:textColor="#16a0e8"
             android:textSize="12dp"
-            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
             />
 
     </RelativeLayout>
@@ -138,7 +138,7 @@
             android:inputType="textPassword"
             android:textColor="#fc6e51"
             android:textSize="12dp"
-            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
             />
 
     </RelativeLayout>
@@ -155,6 +155,6 @@
         android:background="#01a1ff"
         android:textColor="#ffffff"
         android:layout_below="@+id/scrollView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentLeft="true" />
 
 </LinearLayout>
