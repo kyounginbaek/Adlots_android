@@ -100,6 +100,10 @@ public class RestClient {
         //추천인 정보 가져오기
         @POST("/recommend.php")
         void recommend(@Query("purpose") String purpose, @Body Map<String, String> recommend, Callback<JsonElement> callback);
+
+        //최근 로그인 정보를 가져와서 현재 datetime이랑 하루 차이가 날 경우 20포인트 지급
+        @POST("/latest_signin.php")
+        void latest_signin(@Body Map<String, String> latest_signin, Callback<JsonElement> callback);
     }
 
 }

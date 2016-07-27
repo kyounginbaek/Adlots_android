@@ -9,12 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adlots.android.R;
+import com.adlots.androidapp.rest.RestClient;
+import com.google.gson.JsonElement;
 import com.igaworks.IgawCommon;
 import com.tnkfactory.ad.AdListView;
 import com.tnkfactory.ad.TnkSession;
 import com.tnkfactory.ad.TnkStyle;
+
+import java.util.HashMap;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import static android.view.LayoutInflater.from;
 
@@ -49,6 +58,8 @@ public class MainFirstPage extends Fragment {
                 R.layout.activity_main_first_page, container, false);
 
         final ViewGroup main1_fragment = (ViewGroup) mainfirstView.findViewById(R.id.main1_fragment);
+        final TextView main1_latest_signin = (TextView) mainfirstView.findViewById(R.id.main1_latest_signin);
+
         /*
         ViewGroup tnkad = (LinearLayout) mainfirstView.findViewById(R.id.main1_tnkad);
         ViewGroup adpopcorn = (LinearLayout) mainfirstView.findViewById(R.id.main1_adpopcorn);
@@ -66,9 +77,39 @@ public class MainFirstPage extends Fragment {
         txt_tnkad.setTextColor(Color.parseColor(strColor));
         */
 
-        // tnk 포인트 충전소
         SharedPreferences pref = getActivity().getSharedPreferences("pref", mainfirstContext.MODE_PRIVATE);
         String pref_userid = pref.getString("userid", "");
+
+        // 매일매일 로그인 이벤트 - 20포인트 제공
+        HashMap<String, String> data = new HashMap<>();
+        data.put("userid", pref_userid);
+        RestClient.AdlotsService service = RestClient.getService();
+        service.latest_signin(data, new Callback<JsonElement>() {
+            @Override
+            public void success(JsonElement jsonElement, Response response) {
+                String condition = jsonElement.getAsJsonObject().get("response").getAsString();
+                String latest_signin = jsonElement.getAsJsonObject().get("latest_signin").getAsString();
+                main1_latest_signin.setText(latest_signin.substring(0,10));
+
+                switch (condition) {
+                    case "signin_point":
+                        Toast.makeText(mainfirstContext, "매일매일 로그인으로 20랏츠가 지급되었습니다.", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "signin_already":
+                        Toast.makeText(mainfirstContext, "이미 매일매일 로그인 20랏츠가 지급되었습니다. 내일 또 방문해주세요^^", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(mainfirstContext, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(mainfirstContext, "오류가 발생했습니다. crowdit@naver.com으로 문의해주세요.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // tnk 포인트 충전소
         TnkSession.setUserName(mainfirstContext, pref_userid); //userid를 tnk유저 식별자로 사용
         TnkStyle.AdWall.Header.height = 0;
 

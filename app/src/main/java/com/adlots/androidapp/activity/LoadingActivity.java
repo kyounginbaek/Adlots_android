@@ -58,7 +58,11 @@ public class LoadingActivity extends Activity {
             service.getVersion(new Callback<JsonElement>() {
                 @Override
                 public void success(JsonElement jsonElement, Response response) {
+                    // 서버로부터 애드랏츠의 버전과 업데이트 내용을 가져옴
                     final String server_version = jsonElement.getAsJsonObject().get("response").getAsString();
+                    final String version_message = jsonElement.getAsJsonObject().get("versionMessage").getAsString();
+
+                    // 자신의 스마트폰에 설치된 애드랏츠 버전을 가져옴
                     String device_version = getVersionName(getApplicationContext());
 
                     if (server_version.charAt(0) == device_version.charAt(0) && server_version.charAt(2) == device_version.charAt(2)) {
@@ -80,7 +84,7 @@ public class LoadingActivity extends Activity {
                                 mHandler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        select_Dialog_alert(server_version);
+                                        select_Dialog_alert(server_version, version_message);
                                     }
                                 }, 1000);
                             }
@@ -91,7 +95,7 @@ public class LoadingActivity extends Activity {
                         mHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                force_Dialog_alert();
+                                force_Dialog_alert(version_message);
                             }
                         }, 1000);
                     }
@@ -133,51 +137,53 @@ public class LoadingActivity extends Activity {
         }
     }
 
-    private void force_Dialog_alert() {
-        final CharSequence[] items = {
-                "업데이트 하러 가기", "취소 [종료]"
-        };
+    private void force_Dialog_alert(String version_message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoadingActivity.this);
         builder.setTitle("'애드랏츠' 필수 업데이트가 있습니다. 업데이트 부탁드립니다. :)");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                if (item == 0) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=" + getPackageName()));
-                    startActivity(intent);
-                    finish();
-                } else {
-                    moveTaskToBack(true);
-                    finish();
-                    android.os.Process.killProcess(android.os.Process.myPid());
-                    System.exit(0);
-                }
+        builder.setMessage(version_message);
+        builder.setPositiveButton("업데이트 하러 가기", new DialogInterface.OnClickListener() {
+            // 확인 버튼 클릭시 설정
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=" + getPackageName()));
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("취소(종료)", new DialogInterface.OnClickListener() {
+            // 취소 버튼 클릭시 설정
+            public void onClick(DialogInterface dialog, int whichButton) {
+                moveTaskToBack(true);
+                finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(0);
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    private void select_Dialog_alert(final String server_version) {
-        final CharSequence[] items = {
-                "업데이트 하러 가기", "나중에 하기"
-        };
+    private void select_Dialog_alert(final String server_version, String version_message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoadingActivity.this);
         builder.setTitle("새로운 '애드랏츠' 업데이트가 있습니다.");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                if (item == 0) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("market://details?id=" + getPackageName()));
-                    startActivity(intent);
-                    finish();
-                } else {
-                    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("checked_update", server_version);
-                    editor.commit();
-                    initialize();
-                }
+        builder.setMessage(version_message);
+        builder.setPositiveButton("업데이트 하러 가기", new DialogInterface.OnClickListener() {
+            // 확인 버튼 클릭시 설정
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=" + getPackageName()));
+                startActivity(intent);
+                finish();
+            }
+        });
+        builder.setNegativeButton("나중에 하기", new DialogInterface.OnClickListener() {
+            // 취소 버튼 클릭시 설정
+            public void onClick(DialogInterface dialog, int whichButton) {
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("checked_update", server_version);
+                editor.commit();
+                initialize();
             }
         });
         AlertDialog alert = builder.create();

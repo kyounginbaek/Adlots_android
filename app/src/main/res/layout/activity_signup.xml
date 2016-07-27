@@ -153,7 +153,7 @@
                     android:inputType="textPassword"
                     android:textColor="#666666"
                     android:textSize="12dp"
-                    android:hint="영문과 숫자혼합(4~20자리)"
+                    android:hint="영문과 숫자혼합 (4~20자리)"
                     android:paddingLeft="5dp" />
 
             </RelativeLayout>
@@ -214,7 +214,7 @@
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:hint="앱 내에서 사용됨(2~10자리)"
+                    android:hint="앱 내에서 사용됨 (2~10자리)"
                     android:textColor="#666666"
                     android:textSize="12dp"
                     android:paddingLeft="5dp" />
@@ -245,7 +245,7 @@
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_gravity="right"
-                    android:hint="등록시 50랏츠 지급(추후 등록 가능)"
+                    android:hint="등록시 50랏츠 지급 (추후 등록 가능)"
                     android:textColor="#666666"
                     android:textSize="12dp"
                     android:paddingLeft="5dp" />

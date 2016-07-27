@@ -21,8 +21,6 @@ import com.adlots.androidapp.activity.MainActivity.MainFourthActivity.MainFourth
 import com.adlots.androidapp.rest.RestClient;
 import com.google.gson.JsonElement;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 
 import retrofit.Callback;
@@ -96,16 +94,11 @@ public class SignupActivity extends Activity {
                         nickname = edt_signup_nickname.getText().toString();
                         recommend = edt_signup_recommend.getText().toString();
 
-                        long time = System.currentTimeMillis();
-                        SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                        date = dayTime.format(new Date(time));
-
                         HashMap<String, String> data = new HashMap<>();
                         data.put("email", email);
                         data.put("phone", phone);
                         data.put("password", password);
                         data.put("nickname", nickname);
-                        data.put("when", date);
                         data.put("recommend", recommend);
 
                         // (1)빈칸 체크, (2)비밀번호 확인 체크, (3)서버 통신 - 폰, 이메일 닉네임 체크
